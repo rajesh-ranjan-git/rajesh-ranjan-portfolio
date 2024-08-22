@@ -1,56 +1,60 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ToggleSwitch from "./ToggleSwitch";
 
 const Header = () => {
   return (
     <>
-      <header>
-        <div className="flex justify-between items-center text-center align-middle">
-          <div className="p-3 w-[15%] h-20 text-3xl cursor-pointer">
-            <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-              <Link>&lt; Rajesh Ranjan /&gt;</Link>
-            </div>
+      <header className="p-2 flex justify-between items-center text-center max-w-[100%] font-MontserratRegular">
+        <div className="p-2 h-20 text-3xl cursor-pointer">
+          <div className="flex justify-center items-center h-full hover:bg-slate-100 rounded-xl">
+            <NavLink to="#">
+              <code>&lt;</code>
+              <span className="font-ProtestRevolution text-purple-900">
+                Rajesh Ranjan
+              </span>
+              <code>/&gt;</code>
+            </NavLink>
           </div>
-          <div className="w-[60%] h-20">
-            <ul className="flex justify-between w-full h-full">
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Skills</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Work Experience</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Open Source</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Achievements</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Blogs</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <Link to="#">Contact Me</Link>
-                </div>
-              </li>
-              <li className="p-3 w-full h-full cursor-pointer">
-                <div className="flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
-                  <ToggleSwitch />
-                </div>
-              </li>
-            </ul>
-          </div>
+        </div>
+        <div className="h-20">
+          <ul className="flex justify-between w-full h-full">
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#skills">Skills</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#workExperience">Work Experiences</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#openSource">Open Source</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#achievements">Achievements</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#blogs">Blogs</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <NavLink to="#contact">Contact Me</NavLink>
+              </div>
+            </li>
+            <li className="p-2 h-full cursor-pointer">
+              <div className="px-3 py-4 flex justify-center items-center w-full h-full hover:bg-slate-100 rounded-xl">
+                <ToggleSwitch />
+              </div>
+            </li>
+          </ul>
         </div>
       </header>
     </>

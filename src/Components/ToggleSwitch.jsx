@@ -23,8 +23,8 @@ const ToggleSwitch = () => {
         <span
           className={
             !isChecked
-              ? "flex items-center ml-[5px] z-10"
-              : "flex items-center ml-[2px] z-10 translate-x-[26px]"
+              ? "flex items-center ml-[4px] z-10"
+              : "flex items-center ml-[1px] z-10 translate-x-[26px]"
           }
         >
           {isChecked ? emoji("🌜") : emoji("☀️")}

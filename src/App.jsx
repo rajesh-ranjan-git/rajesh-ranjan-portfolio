@@ -1,22 +1,15 @@
-import favicon1 from "../public/title_pic-circular.png";
-import favicon2 from "../public/namaste.png";
 import "./App.scss";
-
-const handleTitle = () => {
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState == "hidden") {
-      document.title = "Come back to portfolio";
-      document.getElementsByTagName("link")[0].href = favicon2;
-    } else {
-      document.title = "Rajesh Ranjan | Software Developer Portfolio";
-      document.getElementsByTagName("link")[0].href = favicon1;
-    }
-  });
-};
+import NavBar from "./Components/NavBar/NavBar";
+import { handleTitle } from "./Components/TitleChangeOnTabSwitch/TitleChangeOnTabSwitch";
 
 function App() {
   handleTitle();
-  return <>Rajesh Ranjan | Portfolio</>;
+  return (
+    <>
+      <NavBar />
+      <div>Rajesh Ranjan | Portfolio</div>
+    </>
+  );
 }
 
 export default App;

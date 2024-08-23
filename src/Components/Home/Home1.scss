@@ -1,0 +1,513 @@
+.home {
+  margin-left: 5.6rem;
+}
+
+.jumbotron {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0;
+  color: #fff;
+  height: 101vh;
+  margin-bottom: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 80px 2rem;
+  position: relative;
+}
+
+.jumbotron:before {
+  background: #bec9e5;
+  background: linear-gradient(90deg, #040b14, transparent);
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.jumbotron .rectangle {
+  background: #040b14;
+  background: linear-gradient(90deg, #040b14, #bec9e5);
+  box-shadow: 0 20px 30px 7px rgba(9, 21, 54, 0.25);
+  height: 400px;
+  opacity: 0.5;
+  position: absolute;
+  width: 110vw;
+  z-index: -1;
+}
+
+.jumbotron .rectangle_1 {
+  -webkit-animation: grow1 1s ease forwards;
+  animation: grow1 1s ease forwards;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(1) rotate(-10deg);
+  transform: scale(1) rotate(-10deg);
+  -webkit-transform-origin: 120% 254% 0;
+  transform-origin: 120% 254% 0;
+}
+
+.jumbotron .rectangle_2 {
+  -webkit-animation: grow2 1s ease forwards;
+  animation: grow2 1s ease forwards;
+  opacity: 0;
+  -webkit-transform: scale(1) rotate(50deg);
+  transform: scale(1) rotate(50deg);
+  -webkit-transform-origin: 55% 100% 0;
+  transform-origin: 55% 100% 0;
+}
+
+.jumbotron .rectangle_transparent {
+  -webkit-animation: floating-slow 12s ease-in-out infinite;
+  animation: floating-slow 12s ease-in-out infinite;
+  border: 1.5rem solid hsla(0, 0%, 100%, 0.5);
+  display: block;
+  position: absolute;
+  z-index: -2;
+}
+
+.jumbotron .rectangle_transparent_1 {
+  bottom: -30%;
+  height: 40rem;
+  left: -20%;
+  width: 40rem;
+}
+
+.jumbotron .rectangle_transparent_2 {
+  height: 45rem;
+  right: -10%;
+  top: 5%;
+  width: 45rem;
+}
+
+.jumbotron .circle {
+  -webkit-animation: fadeInFromTop 0.5s linear forwards,
+    floating 4s ease infinite;
+  animation: fadeInFromTop 0.5s linear forwards, floating 4s ease infinite;
+  border: 2px solid hsla(0, 0%, 100%, 0.295);
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.jumbotron .circle_1,
+.jumbotron .circle_2 {
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.jumbotron .circle_1 {
+  height: 50px;
+  left: 5%;
+  top: 50%;
+  width: 50px;
+}
+
+.jumbotron .circle_2 {
+  height: 70px;
+  left: 83%;
+  top: 20%;
+  width: 70px;
+}
+
+.jumbotron .circle_3 {
+  height: 40px;
+  right: 25%;
+  top: 80%;
+  width: 40px;
+}
+
+.jumbotron .triangle {
+  position: absolute;
+}
+
+.jumbotron .triangle_1 {
+  -webkit-animation: fadeInFromTop 0.5s linear forwards,
+    floating 6s ease-in-out infinite;
+  animation: fadeInFromTop 0.5s linear forwards,
+    floating 6s ease-in-out infinite;
+  right: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.jumbotron .triangle_1 img {
+  height: 50px;
+  opacity: 0.2;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  width: 50px;
+}
+
+.jumbotron .triangle_2 {
+  -webkit-animation: fadeInFromTop 0.5s linear forwards,
+    floating 8s ease-in-out infinite;
+  animation: fadeInFromTop 0.5s linear forwards,
+    floating 8s ease-in-out infinite;
+  left: 20%;
+  top: 30%;
+}
+
+.jumbotron .triangle_2 img {
+  height: 75px;
+  opacity: 0.2;
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  width: 75px;
+}
+
+.jumbotron .triangle_3 {
+  -webkit-animation: fadeInFromTop 0.5s linear forwards,
+    floating 10s ease-in-out infinite;
+  animation: fadeInFromTop 0.5s linear forwards,
+    floating 10s ease-in-out infinite;
+  left: 15%;
+  top: 80%;
+}
+
+.jumbotron .triangle_3 img {
+  height: 45px;
+  opacity: 0.2;
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+  width: 45px;
+}
+
+.jumbotron .triangle_4 {
+  -webkit-animation: fadeInFromTop 0.5s linear forwards,
+    floating 5s ease-in-out infinite;
+  animation: fadeInFromTop 0.5s linear forwards,
+    floating 5s ease-in-out infinite;
+  right: 15%;
+  top: 60%;
+}
+
+.jumbotron .triangle_4 img {
+  height: 45px;
+  opacity: 0.2;
+  -webkit-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+  width: 45px;
+}
+
+.tsparticles_canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  z-index: 0 !important;
+  top: 0px !important;
+  left: 0px !important;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.jumbotron .fade_reveal {
+  -webkit-animation: fadeInFromBottom 2s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    1s forwards;
+  animation: fadeInFromBottom 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 1s
+    forwards;
+  height: 100%;
+  opacity: 0;
+  overflow-wrap: anywhere;
+  padding: 4rem 4rem 4rem 2rem;
+  position: absolute;
+  width: 100%;
+}
+
+.jumbotron .fade_reveal .home_content {
+  padding-left: 2rem;
+  text-align: left;
+}
+
+.jumbotron .fade_reveal .home_content .row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-top: calc(var(--bs-gutter-y) * -1);
+}
+
+.jumbotron .fade_reveal .home_content .col-md-7 {
+  flex: 1 1 auto;
+}
+
+.jumbotron .fade_reveal .home_content .home_header {
+  padding-top: 6rem;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .heading {
+  font-size: 2.4em !important;
+}
+
+.wave {
+  -webkit-animation-duration: 2.1s;
+  animation-duration: 2.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: wave-animation;
+  animation-name: wave-animation;
+  display: inline-block;
+  -webkit-transform-origin: 70% 70%;
+  transform-origin: 70% 70%;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .heading_name {
+  font-size: 2.5em !important;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .main_name {
+  color: #699ee1;
+  font-family: Google Sans Bold, Google Sans Medium;
+  text-shadow: 2px 2px #000;
+  text-transform: uppercase;
+}
+
+.Typewriter__inline {
+  padding: 20px 0px 30px;
+  text-align: left;
+}
+
+.Typewriter__wrapper {
+  color: #699ee1 !important;
+  font-size: 2.2em !important;
+  font-weight: 600 !important;
+}
+
+.Typewriter__cursor {
+  color: #699ee1 !important;
+  font-size: 2.4em !important;
+}
+
+.Typewriter__cursor {
+  -webkit-animation: Typewriter-cursor 1s infinite;
+  animation: Typewriter-cursor 1s infinite;
+  margin-left: 1px;
+}
+
+.social_media_div {
+  font-size: 1.5em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.icon_button {
+  background-color: #153a69;
+  border-radius: 2.6rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 10px 10px 0;
+  position: relative;
+  text-align: center;
+  transition: 0.2s ease-in;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 2.6rem;
+  z-index: 200;
+}
+
+.icon_button.github {
+  background-color: #333;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+svg:not(:root).svg-inline--fa,
+svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.icon_button.google {
+  background-color: #ea4335;
+}
+
+.icon_button.stackoverflow {
+  background-color: #f48024;
+}
+
+.icon_button.linkedin {
+  background-color: #0e76a8;
+}
+
+.icon_button.instagram {
+  background-color: #e4405f;
+}
+
+.button_container_1 {
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  font-family: Google Sans Regular, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  height: 4rem;
+  letter-spacing: 1px;
+  overflow: hidden;
+  position: absolute;
+  transition: 0.5s;
+  width: 10rem;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .download_resume_btn {
+  border: 2px solid #3f82d9;
+  margin-top: 2rem;
+  width: 14rem;
+}
+
+.mas {
+  align-items: center;
+  color: #040b14;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-weight: 700;
+  height: 100%;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.button_container_3,
+.mas {
+  font-family: Poppins, Montserrat, sans-serif;
+  overflow: hidden;
+  position: absolute;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .download_resume_btn .mas {
+  color: #3f82d9;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+button {
+  cursor: pointer;
+  font-family: Poppins, Montserrat, sans-serif;
+}
+
+button,
+input {
+  outline: 0;
+}
+
+.button_container_1 button {
+  -webkit-animation: ani2 0.7s steps(22) forwards;
+  animation: ani2 0.7s steps(22) forwards;
+  background: #000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Poppins, Montserrat, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-weight: 700;
+  height: 100%;
+  letter-spacing: 1px;
+  -webkit-mask: url(https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png);
+  mask: url(https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png);
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  width: 100%;
+}
+
+.jumbotron .fade_reveal .home_content .home_header .download_resume_btn button {
+  background-color: #3f82d9;
+  font-size: 1rem;
+}
+
+.jumbotron .fade_reveal .home_content .col-md-5 {
+  align-items: flex-start;
+  align-self: flex-start;
+  flex: 1 1 auto;
+}
+
+.col-md-5 svg {
+  height: 800px;
+  margin-right: 15rem;
+  width: 100%;
+}
+
+#tshirt {
+  -webkit-animation: tshirt 5s infinite;
+  animation: tshirt 5s infinite;
+  -webkit-transform: translateY(-9px);
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+}
+
+#brows {
+  -webkit-animation: brows 5.1s linear infinite;
+  animation: brows 5.1s linear infinite;
+}
+
+#head {
+  -webkit-animation: head 5s infinite;
+  animation: head 5s infinite;
+  -webkit-transform: translateY(-9px);
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+}
+
+#shirt {
+  -webkit-animation: shirt 5s infinite;
+  animation: shirt 5s infinite;
+  -webkit-transform: translateY(-9px);
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+}
+
+#legs {
+  -webkit-animation: legs 5s infinite;
+  animation: legs 5s infinite;
+  -webkit-transform: translateY(-9px);
+  transform: translateY(-9px);
+}
+
+#notebook {
+  -webkit-animation: notebook 5s linear infinite;
+  animation: notebook 5s linear infinite;
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+}
+
+@media (min-width: 768px) {
+  .col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+}

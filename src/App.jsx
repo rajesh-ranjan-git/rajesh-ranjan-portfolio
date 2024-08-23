@@ -1,5 +1,6 @@
 import "./App.scss";
-import NavBar from "./Components/NavBar/NavBar";
+import Home from "./Components/Home/Home";
+import NavBar from "./Components/Navbar/NavBar";
 import { handleTitle } from "./Components/TitleChangeOnTabSwitch/TitleChangeOnTabSwitch";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div>Rajesh Ranjan | Portfolio</div>
+      <Home />
     </>
   );
 }

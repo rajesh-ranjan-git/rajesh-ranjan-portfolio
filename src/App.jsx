@@ -1,15 +1,21 @@
-import "./App.scss";
-import Home from "./Components/Home/Home";
-import NavBar from "./Components/Navbar/NavBar";
-import { handleTitle } from "./Components/TitleChangeOnTabSwitch/TitleChangeOnTabSwitch";
+import "./styles/App.scss";
+import { ThemeProvider } from "styled-components";
+import Main from "./containers/main/Main";
+import { chosenTheme } from "./theme";
+import { Toaster } from "react-hot-toast";
+import { handleTitle } from "./components/TitleChangeOnTabSwitch/TitleChangeOnTabSwitch";
 
 function App() {
   handleTitle();
   return (
-    <>
-      <NavBar />
-      <Home />
-    </>
+    <ThemeProvider theme={chosenTheme}>
+      <>
+        <div>
+          <Main theme={chosenTheme} />
+          <Toaster position="bottom-right" />
+        </div>
+      </>
+    </ThemeProvider>
   );
 }
 

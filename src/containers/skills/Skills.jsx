@@ -24,7 +24,7 @@ export default function Skills() {
     <div className="skills" id="skills">
       <div className="skills-content section-content">
         <h2 className="h3 section-title">
-          What My Programming Skills Included?
+          What My Programming Skills Includes?
         </h2>
 
         <p className="section-text">

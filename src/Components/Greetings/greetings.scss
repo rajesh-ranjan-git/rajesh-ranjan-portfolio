@@ -331,6 +331,22 @@
         }
 
         .download_resume_btn {
+          left: 20rem;
+          margin-top: 2rem;
+          width: 14rem;
+
+          border: 2px solid lighten($main-color, 50);
+          .mas {
+            padding: 1rem;
+            font-size: 1rem;
+            color: lighten($main-color, 50);
+          }
+          button {
+            background-color: lighten($main-color, 50);
+            font-size: 1rem;
+          }
+        }
+        .contact_me_btn {
           margin-top: 2rem;
           width: 14rem;
 

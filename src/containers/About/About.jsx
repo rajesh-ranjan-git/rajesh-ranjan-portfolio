@@ -28,15 +28,21 @@ export default function About() {
         >
           <div>
             <div>
-              <h2 className="section-title">About </h2>
+              <h2 className="section-title">About</h2>
             </div>
 
             <p>
-              Highly skilled and experienced software engineer with an excellent
-              background in software engineering specializing in building
-              exceptional mobile applications, websites, and everything in
-              between. Well versed with backend technologies, multiple databases
-              and mobile app development.
+              An enthusiastic Full Stack Web Developer adept at leveraging a
+              diverse skill set. Certified with MERN Full Stack Development and
+              React JS Development by GeeksForGeeks. Proficient in ReactJS,
+              JavaScript, Node.js, MongoDB, ExpressJS, Python, and Java with an
+              inclination towards delivering dynamic and user-friendly web
+              applications. Passionate about staying updated with the latest
+              technologies and trends in the industry, eager to transition into
+              a dynamic startup environment where innovation thrives. Ready to
+              bring my expertise in web development to contribute to the success
+              and growth of forward-thinking companies. Let's connect and
+              explore opportunities together!
               <br />
               <br />I enjoy creating things that live on the internet, whether
               that be websites, applications, games, or anything in between. I
@@ -51,17 +57,17 @@ export default function About() {
         </Fade>
         <div className="row">
           <Fade
-            className="col-lg-4"
+            className="col-lg-4 about_img"
             direction="left"
             duration={2000}
             delay={20}
-            triggerOnce
+            // triggerOnce
           >
             <img
               id="self_img"
-              src="../../public/favicon/title_pic_circular.png"
+              src="/favicon/title_pic_circular.png"
               className="img-fluid"
-              alt="Pranav Choudhary"
+              alt="Rajesh Ranjan"
             />
           </Fade>
           <Fade
@@ -69,20 +75,27 @@ export default function About() {
             className="about_content"
             duration={2000}
             delay={20}
-            triggerOnce
+            // triggerOnce
           >
-            <div>
-              <h3>Software Developer</h3>
+            <div style={{ paddingLeft: 50 }}>
+              <h3>Full Stack Web Developer | React JS Developer</h3>
               <div className="row">
                 <div className="col-lg-6">
-                  {/* <ul>
-                  <li><FontAwesomeIcon icon={faAngleRight}  /> <strong>Birthday:</strong> 18 Jan 1995</li>
-                  <li><FontAwesomeIcon icon={faAngleRight}  /> <strong>Phone:</strong> +91 9999340771</li>
-                </ul> */}
                   <ul>
                     <li>
                       <FontAwesomeIcon icon={faAngleRight} />{" "}
-                      <strong>Degree:</strong> B.Tech
+                      <strong>Birthday:</strong> 18<sup>th</sup> January, 1997
+                    </li>
+                    <li>
+                      <FontAwesomeIcon icon={faAngleRight} />{" "}
+                      <strong>Phone:</strong> +91-9999-340-771
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <FontAwesomeIcon icon={faAngleRight} />{" "}
+                      <strong>Degree:</strong> B.Tech (Computer Science &
+                      Engineering)
                     </li>
                     <li>
                       <FontAwesomeIcon icon={faAngleRight} />{" "}

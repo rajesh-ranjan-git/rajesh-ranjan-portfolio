@@ -4,7 +4,7 @@ import SocialMedia from "../SocialMedia/SocialMedia";
 import GreetingsImg from "./GreetingsImg/GreetingsImg";
 import MyParticles from "../Particles/Particles";
 import TypeText from "../TypeText/TypeText";
-import { ButtonMask1 } from "../button/Button";
+import { ButtonMask1, ButtonMask2 } from "../button/Button";
 // import lottie from "lottie-web/build/player/lottie_light";
 // import reactLogo from "../../assets/gifs/99312-developer-skills.json";
 // import reactLogo2 from '../../assets/gifs/88930-coding.json';
@@ -37,16 +37,16 @@ export default function Greetings() {
         <div className="circle circle_2"></div>
         <div className="circle circle_3"></div>
         <div className="triangle triangle_1">
-          <img src="obj_triangle.png" alt="" />
+          <img src="src\assets\bg\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_2">
-          <img src="obj_triangle.png" alt="" />
+          <img src="src\assets\bg\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_3">
-          <img src="obj_triangle.png" alt="" />
+          <img src="src\assets\bg\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_4">
-          <img src="obj_triangle.png" alt="" />
+          <img src="src\assets\bg\obj_triangle.png" alt="" />
         </div>
 
         <MyParticles />
@@ -74,15 +74,20 @@ export default function Greetings() {
                 </div>
                 <SocialMedia />
 
+                <ButtonMask1 className="contact_me_btn">CONTACT ME</ButtonMask1>
+
                 <ButtonMask1
-                  onClick={() =>
-                    openInNewTab(
-                      "https://github.com/rajesh-ranjan-git/rajesh-ranjan-git/blob/main/Rajesh_Resume.pdf"
-                    )
+                  onClick={
+                    () =>
+                      openInNewTab(
+                        "https://github.com/rajesh-ranjan-git/rajesh-ranjan-git/blob/main/Rajesh_Resume.pdf"
+                      )
+                    // openInNewTab("src/assets/Resume/Rajesh_Resume.pdf")
                   }
                   className="download_resume_btn"
+                  // download
                 >
-                  Download Resume
+                  SEE MY RESUME
                 </ButtonMask1>
               </div>
 

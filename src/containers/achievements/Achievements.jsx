@@ -34,8 +34,8 @@ export default function Achievements() {
   return (
     <HomeContent id="achievements" className="experience">
       {/* <Helmet>
-        <title>Achievements | Pranav Choudhary</title>
-        <meta name="description" content="Explore Pranav Choudhary's achievements, including awards in Flipr Hackathons, a Goldman Sachs virtual internship, and recognition on Stack Overflow." />
+        <title>Achievements | Rajesh Ranjan</title>
+        <meta name="description" content="Explore Rajesh Ranjan's achievements, including awards in Flipr Hackathons, a Goldman Sachs virtual internship, and recognition on Stack Overflow." />
       </Helmet> */}
 
       <h2 className="h3 section-title">Achievements</h2>

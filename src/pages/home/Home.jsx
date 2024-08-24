@@ -36,9 +36,9 @@ export default function Home() {
         <About />
         <Experience />
         <Education />
-        <Achievements />
-        <Portfolio />
-        <Certificates />
+        {/* <Achievements /> */}
+        {/* <Portfolio /> */}
+        {/* <Certificates /> */}
         <Contact />
 
         <BackToTop />

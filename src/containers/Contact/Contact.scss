@@ -191,7 +191,8 @@
 
         textarea {
           padding: 12px 15px;
-          height: auto !important;
+          width: 100% !important;
+          height: 14em !important;
 
           &:focus {
             background-color: transparentize($main-color, 0.9);

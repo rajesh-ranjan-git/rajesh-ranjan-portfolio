@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import BackToTop from "../../components/BackToTop/BackToTop";
-import Greetings from "../../components/Greetings/Greetings";
-import Menu from "../../components/menu/Menu";
-import About from "../../containers/About/About";
-import Achievements from "../../containers/achievements/Achievements";
-import Certificates from "../../containers/Certificates/Certificates";
-import Contact from "../../containers/Contact/Contact";
-import Education from "../../containers/Education/Education";
-import Experience from "../../containers/Experience/Experience";
-import Portfolio from "../../containers/portfolio/Portfolio";
-import Splash from "../splash/Splash";
+import BackToTop from "../../Components/BackToTop/BackToTop";
+import Greetings from "../../Components/Greetings/Greetings";
+import Menu from "../../Components/Menu/Menu";
+import About from "../../Containers/About/About";
+import Achievements from "../../Containers/Achievements/Achievements";
+import Certificates from "../../Containers/Certificates/Certificates";
+import Contact from "../../Containers/Contact/Contact";
+import Education from "../../Containers/Education/Education";
+import Experience from "../../Containers/Experience/Experience";
+import Portfolio from "../../Containers/Portfolio/Portfolio";
+import Splash from "../Splash/Splash";
 
 export default function Home() {
   const [splash, setSplash] = useState(true);

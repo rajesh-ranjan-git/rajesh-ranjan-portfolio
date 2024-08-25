@@ -1,4 +1,4 @@
-import "./loader.scss";
+import "./Loader.scss";
 
 export default function Loader(props) {
   return (

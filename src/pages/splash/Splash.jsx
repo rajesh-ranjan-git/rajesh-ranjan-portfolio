@@ -1,5 +1,5 @@
-import "./splash.scss";
-import Loader from "../../components/Loader/Loader";
+import "./Splash.scss";
+import Loader from "../../Components/Loader/Loader";
 
 export default function Splash(props) {
   return (

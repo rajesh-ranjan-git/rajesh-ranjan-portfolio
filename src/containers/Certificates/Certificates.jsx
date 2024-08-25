@@ -5,7 +5,7 @@ import { CertificateCard } from "../../components/ExpCard/Cards";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { certificates } from "../../Components/Portfolio/portfolio";
+import { certificates } from "../../Components/Portfolio/Portfolio";
 
 export default function Certificates() {
   var settings = {

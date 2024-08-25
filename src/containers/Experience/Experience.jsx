@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import { ExpCard } from "../../components/ExpCard/Cards";
+import { ExpCard } from "../../Components/ExpCard/Cards";
 import HomeContent from "../HomeContent/HomeContent";
 import "./Experience.scss";
 export default function Experience() {

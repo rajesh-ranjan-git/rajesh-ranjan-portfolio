@@ -1,4 +1,4 @@
-import "./socialMedia.scss";
+import "./SocialMedia.scss";
 import SocialMediaIcons from "./SocialMediaIcons/SocialMediaIcons";
 
 export default function SocialMedia() {

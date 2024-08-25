@@ -1,9 +1,9 @@
-import "./greetings.scss";
+import "./Greetings.scss";
 import SocialMedia from "../SocialMedia/SocialMedia";
 import GreetingsImg from "./GreetingsImg/GreetingsImg";
 import MyParticles from "../Particles/Particles";
 import TypeText from "../TypeText/TypeText";
-import { ButtonMask1, ButtonMask2 } from "../button/Button";
+import { ButtonMask1 } from "../Button/Button";
 import { Helmet } from "react-helmet";
 
 export default function Greetings() {

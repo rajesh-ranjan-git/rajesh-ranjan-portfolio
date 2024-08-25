@@ -1,8 +1,8 @@
 import { Route, Routes, HashRouter } from "react-router-dom";
-import Home from "../../pages/home/Home";
-import Detail from "../../pages/detail/Detail";
-import Error from "../../pages/error/Error";
-import Art from "../../pages/art/Art";
+import Home from "../../Pages/Home/Home";
+import Detail from "../../Pages/Detail/Detail";
+import Error from "../../Pages/Error/Error";
+import Art from "../../Pages/Art/Art";
 
 export default function Main(props) {
   const theme = props.theme;

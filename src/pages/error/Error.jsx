@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import Menu from "../../components/menu/Menu";
-import Splash from "../splash/Splash";
+import Menu from "../../Components/Menu/Menu";
+import Splash from "../Splash/Splash";
 import "./Error.scss";
 
 export default function Error() {

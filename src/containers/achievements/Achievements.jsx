@@ -12,7 +12,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { achievements } from "../../Components/Portfolio/portfolio";
+import { achievements } from "../../Components/Portfolio/Portfolio";
 
 export default function Achievements() {
   const [photoState, setPhotoState] = useState({

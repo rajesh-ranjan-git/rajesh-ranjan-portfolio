@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./BackToTop.scss";
-import { ButtonMask2 } from "../button/Button";
+import { ButtonMask2 } from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 

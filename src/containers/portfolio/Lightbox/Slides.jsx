@@ -1,4 +1,4 @@
-import { projectsHeader } from "../../../../Components/Portfolio/portfolio";
+import { projectsHeader } from "../../../Components/Portfolio/Portfolio";
 
 export const advancedSlides = projectsHeader.projects.map((project, key) => ({
   src: project.image,

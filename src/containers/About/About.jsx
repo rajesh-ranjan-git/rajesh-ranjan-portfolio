@@ -2,7 +2,7 @@ import "./About.scss";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "react-awesome-reveal";
-import Skills from "../skills/Skills";
+import Skills from "../Skills/Skills";
 import HomeContent from "../HomeContent/HomeContent";
 
 export default function About() {

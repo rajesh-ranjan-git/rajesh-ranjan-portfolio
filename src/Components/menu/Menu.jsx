@@ -1,4 +1,4 @@
-import "./menu.scss";
+import "./Menu.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,

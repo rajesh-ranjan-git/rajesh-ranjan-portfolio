@@ -7,7 +7,7 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./socialMediaIcons.scss";
+import "./SocialMediaIcons.scss";
 
 export default function SocialMediaIcons() {
   return (

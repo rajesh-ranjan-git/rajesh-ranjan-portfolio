@@ -11,9 +11,9 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { drawings } from "../../Components/Portfolio/portfolio";
-import Menu from "../../components/menu/Menu";
-import Splash from "../splash/Splash";
+import { drawings } from "../../Components/Portfolio/Portfolio";
+import Menu from "../../Components/Menu/Menu";
+import Splash from "../Splash/Splash";
 
 export default function Art() {
   const [photoState, setPhotoState] = useState({

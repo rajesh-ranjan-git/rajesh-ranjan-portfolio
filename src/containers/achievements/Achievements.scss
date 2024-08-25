@@ -37,7 +37,6 @@
     grid-template-columns: repeat(var(--amount), 1fr 2fr) 1fr;
     font-size: 16px;
     grid-gap: 0.625em 1.25em;
-    // max-width: 810px;
   }
   &__item {
     position: relative;
@@ -79,9 +78,6 @@
     &:hover {
       transform: scale(1.2);
       z-index: 9;
-      // &::before{
-      // 	clip-path: polygon(25% 100%, 0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%);
-      // }
     }
   }
   &__content {
@@ -111,7 +107,6 @@
       clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       height: auto;
       overflow: hidden;
-      // width: auto;
       height: auto;
 
       @include large_tablet {
@@ -147,7 +142,6 @@
       transition: 0.5s ease;
       background-color: rgba(0, 0, 0, 0.8);
       transform: translateY(-100%);
-      // display: none;
 
       &_title {
         color: gold;
@@ -168,15 +162,9 @@
         flex-wrap: wrap;
         transform: translateX(-50%);
         margin-top: 1rem;
-        // padding: 0.3rem;
-        // border-radius: 0.2rem;
-        // font-size: 0.6rem;
-        // width: fit-content;
-        // align-self: flex-start;
 
         justify-content: space-between;
         text-align: center;
-        // margin-left: -31%;
         margin-bottom: 1rem;
         @include device_850 {
           font-size: 0.5rem;
@@ -186,16 +174,11 @@
       &_date {
         flex: 0.3;
         background-color: steelblue;
-
-        // margin-top: 1rem;
         padding: 0.3rem;
         border-radius: 0.2rem;
         font-size: 0.5rem;
-        // width: 100%;
         align-self: flex-start;
         margin-right: 0.2rem;
-        // margin-left: -31%;
-        // margin-bottom: 1rem;
         @include device_850 {
           flex: 1;
           font-size: 0.5rem;
@@ -208,13 +191,9 @@
       &_company {
         flex: 0.7;
         font-size: 0.5rem;
-        // align-self: center;
         background-color: steelblue;
-
-        // margin-top: 1rem;
         padding: 0.3rem;
         border-radius: 0.2rem;
-        // transform: translateX(-50%);
         @include device_850 {
           flex: 1;
           font-size: 0.5rem;
@@ -310,26 +289,6 @@
 }
 
 @media screen and (max-width: 549px) {
-  // .hex-grid{
-  // 	&__list{
-  // 		max-width: 350px;
-  // 		--amount: 1;
-  // 		grid-gap: 1.5rem 3rem;
-  // 	}
-  // 	&__item{
-  // 		&--fake{
-  // 			display: none;
-  // 		}
-  // 	}
-  // 	&__content{
-  // 		left: 50%;
-  // 		transform: translateX(-50%);
-  // 		max-width: 250px;
-  // 		padding-top: 40px;
-  // 		padding-bottom: 40px;
-  // 	}
-  // }
-
   .hex-grid {
     &__list {
       max-width: 500px;

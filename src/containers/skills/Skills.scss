@@ -131,7 +131,6 @@
       background: white;
       width: 60px;
       height: 60px;
-      // overflow: hidden;
       display: grid;
       place-items: center;
       img {
@@ -162,13 +161,6 @@
   }
 }
 
-@media (min-width: 550px) {
-  //   .section-title { max-width: 380px; }
-}
-@media (min-width: 768px) {
-  // .section-title { max-width: 430px; }
-}
-
 @media (min-width: 992px) {
   .section-content {
     position: relative;
@@ -189,10 +181,6 @@
     left: auto;
     right: calc(100% + 20px);
   }
-
-  /**
-     * SKILLS
-     */
 
   .skills {
     display: grid;

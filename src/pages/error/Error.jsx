@@ -1,18 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import Menu from "../../components/menu/Menu";
 import Splash from "../splash/Splash";
 import "./Error.scss";
-// import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Error() {
   const [splash, setSplash] = useState(true);
 
-  // It will be executed before rendering
-  // const analytics = getAnalytics();
-
   useEffect(() => {
-    // logEvent(analytics, 'Error page visited');
     setTimeout(() => setSplash(false), 2000);
   }, []);
 

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Achievements.scss";
 import HomeContent from "../HomeContent/HomeContent";
 import { Fade } from "react-awesome-reveal";
-
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
@@ -13,14 +12,9 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-// import { getAnalytics, logEvent } from "firebase/analytics";
-import { Helmet } from "react-helmet";
-
-import { achievements } from "../../portfolio";
+import { achievements } from "../../Components/Portfolio/portfolio";
 
 export default function Achievements() {
-  // const analytics = getAnalytics();
-
   const [photoState, setPhotoState] = useState({
     photoIndex: 0,
     isOpen: false,
@@ -28,16 +22,10 @@ export default function Achievements() {
 
   const openLightBox = (index) => {
     setPhotoState({ photoIndex: index, isOpen: true });
-    // logEvent(analytics, 'Achievement lightbox opened');
   };
 
   return (
     <HomeContent id="achievements" className="experience">
-      {/* <Helmet>
-        <title>Achievements | Rajesh Ranjan</title>
-        <meta name="description" content="Explore Rajesh Ranjan's achievements, including awards in Flipr Hackathons, a Goldman Sachs virtual internship, and recognition on Stack Overflow." />
-      </Helmet> */}
-
       <h2 className="h3 section-title">Achievements</h2>
 
       {photoState.isOpen && (
@@ -76,7 +64,6 @@ export default function Achievements() {
                   </div>
                 </div>
               </div>
-              {/* <img className="hex-grid__content" src='./assets/bg/edu3.svg'></img> */}
             </li>
             <li className="hex-grid__item hex-grid__item--blank"></li>
             <li className="hex-grid__item hex-grid__item--light hex-grid__item--fake"></li>
@@ -212,7 +199,6 @@ export default function Achievements() {
                       Belong to top 13% users this year in Stackoverflow
                     </div>
                     <div className="overlay_issuer">
-                      {/* <div className="overlay_date">Sept 2021</div> */}
                       <div className="overlay_company">StackOverflow</div>
                     </div>
                     <div className="overlay_text">
@@ -225,18 +211,7 @@ export default function Achievements() {
             </li>
             <li className="hex-grid__item hex-grid__item--blank"></li>
             <li className="hex-grid__item hex-grid__item--light hex-grid__item--fake">
-              <div className="hex-grid__content">
-                {/* <img src='./assets/bg/edu3.svg'></img> */}
-                {/* <div className="overlay">
-    <div className="overlay_title">FLIPR HACKATHON X</div>
-    <div className="overlay_issuer">
-    <div className="overlay_date">Sept 2021</div>
-    <div className="overlay_company">Flipr Innovation Labs</div>
-    </div>
-    <div className="overlay_text">Ranked 1st in Flipr Hackathon X Mobile App Development</div>
-    
-  </div> */}
-              </div>
+              <div className="hex-grid__content"></div>
             </li>
           </ul>
         </div>

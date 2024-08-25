@@ -1,20 +1,13 @@
 import "./greetings.scss";
-import React from "react";
 import SocialMedia from "../SocialMedia/SocialMedia";
 import GreetingsImg from "./GreetingsImg/GreetingsImg";
 import MyParticles from "../Particles/Particles";
 import TypeText from "../TypeText/TypeText";
 import { ButtonMask1, ButtonMask2 } from "../button/Button";
-// import lottie from "lottie-web/build/player/lottie_light";
-// import reactLogo from "../../assets/gifs/99312-developer-skills.json";
-// import reactLogo2 from '../../assets/gifs/88930-coding.json';
-// import { getAnalytics, logEvent } from "firebase/analytics";
 import { Helmet } from "react-helmet";
 
 export default function Greetings() {
-  // const analytics = getAnalytics();
   const openInNewTab = (url) => {
-    // logEvent(analytics, 'Resume downloaded');
     window.open(url, "_blank", "noopener,noreferrer");
   };
 

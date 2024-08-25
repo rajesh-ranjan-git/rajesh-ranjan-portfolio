@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./detail.scss";
-import { projectsHeader } from "../../portfolio";
+import { projectsHeader } from "../../Components/Portfolio/portfolio";
 import Menu from "../../components/menu/Menu";
-// import { getAnalytics, logEvent } from "firebase/analytics";
-
 import Slider from "react-slick";
 import Splash from "../splash/Splash";
 
@@ -13,13 +11,6 @@ export default function Detail() {
   const [item, setItem] = useState(null);
   const [splash, setSplash] = useState(true);
   const settings = {
-    // customPaging: function(i) {
-    //   return (
-    //     <a>
-    //       <img src={item.slides[i]} />
-    //     </a>
-    //   );
-    // },
     dots: true,
     dotsClass: "slider-dots",
     infinite: true,
@@ -32,13 +23,9 @@ export default function Detail() {
     prevArrow: <></>,
   };
 
-  // const analytics = getAnalytics();
-
   useEffect(() => {
-    // setItem(projectsHeader.projects[project])
     let detail = projectsHeader.projects.filter((el) => el.id == project);
     setItem(detail[0]);
-    // logEvent(analytics, `${item?item.title : 'Project'} page visited`);
     setTimeout(() => setSplash(false), 2500);
   }, [project]);
 
@@ -178,7 +165,6 @@ export default function Detail() {
               {item ? (
                 <div className="portfolio-description">
                   <h2>{item.title}</h2>
-                  {/* <h4>{item.subtitle}</h4> */}
                   <p>{item.summary}</p>
 
                   {item.attribution ? (
@@ -198,8 +184,6 @@ export default function Detail() {
                       </div>
                     </>
                   )}
-
-                  {/* </ul> */}
                 </div>
               ) : (
                 <h1>Not found</h1>

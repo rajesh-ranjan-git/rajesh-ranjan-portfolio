@@ -1,18 +1,14 @@
 import "./Skills.scss";
-import React from "react";
-// import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Skills() {
   const elemToggleFunc = (elem) => {
     elem.classList.toggle("active");
   };
 
-  // const analytics = getAnalytics();
   const skillsToggle = () => {
     const toggleBtnBox = document.querySelector("[data-toggle-box]");
     const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
     const skillsBox = document.querySelector("[data-skills-box]");
-    // logEvent(analytics, 'Skills toggled');
     elemToggleFunc(toggleBtnBox);
     for (let i = 0; i < toggleBtns.length; i++) {
       elemToggleFunc(toggleBtns[i]);

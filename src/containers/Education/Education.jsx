@@ -1,5 +1,4 @@
 import "./Education.scss";
-import React from "react";
 import HomeContent from "../HomeContent/HomeContent";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
@@ -8,10 +7,6 @@ import { EduCard } from "../../components/ExpCard/Cards";
 export default function Education() {
   return (
     <HomeContent id="education" class="experience">
-      {/* <Helmet>
-        <title>Education | Pranav Choudhary</title>
-        <meta name="description" content="Learn about Rajesh Ranjan's educational background, including a B.Tech in Computer Science and Engineering from JP Institute of Engineering and Technology, Meerut and Senior Secondary studies from Indian School of Learning, Dhanbad." />
-      </Helmet> */}
       <h2 className="h3 section-title">Education</h2>
       <Fade direction="bottom" duration={2000} triggerOnce>
         <div className="education_card">

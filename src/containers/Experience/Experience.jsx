@@ -1,19 +1,11 @@
-import React from "react";
 import { Fade } from "react-awesome-reveal";
 import { ExpCard } from "../../components/ExpCard/Cards";
 import HomeContent from "../HomeContent/HomeContent";
-import { Helmet } from "react-helmet";
 import "./Experience.scss";
 export default function Experience() {
   return (
     <HomeContent id="experience" class="experience">
-      {/* <Helmet>
-        <title>Experience | Pranav Choudhary</title>
-        <meta name="description" content="Explore Pranav Choudhary's software development experience, including roles at Cradlepoint, Cloudlex, and more. Discover my skills in Django, Spring, Angular, and other web technologies." />
-      </Helmet> */}
-
       <h2 className="h3 section-title">Experience</h2>
-      {/* <ExpCard  role='' period='' company='' location='' tech_stack='' data=''/> */}
       <Fade direction="bottom" duration={2000} triggerOnce>
         <div className="timeline">
           <div className="timeline_container right">

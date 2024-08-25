@@ -7,7 +7,6 @@
 
 .timeline {
   position: relative;
-  // max-width: 1200px;
   margin: 0 auto;
   margin-top: 3rem;
 
@@ -32,7 +31,6 @@
   .timeline_container {
     padding: 10px 40px;
     position: relative;
-    // background-color: rgba(223, 223, 255, 0.7);
     width: 50%;
     &::after {
       content: "";
@@ -48,9 +46,6 @@
     }
 
     .content {
-      // padding: 20px 30px;
-      // background-color: #ccf;
-      // color: #00f;
       position: relative;
       border-radius: 1.2rem;
     }
@@ -125,31 +120,3 @@
     }
   }
 }
-
-//   @media screen and (max-width: 600px) {
-
-//     // .timeline::after {
-//     // left: 31px;
-//     // }
-
-//     // .timeline_container {
-//     // width: 100%;
-//     // padding-left: 70px;
-//     // padding-right: 25px;
-//     // }
-
-//     // .timeline_container::before {
-//     // left: 60px;
-//     // border: medium solid #00f;
-//     // border-width: 10px 10px 10px 0;
-//     // border-color: transparent #00f transparent transparent;
-//     // }
-
-//     .left::after, .right::after {
-//     left: 15px;
-//     }
-
-//     .right {
-//     left: 0%;
-//     }
-//   }

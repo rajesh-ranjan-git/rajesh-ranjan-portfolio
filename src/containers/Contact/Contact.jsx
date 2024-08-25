@@ -1,35 +1,21 @@
-import React from "react";
 import "./Contact.scss";
 import { Fade } from "react-awesome-reveal";
 import HomeContent from "../HomeContent/HomeContent";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
-import { Helmet } from "react-helmet";
 import {
   faShareNodes,
   faEnvelope,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Contact() {
   const form = useRef();
 
   const showCustomToast = () => {
-    // e.preventDefault()
-    // toast.promise(
-    //     sendEmail(),
-    //      {
-    //        loading: 'Sending Mail;...',
-    //        success: <b>Mail sent successfully!</b>,
-    //        error: <b>Could not send the mail. Please try again later.</b>,
-    //      }
-    //    );
-
     toast.custom((t) => (
       <div
         className={`${
@@ -89,11 +75,6 @@ export default function Contact() {
 
   return (
     <HomeContent id="contact" className="contact">
-      {/* <Helmet>
-        <title>Contact | Pranav Choudhary</title>
-        <meta name="description" content="Contact Pranav Choudhary, a software developer. Get in touch for freelance projects, collaboration, questions, or just to say hello!" />
-      </Helmet> */}
-
       <h2 className="h3 section-title">GET IN TOUCH</h2>
       <p className="section-text">
         Whether you have a question, any suggestion, or just want to say hi,
@@ -203,7 +184,6 @@ export default function Contact() {
                   <div className="validate"></div>
                 </div>
                 <div className="mb-3">
-                  {/* <div className={active===true?'loading':'loading-none'}>Sending</div> */}
                   <div className="error-message"></div>
                   <div className="sent-message">
                     Your message has been sent. Thank you!

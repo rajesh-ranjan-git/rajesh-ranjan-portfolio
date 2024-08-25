@@ -139,15 +139,11 @@ export const lightTheme = {
 
 export const darkTheme = {
   name: "dark",
-  // body: "#1D1D1D",
-  // text: "#FFFFFF",
   dark: "#12192c",
-  // secondaryText: "#8D8D8D",
   accentColorTransparent: "#9aaad6",
   accentColor: "#9aaad6",
   accentBright: "#FC1056",
   transparent: "transparent",
-  // projectCard: "#292A2D",
   skinColor: "#F7B799",
   skinColor2: "#FCB696",
   imageDark: "#292A2D",

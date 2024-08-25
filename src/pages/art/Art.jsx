@@ -1,8 +1,6 @@
-import React from "react";
 import "./Art.scss";
 import { useEffect } from "react";
 import { useState } from "react";
-
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
@@ -13,11 +11,9 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-
-import { drawings } from "../../portfolio";
+import { drawings } from "../../Components/Portfolio/portfolio";
 import Menu from "../../components/menu/Menu";
 import Splash from "../splash/Splash";
-// import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Art() {
   const [photoState, setPhotoState] = useState({
@@ -30,10 +26,7 @@ export default function Art() {
     setPhotoState({ photoIndex: index, isOpen: true });
   };
 
-  // const analytics = getAnalytics();
-
   useEffect(() => {
-    // logEvent(analytics, "Art page visited");
     setTimeout(() => setSplash(false), 2000);
   }, []);
 

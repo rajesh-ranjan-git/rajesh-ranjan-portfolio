@@ -1,7 +1,7 @@
 import "./styles/App.scss";
 import { ThemeProvider } from "styled-components";
 import Main from "./containers/main/Main";
-import { chosenTheme } from "./theme";
+import { chosenTheme } from "./Components/Theme/theme";
 import { Toaster } from "react-hot-toast";
 import { handleTitle } from "./components/TitleChangeOnTabSwitch/TitleChangeOnTabSwitch";
 

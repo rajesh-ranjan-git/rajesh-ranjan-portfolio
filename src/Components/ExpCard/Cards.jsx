@@ -68,10 +68,6 @@ export const ExpCard = (props) => {
           </div>
           <div className="card_body" id="card_body">
             <div className="card_quote">
-              {/* <p className="card_paragraph" id='paragraph'>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea.
-                        </p> */}
-
               <ul>
                 {data.map((n, key) => (
                   <li key={key}>{n}</li>

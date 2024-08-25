@@ -1,6 +1,5 @@
-import React from "react";
 import "./GreetingsImg.scss";
-import { darkTheme as theme } from "../../../theme.jsx";
+import { darkTheme as theme } from "../../Theme/theme";
 export default function GreetingsImg() {
   return (
     <svg

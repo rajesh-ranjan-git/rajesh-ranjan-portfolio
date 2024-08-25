@@ -1,25 +1,14 @@
 import "./About.scss";
-import React from "react";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "react-awesome-reveal";
 import Skills from "../skills/Skills";
 import HomeContent from "../HomeContent/HomeContent";
-import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
     <>
-      {/* <Helmet>
-        <title>About Rajesh Ranjan | Software Developer</title>
-        <meta name="description" content="Learn about software developer Rajesh Ranjan's background, skills, and passion for creating digital experiences." />
-      </Helmet> */}
-
       <HomeContent id="about" class="about">
-        {/* <div id="about" className="about">
-        
-  
-  <div className="container"> */}
         <Fade
           direction="bottom"
           className="about_detail"
@@ -103,12 +92,6 @@ export default function About() {
                     </li>
                   </ul>
                 </div>
-                <div className="col-lg-6">
-                  {/* <ul>
-                  <li><FontAwesomeIcon icon={faAngleRight}  /> <strong>Degree:</strong> B.Tech</li>
-                  <li><FontAwesomeIcon icon={faAngleRight}  /> <strong>Email:</strong> rajeshranjan8271@gmail.com</li>
-                </ul> */}
-                </div>
               </div>
               <p>
                 <br />
@@ -118,8 +101,6 @@ export default function About() {
         </div>
 
         <Skills />
-        {/* </div>
-    </div> */}
       </HomeContent>
     </>
   );

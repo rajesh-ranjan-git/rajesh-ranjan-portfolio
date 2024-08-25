@@ -1,5 +1,4 @@
 import "./menu.scss";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
@@ -15,40 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Divide as Hamburger } from "hamburger-react";
 import { useState } from "react";
-
 import { Link } from "react-scroll";
 
-// import {
-//   Link
-// } from "react-router-dom";
 export default function Menu(props) {
-  // useEffect(()=>{
-  //     console.log('here');
-  //     var getSidebar = document.querySelector('nav');
-  //     const getToggle = Array.from(document.getElementsByClassName('toggle'));
-  //     getToggle.forEach(element=>{
-  //         element.addEventListener('click',()=>{
-  //             getSidebar.classList.toggle('active');
-  //         });
-  //     });
-  // },[]);
-
   function toggleMenu(e) {
-    // const navbar = document.getElementById('sidebar');
-    // navbar.classList.toggle('active');
-
     const sideNav = document.querySelector("#side_nav");
     sideNav.classList.toggle("active");
-    // if (sideNav.style.width == "5.6rem" || sideNav.style.width == "") {
-    //     sideNav.style.width = "19rem";
-
-    //   } else {
-    //     // close side nav
-    //     sideNav.style.width = "5.6rem";
-    //     // close all opened sub menus
-    //     document.querySelectorAll('.nav__drop').forEach(drop => drop.style.height = '0px');
-
-    //   }
   }
 
   function scrollToTestDiv(id) {
@@ -60,60 +31,6 @@ export default function Menu(props) {
 
   return (
     <>
-      {/* <nav id='sidebar'>
-        <ul>
-            <li>
-                <a className="toggle" onClick={toggleMenu} href='#'>
-                    <span className="icon" style={{display:'flex', alignItems:'center', justifyContent:'center'}} ><Hamburger size={20} easing="ease-in" rounded/></span>
-                    
-                    <span className="title">Menu</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faHouse} /></span>
-                    <span className="title">Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faUserAstronaut} /></span>
-                    <span className="title">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faMessage} /></span>
-                    <span className="title">Messages</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faInfo} /></span>
-                    <span className="title">Help</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faCog} /></span>
-                    <span className="title">Setting</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faLock} /></span>
-                    <span className="title">Password</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <span className="icon"><FontAwesomeIcon icon={faSignOutAlt} /></span>
-                    <span className="title">Sign Out</span>
-                </a>
-            </li>
-        </ul>
-    </nav> */}
-
       <button type="button" className="mobile-nav-toggle" onClick={toggleMenu}>
         {" "}
         <Hamburger size={20} easing="ease-in" rounded className="nav_icon" />

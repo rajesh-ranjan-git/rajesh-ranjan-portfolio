@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import BackToTop from "../../components/BackToTop/BackToTop";
@@ -12,17 +11,11 @@ import Education from "../../containers/Education/Education";
 import Experience from "../../containers/Experience/Experience";
 import Portfolio from "../../containers/portfolio/Portfolio";
 import Splash from "../splash/Splash";
-// import { getAnalytics, logEvent } from "firebase/analytics";
-// import MyParticles from '../../components/Particles/Particles';
 
 export default function Home() {
   const [splash, setSplash] = useState(true);
 
-  // It will be executed before rendering
-  // const analytics = getAnalytics();
-
   useEffect(() => {
-    // logEvent(analytics, 'Home page visited');
     setTimeout(() => setSplash(false), 2000);
   }, []);
 

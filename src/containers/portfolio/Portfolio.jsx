@@ -2,9 +2,8 @@ import React from "react";
 import "./Portfolio.scss";
 import HomeContent from "../HomeContent/HomeContent";
 import PortfolioContent from "./Portfoliocontent/PortfolioContent";
-import { projectsHeader } from "../../portfolio";
+import { projectsHeader } from "../../Components/Portfolio/portfolio";
 import { useState } from "react";
-
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
@@ -15,14 +14,10 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { Helmet } from "react-helmet";
-
 import { advancedSlides } from "./Lightbox/data/slides";
 import OtherProjects from "./OtherProjects/OtherProjects";
-// import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Portfolio() {
-  // const analytics = getAnalytics();
   const [photoState, setPhotoState] = useState({
     photoIndex: 0,
     isOpen: false,
@@ -30,14 +25,12 @@ export default function Portfolio() {
 
   const openLightBox = (index) => {
     setPhotoState({ photoIndex: index, isOpen: true });
-    // logEvent(analytics, 'Portfolio lightbox opened');
   };
 
   const [items, setItems] = useState(projectsHeader.projects);
   const [mySlides, setMySlides] = useState(advancedSlides);
   const [active, setActive] = useState(null);
   const filterItem = (categItem) => {
-    // logEvent(analytics, `Portfolio items filetred by ${categItem}`);
     const updateItems = projectsHeader.projects.filter((curElem) => {
       return curElem.filter === categItem;
     });
@@ -52,11 +45,6 @@ export default function Portfolio() {
 
   return (
     <HomeContent id="portfolio" class="portfolio">
-      {/* <Helmet>
-        <title>Portfolio | Pranav Choudhary</title>
-        <meta name="description" content="Explore Pranav Choudhary's software development portfolio showcasing applications, web projects, games, and other noteworthy projects. " />
-      </Helmet> */}
-
       <h2 className="h3 section-title">Portfolio</h2>
 
       {photoState.isOpen && (

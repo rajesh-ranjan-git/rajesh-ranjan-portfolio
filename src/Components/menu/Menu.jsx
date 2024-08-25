@@ -122,6 +122,7 @@ export default function Menu(props) {
                     <span className="nav_name">Experience</span>
                   </Link>
                 </li>
+
                 <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -139,7 +140,8 @@ export default function Menu(props) {
                     <span className="nav_name">Education</span>
                   </Link>
                 </li>
-                <li className="nav_item">
+
+                {/* <li className="nav_item">
                   <Link
                     activeClass="active"
                     className="nav_link"
@@ -186,6 +188,7 @@ export default function Menu(props) {
                     <span className="nav_name">Certificates</span>
                   </Link>
                 </li>
+
                 <li className="nav_item">
                   <a
                     href="https://persocom.herokuapp.com/"
@@ -201,7 +204,8 @@ export default function Menu(props) {
                     <FontAwesomeIcon icon={faPalette} className="nav_icon" />
                     <span className="nav_name">Art</span>
                   </a>
-                </li>
+                </li> */}
+
                 <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -235,6 +239,7 @@ export default function Menu(props) {
                     <span className="nav_name">Experience</span>
                   </a>
                 </li>
+
                 <li className="nav_item">
                   <a className="nav_link" href="/">
                     <FontAwesomeIcon
@@ -244,6 +249,7 @@ export default function Menu(props) {
                     <span className="nav_name">Education</span>
                   </a>
                 </li>
+
                 <li className="nav_item">
                   <a className="nav_link" href="/">
                     <FontAwesomeIcon icon={faTrophy} className="nav_icon" />
@@ -267,6 +273,7 @@ export default function Menu(props) {
                     <span className="nav_name">Certificates</span>
                   </a>
                 </li>
+
                 <li className="nav_item">
                   <a
                     href="https://persocom.herokuapp.com/"
@@ -277,12 +284,14 @@ export default function Menu(props) {
                     <span className="nav_name">Blog</span>
                   </a>
                 </li>
+
                 <li className="nav_item">
                   <a href="#/artwork" target="_blank" className="nav_link">
                     <FontAwesomeIcon icon={faPalette} className="nav_icon" />
                     <span className="nav_name">Art</span>
                   </a>
                 </li>
+
                 <li className="nav_item">
                   <a className="nav_link" href="/">
                     <FontAwesomeIcon icon={faIdCard} className="nav_icon" />

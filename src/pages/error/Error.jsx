@@ -3,6 +3,7 @@ import { useState } from "react";
 import Menu from "../../Components/Menu/Menu";
 import Splash from "../Splash/Splash";
 import "./Error.scss";
+import { Link } from "react-router-dom";
 
 export default function Error() {
   const [splash, setSplash] = useState(true);
@@ -18,54 +19,59 @@ export default function Error() {
       <Menu detail={true} />
       <div className="home error_main">
         <div className="error_container">
-          <div class="stars">
-            <div class="central-body">
-              <img class="image-404" src="./404.svg" width="300px" alt="404" />
+          <div className="stars">
+            <div className="central-body">
+              <img
+                className="image-404"
+                src="src\Assets\Background\404.svg"
+                width="300px"
+                alt="404"
+              />
               <p className="error_msg">
                 The page you are looking for does not exist. How you got here is
                 a mystery. But you can click the button below to go back to the
                 homepage.
               </p>
-              <a href="/" class="btn-go-home">
+              <Link to="/" className="btn-go-home">
                 GO BACK HOME
-              </a>
+              </Link>
             </div>
-            <div class="objects">
+            <div className="objects">
               <img
-                class="object_rocket"
-                src="./rocket.svg"
+                className="object_rocket"
+                src="src\Assets\Background\rocket.svg"
                 width="40px"
                 alt="rocket"
               />
-              <div class="earth-moon">
+              <div className="earth-moon">
                 <img
-                  class="object_earth"
-                  src="./earth.svg"
+                  className="object_earth"
+                  src="src\Assets\Background\earth.svg"
                   width="100px"
                   alt="earth"
                 />
                 <img
-                  class="object_moon"
-                  src="./moon.svg"
+                  className="object_moon"
+                  src="src\Assets\Background\moon.svg"
                   width="80px"
                   alt="moon"
                 />
               </div>
-              <div class="box_astronaut">
+              <div className="box_astronaut">
                 <img
-                  class="object_astronaut"
-                  src="./astronaut.svg"
+                  className="object_astronaut"
+                  src="src\Assets\Background\astronaut.svg"
                   width="140px"
                   alt="astronaut"
                 />
               </div>
             </div>
-            <div class="glowing_stars">
-              <div class="star"></div>
-              <div class="star"></div>
-              <div class="star"></div>
-              <div class="star"></div>
-              <div class="star"></div>
+            <div className="glowing_stars">
+              <div className="star"></div>
+              <div className="star"></div>
+              <div className="star"></div>
+              <div className="star"></div>
+              <div className="star"></div>
             </div>
           </div>
         </div>

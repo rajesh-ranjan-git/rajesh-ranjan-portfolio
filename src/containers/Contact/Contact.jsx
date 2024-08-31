@@ -105,7 +105,7 @@ export default function Contact() {
                     <h3>Email Me</h3>
                     <p>
                       <a href="mailto:rajeshranjan8271@gmail.com">
-                        rajeshranjan8271@gmail
+                        rajeshranjan8271@gmail.com
                       </a>
                     </p>
                   </div>
@@ -167,7 +167,7 @@ export default function Contact() {
                     id="subject"
                     placeholder="Subject"
                     data-rule="minlen:4"
-                    data-msg="Please enter at least 8 chars of subject"
+                    data-msg="Please enter at least 8 characters of subject"
                   />
                   <div className="validate"></div>
                 </div>

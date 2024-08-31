@@ -601,7 +601,7 @@
   width: 363px;
   width: 100%;
 
-  min-height: 245px;
+  min-height: 280px;
   background: $main-color;
   border-radius: 6px;
   box-shadow: 2px 1px 5px 1px rgba(9, 9, 9, 0.292);
@@ -614,7 +614,7 @@
     border-radius: 0px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    height: 210px;
+    height: 245px;
     transition: 0.9s;
 
     position: absolute;
@@ -694,7 +694,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    top: 200px;
+    top: 235px;
     height: calc(0.4 * 500px);
 
     transition: 1.5s;
@@ -771,27 +771,31 @@
 
 // certificate card
 
+.cert-width-class {
+  display: flex;
+  justify-content: center;
+}
+
 .certificate_card {
   box-sizing: content-box;
   text-align: center;
   min-height: 320px;
-  // width: 270px;
   display: inline;
 
   h1 {
-    font-size: 16px;
+    font-size: 2.5rem;
     color: $main-color;
     font-weight: bold;
   }
   h2 {
-    font-size: 12px;
+    font-size: 1.8rem;
   }
   h3 {
-    font-size: 10px;
+    font-size: 1.8rem;
     color: #111;
   }
   .certificate_desc {
-    font-size: 8px;
+    font-size: 1.2rem;
     color: rgb(99, 99, 99);
     margin: 0;
   }

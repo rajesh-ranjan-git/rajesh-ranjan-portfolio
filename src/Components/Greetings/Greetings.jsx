@@ -30,16 +30,16 @@ export default function Greetings() {
         <div className="circle circle_2"></div>
         <div className="circle circle_3"></div>
         <div className="triangle triangle_1">
-          <img src="src\assets\bg\obj_triangle.png" alt="" />
+          <img src="src\assets\Background\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_2">
-          <img src="src\assets\bg\obj_triangle.png" alt="" />
+          <img src="src\assets\Background\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_3">
-          <img src="src\assets\bg\obj_triangle.png" alt="" />
+          <img src="src\assets\Background\obj_triangle.png" alt="" />
         </div>
         <div className="triangle triangle_4">
-          <img src="src\assets\bg\obj_triangle.png" alt="" />
+          <img src="src\assets\Background\obj_triangle.png" alt="" />
         </div>
 
         <MyParticles />

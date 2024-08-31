@@ -73,25 +73,27 @@ export default function Portfolio() {
                 All
               </li>
               <li
-                data-filter=".filter-app"
-                onClick={() => filterItem("filter-app")}
-                className={active === "filter-app" ? "filter-active" : null}
+                data-filter=".filter-react"
+                onClick={() => filterItem("filter-react")}
+                className={active === "filter-react" ? "filter-active" : null}
               >
-                App
+                React JS
               </li>
               <li
-                data-filter=".filter-game"
-                onClick={() => filterItem("filter-game")}
-                className={active === "filter-game" ? "filter-active" : null}
+                data-filter=".filter-js"
+                onClick={() => filterItem("filter-js")}
+                className={active === "filter-js" ? "filter-active" : null}
               >
-                Games
+                Vanilla Javascript
               </li>
               <li
-                data-filter=".filter-web"
-                onClick={() => filterItem("filter-web")}
-                className={active === "filter-web" ? "filter-active" : null}
+                data-filter=".filter-frontend"
+                onClick={() => filterItem("filter-frontend")}
+                className={
+                  active === "filter-frontend" ? "filter-active" : null
+                }
               >
-                Web
+                Frontend (HTML, CSS)
               </li>
             </ul>
           </div>

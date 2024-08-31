@@ -27,6 +27,7 @@ export default function Detail() {
     let detail = projectsHeader.projects.filter((el) => el.id == project);
     setItem(detail[0]);
     setTimeout(() => setSplash(false), 2500);
+    setTimeout(() => setSplash(false), 2500);
   }, [project]);
 
   return splash ? (

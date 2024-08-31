@@ -14,16 +14,16 @@ export default function Certificates() {
     autoplay: true,
     speed: 1000,
     autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     pauseOnHover: true,
 
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -43,20 +43,22 @@ export default function Certificates() {
     <HomeContent id="certificates" class="certificates">
       <h2 className="h3 section-title">Certificates</h2>
 
-      <Fade direction="bottom" duration={2000} triggerOnce>
-        <Slider {...settings}>
-          {certificates.map((cert, i) => (
-            <CertificateCard
-              key={i}
-              image={cert.src}
-              title={cert.title}
-              desc={cert.description}
-              college={cert.college}
-              provider={cert.provider}
-            />
-          ))}
-        </Slider>
-      </Fade>
+      <div className="cert-width-class">
+        <Fade direction="bottom" duration={2000} triggerOnce>
+          <Slider {...settings} style={{ width: 800 }}>
+            {certificates.map((cert, i) => (
+              <CertificateCard
+                key={i}
+                image={cert.src}
+                title={cert.title}
+                desc={cert.description}
+                college={cert.college}
+                provider={cert.provider}
+              />
+            ))}
+          </Slider>
+        </Fade>
+      </div>
     </HomeContent>
   );
 }

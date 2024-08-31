@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Cards.scss";
 
 export default function BlogCard(props) {
@@ -100,9 +101,9 @@ export const PortfolioCard = (props) => {
         </a> */}
         <div className="portfolio_card_title">
           <h1>
-            <a href={props.link}> {props.title}</a>
+            <Link to={props.link}> {props.title}</Link>
           </h1>
-          <a href={props.link}>View more</a>
+          <Link to={props.link}>View more</Link>
         </div>
         <h3>{props.subtitle}</h3>
         <p>{props.text}</p>
@@ -122,7 +123,7 @@ export const CertificateCard = (props) => {
       <h1>{props.title}</h1>
       <h2>{props.college}</h2>
       <h3>{props.provider}</h3>
-      {/* <p className='certificate_desc'>{props.desc}</p> */}
+      <p className="certificate_desc">{props.desc}</p>
     </div>
   );
 };

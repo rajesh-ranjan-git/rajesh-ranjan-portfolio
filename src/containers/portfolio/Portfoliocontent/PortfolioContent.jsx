@@ -12,7 +12,7 @@ export default function PortfolioContent(props) {
         by={props.title}
         image={props.image}
         id={props.id}
-        link={`#/project${props.id}`}
+        link={`/project/${props.id}`}
       />
     </div>
   );

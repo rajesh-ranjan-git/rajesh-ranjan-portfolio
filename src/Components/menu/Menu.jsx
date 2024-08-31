@@ -4,19 +4,19 @@ import {
   faHouse,
   faUserAstronaut,
   faCertificate,
-  faBlog,
-  faPalette,
   faIdCard,
   faBriefcase,
   faBookOpenReader,
-  faTrophy,
   faCubes,
 } from "@fortawesome/free-solid-svg-icons";
 import { Divide as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 export default function Menu(props) {
+  const navigate = useNavigate();
+
   function toggleMenu(e) {
     const sideNav = document.querySelector("#side_nav");
     sideNav.classList.toggle("active");
@@ -28,6 +28,10 @@ export default function Menu(props) {
     setActive(id);
   }
   const [active, setActive] = useState(null);
+
+  const handleBackToHome = () => {
+    navigate("/");
+  };
 
   return (
     <>
@@ -52,9 +56,9 @@ export default function Menu(props) {
               />
             </div>
 
-            <a href="/" className="nav_brand_logo">
+            <div onClick={handleBackToHome} className="nav_brand_logo">
               Rajesh Ranjan
-            </a>
+            </div>
           </div>
 
           <hr />
@@ -80,10 +84,10 @@ export default function Menu(props) {
             ) : (
               <>
                 <li className="nav_item">
-                  <a href="/" className="nav_link">
+                  <div onClick={handleBackToHome} className="nav_link">
                     <FontAwesomeIcon icon={faHouse} className="nav_icon" />
                     <span className="nav_name">Home</span>
-                  </a>
+                  </div>
                 </li>
               </>
             )}
@@ -107,7 +111,6 @@ export default function Menu(props) {
                     <span className="nav_name">About</span>
                   </Link>
                 </li>
-
                 <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -122,7 +125,6 @@ export default function Menu(props) {
                     <span className="nav_name">Experience</span>
                   </Link>
                 </li>
-
                 <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -140,7 +142,6 @@ export default function Menu(props) {
                     <span className="nav_name">Education</span>
                   </Link>
                 </li>
-
                 {/* <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -154,7 +155,7 @@ export default function Menu(props) {
                     <FontAwesomeIcon icon={faTrophy} className="nav_icon" />
                     <span className="nav_name">Achievements</span>
                   </Link>
-                </li>
+                </li> */}
 
                 <li className="nav_item">
                   <Link
@@ -170,7 +171,6 @@ export default function Menu(props) {
                     <span className="nav_name">Portfolio</span>
                   </Link>
                 </li>
-
                 <li className="nav_item">
                   <Link
                     activeClass="active"
@@ -190,23 +190,6 @@ export default function Menu(props) {
                 </li>
 
                 <li className="nav_item">
-                  <a
-                    href="https://persocom.herokuapp.com/"
-                    target="_blank"
-                    className="nav_link"
-                  >
-                    <FontAwesomeIcon icon={faBlog} className="nav_icon" />
-                    <span className="nav_name">Blog</span>
-                  </a>
-                </li>
-                <li className="nav_item">
-                  <a href="#/artwork" target="_blank" className="nav_link">
-                    <FontAwesomeIcon icon={faPalette} className="nav_icon" />
-                    <span className="nav_name">Art</span>
-                  </a>
-                </li> */}
-
-                <li className="nav_item">
                   <Link
                     activeClass="active"
                     className="nav_link"
@@ -224,79 +207,61 @@ export default function Menu(props) {
             ) : (
               <>
                 <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon
                       icon={faUserAstronaut}
                       className="nav_icon"
                     />
                     <span className="nav_name">About</span>
-                  </a>
+                  </div>
                 </li>
 
                 <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon icon={faBriefcase} className="nav_icon" />
                     <span className="nav_name">Experience</span>
-                  </a>
+                  </div>
                 </li>
 
                 <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon
                       icon={faBookOpenReader}
                       className="nav_icon"
                     />
                     <span className="nav_name">Education</span>
-                  </a>
+                  </div>
                 </li>
 
-                <li className="nav_item">
-                  <a className="nav_link" href="/">
+                {/* <li className="nav_item">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon icon={faTrophy} className="nav_icon" />
                     <span className="nav_name">Achievements</span>
-                  </a>
-                </li>
+                  </div>
+                </li> */}
 
                 <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon icon={faCubes} className="nav_icon" />
                     <span className="nav_name">Portfolio</span>
-                  </a>
+                  </div>
                 </li>
 
                 <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon
                       icon={faCertificate}
                       className="nav_icon"
                     />
                     <span className="nav_name">Certificates</span>
-                  </a>
+                  </div>
                 </li>
 
                 <li className="nav_item">
-                  <a
-                    href="https://persocom.herokuapp.com/"
-                    target="_blank"
-                    className="nav_link"
-                  >
-                    <FontAwesomeIcon icon={faBlog} className="nav_icon" />
-                    <span className="nav_name">Blog</span>
-                  </a>
-                </li>
-
-                <li className="nav_item">
-                  <a href="#/artwork" target="_blank" className="nav_link">
-                    <FontAwesomeIcon icon={faPalette} className="nav_icon" />
-                    <span className="nav_name">Art</span>
-                  </a>
-                </li>
-
-                <li className="nav_item">
-                  <a className="nav_link" href="/">
+                  <div className="nav_link" onClick={handleBackToHome}>
                     <FontAwesomeIcon icon={faIdCard} className="nav_icon" />
                     <span className="nav_name">Contact</span>
-                  </a>
+                  </div>
                 </li>
               </>
             )}

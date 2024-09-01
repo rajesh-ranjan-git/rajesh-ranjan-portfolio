@@ -3,12 +3,21 @@ import SocialMedia from "../SocialMedia/SocialMedia";
 import GreetingsImg from "./GreetingsImg/GreetingsImg";
 import MyParticles from "../Particles/Particles";
 import TypeText from "../TypeText/TypeText";
-import { ButtonMask1 } from "../Button/Button";
+import { ButtonMask1, ButtonMask2 } from "../Button/Button";
 import { Helmet } from "react-helmet";
 
 export default function Greetings() {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const scrollToContact = () => {
+    window.scrollTo({
+      top: document.body.offsetHeight,
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
   };
 
   return (
@@ -67,18 +76,20 @@ export default function Greetings() {
                 </div>
                 <SocialMedia />
 
-                <ButtonMask1 className="contact_me_btn">CONTACT ME</ButtonMask1>
+                <ButtonMask2
+                  className="contact_me_btn"
+                  onClick={() => scrollToContact()}
+                >
+                  CONTACT ME
+                </ButtonMask2>
 
                 <ButtonMask1
-                  onClick={
-                    () =>
-                      openInNewTab(
-                        "https://github.com/rajesh-ranjan-git/rajesh-ranjan-git/blob/main/Rajesh_Resume.pdf"
-                      )
-                    // openInNewTab("src/assets/Resume/Rajesh_Resume.pdf")
+                  onClick={() =>
+                    openInNewTab(
+                      "https://drive.google.com/file/d/1PCoanFWeWReUQ_QmWO-PsgsPzsHHWCan/view?usp=sharing"
+                    )
                   }
                   className="download_resume_btn"
-                  // download
                 >
                   SEE MY RESUME
                 </ButtonMask1>

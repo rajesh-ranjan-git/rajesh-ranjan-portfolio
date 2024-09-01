@@ -463,7 +463,7 @@ const projectsHeader = {
       title: "MakeMyTrip-Clone",
       subtitle:
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: "src/Assets/Projects/MakeMyTrip/MakeMyTrip.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -479,14 +479,7 @@ const projectsHeader = {
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",
       features: ["CSS3", "HTML5", "Landing page copy of makemytrip.com"],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
-      ],
+      slides: ["src/Assets/Projects/MakeMyTrip/MakeMyTrip.png"],
     },
     {
       id: 13,
@@ -524,7 +517,7 @@ const projectsHeader = {
       title: "Ironing",
       subtitle:
         "This is a landing page for ironing site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: "src/Assets/Projects/Ironing/Ironing_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -541,12 +534,8 @@ const projectsHeader = {
       features: ["Bootstrap", "CSS3", "HTML5", "Landing page for ironing site"],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Ironing/Ironing_1.png",
+        "src/Assets/Projects/Ironing/Ironing_2.png",
       ],
     },
     {
@@ -620,7 +609,8 @@ const projectsHeader = {
       title: "Commercial-Cleaning",
       subtitle:
         "This is a landing page for cleaning site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image:
+        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -643,12 +633,8 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png",
+        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png",
       ],
     },
     {
@@ -656,7 +642,7 @@ const projectsHeader = {
       title: "Car-Removal",
       subtitle:
         "This is a landing page for car repairing site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: "src/Assets/Projects/Car_Removal/Car_Removal_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -678,12 +664,9 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Car_Removal/Car_Removal_1.png",
+        "src/Assets/Projects/Car_Removal/Car_Removal_2.png",
+        "src/Assets/Projects/Car_Removal/Car_Removal_3.png",
       ],
     },
     {

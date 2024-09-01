@@ -404,7 +404,7 @@ const projectsHeader = {
       title: "Amazon-Clone",
       subtitle:
         "This is a landing page copy of amazon.com created using HTML and CSS.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: "src/Assets/Projects/Amazon_Clone/Amazon_Clone_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -421,12 +421,9 @@ const projectsHeader = {
       features: ["CSS3", "HTML5", "Landing page copy of amazon.com"],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_1.png",
+        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_2.png",
+        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_3.png",
       ],
     },
     {
@@ -557,7 +554,8 @@ const projectsHeader = {
       title: "Exterior-Water-Blaster",
       subtitle:
         "This is a landing page for washing company site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image:
+        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -580,12 +578,8 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_1.png",
+        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_2.png",
       ],
     },
     {
@@ -593,7 +587,7 @@ const projectsHeader = {
       title: "Flipkart-Clone",
       subtitle:
         "This is a landing page copy of flipkart.com created using HTML and CSS.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_1.png",
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -615,12 +609,10 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_1.png",
+        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_2.png",
+        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_3.png",
+        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_4.png",
       ],
     },
     {

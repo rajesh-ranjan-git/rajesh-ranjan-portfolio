@@ -45,7 +45,7 @@ export default function Certificates() {
 
       <div className="cert-width-class">
         <Fade direction="bottom" duration={2000} triggerOnce>
-          <Slider {...settings} style={{ width: 800 }}>
+          <Slider {...settings} className="cert-slider-width-class">
             {certificates.map((cert, i) => (
               <CertificateCard
                 key={i}

@@ -42,3 +42,14 @@
     }
   }
 }
+
+.cert-slider-width-class {
+  width: 800px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .cert-slider-width-class {
+    width: 500px !important;
+  }
+}

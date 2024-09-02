@@ -50,7 +50,7 @@ export default function Skills() {
               <div className="tooltip">HTML5</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\html5.svg" alt="HTML5 logo" />
+                <img src="src\Assets\tech_img\html5.svg" alt="HTML5 logo" />
               </div>
             </div>
           </li>
@@ -60,7 +60,7 @@ export default function Skills() {
               <div className="tooltip">CSS3</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\css3.svg" alt="CSS3 logo" />
+                <img src="src\Assets\tech_img\css3.svg" alt="CSS3 logo" />
               </div>
             </div>
           </li>
@@ -71,7 +71,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\javascript.svg"
+                  src="src\Assets\tech_img\javascript.svg"
                   alt="JavaScript logo"
                 />
               </div>
@@ -84,7 +84,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\typescript.svg"
+                  src="src\Assets\tech_img\typescript.svg"
                   alt="TypeScript logo"
                 />
               </div>
@@ -96,7 +96,7 @@ export default function Skills() {
               <div className="tooltip">Node-js</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\node-js.svg" alt="Node Js logo" />
+                <img src="src\Assets\tech_img\node-js.svg" alt="Node Js logo" />
               </div>
             </div>
           </li>
@@ -107,7 +107,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\bootstrap.svg"
+                  src="src\Assets\tech_img\bootstrap.svg"
                   alt="Bootstrap logo"
                 />
               </div>
@@ -119,7 +119,7 @@ export default function Skills() {
               <div className="tooltip">React JS</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\react.svg" alt="React logo" />
+                <img src="src\Assets\tech_img\react.svg" alt="React logo" />
               </div>
             </div>
           </li>
@@ -129,7 +129,7 @@ export default function Skills() {
               <div className="tooltip">Ember</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\ember.svg" alt="Ember logo" />
+                <img src="src\Assets\tech_img\ember.svg" alt="Ember logo" />
               </div>
             </div>
           </li>
@@ -139,7 +139,7 @@ export default function Skills() {
               <div className="tooltip">Sass</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\sass.svg" alt="Sass logo" />
+                <img src="src\Assets\tech_img\sass.svg" alt="Sass logo" />
               </div>
             </div>
           </li>
@@ -149,7 +149,7 @@ export default function Skills() {
               <div className="tooltip">Next JS</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\nextjs.svg" alt="NextJs logo" />
+                <img src="src\Assets\tech_img\nextjs.svg" alt="NextJs logo" />
               </div>
             </div>
           </li>
@@ -159,7 +159,7 @@ export default function Skills() {
               <div className="tooltip">Django</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\django.svg" alt="Django logo" />
+                <img src="src\Assets\tech_img\django.svg" alt="Django logo" />
               </div>
             </div>
           </li>
@@ -169,7 +169,7 @@ export default function Skills() {
               <div className="tooltip">Spring</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\spring.svg" alt="Spring logo" />
+                <img src="src\Assets\tech_img\spring.svg" alt="Spring logo" />
               </div>
             </div>
           </li>
@@ -180,7 +180,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\logo-remix.svg"
+                  src="src\Assets\tech_img\logo-remix.svg"
                   alt="Remix logo"
                 />
               </div>
@@ -192,7 +192,7 @@ export default function Skills() {
               <div className="tooltip">Android</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\android.svg" alt="Android logo" />
+                <img src="src\Assets\tech_img\android.svg" alt="Android logo" />
               </div>
             </div>
           </li>
@@ -201,7 +201,7 @@ export default function Skills() {
               <div className="tooltip">IOS</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\ios.svg" alt="IOS logo" />
+                <img src="src\Assets\tech_img\ios.svg" alt="IOS logo" />
               </div>
             </div>
           </li>
@@ -211,7 +211,7 @@ export default function Skills() {
               <div className="tooltip">Flutter</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\flutter.svg" alt="Flutter logo" />
+                <img src="src\Assets\tech_img\flutter.svg" alt="Flutter logo" />
               </div>
             </div>
           </li>
@@ -222,7 +222,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\bash.svg"
+                  src="src\Assets\tech_img\bash.svg"
                   alt="Shell scripting logo"
                 />
               </div>
@@ -233,7 +233,7 @@ export default function Skills() {
               <div className="tooltip">C</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\c (1).svg" alt="C logo" />
+                <img src="src\Assets\tech_img\c (1).svg" alt="C logo" />
               </div>
             </div>
           </li>
@@ -242,7 +242,7 @@ export default function Skills() {
               <div className="tooltip">C++</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\c++.svg" alt="C++ logo" />
+                <img src="src\Assets\tech_img\c++.svg" alt="C++ logo" />
               </div>
             </div>
           </li>
@@ -251,7 +251,7 @@ export default function Skills() {
               <div className="tooltip">C#</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\csharp.svg" alt="C# logo" />
+                <img src="src\Assets\tech_img\csharp.svg" alt="C# logo" />
               </div>
             </div>
           </li>
@@ -261,7 +261,7 @@ export default function Skills() {
               <div className="tooltip">Dart</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\dart.svg" alt="Dart logo" />
+                <img src="src\Assets\tech_img\dart.svg" alt="Dart logo" />
               </div>
             </div>
           </li>
@@ -271,7 +271,7 @@ export default function Skills() {
               <div className="tooltip">PHP</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\php.svg" alt="php logo" />
+                <img src="src\Assets\tech_img\php.svg" alt="php logo" />
               </div>
             </div>
           </li>
@@ -281,7 +281,7 @@ export default function Skills() {
               <div className="tooltip">Java</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\java.svg" alt="Java logo" />
+                <img src="src\Assets\tech_img\java.svg" alt="Java logo" />
               </div>
             </div>
           </li>
@@ -291,7 +291,7 @@ export default function Skills() {
               <div className="tooltip">Kotlin</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\kotlin.svg" alt="Kotlin logo" />
+                <img src="src\Assets\tech_img\kotlin.svg" alt="Kotlin logo" />
               </div>
             </div>
           </li>
@@ -301,7 +301,7 @@ export default function Skills() {
               <div className="tooltip">Python</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\python.svg" alt="python logo" />
+                <img src="src\Assets\tech_img\python.svg" alt="python logo" />
               </div>
             </div>
           </li>
@@ -312,7 +312,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\firebase.svg"
+                  src="src\Assets\tech_img\firebase.svg"
                   alt="Firebase logo"
                 />
               </div>
@@ -324,7 +324,7 @@ export default function Skills() {
               <div className="tooltip">Docker</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\docker.svg" alt="Docker logo" />
+                <img src="src\Assets\tech_img\docker.svg" alt="Docker logo" />
               </div>
             </div>
           </li>
@@ -335,7 +335,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\kubernets.svg"
+                  src="src\Assets\tech_img\kubernets.svg"
                   alt="kubernetes logo"
                 />
               </div>
@@ -347,7 +347,7 @@ export default function Skills() {
               <div className="tooltip">MYSQL</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\mysql.svg" alt="MYSQL logo" />
+                <img src="src\Assets\tech_img\mysql.svg" alt="MYSQL logo" />
               </div>
             </div>
           </li>
@@ -357,7 +357,7 @@ export default function Skills() {
               <div className="tooltip">MongoDB</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\mongodb.svg" alt="MongoDB logo" />
+                <img src="src\Assets\tech_img\mongodb.svg" alt="MongoDB logo" />
               </div>
             </div>
           </li>
@@ -368,7 +368,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\postgresql.svg"
+                  src="src\Assets\tech_img\postgresql.svg"
                   alt="PostgreSQL logo"
                 />
               </div>
@@ -380,7 +380,7 @@ export default function Skills() {
               <div className="tooltip">Redis</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\redis.svg" alt="Redis logo" />
+                <img src="src\Assets\tech_img\redis.svg" alt="Redis logo" />
               </div>
             </div>
           </li>
@@ -393,7 +393,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\adobe-xd.svg"
+                  src="src\Assets\tech_img\adobe-xd.svg"
                   alt="Adobe XD Effects logo"
                 />
               </div>
@@ -406,7 +406,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\adobe-photoshop.svg"
+                  src="src\Assets\tech_img\adobe-photoshop.svg"
                   alt="Photoshop logo"
                 />
               </div>
@@ -419,7 +419,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\adobe.svg"
+                  src="src\Assets\tech_img\adobe.svg"
                   alt="Illustrator logo"
                 />
               </div>
@@ -432,7 +432,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\amazonwebservices.svg"
+                  src="src\Assets\tech_img\amazonwebservices.svg"
                   alt="AWS logo"
                 />
               </div>
@@ -445,7 +445,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\google-cloud.svg"
+                  src="src\Assets\tech_img\google-cloud.svg"
                   alt="Google Cloud logo"
                 />
               </div>
@@ -457,7 +457,7 @@ export default function Skills() {
               <div className="tooltip">Npm</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\npm.svg" alt="Npm logo" />
+                <img src="src\Assets\tech_img\npm.svg" alt="Npm logo" />
               </div>
             </div>
           </li>
@@ -468,7 +468,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\android-studio.svg"
+                  src="src\Assets\tech_img\android-studio.svg"
                   alt="Android studio logo"
                 />
               </div>
@@ -481,7 +481,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\visualstudio.svg"
+                  src="src\Assets\tech_img\visualstudio.svg"
                   alt="VS Code logo"
                 />
               </div>
@@ -493,7 +493,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\visual-studio-code.svg"
+                  src="src\Assets\tech_img\visual-studio-code.svg"
                   alt="VS Code logo"
                 />
               </div>
@@ -505,7 +505,7 @@ export default function Skills() {
               <div className="tooltip">Atom</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\atom.svg" alt="Atom logo" />
+                <img src="src\Assets\tech_img\atom.svg" alt="Atom logo" />
               </div>
             </div>
           </li>
@@ -516,7 +516,7 @@ export default function Skills() {
 
               <div className="card-icon">
                 <img
-                  src="src\assets\tech_img\intellij.svg"
+                  src="src\Assets\tech_img\intellij.svg"
                   alt="Intellij logo"
                 />
               </div>
@@ -528,7 +528,7 @@ export default function Skills() {
               <div className="tooltip">Pycharm</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\pycharm.svg" alt="Pycharm logo" />
+                <img src="src\Assets\tech_img\pycharm.svg" alt="Pycharm logo" />
               </div>
             </div>
           </li>
@@ -538,7 +538,7 @@ export default function Skills() {
               <div className="tooltip">Unity</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\unity.svg" alt="Unity logo" />
+                <img src="src\Assets\tech_img\unity.svg" alt="Unity logo" />
               </div>
             </div>
           </li>
@@ -548,7 +548,7 @@ export default function Skills() {
               <div className="tooltip">Git</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\git.svg" alt="Git logo" />
+                <img src="src\Assets\tech_img\git.svg" alt="Git logo" />
               </div>
             </div>
           </li>
@@ -558,7 +558,7 @@ export default function Skills() {
               <div className="tooltip">Github</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\github.svg" alt="Github logo" />
+                <img src="src\Assets\tech_img\github.svg" alt="Github logo" />
               </div>
             </div>
           </li>
@@ -568,7 +568,7 @@ export default function Skills() {
               <div className="tooltip">Gitlab</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\gitlab.svg" alt="Gitlab logo" />
+                <img src="src\Assets\tech_img\gitlab.svg" alt="Gitlab logo" />
               </div>
             </div>
           </li>
@@ -578,7 +578,7 @@ export default function Skills() {
               <div className="tooltip">Packer</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\packer.svg" alt="Packer logo" />
+                <img src="src\Assets\tech_img\packer.svg" alt="Packer logo" />
               </div>
             </div>
           </li>
@@ -588,7 +588,7 @@ export default function Skills() {
               <div className="tooltip">Vagrant</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\vagrant.svg" alt="Vagrant logo" />
+                <img src="src\Assets\tech_img\vagrant.svg" alt="Vagrant logo" />
               </div>
             </div>
           </li>
@@ -598,7 +598,7 @@ export default function Skills() {
               <div className="tooltip">Slack</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\slack.svg" alt="Slack logo" />
+                <img src="src\Assets\tech_img\slack.svg" alt="Slack logo" />
               </div>
             </div>
           </li>
@@ -608,7 +608,7 @@ export default function Skills() {
               <div className="tooltip">Ubuntu</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\ubuntu.svg" alt="Ubuntu logo" />
+                <img src="src\Assets\tech_img\ubuntu.svg" alt="Ubuntu logo" />
               </div>
             </div>
           </li>
@@ -618,7 +618,7 @@ export default function Skills() {
               <div className="tooltip">Trello</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\trello.svg" alt="Trello logo" />
+                <img src="src\Assets\tech_img\trello.svg" alt="Trello logo" />
               </div>
             </div>
           </li>
@@ -628,7 +628,7 @@ export default function Skills() {
               <div className="tooltip">Postman</div>
 
               <div className="card-icon">
-                <img src="src\assets\tech_img\postman.svg" alt="Postman logo" />
+                <img src="src\Assets\tech_img\postman.svg" alt="Postman logo" />
               </div>
             </div>
           </li>

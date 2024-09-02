@@ -12,7 +12,7 @@ export default function Experience() {
             <div className="content">
               <ExpCard
                 role="Analyst |"
-                img_path="src\assets\Companies\ntt_new.jpeg"
+                img_path="src\Assets\Companies\ntt_new.jpeg"
                 period="February 2023 - Present"
                 company="NTT Data Services"
                 data={[
@@ -29,7 +29,7 @@ export default function Experience() {
             <div className="content">
               <ExpCard
                 role="Senior Associate |"
-                img_path="src\assets\Companies\ntt_new.jpeg"
+                img_path="src\Assets\Companies\ntt_new.jpeg"
                 period="January 2021 - February 2023"
                 company="NTT Data Services"
                 data={[
@@ -48,7 +48,7 @@ export default function Experience() {
             <div className="content">
               <ExpCard
                 role="Associate |"
-                img_path="src\assets\Companies\ntt_old.png"
+                img_path="src\Assets\Companies\ntt_old.png"
                 company="NTT Data Services"
                 period="October 2020 - January 2021"
                 data={[
@@ -65,7 +65,7 @@ export default function Experience() {
             <div className="content">
               <ExpCard
                 role="Assistant Exceutive |"
-                img_path="src\assets\Companies\ie.jpeg"
+                img_path="src\Assets\Companies\ie.jpeg"
                 company="iEnergizers IT Services Pvt. Ltd."
                 period="August 2018 - October 2020"
                 data={[
@@ -83,7 +83,7 @@ export default function Experience() {
             <div className="content">
               <ExpCard
                 role="Tech Intern |"
-                img_path="src\assets\Companies\dws.jpeg"
+                img_path="src\Assets\Companies\dws.jpeg"
                 company="Digital Web Solutions Pvt. Ltd."
                 period="March 2017 - May 2017"
                 data={[

@@ -12,7 +12,7 @@ const projectsHeader = {
       id: 0,
       title: "GetKart",
       subtitle: "Your own E-Commerce Site created with React & Vite.",
-      image: "src/Assets/Projects/GetKart/GetKart_Home_Page.png",
+      image: "/src/Assets/Projects/GetKart/GetKart_Home_Page.png",
       by: "Rajesh Ranjan",
       tech: [
         "HTML5",

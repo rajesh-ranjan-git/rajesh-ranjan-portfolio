@@ -1,4 +1,4 @@
-import "./styles/App.scss";
+import "./Styles/App.scss";
 import { ThemeProvider } from "styled-components";
 import Main from "./containers/main/Main";
 import { chosenTheme } from "./Components/Theme/theme";

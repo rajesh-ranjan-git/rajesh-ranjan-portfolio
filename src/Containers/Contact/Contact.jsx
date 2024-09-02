@@ -1,7 +1,7 @@
 import "./Contact.scss";
 import { Fade } from "react-awesome-reveal";
 import HomeContent from "../HomeContent/HomeContent";
-import SocialMedia from "../../components/SocialMedia/SocialMedia";
+import SocialMedia from "../../Components/SocialMedia/SocialMedia";
 import {
   faShareNodes,
   faEnvelope,

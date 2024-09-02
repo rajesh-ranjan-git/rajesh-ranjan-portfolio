@@ -1,5 +1,5 @@
 import "./GreetingsImg.scss";
-import { darkTheme as theme } from "../../Theme/theme";
+import { darkTheme as theme } from "../../Theme/Theme";
 export default function GreetingsImg() {
   return (
     <svg

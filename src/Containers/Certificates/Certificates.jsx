@@ -1,7 +1,7 @@
 import "./Certificates.scss";
 import { Fade } from "react-awesome-reveal";
 import HomeContent from "../HomeContent/HomeContent";
-import { CertificateCard } from "../../components/ExpCard/Cards";
+import { CertificateCard } from "../../Components/ExpCard/Cards";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

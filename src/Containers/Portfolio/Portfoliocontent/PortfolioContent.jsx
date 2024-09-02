@@ -1,5 +1,5 @@
 import React from "react";
-import { PortfolioCard } from "../../../components/ExpCard/Cards";
+import { PortfolioCard } from "../../../Components/ExpCard/Cards";
 
 export default function PortfolioContent(props) {
   return (

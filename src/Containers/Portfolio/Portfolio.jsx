@@ -1,6 +1,6 @@
 import "./Portfolio.scss";
 import HomeContent from "../HomeContent/HomeContent";
-import PortfolioContent from "./Portfoliocontent/PortfolioContent";
+import PortfolioContent from "./PortfolioContent/PortfolioContent";
 import { projectsHeader } from "../../Components/Portfolio/Portfolio";
 import { useState } from "react";
 import "yet-another-react-lightbox/styles.css";

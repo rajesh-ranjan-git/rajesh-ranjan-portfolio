@@ -1,8 +1,7 @@
 import "./Education.scss";
 import HomeContent from "../HomeContent/HomeContent";
 import { Fade } from "react-awesome-reveal";
-import { Helmet } from "react-helmet";
-import { EduCard } from "../../components/ExpCard/Cards";
+import { EduCard } from "../../Components/ExpCard/Cards";
 
 export default function Education() {
   return (

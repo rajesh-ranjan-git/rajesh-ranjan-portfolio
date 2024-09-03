@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { redirect, useNavigate, useParams } from "react-router-dom";
 import "./Detail.scss";
 import { projectsHeader } from "../../Components/Portfolio/Portfolio";
 import Menu from "../../Components/Menu/Menu";
 import Slider from "react-slick";
 import Splash from "../Splash/Splash";
+import Error from "../Error/Error";
 
 export default function Detail() {
   const { project } = useParams();
@@ -23,11 +24,20 @@ export default function Detail() {
     prevArrow: <></>,
   };
 
+  const navigate = useNavigate();
+  const invalidProject = () => {
+    navigate("/invalidProjectId");
+  };
+
   useEffect(() => {
     let detail = projectsHeader.projects.filter((el) => el.id == project);
-    setItem(detail[0]);
-    setTimeout(() => setSplash(false), 2500);
-    setTimeout(() => setSplash(false), 2500);
+    if (detail.length > 0) {
+      setItem(detail[0]);
+      setTimeout(() => setSplash(false), 2500);
+      setTimeout(() => setSplash(false), 2500);
+    } else {
+      invalidProject();
+    }
   }, [project]);
 
   return splash ? (

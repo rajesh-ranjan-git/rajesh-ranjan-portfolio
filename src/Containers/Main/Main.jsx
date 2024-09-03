@@ -10,6 +10,7 @@ export default function Main(props) {
       <HashRouter>
         <Routes>
           <Route path="/project/:project" exact element={<Detail />} />
+          <Route path="/invalidProjectId" exact element={<Error />} />
           <Route path="/" exact element={<Home props />} />
           <Route path="*" element={<Error />} />
         </Routes>

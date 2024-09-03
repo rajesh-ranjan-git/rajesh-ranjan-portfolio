@@ -277,7 +277,7 @@ export default function Menu(props) {
             <div className="nav_user_info">
               <div className="nav_user_info_name">Rajesh Ranjan</div>
               <div className="nav_user_info_email">
-                <a href="mailto:pranavchoudhary500@gmail.com" target="_blank">
+                <a href="mailto:rajeshranjan8271@gmail.com" target="_blank">
                   rajeshranjan8271@gmail.com
                 </a>
               </div>

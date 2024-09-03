@@ -48,6 +48,7 @@ export default function Contact() {
       </div>
     ));
   };
+
   const sendEmail = (e) => {
     e.preventDefault();
 

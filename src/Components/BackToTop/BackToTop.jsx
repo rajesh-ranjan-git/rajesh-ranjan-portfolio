@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./BackToTop.scss";
 import { ButtonMask2 } from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faHandPointUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -30,7 +30,7 @@ export default function BackToTop() {
       onClick={() => scrollToTop()}
       className={visible ? "back_to_top" : "none"}
     >
-      <FontAwesomeIcon icon={faArrowUp} className="nav_icon" />
+      <FontAwesomeIcon icon={faHandPointUp} className="nav_icon" />
     </ButtonMask2>
   );
 }

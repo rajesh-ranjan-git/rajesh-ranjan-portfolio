@@ -1,3 +1,6 @@
+import MERN_GFG_Certificate from "../../Assets/Certificates/MERN_GFG_Certificate.jpg";
+import React_GFG_Certificate from "../../Assets/Certificates/React_GFG_Certificate.jpg";
+
 /* Change this file to get your personal Porfolio */
 
 // Website related settings
@@ -751,7 +754,7 @@ export const achievements = [
 export const certificates = [
   {
     title: "MERN Full Stack Web Development",
-    src: "src/Assets/Certificates/MERN_GFG_Certificate.jpg",
+    src: MERN_GFG_Certificate,
     description:
       "Successfully completed a 155-hour course on MERN Full Stack Web Development.",
     college: null,
@@ -759,7 +762,7 @@ export const certificates = [
   },
   {
     title: "React JS Course Onine",
-    src: "src/Assets/Certificates/React_GFG_Certificate.jpg",
+    src: React_GFG_Certificate,
     description:
       "Successfully completed a 8-week course on React JS Course Online - React JS Certification Course.",
     college: null,

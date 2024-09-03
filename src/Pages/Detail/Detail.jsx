@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { redirect, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Detail.scss";
 import { projectsHeader } from "../../Components/Portfolio/Portfolio";
 import Menu from "../../Components/Menu/Menu";
 import Slider from "react-slick";
 import Splash from "../Splash/Splash";
-import Error from "../Error/Error";
 
 export default function Detail() {
   const { project } = useParams();

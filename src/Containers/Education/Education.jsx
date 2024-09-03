@@ -10,14 +10,14 @@ export default function Education() {
       <Fade direction="bottom" duration={2000} triggerOnce>
         <div className="education_card">
           <EduCard
-            img_path="../Assets/Education/edu4.svg"
+            img_path="src\Assets\Education\edu4.svg"
             title="B.TECH in COMPUTER SCIENCE & ENGINEERING"
             period="2014 - 2018"
             college="JP Institute of Engineering and Technology, Meerut, UP, India"
             gpa="Percentage: 72.8%"
           />
           <EduCard
-            img_path="../Assets/Education/edu3.svg"
+            img_path="src\Assets\Education\edu3.svg"
             title="SENIOR SECONDARY (XII), SCIENCE"
             period="2013 - 2014"
             college="Indian School of Learning, Dhanbad, Jharkhand, India"

@@ -28,6 +28,7 @@ export default function BlogCard(props) {
 }
 
 export const EduCard = (props) => {
+  console.log(props.img_path);
   return (
     <div className="edu_slider">
       <div className="edu_slider_wrp edu_swiper_wrapper">

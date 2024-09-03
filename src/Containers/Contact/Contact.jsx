@@ -31,8 +31,7 @@ export default function Contact() {
               <p className="toast_title">Mail sent successfully</p>
               <p className="toast_subtitle">Thank you for reaching out.</p>
               <p className="toast_message">
-                I've received your message and will reach out to you
-                immediately.
+                I've received your message and will reach out to you soon.
               </p>
             </div>
           </div>
@@ -56,10 +55,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_ox7ytu8",
-        "template_2lj0ouj",
+        "service_25xdlrp",
+        "template_lqo06pw",
         form.current,
-        "SEOj9E83kfSQZCspk"
+        "iXaAfE9lDcz5CYkbg"
       )
       .then(
         (result) => {

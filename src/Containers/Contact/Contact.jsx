@@ -25,7 +25,11 @@ export default function Contact() {
         <div className="toast_content">
           <div className="toast_content_container">
             <div className="toast_content_img">
-              <img className="toast_img" src={`me.png`} alt="" />
+              <img
+                className="toast_img"
+                src={`/favicon/title_pic_circular.png`}
+                alt="title_pic"
+              />
             </div>
             <div className="toast_text">
               <p className="toast_title">Mail sent successfully</p>

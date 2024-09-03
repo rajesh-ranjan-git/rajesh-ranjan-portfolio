@@ -167,7 +167,7 @@ const projectsHeader = {
       amazon_store: null,
       google_play_link: null,
       summary:
-        "You can browser for Movies, TV Shows along with Popular, Trending, Upcoming, Now Playing, On AIR, Similar and Recommended Movies/TV Shows. You can watch trailers for the movies as well. Improved performance and decreased API calls by implementing Debouncing technique used for Infinite scrolling.",
+        "You can browse for Movies, TV Shows along with Popular, Trending, Upcoming, Now Playing, On AIR, Similar and Recommended Movies/TV Shows. You can watch trailers for the movies as well. Improved performance and decreased API calls by implementing Debouncing technique used for Infinite scrolling.",
       features: [
         "JSX",
         "TailWind CSS",

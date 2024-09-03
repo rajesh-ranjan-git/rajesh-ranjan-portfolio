@@ -5,6 +5,7 @@ import MyParticles from "../Particles/Particles";
 import TypeText from "../TypeText/TypeText";
 import { ButtonMask1, ButtonMask2 } from "../Button/Button";
 import { Helmet } from "react-helmet";
+import obj_triangle from "../../Assets/Background/obj_triangle.png";
 
 export default function Greetings() {
   const openInNewTab = (url) => {
@@ -39,16 +40,16 @@ export default function Greetings() {
         <div className="circle circle_2"></div>
         <div className="circle circle_3"></div>
         <div className="triangle triangle_1">
-          <img src="src\Assets\Background\obj_triangle.png" alt="" />
+          <img src={obj_triangle} alt="" />
         </div>
         <div className="triangle triangle_2">
-          <img src="src\Assets\Background\obj_triangle.png" alt="" />
+          <img src={obj_triangle} alt="" />
         </div>
         <div className="triangle triangle_3">
-          <img src="src\Assets\Background\obj_triangle.png" alt="" />
+          <img src={obj_triangle} alt="" />
         </div>
         <div className="triangle triangle_4">
-          <img src="src\Assets\Background\obj_triangle.png" alt="" />
+          <img src={obj_triangle} alt="" />
         </div>
 
         <MyParticles />

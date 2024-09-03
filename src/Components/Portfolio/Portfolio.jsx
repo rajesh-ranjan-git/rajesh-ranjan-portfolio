@@ -1,3 +1,80 @@
+import Amazon_Clone_1 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_1.png";
+import Amazon_Clone_2 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_2.png";
+import Amazon_Clone_3 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_3.png";
+import Bitcoin_Journal_Landing_Page_1 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_1.png";
+import Bitcoin_Journal_Landing_Page_2 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_2.png";
+import Bitcoin_Journal_Landing_Page_3 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_3.png";
+import Bitcoin_Journal_Landing_Page_4 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_4.png";
+import Car_Removal_1 from "../../Assets/Projects/Car_Removal/Car_Removal_1.png";
+import Car_Removal_2 from "../../Assets/Projects/Car_Removal/Car_Removal_2.png";
+import Car_Removal_3 from "../../Assets/Projects/Car_Removal/Car_Removal_3.png";
+import Commercial_Cleaning_1 from "../../Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png";
+import Commercial_Cleaning_2 from "../../Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_2.png";
+import Currency_Converter from "../../Assets/Projects/Currency_Converter/Currency_Converter.png";
+import Exterior_Water_Blaster_1 from "../../Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_1.png";
+import Exterior_Water_Blaster_2 from "../../Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_2.png";
+import Flipkart_Clone_1 from "../../Assets/Projects/Flipkart_Clone/Flipkart_Clone_1.png";
+import Flipkart_Clone_2 from "../../Assets/Projects/Flipkart_Clone/Flipkart_Clone_2.png";
+import Flipkart_Clone_3 from "../../Assets/Projects/Flipkart_Clone/Flipkart_Clone_3.png";
+import Flipkart_Clone_4 from "../../Assets/Projects/Flipkart_Clone/Flipkart_Clone_4.png";
+import FQS_Painting_About_Page from "../../Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png";
+import FQS_Painting_Contact_Page from "../../Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png";
+import FQS_Painting_Gallery_Page from "../../Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png";
+import FQS_Painting_Home_Page from "../../Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png";
+import FQS_Painting_Image_View from "../../Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png";
+import FQS_Painting_Services_Page from "../../Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png";
+import GetKart_Cart_Page from "../../Assets/Projects/GetKart/GetKart_Cart_Page.png";
+import GetKart_Home_Page from "../../Assets/Projects/GetKart/GetKart_Home_Page.png";
+import GetKart_Home_Page_LightTheme from "../../Assets/Projects/GetKart/GetKart_Home_Page_LightTheme.png";
+import GetKart_Login_Page from "../../Assets/Projects/GetKart/GetKart_Login_Page.png";
+import GetKart_Profile_Page_WithUpdateDetails from "../../Assets/Projects/GetKart/GetKart_Profile_Page_WithUpdateDetails.png";
+import GetKart_ShimmerUI from "../../Assets/Projects/GetKart/GetKart_ShimmerUI.png";
+import GetKart_SingleProduct_Page from "../../Assets/Projects/GetKart/GetKart_SingleProduct_Page.png";
+import Ironing_1 from "../../Assets/Projects/Ironing/Ironing_1.png";
+import Ironing_2 from "../../Assets/Projects/Ironing/Ironing_2.png";
+import Jonestree_Landing_Page_1 from "../../Assets/Projects/Jonestree/Jonestree_Landing_Page_1.png";
+import Jonestree_Landing_Page_2 from "../../Assets/Projects/Jonestree/Jonestree_Landing_Page_2.png";
+import JPTechFest_About from "../../Assets/Projects/JPTechFest/JPTechFest_About.png";
+import JPTechFest_All_Events from "../../Assets/Projects/JPTechFest/JPTechFest_All_Events.png";
+import JPTechFest_Events from "../../Assets/Projects/JPTechFest/JPTechFest_Events.png";
+import JPTechFest_Home_Page from "../../Assets/Projects/JPTechFest/JPTechFest_Home_Page.png";
+import JPTechFest_Team from "../../Assets/Projects/JPTechFest/JPTechFest_Team.png";
+import MakeMyTrip from "../../Assets/Projects/MakeMyTrip/MakeMyTrip.png";
+import MovieMania_Home_Page from "../../Assets/Projects/MovieMania/MovieMania_Home_Page.png";
+import MovieMania_Horizontal_Cards from "../../Assets/Projects/MovieMania/MovieMania_Horizontal_Cards.png";
+import MovieMania_Movies_Page from "../../Assets/Projects/MovieMania/MovieMania_Movies_Page.png";
+import MovieMania_Search_Page from "../../Assets/Projects/MovieMania/MovieMania_Search_Page.png";
+import MovieMania_SingleMovie_Page from "../../Assets/Projects/MovieMania/MovieMania_SingleMovie_Page.png";
+import MovieMania_Trailer_Section from "../../Assets/Projects/MovieMania/MovieMania_Trailer_Section.png";
+import MovieMania_TVShows_Page from "../../Assets/Projects/MovieMania/MovieMania_TVShows_Page.png";
+import PhotoPhlix_After_Search from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-After-Search.png";
+import PhotoPhlix_Favorites_Page from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-Favorites-Page.png";
+import PhotoPhlix_Home_Page from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-Home-Page.png";
+import PhotoPhlix_LightBox from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-LightBox.png";
+import Sky_Painting_Landing_Page_1 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_1.png";
+import Sky_Painting_Landing_Page_2 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_2.png";
+import Sky_Painting_Landing_Page_3 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_3.png";
+import TaskManager_AddTasks from "../../Assets/Projects/TaskManager/TaskManager_AddTasks.png";
+import TaskManager_Filtered_Tasks from "../../Assets/Projects/TaskManager/TaskManager_Filtered_Tasks.png";
+import TaskManager_Home_Page from "../../Assets/Projects/TaskManager/TaskManager_Home_Page.png";
+import TaskManager_Tasks_After_Deleting from "../../Assets/Projects/TaskManager/TaskManager_Tasks_After_Deleting.png";
+import TaskManager_Tasks_With_Priorities from "../../Assets/Projects/TaskManager/TaskManager_Tasks_With_Priorities.png";
+import TicTacToe_Draw_Page from "../../Assets/Projects/TicTacToe/TicTacToe_Draw_Page.png";
+import TicTacToe_Game_Page from "../../Assets/Projects/TicTacToe/TicTacToe_Game_Page.png";
+import TicTacToe_Loader from "../../Assets/Projects/TicTacToe/TicTacToe_Loader.png";
+import TicTacToe_Winner_Page from "../../Assets/Projects/TicTacToe/TicTacToe_Winner_Page.png";
+import TicTacToe_React_Draw_Page from "../../Assets/Projects/TicTacToe_React/TicTacToe_React_Draw_Page.png";
+import TicTacToe_React_Game_Page from "../../Assets/Projects/TicTacToe_React/TicTacToe_React_Game_Page.png";
+import TicTacToe_React_Player_Page from "../../Assets/Projects/TicTacToe_React/TicTacToe_React_Player_Page.png";
+import TicTacToe_React_Start_Page from "../../Assets/Projects/TicTacToe_React/TicTacToe_React_Start_Page.png";
+import TicTacToe_React_Winner_Page from "../../Assets/Projects/TicTacToe_React/TicTacToe_React_Winner_Page.png";
+import To_Do_App_Adding_Description from "../../Assets/Projects/To_Do_App/To_Do_App_Adding_Description.png";
+import To_Do_App_Deleting_Item from "../../Assets/Projects/To_Do_App/To_Do_App_Deleting_Item.png";
+import To_Do_App_Editing_Title from "../../Assets/Projects/To_Do_App/To_Do_App_Editing_Title.png";
+import To_Do_App_Home_Page from "../../Assets/Projects/To_Do_App/To_Do_App_Home_Page.png";
+import To_Do_App_New_Title from "../../Assets/Projects/To_Do_App/To_Do_App_New_Title.png";
+import To_Do_App_With_Description from "../../Assets/Projects/To_Do_App/To_Do_App_With_Description.png";
+import To_Do_App_With_Items_Without_Description from "../../Assets/Projects/To_Do_App/To_Do_App_With_Items_Without_Description.png";
 import MERN_GFG_Certificate from "../../Assets/Certificates/MERN_GFG_Certificate.jpg";
 import React_GFG_Certificate from "../../Assets/Certificates/React_GFG_Certificate.jpg";
 
@@ -15,7 +92,7 @@ const projectsHeader = {
       id: 0,
       title: "GetKart",
       subtitle: "Your own E-Commerce Site created with React & Vite.",
-      image: "/src/Assets/Projects/GetKart/GetKart_Home_Page.png",
+      image: GetKart_Home_Page,
       by: "Rajesh Ranjan",
       tech: [
         "HTML5",
@@ -64,20 +141,20 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/GetKart/GetKart_Home_Page.png",
-        "src/Assets/Projects/GetKart/GetKart_Home_Page_LightTheme.png",
-        "src/Assets/Projects/GetKart/GetKart_Login_Page.png",
-        "src/Assets/Projects/GetKart/GetKart_Profile_Page_WithUpdateDetails.png",
-        "src/Assets/Projects/GetKart/GetKart_ShimmerUI.png",
-        "src/Assets/Projects/GetKart/GetKart_SignUp_Page.png",
-        "src/Assets/Projects/GetKart/GetKart_Cart_Page.png",
+        GetKart_Home_Page,
+        GetKart_Home_Page_LightTheme,
+        GetKart_Login_Page,
+        GetKart_Profile_Page_WithUpdateDetails,
+        GetKart_ShimmerUI,
+        GetKart_SingleProduct_Page,
+        GetKart_Cart_Page,
       ],
     },
     {
       id: 1,
       title: "MovieMania",
       subtitle: "Your own Movie-Hub Application created using React & Vite.",
-      image: "src/Assets/Projects/MovieMania/MovieMania_Home_Page.png",
+      image: MovieMania_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "React JS", "Vite"],
 
@@ -108,13 +185,13 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/MovieMania/MovieMania_Home_Page.png",
-        "src/Assets/Projects/MovieMania/MovieMania_Horizontal_Cards.png",
-        "src/Assets/Projects/MovieMania/MovieMania_Movies_Page.png",
-        "src/Assets/Projects/MovieMania/MovieMania_Search_Page.png",
-        "src/Assets/Projects/MovieMania/MovieMania_SingleMovie_Page.png",
-        "src/Assets/Projects/MovieMania/MovieMania_Trailer_Section.png",
-        "src/Assets/Projects/MovieMania/MovieMania_TVShows_Page.png",
+        MovieMania_Home_Page,
+        MovieMania_Horizontal_Cards,
+        MovieMania_Movies_Page,
+        MovieMania_Search_Page,
+        MovieMania_SingleMovie_Page,
+        MovieMania_Trailer_Section,
+        MovieMania_TVShows_Page,
       ],
     },
     {
@@ -122,7 +199,7 @@ const projectsHeader = {
       title: "PhotoPhlix",
       subtitle:
         "Your own Image Gallery Application created using React & Vite.",
-      image: "src/Assets/Projects/PhotoPhlix/PhotoPhlix-Home-Page.png",
+      image: PhotoPhlix_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "React JS", "Vite"],
 
@@ -154,10 +231,10 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/PhotoPhlix/PhotoPhlix-Home-Page.png",
-        "src/Assets/Projects/PhotoPhlix/PhotoPhlix-Favorites-Page.png",
-        "src/Assets/Projects/PhotoPhlix/PhotoPhlix-LightBox.png",
-        "src/Assets/Projects/PhotoPhlix/PhotoPhlix-After-Search.png",
+        PhotoPhlix_Home_Page,
+        PhotoPhlix_Favorites_Page,
+        PhotoPhlix_LightBox,
+        PhotoPhlix_After_Search,
       ],
     },
     {
@@ -165,7 +242,7 @@ const projectsHeader = {
       title: "Sky-Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_1.png",
+      image: Sky_Painting_Landing_Page_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -187,9 +264,9 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_1.png",
-        "src/Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_2.png",
-        "src/Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_3.png",
+        Sky_Painting_Landing_Page_1,
+        Sky_Painting_Landing_Page_2,
+        Sky_Painting_Landing_Page_3,
       ],
     },
     {
@@ -197,7 +274,7 @@ const projectsHeader = {
       title: "FQS Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
+      image: FQS_Painting_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -219,20 +296,19 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Home_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_About_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Gallery_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Services_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Contact_Page.png",
-        "src/Assets/Projects/FQS_Painting/FQS_Painting_Image_View.png",
+        FQS_Painting_Home_Page,
+        FQS_Painting_About_Page,
+        FQS_Painting_Gallery_Page,
+        FQS_Painting_Services_Page,
+        FQS_Painting_Contact_Page,
+        FQS_Painting_Image_View,
       ],
     },
     {
       id: 5,
       title: "Tic Tac Toe - React",
       subtitle: "Your own Tic Tac Toe game created using React & Vite.",
-      image:
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Start_Page.png",
+      image: TicTacToe_React_Start_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "React JS", "Vite"],
 
@@ -261,18 +337,18 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Start_Page.png",
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Player_Page.png",
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Game_Page.png",
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Winner_Page.png",
-        "src/Assets/Projects/TicTacToe_React/TicTacToe_React_Draw_Page.png",
+        TicTacToe_React_Start_Page,
+        TicTacToe_React_Player_Page,
+        TicTacToe_React_Game_Page,
+        TicTacToe_React_Winner_Page,
+        TicTacToe_React_Draw_Page,
       ],
     },
     {
       id: 6,
       title: "Task Manager",
       subtitle: "Your own Task Manager App created using Vanilla JS.",
-      image: "src/Assets/Projects/TaskManager/TaskManager_Home_Page.png",
+      image: TaskManager_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -295,18 +371,18 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/TaskManager/TaskManager_Home_Page.png",
-        "src/Assets/Projects/TaskManager/TaskManager_AddTasks.png",
-        "src/Assets/Projects/TaskManager/TaskManager_Tasks_With_Priorities.png",
-        "src/Assets/Projects/TaskManager/TaskManager_Filtered_Tasks.png",
-        "src/Assets/Projects/TaskManager/TaskManager_Tasks_After_Deleting.png",
+        TaskManager_Home_Page,
+        TaskManager_AddTasks,
+        TaskManager_Tasks_With_Priorities,
+        TaskManager_Filtered_Tasks,
+        TaskManager_Tasks_After_Deleting,
       ],
     },
     {
       id: 7,
       title: "To Do App",
       subtitle: "Your own To Do App created using Vanilla JS.",
-      image: "src/Assets/Projects/To_Do_App/To_Do_App_Home_Page.png",
+      image: To_Do_App_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -329,13 +405,13 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/To_Do_App/To_Do_App_Home_Page.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_With_Items_Without_Description.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_Adding_Description.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_With_Description.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_Editing_Title.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_New_Title.png",
-        "src/Assets/Projects/To_Do_App/To_Do_App_Deleting_Item.png",
+        To_Do_App_Home_Page,
+        To_Do_App_With_Items_Without_Description,
+        To_Do_App_Adding_Description,
+        To_Do_App_With_Description,
+        To_Do_App_Editing_Title,
+        To_Do_App_New_Title,
+        To_Do_App_Deleting_Item,
       ],
     },
     {
@@ -343,8 +419,7 @@ const projectsHeader = {
       title: "Exterior-Water-Blaster",
       subtitle:
         "This is a landing page for washing company site created using HTML, CSS and Bootstrap.",
-      image:
-        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_1.png",
+      image: Exterior_Water_Blaster_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -366,17 +441,14 @@ const projectsHeader = {
         "Landing page for washing company site",
       ],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_1.png",
-        "src/Assets/Projects/Exterior_Water_Blaster/Exterior_Water_Blaster_2.png",
-      ],
+      slides: [Exterior_Water_Blaster_1, Exterior_Water_Blaster_2],
     },
     {
       id: 9,
       title: "Car-Removal",
       subtitle:
         "This is a landing page for car repairing site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/Car_Removal/Car_Removal_1.png",
+      image: Car_Removal_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -397,17 +469,13 @@ const projectsHeader = {
         "Landing page for car repairing site",
       ],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Car_Removal/Car_Removal_1.png",
-        "src/Assets/Projects/Car_Removal/Car_Removal_2.png",
-        "src/Assets/Projects/Car_Removal/Car_Removal_3.png",
-      ],
+      slides: [Car_Removal_1, Car_Removal_2, Car_Removal_3],
     },
     {
       id: 10,
       title: "Tic Tac Toe",
       subtitle: "Your own Tic Tac Toe game created using Vanilla JS.",
-      image: "src/Assets/Projects/TicTacToe/TicTacToe_Game_Page.png",
+      image: TicTacToe_Game_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -430,10 +498,10 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/TicTacToe/TicTacToe_Game_Page.png",
-        "src/Assets/Projects/TicTacToe/TicTacToe_Winner_Page.png",
-        "src/Assets/Projects/TicTacToe/TicTacToe_Draw_Page.png",
-        "src/Assets/Projects/TicTacToe/TicTacToe_Loader.png",
+        TicTacToe_Game_Page,
+        TicTacToe_Winner_Page,
+        TicTacToe_Draw_Page,
+        TicTacToe_Loader,
       ],
     },
     {
@@ -441,7 +509,7 @@ const projectsHeader = {
       title: "JP Tech Fest",
       subtitle:
         "JPIET Tech Fest Landing Page for JPIET created using HTML, CSS, Bootstrap.",
-      image: "src/Assets/Projects/JPTechFest/JPTechFest_Home_Page.png",
+      image: JPTechFest_Home_Page,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -463,18 +531,18 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/JPTechFest/JPTechFest_Home_Page.png",
-        "src/Assets/Projects/JPTechFest/JPTechFest_Events.png",
-        "src/Assets/Projects/JPTechFest/JPTechFest_About.png",
-        "src/Assets/Projects/JPTechFest/JPTechFest_Team.png",
-        "src/Assets/Projects/JPTechFest/JPTechFest_All_Events.png",
+        JPTechFest_Home_Page,
+        JPTechFest_Events,
+        JPTechFest_About,
+        JPTechFest_Team,
+        JPTechFest_All_Events,
       ],
     },
     {
       id: 12,
       title: "Currency Converter",
       subtitle: "Your own Currency Converter App created using Vanilla JS.",
-      image: "src/Assets/Projects/Currency_Converter/Currency_Converter.png",
+      image: Currency_Converter,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -496,17 +564,14 @@ const projectsHeader = {
         "Get exchange rates between almost every country in the world",
       ],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Currency_Converter/Currency_Converter.png",
-        "src/Assets/Projects/Currency_Converter/Currency_Converter.png",
-      ],
+      slides: [Currency_Converter, Currency_Converter],
     },
     {
       id: 13,
       title: "Amazon-Clone",
       subtitle:
         "This is a landing page copy of amazon.com created using HTML and CSS.",
-      image: "src/Assets/Projects/Amazon_Clone/Amazon_Clone_1.png",
+      image: Amazon_Clone_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript"],
 
@@ -522,18 +587,14 @@ const projectsHeader = {
         "This is a landing page copy of amazon.com created using HTML and CSS.",
       features: ["CSS3", "HTML5", "Landing page copy of amazon.com"],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_1.png",
-        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_2.png",
-        "src/Assets/Projects/Amazon_Clone/Amazon_Clone_3.png",
-      ],
+      slides: [Amazon_Clone_1, Amazon_Clone_2, Amazon_Clone_3],
     },
     {
       id: 14,
       title: "Flipkart-Clone",
       subtitle:
         "This is a landing page copy of flipkart.com created using HTML and CSS.",
-      image: "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_1.png",
+      image: Flipkart_Clone_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -555,10 +616,10 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_1.png",
-        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_2.png",
-        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_3.png",
-        "src/Assets/Projects/Flipkart_Clone/Flipkart_Clone_4.png",
+        Flipkart_Clone_1,
+        Flipkart_Clone_2,
+        Flipkart_Clone_3,
+        Flipkart_Clone_4,
       ],
     },
     {
@@ -566,7 +627,7 @@ const projectsHeader = {
       title: "Jonestree",
       subtitle:
         "This is a landing page for forestry work site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/Jonestree/Jonestree_Landing_Page_1.png",
+      image: Jonestree_Landing_Page_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -587,18 +648,14 @@ const projectsHeader = {
         "Landing page for forestry work site",
       ],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Jonestree/Jonestree_Landing_Page_1.png",
-        "src/Assets/Projects/Jonestree/Jonestree_Landing_Page_2.png",
-      ],
+      slides: [Jonestree_Landing_Page_1, Jonestree_Landing_Page_2],
     },
     {
       id: 16,
       title: "Commercial-Cleaning",
       subtitle:
         "This is a landing page for cleaning site created using HTML, CSS and Bootstrap.",
-      image:
-        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png",
+      image: Commercial_Cleaning_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -620,18 +677,14 @@ const projectsHeader = {
         "Landing page for cleaning site",
       ],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_1.png",
-        "src/Assets/Projects/Commercial_Cleaning/Commercial_Cleaning_2.png",
-      ],
+      slides: [Commercial_Cleaning_1, Commercial_Cleaning_2],
     },
     {
       id: 17,
       title: "Bitcoin-Journal",
       subtitle:
         "This is a landing page for Bitcoin-Journal Blog Page created using HTML, CSS and Bootstrap.",
-      image:
-        "src/Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_1.png",
+      image: Bitcoin_Journal_Landing_Page_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -653,10 +706,10 @@ const projectsHeader = {
       ],
       attribution: null,
       slides: [
-        "src/Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_1.png",
-        "src/Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_2.png",
-        "src/Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_3.png",
-        "src/Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_4.png",
+        Bitcoin_Journal_Landing_Page_1,
+        Bitcoin_Journal_Landing_Page_2,
+        Bitcoin_Journal_Landing_Page_3,
+        Bitcoin_Journal_Landing_Page_4,
       ],
     },
     {
@@ -664,7 +717,7 @@ const projectsHeader = {
       title: "Ironing",
       subtitle:
         "This is a landing page for ironing site created using HTML, CSS and Bootstrap.",
-      image: "src/Assets/Projects/Ironing/Ironing_1.png",
+      image: Ironing_1,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -680,17 +733,14 @@ const projectsHeader = {
         "This is a landing page for ironing site created using HTML, CSS and Bootstrap.",
       features: ["Bootstrap", "CSS3", "HTML5", "Landing page for ironing site"],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/Ironing/Ironing_1.png",
-        "src/Assets/Projects/Ironing/Ironing_2.png",
-      ],
+      slides: [Ironing_1, Ironing_2],
     },
     {
       id: 19,
       title: "MakeMyTrip-Clone",
       subtitle:
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",
-      image: "src/Assets/Projects/MakeMyTrip/MakeMyTrip.png",
+      image: MakeMyTrip,
       by: "Rajesh Ranjan",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 
@@ -706,10 +756,7 @@ const projectsHeader = {
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",
       features: ["CSS3", "HTML5", "Landing page copy of makemytrip.com"],
       attribution: null,
-      slides: [
-        "src/Assets/Projects/MakeMyTrip/MakeMyTrip.png",
-        "src/Assets/Projects/MakeMyTrip/MakeMyTrip.png",
-      ],
+      slides: [MakeMyTrip, MakeMyTrip],
     },
   ],
 };

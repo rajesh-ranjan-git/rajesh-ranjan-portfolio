@@ -4,6 +4,11 @@ import Menu from "../../Components/Menu/Menu";
 import Splash from "../Splash/Splash";
 import "./Error.scss";
 import { Link } from "react-router-dom";
+import image404 from "../../Assets/Background/404.svg";
+import rocket from "../../Assets/Background/rocket.svg";
+import earth from "../../Assets/Background/earth.svg";
+import moon from "../../Assets/Background/moon.svg";
+import astronaut from "../../Assets/Background/astronaut.svg";
 
 export default function Error() {
   const [splash, setSplash] = useState(true);
@@ -23,7 +28,7 @@ export default function Error() {
             <div className="central-body">
               <img
                 className="image-404"
-                src="src\Assets\Background\404.svg"
+                src={image404}
                 width="300px"
                 alt="404"
               />
@@ -39,20 +44,20 @@ export default function Error() {
             <div className="objects">
               <img
                 className="object_rocket"
-                src="src\Assets\Background\rocket.svg"
+                src={rocket}
                 width="40px"
                 alt="rocket"
               />
               <div className="earth-moon">
                 <img
                   className="object_earth"
-                  src="src\Assets\Background\earth.svg"
+                  src={earth}
                   width="100px"
                   alt="earth"
                 />
                 <img
                   className="object_moon"
-                  src="src\Assets\Background\moon.svg"
+                  src={moon}
                   width="80px"
                   alt="moon"
                 />
@@ -60,7 +65,7 @@ export default function Error() {
               <div className="box_astronaut">
                 <img
                   className="object_astronaut"
-                  src="src\Assets\Background\astronaut.svg"
+                  src={astronaut}
                   width="140px"
                   alt="astronaut"
                 />

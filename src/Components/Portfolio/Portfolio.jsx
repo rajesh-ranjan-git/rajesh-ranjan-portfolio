@@ -1,6 +1,13 @@
 import Amazon_Clone_1 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_1.png";
 import Amazon_Clone_2 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_2.png";
 import Amazon_Clone_3 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_3.png";
+import BancardifyMe_Home from "../../Assets/Projects/BancardifyMe/BancardifyMe_Home.png";
+import BancardifyMe_Banks from "../../Assets/Projects/BancardifyMe/BancardifyMe_Banks.png";
+import BancardifyMe_Transactions from "../../Assets/Projects/BancardifyMe/BancardifyMe_Transactions.png";
+import BancardifyMe_Transfer from "../../Assets/Projects/BancardifyMe/BancardifyMe_Transfer.png";
+import BancardifyMe_SignIn from "../../Assets/Projects/BancardifyMe/BancardifyMe_SignIn.png";
+import BancardifyMe_SignUp from "../../Assets/Projects/BancardifyMe/BancardifyMe_SignUp.png";
+import BancardifyMe_SignUp2 from "../../Assets/Projects/BancardifyMe/BancardifyMe_SignUp2.png";
 import Bitcoin_Journal_Landing_Page_1 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_1.png";
 import Bitcoin_Journal_Landing_Page_2 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_2.png";
 import Bitcoin_Journal_Landing_Page_3 from "../../Assets/Projects/Bitcoin_Journal/Bitcoin_Journal_Landing_Page_3.png";
@@ -90,6 +97,61 @@ const projectsHeader = {
   projects: [
     {
       id: 0,
+      title: "BancardifyMe",
+      subtitle:
+        "Your own Bankers Dashboard created with NextJS and TypeScript.",
+      image: BancardifyMe_Home,
+      by: "Rajesh Ranjan",
+      tech: [
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "TypeScript",
+        "Node.js",
+        "Next JS",
+        "Shadcn UI",
+        "Appwrite",
+        "Plaid",
+        "Dwolla",
+      ],
+
+      category: "React JS",
+      filter: "filter-react",
+      date: "12th September, 2024",
+      github_link: "https://github.com/rajesh-ranjan-git/bancardifyme.git",
+      website_link: "https://bancardifyme.netlify.app",
+      app_link: null,
+      amazon_store: null,
+      google_play_link: null,
+      summary:
+        "This is end to end Banking Application with real banks and real transactions.",
+      features: [
+        "JSX",
+        "TailWind CSS",
+        "Hooks (useState, useEffect, useContext, useNavigate, useParam)",
+        "Dynamic Routing using Next Router",
+        "Link tags",
+        "Custom Hooks",
+        "Higher Order Components",
+        "Authentication and authorization implemented along with cookies to store tokens generated from JSONWebTokens (JWT)",
+        "Implementation of validations using Zod",
+        "Appwrite used for database controller",
+        "Axios for API calls",
+        "Usage of Shadcn UI, Google Fonts, Sandbox, Plaid, Dwolla",
+      ],
+      attribution: null,
+      slides: [
+        BancardifyMe_Home,
+        BancardifyMe_Banks,
+        BancardifyMe_Transactions,
+        BancardifyMe_Transfer,
+        BancardifyMe_SignIn,
+        BancardifyMe_SignUp,
+        BancardifyMe_SignUp2,
+      ],
+    },
+    {
+      id: 1,
       title: "GetKart",
       subtitle: "Your own E-Commerce Site created with React & Vite.",
       image: GetKart_Home_Page,
@@ -151,7 +213,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 1,
+      id: 2,
       title: "MovieMania",
       subtitle: "Your own Movie-Hub Application created using React & Vite.",
       image: MovieMania_Home_Page,
@@ -195,7 +257,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 2,
+      id: 3,
       title: "PhotoPhlix",
       subtitle:
         "Your own Image Gallery Application created using React & Vite.",
@@ -238,7 +300,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: "Sky-Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
@@ -270,7 +332,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: "FQS Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
@@ -305,7 +367,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: "Tic Tac Toe - React",
       subtitle: "Your own Tic Tac Toe game created using React & Vite.",
       image: TicTacToe_React_Start_Page,
@@ -345,7 +407,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: "Task Manager",
       subtitle: "Your own Task Manager App created using Vanilla JS.",
       image: TaskManager_Home_Page,
@@ -379,7 +441,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: "To Do App",
       subtitle: "Your own To Do App created using Vanilla JS.",
       image: To_Do_App_Home_Page,
@@ -415,7 +477,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 8,
+      id: 9,
       title: "Exterior-Water-Blaster",
       subtitle:
         "This is a landing page for washing company site created using HTML, CSS and Bootstrap.",
@@ -444,7 +506,7 @@ const projectsHeader = {
       slides: [Exterior_Water_Blaster_1, Exterior_Water_Blaster_2],
     },
     {
-      id: 9,
+      id: 10,
       title: "Car-Removal",
       subtitle:
         "This is a landing page for car repairing site created using HTML, CSS and Bootstrap.",
@@ -472,7 +534,7 @@ const projectsHeader = {
       slides: [Car_Removal_1, Car_Removal_2, Car_Removal_3],
     },
     {
-      id: 10,
+      id: 11,
       title: "Tic Tac Toe",
       subtitle: "Your own Tic Tac Toe game created using Vanilla JS.",
       image: TicTacToe_Game_Page,
@@ -505,7 +567,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 11,
+      id: 12,
       title: "JP Tech Fest",
       subtitle:
         "JPIET Tech Fest Landing Page for JPIET created using HTML, CSS, Bootstrap.",
@@ -539,7 +601,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 12,
+      id: 13,
       title: "Currency Converter",
       subtitle: "Your own Currency Converter App created using Vanilla JS.",
       image: Currency_Converter,
@@ -567,7 +629,7 @@ const projectsHeader = {
       slides: [Currency_Converter, Currency_Converter],
     },
     {
-      id: 13,
+      id: 14,
       title: "Amazon-Clone",
       subtitle:
         "This is a landing page copy of amazon.com created using HTML and CSS.",
@@ -590,7 +652,7 @@ const projectsHeader = {
       slides: [Amazon_Clone_1, Amazon_Clone_2, Amazon_Clone_3],
     },
     {
-      id: 14,
+      id: 15,
       title: "Flipkart-Clone",
       subtitle:
         "This is a landing page copy of flipkart.com created using HTML and CSS.",
@@ -623,7 +685,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 15,
+      id: 16,
       title: "Jonestree",
       subtitle:
         "This is a landing page for forestry work site created using HTML, CSS and Bootstrap.",
@@ -651,7 +713,7 @@ const projectsHeader = {
       slides: [Jonestree_Landing_Page_1, Jonestree_Landing_Page_2],
     },
     {
-      id: 16,
+      id: 17,
       title: "Commercial-Cleaning",
       subtitle:
         "This is a landing page for cleaning site created using HTML, CSS and Bootstrap.",
@@ -680,7 +742,7 @@ const projectsHeader = {
       slides: [Commercial_Cleaning_1, Commercial_Cleaning_2],
     },
     {
-      id: 17,
+      id: 18,
       title: "Bitcoin-Journal",
       subtitle:
         "This is a landing page for Bitcoin-Journal Blog Page created using HTML, CSS and Bootstrap.",
@@ -713,7 +775,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 18,
+      id: 19,
       title: "Ironing",
       subtitle:
         "This is a landing page for ironing site created using HTML, CSS and Bootstrap.",
@@ -736,7 +798,7 @@ const projectsHeader = {
       slides: [Ironing_1, Ironing_2],
     },
     {
-      id: 19,
+      id: 20,
       title: "MakeMyTrip-Clone",
       subtitle:
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",

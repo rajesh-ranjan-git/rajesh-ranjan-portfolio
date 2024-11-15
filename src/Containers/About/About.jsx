@@ -21,26 +21,16 @@ export default function About() {
             </div>
 
             <p>
-              An enthusiastic Full Stack Web Developer adept at leveraging a
-              diverse skill set. Certified with MERN Full Stack Development and
-              React JS Development by GeeksForGeeks. Proficient in ReactJS,
-              JavaScript, Node.js, MongoDB, ExpressJS, Python, and Java with an
-              inclination towards delivering dynamic and user-friendly web
-              applications. Passionate about staying updated with the latest
-              technologies and trends in the industry, eager to transition into
-              a dynamic startup environment where innovation thrives. Ready to
-              bring my expertise in web development to contribute to the success
-              and growth of forward-thinking companies. Let's connect and
-              explore opportunities together!
+              Driven and detail-oriented Web Developer with expertise in the
+              MERN stack (MongoDB, Express.js, React, Node.js) seeking a
+              challenging role to leverage my skills in building scalable,
+              responsive, and high-performance applications. Passionate about
+              developing efficient back-end solutions and intuitive front-end
+              designs, I am eager to contribute to a dynamic team focused on
+              delivering innovative digital experiences.
               <br />
-              <br />I enjoy creating things that live on the internet, whether
-              that be websites, applications, games, or anything in between. I
-              enjoy the process of turning ideas into reality using creative
-              solutions. I’m always curious about learning new skills, tools,
-              and concepts. My goal is to always build products that provide
-              pixel-perfect, performance-optimized experiences. I'm learning new
-              technologies day by day, and make projects on them to showcase my
-              abilities.
+              <br />
+              Let's connect and explore opportunities together!
             </p>
           </div>
         </Fade>

@@ -29,8 +29,14 @@ export default function About() {
               designs, I am eager to contribute to a dynamic team focused on
               delivering innovative digital experiences.
               <br />
-              <br />
-              Let's connect and explore opportunities together!
+              <br />I enjoy creating things that live on the internet, whether
+              that be websites, applications, games, or anything in between. I
+              enjoy the process of turning ideas into reality using creative
+              solutions. I’m always curious about learning new skills, tools,
+              and concepts. My goal is to always build products that provide
+              pixel-perfect, performance-optimized experiences. I'm learning new
+              technologies day by day, and make projects on them to showcase my
+              abilities. Let's connect and explore opportunities together!
             </p>
           </div>
         </Fade>

@@ -70,3 +70,12 @@ cd MyPortfolio
 npm install
 npm run dev # Open the portfolio in your browser
 ```
+
+## Contact
+
+- **Contact Number**: 9999340771
+- **Gmail**: [rajeshranjan8271@gmail.com](rajeshranjan8271@gmail.com)
+- **LinkedIn**: [https://www.linkedin.com/in/rajesh-ranjan-660b1b13a](https://www.linkedin.com/in/rajesh-ranjan-660b1b13a)
+- **Facebook**: [https://www.facebook.com/rajeshranjan8271/](https://www.facebook.com/rajeshranjan8271/)
+- **Twitter**: [https://x.com/\_rajesh\_\_\_\_](https://x.com/_rajesh____)
+- **Instagram**: [https://www.instagram.com/\_rajesh\_\_\_\_/](https://www.instagram.com/_rajesh____/)

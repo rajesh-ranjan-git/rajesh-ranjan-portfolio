@@ -5,6 +5,7 @@ import {
   faInstagram,
   faFacebook,
   faGoogle,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SocialMediaIcons.scss";
@@ -53,6 +54,14 @@ export default function SocialMediaIcons() {
         rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faFacebook} />
+      </a>
+      <a
+        href="https://x.com/_rajesh____"
+        className={`icon_button twitter`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faXTwitter} />
       </a>
       <a
         href="https://www.instagram.com/_rajesh____/"

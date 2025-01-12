@@ -65,8 +65,8 @@ You can view my live portfolio by visiting the following link:
 Or, you can clone this repository to view it locally:
 
 ```bash
-git clone https://github.com/rajesh-ranjan-git/MyPortfolio.git
-cd MyPortfolio
+git clone https://github.com/rajesh-ranjan-git/rajesh-ranjan-portfolio.git
+cd rajesh-ranjan-portfolio
 npm install
 npm run dev # Open the portfolio in your browser
 ```

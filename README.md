@@ -44,7 +44,7 @@ Below are some of the highlighted projects I've worked on. You can explore each 
 - **GitHub Repo**: [https://github.com/rajesh-ranjan-git/GetKart.git](https://github.com/rajesh-ranjan-git/GetKart.git)
 - **Live Demo**: [https://get-kart.netlify.app](https://get-kart.netlify.app)
 
-### 2. MovieMania
+### 3. MovieMania
 
 - **Description**: GMovieMania is a dynamic movie and TV show browsing platform built with React and Vite. It allows users to explore movies, TV shows, and their categories like Popular, Trending, Upcoming, Now Playing, On AIR, and Recommended. Features include trailer previews, infinite scrolling, and an optimized search experience using debouncing to reduce API calls and improve performance.
 - **Tech Stack**: HTML5, "CSS3, Tailwind CSS, JavaScript, React JS, Vite

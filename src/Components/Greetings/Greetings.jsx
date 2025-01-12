@@ -16,7 +16,7 @@ export default function Greetings() {
     window.scrollTo({
       top: document.body.offsetHeight,
       behavior: "smooth",
-      /* you can also use 'auto' behaviour
+      /* you can also use 'auto' behavior
          in place of 'smooth' */
     });
   };
@@ -31,7 +31,7 @@ export default function Greetings() {
         />
       </Helmet>
 
-      <div className="jumbotron d-flex align-items-center" id="greetings">
+      <div className="d-flex align-items-center jumbotron" id="greetings">
         <div className="rectangle rectangle_1"></div>
         <div className="rectangle rectangle_2"></div>
         <div className="rectangle_transparent rectangle_transparent_1"></div>
@@ -87,7 +87,7 @@ export default function Greetings() {
                 <ButtonMask1
                   onClick={() =>
                     openInNewTab(
-                      "https://drive.google.com/file/d/1LsgZszXm3WHWVnlrTxY_EDPyh3vtKAp0/view?usp=drive_link"
+                      "https://drive.google.com/file/d/1CyTrByjuOKUuNyHRzd48Ko8bFi7Vu9PV/view?usp=drive_link"
                     )
                   }
                   className="download_resume_btn"

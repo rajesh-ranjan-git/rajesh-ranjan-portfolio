@@ -31,7 +31,7 @@ export const EduCard = (props) => {
   return (
     <div className="edu_slider">
       <div className="edu_slider_wrp edu_swiper_wrapper">
-        <div className="edu_slider_item edu_slide">
+        <div className="edu_slide edu_slider_item">
           <div className="edu_slider_img">
             <img src={props.img_path} alt="" />
           </div>
@@ -70,9 +70,16 @@ export const ExpCard = (props) => {
           <div className="card_body" id="card_body">
             <div className="card_quote">
               <ul>
-                {data.map((n, key) => (
-                  <li key={key}>{n}</li>
-                ))}
+                {data.map((n, key) => {
+                  const data_item = n.split(":");
+                  return data_item.length > 1 ? (
+                    <li key={key}>
+                      <b>{data_item[0]} : </b> {data_item[1]}
+                    </li>
+                  ) : (
+                    <li key={key}>{data_item[0]}</li>
+                  );
+                })}
               </ul>
             </div>
           </div>

@@ -58,6 +58,33 @@ import PhotoPhlix_After_Search from "../../Assets/Projects/PhotoPhlix/PhotoPhlix
 import PhotoPhlix_Favorites_Page from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-Favorites-Page.png";
 import PhotoPhlix_Home_Page from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-Home-Page.png";
 import PhotoPhlix_LightBox from "../../Assets/Projects/PhotoPhlix/PhotoPhlix-LightBox.png";
+import Shopprixity_ShopHome from "../../Assets/Projects/Shopprixity/Shopprixity_ShopHome.png";
+import Shopprixity_ShopHome1 from "../../Assets/Projects/Shopprixity/Shopprixity_ShopHome1.png";
+import Shopprixity_SignIn from "../../Assets/Projects/Shopprixity/Shopprixity_SignIn.png";
+import Shopprixity_Register from "../../Assets/Projects/Shopprixity/Shopprixity_Register.png";
+import Shopprixity_AllProducts from "../../Assets/Projects/Shopprixity/Shopprixity_AllProducts.png";
+import Shopprixity_FilterProducts from "../../Assets/Projects/Shopprixity/Shopprixity_FilterProducts.png";
+import Shopprixity_FilterProducts1 from "../../Assets/Projects/Shopprixity/Shopprixity_FilterProducts1.png";
+import Shopprixity_Search from "../../Assets/Projects/Shopprixity/Shopprixity_Search.png";
+import Shopprixity_SearchResults from "../../Assets/Projects/Shopprixity/Shopprixity_SearchResults.png";
+import Shopprixity_ProfileDropdown from "../../Assets/Projects/Shopprixity/Shopprixity_ProfileDropdown.png";
+import Shopprixity_Cart from "../../Assets/Projects/Shopprixity/Shopprixity_Cart.png";
+import Shopprixity_Checkout from "../../Assets/Projects/Shopprixity/Shopprixity_Checkout.png";
+import Shopprixity_Checkout1 from "../../Assets/Projects/Shopprixity/Shopprixity_Checkout1.png";
+import Shopprixity_Paypal from "../../Assets/Projects/Shopprixity/Shopprixity_Paypal.png";
+import Shopprixity_PaymentSuccess from "../../Assets/Projects/Shopprixity/Shopprixity_PaymentSuccess.png";
+import Shopprixity_AccountOrders from "../../Assets/Projects/Shopprixity/Shopprixity_AccountOrders.png";
+import Shopprixity_AccountAddress from "../../Assets/Projects/Shopprixity/Shopprixity_AccountAddress.png";
+import Shopprixity_AccountAddress1 from "../../Assets/Projects/Shopprixity/Shopprixity_AccountAddress1.png";
+import Shopprixity_OrderDetails from "../../Assets/Projects/Shopprixity/Shopprixity_OrderDetails.png";
+import Shopprixity_AdminDashboard from "../../Assets/Projects/Shopprixity/Shopprixity_AdminDashboard.png";
+import Shopprixity_AdminProducts from "../../Assets/Projects/Shopprixity/Shopprixity_AdminProducts.png";
+import Shopprixity_AdminOrders from "../../Assets/Projects/Shopprixity/Shopprixity_AdminOrders.png";
+import Shopprixity_AdminOrderDetails from "../../Assets/Projects/Shopprixity/Shopprixity_AdminOrderDetails.png";
+import Shopprixity_AdminOrderUpdate from "../../Assets/Projects/Shopprixity/Shopprixity_AdminOrderUpdate.png";
+import Shopprixity_OrderUpdatedStatus from "../../Assets/Projects/Shopprixity/Shopprixity_OrderUpdatedStatus.png";
+import Shopprixity_AddProduct from "../../Assets/Projects/Shopprixity/Shopprixity_AddProduct.png";
+import Shopprixity_EditProduct from "../../Assets/Projects/Shopprixity/Shopprixity_EditProduct.png";
 import Sky_Painting_Landing_Page_1 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_1.png";
 import Sky_Painting_Landing_Page_2 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_2.png";
 import Sky_Painting_Landing_Page_3 from "../../Assets/Projects/Sky_Painting/Sky_Painting_Landing_Page_3.png";
@@ -97,6 +124,118 @@ const projectsHeader = {
   projects: [
     {
       id: 0,
+      title: "Shopprixity",
+      subtitle:
+        "Welcome to the Shopprixity! This platform is designed to provide users with an intuitive and robust online shopping experience.",
+      image: Shopprixity_Register,
+      by: "Rajesh Ranjan",
+      tech: [
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "JavaScript",
+        "React JS",
+        "Node JS",
+        "Express JS",
+        "MongoDB",
+        "Shadcn UI",
+        "Prisma",
+        "Paypal",
+        "Firebase",
+        "Vercel",
+      ],
+
+      category: "React JS",
+      filter: "filter-react",
+      date: "4th February, 2024",
+      github_link: "https://github.com/rajesh-ranjan-git/Shopprixity.git",
+      website_link: "https://shopprixity.vercel.app/auth/login",
+      app_link: null,
+      amazon_store: null,
+      google_play_link: null,
+      summary:
+        "Welcome to the Shopprixity! This platform is designed to provide users with an intuitive and robust online shopping experience. It has admin section as well to manage and simply the entire shopping experience.",
+      features: [
+        "Product Catalog: Create, update, and manage your product listings with ease",
+        "User Accounts: Allow users to create accounts, track orders, and save preferences.",
+        "Shopping Cart: Users can add products to their cart and proceed to checkout.",
+        "Payment Gateway Integration: Process payments securely through third-party services (PayPal).",
+        "Order Management: Admin can track and manage customer orders.",
+        "Responsive Design: Optimized for desktops, tablets, and mobile devices.",
+        "Search and Filters: Easy search functionality with advanced filtering options to help users find the products they need.",
+      ],
+      attribution: null,
+      slides: [
+        Shopprixity_ShopHome,
+        Shopprixity_ShopHome1,
+        Shopprixity_SignIn,
+        Shopprixity_Register,
+        Shopprixity_AllProducts,
+        Shopprixity_FilterProducts,
+        Shopprixity_FilterProducts1,
+        Shopprixity_Search,
+        Shopprixity_SearchResults,
+        Shopprixity_ProfileDropdown,
+        Shopprixity_Cart,
+        Shopprixity_Checkout,
+        Shopprixity_Checkout1,
+        Shopprixity_Paypal,
+        Shopprixity_PaymentSuccess,
+        Shopprixity_AccountOrders,
+        Shopprixity_AccountAddress,
+        Shopprixity_AccountAddress1,
+        Shopprixity_OrderDetails,
+        Shopprixity_AdminDashboard,
+        Shopprixity_AdminProducts,
+        Shopprixity_AdminOrders,
+        Shopprixity_AdminOrderDetails,
+        Shopprixity_AdminOrderUpdate,
+        Shopprixity_OrderUpdatedStatus,
+        Shopprixity_AddProduct,
+        Shopprixity_EditProduct,
+      ],
+    },
+    {
+      id: 1,
+      title: "MovieMania",
+      subtitle: "Your own Movie-Hub Application created using React & Vite.",
+      image: MovieMania_Home_Page,
+      by: "Rajesh Ranjan",
+      tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "React JS", "Vite"],
+
+      category: "React JS",
+      filter: "filter-react",
+      date: "31st August, 2024",
+      github_link: "https://github.com/rajesh-ranjan-git/MovieMania.git",
+      website_link: "https://app-moviemania.netlify.app",
+      app_link: null,
+      amazon_store: null,
+      google_play_link: null,
+      summary:
+        "MovieMania is a dynamic movie and TV show browsing platform built with React and Vite. It allows users to explore movies, TV shows, and their categories like Popular, Trending, Upcoming, Now Playing, On AIR, and Recommended. Features include trailer previews, infinite scrolling, and an optimized search experience using debouncing to reduce API calls and improve performance.",
+      features: [
+        "React & Vite for fast, responsive, and optimized development.",
+        "Tailwind CSS for a clean and customizable UI design.",
+        "Dynamic Routing and React Router for smooth navigation.",
+        "Custom Hooks and Higher Order Components to manage reusable logic.",
+        "Infinite Scrolling and Debouncing techniques to enhance performance and reduce API load.",
+        "Redux for state management and Axios for API calls.",
+        "Controlled & Uncontrolled Components (e.g., Carousel for displaying movie posters).",
+        "Search and Filtering functionality for browsing content efficiently.",
+      ],
+      attribution: null,
+      slides: [
+        MovieMania_Home_Page,
+        MovieMania_Horizontal_Cards,
+        MovieMania_Movies_Page,
+        MovieMania_Search_Page,
+        MovieMania_SingleMovie_Page,
+        MovieMania_Trailer_Section,
+        MovieMania_TVShows_Page,
+      ],
+    },
+    {
+      id: 2,
       title: "BancardifyMe",
       subtitle:
         "Your own Bankers Dashboard created with NextJS and TypeScript.",
@@ -148,7 +287,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 1,
+      id: 3,
       title: "GetKart",
       subtitle: "Your own E-Commerce Site created with React & Vite.",
       image: GetKart_Home_Page,
@@ -194,47 +333,9 @@ const projectsHeader = {
         GetKart_Cart_Page,
       ],
     },
-    {
-      id: 2,
-      title: "MovieMania",
-      subtitle: "Your own Movie-Hub Application created using React & Vite.",
-      image: MovieMania_Home_Page,
-      by: "Rajesh Ranjan",
-      tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "React JS", "Vite"],
 
-      category: "React JS",
-      filter: "filter-react",
-      date: "31st August, 2024",
-      github_link: "https://github.com/rajesh-ranjan-git/MovieMania.git",
-      website_link: "https://app-moviemania.netlify.app",
-      app_link: null,
-      amazon_store: null,
-      google_play_link: null,
-      summary:
-        "MovieMania is a dynamic movie and TV show browsing platform built with React and Vite. It allows users to explore movies, TV shows, and their categories like Popular, Trending, Upcoming, Now Playing, On AIR, and Recommended. Features include trailer previews, infinite scrolling, and an optimized search experience using debouncing to reduce API calls and improve performance.",
-      features: [
-        "React & Vite for fast, responsive, and optimized development.",
-        "Tailwind CSS for a clean and customizable UI design.",
-        "Dynamic Routing and React Router for smooth navigation.",
-        "Custom Hooks and Higher Order Components to manage reusable logic.",
-        "Infinite Scrolling and Debouncing techniques to enhance performance and reduce API load.",
-        "Redux for state management and Axios for API calls.",
-        "Controlled & Uncontrolled Components (e.g., Carousel for displaying movie posters).",
-        "Search and Filtering functionality for browsing content efficiently.",
-      ],
-      attribution: null,
-      slides: [
-        MovieMania_Home_Page,
-        MovieMania_Horizontal_Cards,
-        MovieMania_Movies_Page,
-        MovieMania_Search_Page,
-        MovieMania_SingleMovie_Page,
-        MovieMania_Trailer_Section,
-        MovieMania_TVShows_Page,
-      ],
-    },
     {
-      id: 3,
+      id: 4,
       title: "PhotoPhlix",
       subtitle:
         "Your own Image Gallery Application created using React & Vite.",
@@ -277,7 +378,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: "Sky-Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
@@ -309,7 +410,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: "FQS Painting",
       subtitle:
         "This is a landing page for painting site created using HTML, CSS and Bootstrap.",
@@ -344,7 +445,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: "Tic Tac Toe - React",
       subtitle: "Your own Tic Tac Toe game created using React & Vite.",
       image: TicTacToe_React_Start_Page,
@@ -384,7 +485,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: "Task Manager",
       subtitle: "Your own Task Manager App created using Vanilla JS.",
       image: TaskManager_Home_Page,
@@ -418,7 +519,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 8,
+      id: 9,
       title: "To Do App",
       subtitle: "Your own To Do App created using Vanilla JS.",
       image: To_Do_App_Home_Page,
@@ -454,7 +555,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 9,
+      id: 10,
       title: "Exterior-Water-Blaster",
       subtitle:
         "This is a landing page for washing company site created using HTML, CSS and Bootstrap.",
@@ -483,7 +584,7 @@ const projectsHeader = {
       slides: [Exterior_Water_Blaster_1, Exterior_Water_Blaster_2],
     },
     {
-      id: 10,
+      id: 11,
       title: "Car-Removal",
       subtitle:
         "This is a landing page for car repairing site created using HTML, CSS and Bootstrap.",
@@ -511,7 +612,7 @@ const projectsHeader = {
       slides: [Car_Removal_1, Car_Removal_2, Car_Removal_3],
     },
     {
-      id: 11,
+      id: 12,
       title: "Tic Tac Toe",
       subtitle: "Your own Tic Tac Toe game created using Vanilla JS.",
       image: TicTacToe_Game_Page,
@@ -544,7 +645,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 12,
+      id: 13,
       title: "JP Tech Fest",
       subtitle:
         "JPIET Tech Fest Landing Page for JPIET created using HTML, CSS, Bootstrap.",
@@ -578,7 +679,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 13,
+      id: 14,
       title: "Currency Converter",
       subtitle: "Your own Currency Converter App created using Vanilla JS.",
       image: Currency_Converter,
@@ -606,7 +707,7 @@ const projectsHeader = {
       slides: [Currency_Converter, Currency_Converter],
     },
     {
-      id: 14,
+      id: 15,
       title: "Amazon-Clone",
       subtitle:
         "This is a landing page copy of amazon.com created using HTML and CSS.",
@@ -629,7 +730,7 @@ const projectsHeader = {
       slides: [Amazon_Clone_1, Amazon_Clone_2, Amazon_Clone_3],
     },
     {
-      id: 15,
+      id: 16,
       title: "Flipkart-Clone",
       subtitle:
         "This is a landing page copy of flipkart.com created using HTML and CSS.",
@@ -662,7 +763,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 16,
+      id: 17,
       title: "Jonestree",
       subtitle:
         "This is a landing page for forestry work site created using HTML, CSS and Bootstrap.",
@@ -690,7 +791,7 @@ const projectsHeader = {
       slides: [Jonestree_Landing_Page_1, Jonestree_Landing_Page_2],
     },
     {
-      id: 17,
+      id: 18,
       title: "Commercial-Cleaning",
       subtitle:
         "This is a landing page for cleaning site created using HTML, CSS and Bootstrap.",
@@ -719,7 +820,7 @@ const projectsHeader = {
       slides: [Commercial_Cleaning_1, Commercial_Cleaning_2],
     },
     {
-      id: 18,
+      id: 19,
       title: "Bitcoin-Journal",
       subtitle:
         "This is a landing page for Bitcoin-Journal Blog Page created using HTML, CSS and Bootstrap.",
@@ -752,7 +853,7 @@ const projectsHeader = {
       ],
     },
     {
-      id: 19,
+      id: 20,
       title: "Ironing",
       subtitle:
         "This is a landing page for ironing site created using HTML, CSS and Bootstrap.",
@@ -775,7 +876,7 @@ const projectsHeader = {
       slides: [Ironing_1, Ironing_2],
     },
     {
-      id: 20,
+      id: 21,
       title: "MakeMyTrip-Clone",
       subtitle:
         "This is a landing page copy of makemytrip.com created using HTML and CSS.",

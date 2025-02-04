@@ -66,7 +66,7 @@ export default function Detail() {
           <section className="portfolio-details">
             <div className="detail_container">
               <div className="portfolio-details-container">
-                <div className=" portfolio-details-carousel">
+                <div className="portfolio-details-carousel">
                   {item && item.slides ? (
                     <>
                       <Slider {...settings}>
@@ -74,8 +74,8 @@ export default function Detail() {
                           <img
                             src={img}
                             key={i}
-                            className=" img-fluid"
-                            alt=""
+                            className="img-fluid"
+                            alt="project-screens"
                           />
                         ))}
                       </Slider>
@@ -83,8 +83,8 @@ export default function Detail() {
                   ) : (
                     <img
                       src="assets/utils/404error.svg"
-                      className=" error_img img-fluid"
-                      alt=""
+                      className="error_img img-fluid"
+                      alt="error"
                     />
                   )}
                 </div>

@@ -20,24 +20,32 @@ You can learn more about my journey, work experience, and projects here. I’m a
 
 Here are some of the technologies I work with:
 
-- **Frontend**: HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, SASS
+- **Frontend**: HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, SASS, Shadcn UI, Material UI
 - **Backend**: Node.js, Express, Java, Python, Django
 - **Database**: MongoDB, PostgreSQL, MySQL
 - **Version Control**: Git, GitHub
-- **Other Tools**: Netlify
+- **ORM**: Prisma ORM
+- **Deployment Tools**: Netlify, Vercel, Render.com
 
 ## Projects
 
 Below are some of the highlighted projects I've worked on. You can explore each one to see the details and code behind it:
 
-### 1. BancardifyMe
+### 1. Shopprixity
+
+- **Description**: Shopprixity is a platform that features a comprehensive product catalog management system, enabling dynamic creation, updating, and categorization of product listings. It includes secure user account management with Firebase authentication (Google login) and JWT for session handling, allowing users to register, log in, and track orders. The platform also incorporates a shopping cart system with a streamlined checkout process and integrates PayPal for secure payment processing. Additionally, an order management system was built for both admins and customers, along with advanced search and filter options to enhance the user experience.
+- **Tech Stack**: HTML5, CSS3, Tailwind CSS, JavaScript, Node JS, React JS, Express JS, Mongo DB Shadcn UI, Prisma ORM, Paypal, JSONWebToken, Vine JS
+- **GitHub Repo**: [https://github.com/rajesh-ranjan-git/Shopprixity.git](https://github.com/rajesh-ranjan-git/Shopprixity.git)
+- **Live Demo**: [https://shopprixity.vercel.app/](https://shopprixity.vercel.app/)
+
+### 2. BancardifyMe
 
 - **Description**: BancardifyMe is a secure, feature-rich banking application built on the Horizon SaaS platform. It enables users to seamlessly connect multiple bank accounts, track real-time transactions, make peer-to-peer transfers, and manage their finances from one intuitive interface. The app combines robust security features with an easy-to-use design for effective financial management.
 - **Tech Stack**: HTML5, CSS3, Tailwind CSS, TypeScript, Node JS, Next JS, Shadcn UI, Appwrite, Plaid, Dwolla
 - **GitHub Repo**: [https://github.com/rajesh-ranjan-git/bancardifyme.git](https://github.com/rajesh-ranjan-git/bancardifyme.git)
 - **Live Demo**: [https://bancardifyme.netlify.app](https://bancardifyme.netlify.app)
 
-### 2. GetKart
+### 3. GetKart
 
 - **Description**: GetKart is an e-commerce platform built with React and Vite, offering a seamless shopping experience with features like product search, filtering, sorting, and dynamic routing. It integrates user authentication with JWT and secure cookie storage, and employs Redux for state management. The site leverages modern UI design using Tailwind CSS, Shimmer UI, and DaisyUI, while ensuring performance optimization with lazy loading and debouncing.
 - **Tech Stack**: HTML5, CSS3, Tailwind CSS, JavaScript, Node JS, React JS, Vite, MongoDB, Express JS

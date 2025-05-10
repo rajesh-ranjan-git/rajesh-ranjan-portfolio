@@ -87,7 +87,7 @@ export default function Greetings() {
                 <ButtonMask1
                   onClick={() =>
                     openInNewTab(
-                      "https://drive.google.com/file/d/1i57BJ4Zp61cIREahhDu-HEPkcNZ6X1AE/view?usp=sharing"
+                      "https://drive.google.com/file/d/1i57BJ4Zp61cIREahhDu-HEPkcNZ6X1AE/view?usp=drive_link"
                     )
                   }
                   className="download_resume_btn"

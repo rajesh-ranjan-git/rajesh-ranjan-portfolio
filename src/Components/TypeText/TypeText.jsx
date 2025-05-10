@@ -5,6 +5,7 @@ export default function TypeText() {
     <Typewriter
       options={{
         strings: [
+          "Full Stack Developer",
           "Software Engineer",
           "Web Developer",
           "Full Stack Web Developer",

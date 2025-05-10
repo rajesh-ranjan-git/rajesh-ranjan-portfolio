@@ -39,7 +39,7 @@ export default function Experience() {
               <ExpCard
                 role="Analyst |"
                 img_path={ntt}
-                period="November 2020 - Present"
+                period="November 2020 - April 2025"
                 company="NTT Data Services"
                 data={[
                   "Web Application Development & Performance Optimization: Developed responsive, user-centric web applications using React.js, improving user engagement by 25% through enhanced UI/UX design and performance optimization techniques such as memoization, lazy loading, and dynamic imports.",

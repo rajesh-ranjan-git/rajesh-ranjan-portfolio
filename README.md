@@ -12,20 +12,28 @@ Welcome to my portfolio! This project showcases my work, skills, and experience 
 
 ## About Me
 
-Hi, I'm Rajesh Ranjan, a passionate Web developer. I am a driven and detail-oriented Web Developer with expertise in the MERN stack (MongoDB, Express.js, React, Node.js) seeking a challenging role to leverage my skills in building scalable, responsive, and high-performance applications. Passionate about developing efficient back-end solutions and intuitive front-end designs, I am eager to contribute to a dynamic team focused on delivering innovative digital experiences. My portfolio is a reflection of my skills and dedication to continuous learning.
+Hi, I'm Rajesh Ranjan, a passionate and results-driven Full Stack Developer with over 6 years of professional experience, currently working at Business Today Technology, part of the India Today Group. I specialize in building scalable and high-performance web applications using modern technologies.
 
-You can learn more about my journey, work experience, and projects here. I’m always looking for opportunities to collaborate, learn, and grow.
+My expertise lies in the MERN stack (MongoDB, Express.js, React.js, Node.js), along with Next.js, TypeScript, and JavaScript for frontend and backend development. I also have strong experience with SQL, PostgreSQL, Prisma ORM, and MongoDB, giving me a versatile edge in both relational and non-relational databases.
+
+In addition to my core stack, I’ve worked with Java and Python, enabling me to adapt to diverse project requirements and technical challenges. I take pride in writing clean, efficient code and delivering end-to-end solutions that drive real business impact.
+
+I’m always looking for opportunities to collaborate on innovative projects and contribute to tech communities.
+
+## Profession
+
+I am a Full Stack Developer at Business Today Technology which is a subsidiary of India Today Group.
 
 ## Tech Stack
 
 Here are some of the technologies I work with:
 
-- **Frontend**: HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, SASS, Shadcn UI, Material UI
-- **Backend**: Node.js, Express, Java, Python, Django
+- **Frontend**: HTML, CSS, JavaScript, TypeScript, React JS, Tailwind CSS, Bootstrap, SASS, ShadCN UI, Material UI
+- **Backend**: Node JS, Express JS, Next JS, Java, Python, Django
 - **Database**: MongoDB, PostgreSQL, MySQL
 - **Version Control**: Git, GitHub
 - **ORM**: Prisma ORM
-- **Deployment Tools**: Netlify, Vercel, Render.com
+- **Deployment Tools**: AWS, Netlify, Vercel, Render.com
 
 ## Projects
 

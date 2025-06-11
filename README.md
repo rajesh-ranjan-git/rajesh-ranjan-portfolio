@@ -1,6 +1,6 @@
 # Portfolio
 
-Welcome to my portfolio! This project showcases my work, skills, and experience as a developer, designer, or any other creative role. You’ll find a collection of my best projects, along with a brief overview of who I am and what I do.
+Welcome to my portfolio! This project showcases my work, skills, and experience as a Full Stack Developer, designer, or any other creative role. You’ll find a collection of my best projects, along with a brief overview of who I am and what I do.
 
 ## Table of Contents
 

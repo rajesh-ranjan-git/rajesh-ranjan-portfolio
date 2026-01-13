@@ -1,3 +1,4 @@
+import Image_Not_Available from "../../Assets/Errors/Image_Not_Available.webp";
 import Amazon_Clone_1 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_1.png";
 import Amazon_Clone_2 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_2.png";
 import Amazon_Clone_3 from "../../Assets/Projects/Amazon_Clone/Amazon_Clone_3.png";
@@ -109,8 +110,18 @@ import To_Do_App_Home_Page from "../../Assets/Projects/To_Do_App/To_Do_App_Home_
 import To_Do_App_New_Title from "../../Assets/Projects/To_Do_App/To_Do_App_New_Title.png";
 import To_Do_App_With_Description from "../../Assets/Projects/To_Do_App/To_Do_App_With_Description.png";
 import To_Do_App_With_Items_Without_Description from "../../Assets/Projects/To_Do_App/To_Do_App_With_Items_Without_Description.png";
-import MERN_GFG_Certificate from "../../Assets/Certificates/MERN_GFG_Certificate.jpg";
-import React_GFG_Certificate from "../../Assets/Certificates/React_GFG_Certificate.jpg";
+import AI_For_Engineers_Masterclass_Certificate_Outskill from "../../Assets/Certificates/AI_For_Engineers_Masterclass_Certificate_Outskill.webp";
+import Data_Science_vs_Machine_Learning_vs_Artificial_Intelligence_Masterclass_Scaler_Certificate from "../../Assets/Certificates/Data_Science_vs_Machine_Learning_vs_Artificial_Intelligence_Masterclass_Scaler_Certificate.webp";
+import Fundamentals_of_Docker_And_Kubernetes_Certificate_Scaler from "../../Assets/Certificates/Fundamentals_of_Docker_&_Kubernetes_Certificate_Scaler.webp";
+import HTML5_With_JavaScript_And_CSS3_Introduction_Certificate_NTT from "../../Assets/Certificates/HTML5_With_JavaScript_&_CSS3_Introduction_Certificate_NTT.webp";
+import Internship_Completion_And_Recommendation_React_Native_Development_Certificate_Cybered_EdTech from "../../Assets/Certificates/Internship_Completion_&_Recommendation_React_Native_Development_Certificate_Cybered_EdTech.webp";
+import Namaste_JavaScript_Certificate_NamasteDev from "../../Assets/Certificates/Namaste_JavaScript_Certificate_NamasteDev.webp";
+import Namaste_NodeJS_Certificate_NamasteDev from "../../Assets/Certificates/Namaste_NodeJS_Certificate_NamasteDev.webp";
+import ReactJS_And_Grunt_Certificate_NTT from "../../Assets/Certificates/ReactJS_&_Grunt_Certificate_NTT.webp";
+import MERN_Full_Stack_Web_Development_Certificate_GFG from "../../Assets/Certificates/MERN_Full_Stack_Web_Development_Certificate_GFG.webp";
+import ReactJS_Certificate_GFG from "../../Assets/Certificates/ReactJS_Certificate_GFG.webp";
+import SOLID_Principles_Every_Developer_Must_Know_Masterclass_Scaler_Certificate from "../../Assets/Certificates/S.O.L.I.D_Principles_Every_Developer_Must_Know_Masterclass_Scaler_Certificate.webp";
+import SEO_Certificate_ITG from "../../Assets/Certificates/SEO_Certificate_ITG.webp";
 
 /* Change this file to get your personal Porfolio */
 
@@ -940,20 +951,114 @@ export const achievements = [
 
 export const certificates = [
   {
-    title: "MERN Full Stack Web Development",
-    src: MERN_GFG_Certificate,
+    title: "MERN Stack - React Native Developer Internship",
+    src: Internship_Completion_And_Recommendation_React_Native_Development_Certificate_Cybered_EdTech,
     description:
-      "Successfully completed a 155-hour course on MERN Full Stack Web Development.",
+      "Successfully completed 1 month MERN Stack - React Native Developer Internship.",
+    college: null,
+    provider: "India Today Group",
+  },
+  {
+    title: "AI for Engineers Masterclass Certification",
+    src: AI_For_Engineers_Masterclass_Certificate_Outskill,
+    description:
+      "Successfully completed AI for Engineers Masterclass Certification.",
+    college: null,
+    provider: "India Today Group",
+  },
+  {
+    title: "SEO Certificate",
+    src: SEO_Certificate_ITG,
+    description: "Successfully completed SEO Certification.",
+    college: null,
+    provider: "India Today Group",
+  },
+  {
+    title: "Fundamentals of Docker & Kubernetes Masterclass Certification",
+    src: Fundamentals_of_Docker_And_Kubernetes_Certificate_Scaler,
+    description:
+      "Successfully completed Fundamentals of Docker & Kubernetes Masterclass Certification.",
+    college: null,
+    provider: "Scaler",
+  },
+  {
+    title:
+      "Data Science vs Machine Learning vs Artificial Intelligence Masterclass Certification",
+    src: Data_Science_vs_Machine_Learning_vs_Artificial_Intelligence_Masterclass_Scaler_Certificate,
+    description:
+      "Successfully completed Data Science vs Machine Learning vs Artificial Intelligence Masterclass Certification.",
+    college: null,
+    provider: "Scaler",
+  },
+  {
+    title:
+      "S.O.L.I.D. Principles Every Developer Must Know Masterclass Certification",
+    src: SOLID_Principles_Every_Developer_Must_Know_Masterclass_Scaler_Certificate,
+    description:
+      "Successfully completed S.O.L.I.D. Principles Every Developer Must Know Masterclass Certification.",
+    college: null,
+    provider: "Scaler",
+  },
+  {
+    title: "Namaste Node.Js Certification",
+    src: Namaste_NodeJS_Certificate_NamasteDev,
+    description: "Successfully completed Namaste Node.Js Certification.",
+    college: null,
+    provider: "NamasteDev.com",
+  },
+  {
+    title: "Namaste JavaScript Certification",
+    src: Namaste_JavaScript_Certificate_NamasteDev,
+    description: "Successfully completed Namaste JavaScript Certification.",
+    college: null,
+    provider: "NamasteDev.com",
+  },
+  {
+    title: "MERN Full Stack Web Development",
+    src: MERN_Full_Stack_Web_Development_Certificate_GFG,
+    description:
+      "Successfully completed a 155 hour course on MERN Full Stack Web Development.",
     college: null,
     provider: "GeeksForGeeks",
   },
   {
-    title: "React JS Course Onine",
-    src: React_GFG_Certificate,
+    title: "React JS Certification",
+    src: ReactJS_Certificate_GFG,
     description:
-      "Successfully completed a 8-week course on React JS Course Online - React JS Certification Course.",
+      "Successfully completed a 8 week course on React JS Certification.",
     college: null,
     provider: "GeeksForGeeks",
+  },
+  {
+    title: "React JS & Grunt Certification",
+    src: ReactJS_And_Grunt_Certificate_NTT,
+    description: "Successfully completed React JS & Grunt Certification.",
+    college: null,
+    provider: "NTT Data Services",
+  },
+  {
+    title: "HTML5 with JavaScript And CSS3 Introduction Certification",
+    src: HTML5_With_JavaScript_And_CSS3_Introduction_Certificate_NTT,
+    description:
+      "Successfully completed HTML5 with JavaScript And CSS3 Introduction Certification.",
+    college: null,
+    provider: "NTT Data Services",
+  },
+  {
+    title: "Industrial Training – Python & Django",
+    src: Image_Not_Available,
+    description:
+      "Successfully completed a 2 months industrial training on Python & Django.",
+    college: "JP Institute of Engineering and Technology",
+    provider: "Ducat, Noida",
+  },
+  {
+    title: "Industrial Training – Java & J2EE",
+    src: Image_Not_Available,
+    description:
+      "Successfully completed a 2 months industrial training on Java & J2EE.",
+    college: "JP Institute of Engineering and Technology",
+    provider: "Ducat, Noida",
   },
 ];
 

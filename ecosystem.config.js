@@ -7,7 +7,7 @@ export default {
       cwd: "/home/ubuntu/portfolio/rajesh-ranjan-portfolio",
 
       script: "npm",
-      args: "start",
+      args: "run start",
 
       instances: 1,
       exec_mode: "fork",

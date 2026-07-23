@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   apps: [
     {
       name: "portfolio",
@@ -7,7 +7,7 @@ export default {
       cwd: "/home/ubuntu/portfolio/rajesh-ranjan-portfolio",
 
       script: "npm",
-      args: "run start",
+      args: "start",
 
       instances: 1,
       exec_mode: "fork",

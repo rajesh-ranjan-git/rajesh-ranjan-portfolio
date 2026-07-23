@@ -1,0 +1,53 @@
+.btn_mask_1 {
+  mask-image: url("/assets/background/button-mask-1.webp");
+  -webkit-mask-image: url("/assets/background/button-mask-1.webp");
+  -moz-mask-image: url("/assets/background/button-mask-1.webp");
+  mask-size: 2300% 100%;
+  -webkit-mask-size: 2300% 100%;
+  -moz-mask-size: 2300% 100%;
+  animation: ani2 0.7s steps(22) forwards;
+}
+
+.btn_mask_1:hover {
+  animation: ani 0.7s steps(22) forwards;
+}
+
+.btn_mask_2 {
+  mask-image: url("/assets/background/button-mask-2.png");
+  -webkit-mask-image: url("/assets/background/button-mask-2.png");
+  -moz-mask-image: url("/assets/background/button-mask-2.png");
+  mask-size: 7100% 100%;
+  -webkit-mask-size: 7100% 100%;
+  -moz-mask-size: 7100% 100%;
+  animation: ani2 0.7s steps(70) forwards;
+}
+
+.btn_mask_2:hover {
+  animation: ani 0.7s steps(70) forwards;
+}
+
+@keyframes ani {
+  from {
+    mask-position: 0 0;
+    -webkit-mask-position: 0 0;
+    -moz-mask-position: 0 0;
+  }
+  to {
+    mask-position: 100% 0;
+    -webkit-mask-position: 100% 0;
+    -moz-mask-position: 100% 0;
+  }
+}
+
+@keyframes ani2 {
+  from {
+    mask-position: 100% 0;
+    -webkit-mask-position: 100% 0;
+    -moz-mask-position: 100% 0;
+  }
+  to {
+    mask-position: 0 0;
+    -webkit-mask-position: 0 0;
+    -moz-mask-position: 0 0;
+  }
+}

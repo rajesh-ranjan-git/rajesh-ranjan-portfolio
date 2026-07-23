@@ -1,0 +1,303 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      url: https://rajeshranjan.dev
+
+    steps:
+      - name: Checkout latest Portfolio code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect Portfolio changed services
+        id: changes
+
+        run: |
+          echo "" >> ~/deploy-logs.txt
+          echo "NODE VERSION:" >> ~/deploy-logs.txt
+          node -v >> ~/deploy-logs.txt
+
+          echo "" >> ~/deploy-logs.txt
+          echo "NPM VERSION:" >> ~/deploy-logs.txt
+          npm -v >> ~/deploy-logs.txt
+
+          echo "" >> ~/deploy-logs.txt
+          echo "PM2 VERSION:" >> ~/deploy-logs.txt
+          pm2 -v >> ~/deploy-logs.txt 2>&1 || true
+
+          echo "Checking changed files for Portfolio..."
+
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo "$CHANGED_FILES"
+
+          BUILD_NEEDED=false
+
+          if echo "$CHANGED_FILES" | grep -qvE '(^README\.md$|^\.gitignore$|^LICENSE$|^docs/|^\.github/)'; then
+            BUILD_NEEDED=true
+          fi
+
+          if [ -n "$CHANGED_FILES" ] && [ "$BUILD_NEEDED" = "true" ]; then
+            echo "portfolio=true" >> $GITHUB_OUTPUT
+          else
+            echo "portfolio=false" >> $GITHUB_OUTPUT
+          fi
+
+          if echo "$CHANGED_FILES" | grep -qE '^(package(-lock)?\.json)$' > /dev/null; then
+            echo "portfolio_install=true" >> $GITHUB_OUTPUT
+          else
+            echo "portfolio_install=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy Portfolio changed services via SSH
+        if: steps.changes.outputs.portfolio == 'true'
+        id: deploy
+        uses: appleboy/ssh-action@v1.2.0
+
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PORTFOLIO_EC2_SSH_KEY }}
+
+          script: |
+            set -euo pipefail
+            START_TIME=$(date +%s)
+
+            rm -f ~/deploy-logs.txt
+            exec > >(tee ~/deploy-logs.txt) 2>&1
+
+            echo "===== STARTING PORTFOLIO DEPLOYMENT ====="
+
+            cd ~/portfolio/rajesh-ranjan-portfolio
+
+            echo "Pulling latest Portfolio code..."
+
+            git fetch --prune origin
+            git reset --hard origin/main
+            git clean -fd
+
+            if [ "${{ steps.changes.outputs.portfolio_install }}" = "true" ]; then
+              echo "Installing latest dependencies for Portfolio..."
+              npm cache verify
+              npm ci
+            else
+              echo "No dependency changes for Portfolio. Skipping dependencies installation!"
+            fi
+
+            echo "Building latest Portfolio code..."
+            npm run build
+
+            echo "Reloading Portfolio application..."
+            pm2 reload ecosystem.config.js --only portfolio --update-env
+
+            echo "===== PORTFOLIO SERVER STATS =====" >> ~/deploy-logs.txt
+
+            echo "" >> ~/deploy-logs.txt
+            echo "CPU LOAD:" >> ~/deploy-logs.txt
+            uptime >> ~/deploy-logs.txt
+
+            echo "" >> ~/deploy-logs.txt
+            echo "MEMORY:" >> ~/deploy-logs.txt
+            free -h >> ~/deploy-logs.txt
+
+            echo "" >> ~/deploy-logs.txt
+            echo "DISK:" >> ~/deploy-logs.txt
+            df -h >> ~/deploy-logs.txt
+
+            echo "" >> ~/deploy-logs.txt
+            echo "PM2 STATUS:" >> ~/deploy-logs.txt
+            pm2 status >> ~/deploy-logs.txt           
+
+            END_TIME=$(date +%s)
+
+            DEPLOY_DURATION=$((END_TIME - START_TIME))
+
+            echo "" >> ~/deploy-logs.txt
+            echo "DEPLOYMENT DURATION:" >> ~/deploy-logs.txt
+            echo "${DEPLOY_DURATION} seconds" >> ~/deploy-logs.txt
+
+            echo "Latest Portfolio code deployed successfully!"
+            echo "===== PORTFOLIO DEPLOYMENT FINISHED ====="
+
+      - name: Download Portfolio deployment logs
+        if: always()
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PORTFOLIO_EC2_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          if ssh -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=no \
+            ${{ secrets.USERNAME }}@${{ secrets.HOST }} \
+            "[ -f ~/deploy-logs.txt ]"; then
+
+            scp -i ~/.ssh/deploy_key \
+              -o StrictHostKeyChecking=no \
+              ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/${{ secrets.USERNAME }}/deploy-logs.txt \
+              ./deploy-logs.txt
+          else
+            echo "No deployment log found."
+            touch deploy-logs.txt
+          fi
+
+      - name: Send Portfolio Deployment Success Email
+        if: success()
+
+        uses: dawidd6/action-send-mail@v3
+
+        with:
+          server_address: ${{ secrets.AWS_SMTP_ENDPOINT }}
+          server_port: 587
+
+          username: ${{ secrets.AWS_SMTP_USERNAME }}
+          password: ${{ secrets.AWS_SMTP_PASSWORD }}
+
+          subject: "✅ Portfolio Deployment Successful!"
+
+          to: ${{ secrets.AWS_EMAIL_TO }}
+          from: "Rajesh Ranjan | Portfolio <${{ secrets.AWS_EMAIL_FROM }}>"
+
+          convert_markdown: false
+
+          html_body: |
+            <div style="font-family:Arial;background:#f5f5f5;padding:30px">
+              <div style="max-width:600px;margin:auto;background:white;padding:24px;border-radius:12px">
+
+                <h1 style="margin-top:0">🚀 Portfolio Deployment Completed</h1>
+
+                <table style="width:100%;border-collapse:collapse">
+                  <tr>
+                    <td><strong>Repository</strong></td>
+                    <td>${{ github.repository }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Environment</strong></td>
+                    <td>Production</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Branch</strong></td>
+                    <td>${{ github.ref_name }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Commit</strong></td>
+                    <td>${{ github.sha }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Commit Message</strong></td>
+                    <td>${{ github.event.head_commit.message }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Triggered By</strong></td>
+                    <td>${{ github.actor }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Build Executed</strong></td>
+                    <td>${{ steps.changes.outputs.portfolio }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Dependencies Installed</strong></td>
+                    <td>${{ steps.changes.outputs.portfolio_install }}</td>
+                  </tr>
+                </table>
+
+                <div style="margin-top:20px">
+                  <a
+                    href="https://rajeshranjan.dev"
+                    style="background:#059669;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
+                  >
+                    Go to Portfolio
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          attachments: deploy-logs.txt
+
+      - name: Send Portfolio Deployment Failure Email
+        if: failure()
+
+        uses: dawidd6/action-send-mail@v3
+
+        with:
+          server_address: ${{ secrets.AWS_SMTP_ENDPOINT }}
+          server_port: 587
+
+          username: ${{ secrets.AWS_SMTP_USERNAME }}
+          password: ${{ secrets.AWS_SMTP_PASSWORD }}
+
+          subject: "❌ Portfolio Deployment Failed!"
+
+          to: ${{ secrets.AWS_EMAIL_TO }}
+          from: "Rajesh Ranjan | Portfolio <${{ secrets.AWS_EMAIL_FROM }}>"
+
+          convert_markdown: false
+
+          html_body: |
+            <div style="font-family:Arial;background:#f5f5f5;padding:30px">
+              <div style="max-width:600px;margin:auto;background:white;padding:24px;border-radius:12px">
+
+                <h1 style="margin-top:0">⛔ Portfolio Deployment Failed</h1>
+
+                <table style="width:100%;border-collapse:collapse">
+                  <tr>
+                    <td><strong>Repository</strong></td>
+                    <td>${{ github.repository }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Environment</strong></td>
+                    <td>Production</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Branch</strong></td>
+                    <td>${{ github.ref_name }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Commit</strong></td>
+                    <td>${{ github.sha }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Commit Message</strong></td>
+                    <td>${{ github.event.head_commit.message }}</td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Triggered By</strong></td>
+                    <td>${{ github.actor }}</td>
+                  </tr>
+                </table>
+
+                <p>Check attached deployment logs.</p>
+                <p>Check GitHub Actions logs immediately!</p>        
+
+                <div style="margin-top:20px">
+                  <a
+                    href="https://github.com/rajesh-ranjan-git/rajesh-ranjan-portfolio/actions"
+                    style="background:#dc2626;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
+                  >
+                    Check GitHub Actions logs
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          attachments: deploy-logs.txt

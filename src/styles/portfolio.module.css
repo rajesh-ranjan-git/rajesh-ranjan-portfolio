@@ -1,0 +1,21 @@
+.link_mask {
+  background-image: linear-gradient(
+    to right,
+    var(--accent-pink),
+    var(--accent-pink) 50%,
+    var(--fixed-light) 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.link_mask:hover {
+  background-position: 0;
+}
+
+.link_mask_active {
+  background-position: 0;
+}

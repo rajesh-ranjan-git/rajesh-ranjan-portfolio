@@ -1,0 +1,44 @@
+.loader {
+  --size: 0.5px;
+
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  border: calc(4 * var(--size)) solid;
+  border-color: var(--fixed-light) var(--fixed-light) transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  box-sizing: border-box;
+  border: calc(4 * var(--size)) solid;
+  border-color: transparent transparent var(--accent-pink) var(--accent-pink);
+  width: calc(40 * var(--size));
+  height: calc(40 * var(--size));
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: calc(32 * var(--size));
+  height: calc(32 * var(--size));
+  border-color: var(--fixed-light) var(--fixed-light) transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}

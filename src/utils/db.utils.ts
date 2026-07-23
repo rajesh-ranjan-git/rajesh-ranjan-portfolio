@@ -1,4 +1,4 @@
-import { ResponseData } from "@/types/types/response.types";
+import { ResponseData } from "@/types/types/api.types";
 
 export const sanitizeSingleData = (data: unknown): unknown => {
   if (!data || typeof data !== "object") {

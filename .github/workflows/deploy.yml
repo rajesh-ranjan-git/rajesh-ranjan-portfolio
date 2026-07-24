@@ -80,23 +80,24 @@ jobs:
             cd ~/portfolio/rajesh-ranjan-portfolio
 
             echo "Pulling latest Portfolio code..."
-
             git fetch --prune origin
             git reset --hard origin/main
             git clean -fd
 
+            echo "Cleaning previous build artifacts..."
+            rm -rf .next
+            rm -rf out
+            rm -rf .turbo
+
             if [ "${{ steps.changes.outputs.portfolio_install }}" = "true" ]; then
               echo "Installing latest dependencies for Portfolio..."
-              npm cache verify
+              rm -rf node_modules
+              npm cache clean --force
               npm ci
             else
               echo "No dependency changes for Portfolio. Skipping dependencies installation!"
             fi
 
-            echo "Cleaning previous build artifacts..."
-            rm -rf .next
-            rm -rf out
-            rm -rf .turb
 
             echo "Building latest Portfolio code..."
             npm run build

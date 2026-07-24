@@ -14,7 +14,7 @@ jobs:
       url: https://rajeshranjan.dev
 
     env:
-      LOG_FILE: ${{ github.workspace }}/deploy-logs.txt
+      LOG_FILE: /home/ubuntu/portfolio/logs/deploy-logs.txt
 
     steps:
       - name: Checkout latest Portfolio code

@@ -24,8 +24,8 @@ module.exports = {
 
       max_memory_restart: "512M",
 
-      out_file: "./logs/out.log",
-      error_file: "./logs/error.log",
+      out_file: "/home/ubuntu/portfolio/logs/portfolio-out.log",
+      error_file: "/home/ubuntu/portfolio/logs/portfolio-error.log",
       merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss Z",
 

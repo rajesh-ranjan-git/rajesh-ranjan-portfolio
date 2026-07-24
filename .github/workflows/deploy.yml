@@ -142,6 +142,13 @@ jobs:
                 fi
             fi
 
+            ONLINE_COUNT=$(pm2 jlist | jq '[.[] | select(.name=="portfolio" and .pm2_env.status=="online")] | length')
+
+            if [ "$ONLINE_COUNT" -ne 2 ]; then
+                echo "Expected 2 online instances, found $ONLINE_COUNT"
+                # fallback / fail
+            fi
+
             pm2 save
             echo "Portfolio is online."
 

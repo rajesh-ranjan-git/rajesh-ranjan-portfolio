@@ -115,7 +115,7 @@ jobs:
             npm run build
 
             echo "Reloading Portfolio application..."
-            pm2 reload ecosystem.config.js --only portfolio || pm2 start ecosystem.config.js --only portfolio
+            pm2 reload ecosystem.config.cjs --only portfolio || pm2 start ecosystem.config.cjs --only portfolio
 
             echo "===== PORTFOLIO SERVER STATS ====="
             echo ""

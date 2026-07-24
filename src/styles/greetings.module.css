@@ -28,7 +28,7 @@
 }
 
 .rectangle_transparent {
-  animation: floatingSlow 12s ease-in-out 3s infinite;
+  animation: floatingSlow ease-in-out 12s infinite;
 }
 
 .circle {

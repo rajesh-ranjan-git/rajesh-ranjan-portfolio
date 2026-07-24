@@ -48,8 +48,8 @@ const Tooltip = ({
   const offset = getTooltipOffset(position);
 
   return (
-    <span
-      className={`relative inline-flex ${wrapperClassName}`}
+    <div
+      className={`relative inline-flex gap-1 ${wrapperClassName}`}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
@@ -81,7 +81,7 @@ const Tooltip = ({
           )}
         </span>
       )}
-    </span>
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ const SidebarFooter = () => {
           height={40}
           alt="profile-img"
           loading="eager"
-          className="hover:bg-[conic-gradient(from_var(--angle),#FF6B6B,#FFD93D,#6BCB77,#4D96FF,#843BFF,#FF6EC7,#FF6B6B)] border-2 rounded-full hover:scale-105 transition-all ease-in-out cursor-pointer"
+          className="bg-linear-to-r border border-surface-border hover:border-surface-border-hover rounded-full hover:scale-105 transition-all ease-in-out from-accent-purple to-accent-blue cursor-pointer"
           onClick={handleImageClick}
         />
 

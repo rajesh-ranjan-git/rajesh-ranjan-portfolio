@@ -1546,7 +1546,6 @@ export const portfolio = [
       { type: "Payment", tech: ["Plaid", "Dwolla"] },
       { type: "Monitoring", tech: ["Sentry"] },
     ],
-    liveUrl: "https://bancardifyme.netlify.app/",
     githubUrl: "https://github.com/rajesh-ranjan-git/bancardifyme/",
     screens: [
       "/assets/portfolio/bancardify-me/bancardify-me-home.webp",
@@ -1727,7 +1726,6 @@ export const portfolio = [
       { type: "Authentication", tech: ["JWT", "Firebase", "cookies"] },
       { type: "Payment", tech: ["Paypal"] },
     ],
-    liveUrl: "https://shopprixity.vercel.app/",
     githubUrl: "https://github.com/rajesh-ranjan-git/Shopprixity/",
 
     screens: [

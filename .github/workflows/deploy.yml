@@ -115,7 +115,35 @@ jobs:
             npm run build
 
             echo "Reloading Portfolio application..."
-            pm2 reload ecosystem.config.cjs --only portfolio || pm2 start ecosystem.config.cjs --only portfolio
+            if pm2 describe portfolio >/dev/null 2>&1; then
+                pm2 reload portfolio --update-env
+            else
+                pm2 start ecosystem.config.cjs --only portfolio
+            fi
+
+            sleep 5
+
+            STATUS=$(pm2 jlist | jq -r '.[] | select(.name=="portfolio") | .pm2_env.status')
+
+            if [ "$STATUS" != "online" ]; then
+                echo "Reload failed. Attempting clean restart..."
+
+                pm2 delete portfolio >/dev/null 2>&1 || true
+                pm2 start ecosystem.config.cjs --only portfolio
+
+                sleep 5
+
+                STATUS=$(pm2 jlist | jq -r '.[] | select(.name=="portfolio") | .pm2_env.status')
+
+                if [ "$STATUS" != "online" ]; then
+                    echo "Portfolio failed to start after clean restart."
+                    pm2 logs portfolio --lines 100
+                    exit 1
+                fi
+            fi
+
+            pm2 save
+            echo "Portfolio is online."
 
             echo "===== PORTFOLIO SERVER STATS ====="
             echo ""

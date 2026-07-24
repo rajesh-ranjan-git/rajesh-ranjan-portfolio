@@ -15,7 +15,7 @@ const SidebarFooter = () => {
   };
 
   return (
-    <div className="flex flex-col w-full h-12 overflow-hidden shrink-0">
+    <div className="flex flex-col w-full h-14 overflow-hidden shrink-0">
       <hr className="text-slate-700" />
       <div className="flex justify-between items-center gap-2 px-1 w-full h-full">
         <Image
@@ -30,7 +30,7 @@ const SidebarFooter = () => {
 
         {sidebarToggle && (
           <div className="flex flex-col w-full">
-            <p className="w-full font-alkatra font-bold text-md whitespace-nowrap translate-y-1">
+            <p className="w-full font-alkatra font-bold text-md whitespace-nowrap">
               {getFullName()}
             </p>
             {basicDetails.social.google ? (

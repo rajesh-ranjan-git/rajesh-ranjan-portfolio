@@ -21,17 +21,22 @@ class EmailService {
   private readonly client: SESClient;
 
   constructor() {
-    this.client = new SESClient({
-      region: AWS_SES_REGION,
-      ...(AWS_SES_ACCESS_KEY_ID && AWS_SES_SECRET_ACCESS_KEY
-        ? {
-            credentials: {
-              accessKeyId: AWS_SES_ACCESS_KEY_ID,
-              secretAccessKey: AWS_SES_SECRET_ACCESS_KEY,
-            },
-          }
-        : {}),
-    });
+    this.client =
+      MODE !== "production"
+        ? new SESClient({
+            region: AWS_SES_REGION,
+            ...(AWS_SES_ACCESS_KEY_ID && AWS_SES_SECRET_ACCESS_KEY
+              ? {
+                  credentials: {
+                    accessKeyId: AWS_SES_ACCESS_KEY_ID,
+                    secretAccessKey: AWS_SES_SECRET_ACCESS_KEY,
+                  },
+                }
+              : {}),
+          })
+        : new SESClient({
+            region: AWS_SES_REGION,
+          });
   }
 
   private normalizeRecipients(recipients: EmailRecipientsType): string[] {
@@ -82,6 +87,11 @@ class EmailService {
     });
 
     try {
+      const credentials = await this.client.config.credentials();
+      logger.debug("debug credentials:", credentials);
+    } catch (error) {}
+
+    try {
       const result = await this.client.send(command);
 
       return {
@@ -90,6 +100,7 @@ class EmailService {
         messageId: result.MessageId,
       };
     } catch (error) {
+      console.dir(error, { depth: null });
       throw AppError.from(error, {
         code: "EMAIL SEND FAILED",
         statusCode: httpStatusConfig.serviceUnavailable.statusCode,

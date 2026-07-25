@@ -17,7 +17,7 @@ const EducationText = ({ details }: EducationTextProps) => {
       ) : null}
 
       {timeline ? (
-        <div className="text-fixed-light bg-linear-to-br from-ink via-ink p-1 px-3 rounded-full w-max font-semibold text-xs bg-accent-blue to-accent-purple">
+        <div className="text-fixed-light bg-linear-to-br from-ink via-ink p-1 px-3 border border-alternate-bg rounded-full w-max font-semibold text-xs bg-accent-blue to-accent-purple">
           {timeline}
         </div>
       ) : null}

@@ -87,11 +87,6 @@ class EmailService {
     });
 
     try {
-      const credentials = await this.client.config.credentials();
-      logger.debug("debug credentials:", credentials);
-    } catch (error) {}
-
-    try {
       const result = await this.client.send(command);
 
       return {

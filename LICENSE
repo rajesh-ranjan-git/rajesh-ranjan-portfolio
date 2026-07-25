@@ -1,9 +1,9 @@
-MIT License
+ISC License
 
 Copyright (c) 2026 Rajesh Ranjan
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files, provided that the above
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
 copyright notice and this permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
@@ -16,6 +16,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ---
 
-Note: while this project's code is MIT-licensed, the personal content,
-copy, resume, certificates, and images under `public/assets/` remain the
-property of Rajesh Ranjan and are not licensed for reuse.
+Additional Notice
+
+The source code in this repository is licensed under the ISC License.
+
+All personal content—including text, portfolio copy, resume, certificates,
+logos, and images located under `public/assets/` (unless otherwise stated)—
+is not covered by the ISC License and remains the copyright of Rajesh Ranjan.
+These materials may not be copied, redistributed, or reused without
+permission.

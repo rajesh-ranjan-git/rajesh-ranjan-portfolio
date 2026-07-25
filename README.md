@@ -75,16 +75,16 @@ src/
 ├── components/         # UI components, grouped by feature/domain
 ├── sections/           # Page-level sections (greetings, about, skills, etc.)
 ├── config/             # Static config (owner info, socials, technologies, etc.)
-├── constants/           # App-wide constants
-├── helpers/             # Small helper functions
-├── hooks/               # Custom React hooks
-├── lib/                 # Server actions and API handler utilities
-├── services/            # Email, logging, error, and response services
-├── store/               # Zustand store(s)
-├── styles/              # CSS Modules
-├── types/               # Shared TypeScript types and prop types
-├── utils/               # General utilities
-└── validators/           # Form/input validation logic
+├── constants/          # App-wide constants
+├── helpers/            # Small helper functions
+├── hooks/              # Custom React hooks
+├── lib/                # Server actions and API handler utilities
+├── services/           # Email, logging, error, and response services
+├── store/              # Zustand store(s)
+├── styles/             # CSS Modules
+├── types/              # Shared TypeScript types and prop types
+├── utils/              # General utilities
+└── validators/         # Form/input validation logic
 ```
 
 ## Getting Started
@@ -105,26 +105,26 @@ The app runs on [http://localhost:1995](http://localhost:1995) by default (see [
 
 Environment files live in `env/` (`.env.development`, `.env.production`) and are loaded manually via `next.config.ts`. Copy `env/env.example.txt` as a starting point:
 
-| Variable | Description |
-| --- | --- |
-| `DOTENV_CONFIG_QUIET` | Silences dotenv's console logging |
-| `NEXT_PUBLIC_NODE_ENV` | Current environment (`development` / `production`) |
-| `NEXT_PUBLIC_BASE_PORT` | Local dev server port |
-| `NEXT_PUBLIC_BASE_URL` | Base URL used by the app |
-| `NEXT_AWS_EMAIL_FROM` / `NEXT_AWS_EMAIL_TO` | Sender/recipient for contact form emails |
-| `NEXT_AWS_DEV_EMAIL_OVERRIDE` | Overrides the recipient in non-production environments |
+| Variable                                                                  | Description                                              |
+| ------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `DOTENV_CONFIG_QUIET`                                                     | Silences dotenv's console logging                        |
+| `NEXT_PUBLIC_NODE_ENV`                                                    | Current environment (`development` / `production`)       |
+| `NEXT_PUBLIC_BASE_PORT`                                                   | Local dev server port                                    |
+| `NEXT_PUBLIC_BASE_URL`                                                    | Base URL used by the app                                 |
+| `NEXT_AWS_EMAIL_FROM` / `NEXT_AWS_EMAIL_TO`                               | Sender/recipient for contact form emails                 |
+| `NEXT_AWS_DEV_EMAIL_OVERRIDE`                                             | Overrides the recipient in non-production environments   |
 | `NEXT_AWS_SMTP_*`, `NEXT_AWS_SES_*`, `NEXT_AWS_HOST`, `NEXT_AWS_USERNAME` | AWS SES/SMTP credentials for sending contact form emails |
 
 Never commit real credentials — `env/.env.*` files are git-ignored.
 
 ## Available Scripts
 
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Starts the dev server on port 1995 |
-| `npm run build` | Builds the app for production |
-| `npm run start` | Starts the production server |
-| `npm run lint` | Runs ESLint |
+| Script          | Description                        |
+| --------------- | ---------------------------------- |
+| `npm run dev`   | Starts the dev server on port 1995 |
+| `npm run build` | Builds the app for production      |
+| `npm run start` | Starts the production server       |
+| `npm run lint`  | Runs ESLint                        |
 
 ## Deployment
 
@@ -135,12 +135,13 @@ The site is deployed to a self-managed EC2 instance behind [PM2](https://pm2.key
 
 ## License
 
-Licensed under the ISC License — see [LICENSE.md](./LICENSE.md).
+Licensed under the ISC License — see [LICENSE](./LICENSE).
+Personal assets (including the resume, certificates, images, logos, and portfolio content) are excluded from the license and remain © Rajesh Ranjan. See the `LICENSE` file for details.
 
 ## Contact
 
 - **Email:** [rajeshranjan8271@gmail.com](mailto:rajeshranjan8271@gmail.com)
 - **LinkedIn:** [rajesh-ranjan-full-stack-developer](https://www.linkedin.com/in/rajesh-ranjan-full-stack-developer/)
 - **GitHub:** [@rajesh-ranjan-git](https://github.com/rajesh-ranjan-git/)
-- **Twitter/X:** [@_rajesh____](https://x.com/_rajesh____/)
-- **Instagram:** [@_rajesh____](https://www.instagram.com/_rajesh____/)
+- **Twitter/X:** [@\_rajesh\_\_\_\_](https://x.com/_rajesh____/)
+- **Instagram:** [@\_rajesh\_\_\_\_](https://www.instagram.com/_rajesh____/)

@@ -2,7 +2,14 @@
 
 Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 7+ years of experience, currently at Business Today Technology (India Today Group). Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
 
-**Live site:** [rajeshranjan.dev](https://rajeshranjan.dev)
+**Live site:** [rajeshranjan.dev](https://rajeshranjan.dev/)
+
+![License](https://img.shields.io/github/license/rajesh-ranjan-git/rajesh-ranjan-portfolio)
+![GitHub release](https://img.shields.io/github/v/release/rajesh-ranjan-git/rajesh-ranjan-portfolio)
+![Build](https://github.com/rajesh-ranjan-git/rajesh-ranjan-portfolio/actions/workflows/deploy.yml/badge.svg)
+![Stars](https://img.shields.io/github/stars/rajesh-ranjan-git/rajesh-ranjan-portfolio?style=social)
+![Last Commit](https://img.shields.io/github/last-commit/rajesh-ranjan-git/rajesh-ranjan-portfolio)
+![Visitors](https://komarev.com/ghpvc/?username=rajesh-ranjan-git&repo=rajesh-ranjan-portfolio)
 
 ## Table of Contents
 

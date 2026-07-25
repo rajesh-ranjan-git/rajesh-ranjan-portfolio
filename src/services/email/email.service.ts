@@ -95,7 +95,6 @@ class EmailService {
         messageId: result.MessageId,
       };
     } catch (error) {
-      console.dir(error, { depth: null });
       throw AppError.from(error, {
         code: "EMAIL SEND FAILED",
         statusCode: httpStatusConfig.serviceUnavailable.statusCode,

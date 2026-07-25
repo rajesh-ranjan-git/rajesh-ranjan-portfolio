@@ -58,6 +58,7 @@ jobs:
           echo "$CHANGED_FILES"
 
           BUILD_NEEDED=false
+
           if echo "$CHANGED_FILES" | grep -qvE '(^README\.md$|^\.gitignore$|^LICENSE$|^docs/)'; then
             BUILD_NEEDED=true
           fi

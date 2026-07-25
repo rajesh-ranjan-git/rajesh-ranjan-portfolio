@@ -185,7 +185,7 @@ jobs:
 
         with:
           server_address: ${{ secrets.AWS_SMTP_ENDPOINT }}
-          server_port: 587
+          server_port: ${{ secrets.AWS_SMTP_PORT }}
 
           username: ${{ secrets.AWS_SMTP_USERNAME }}
           password: ${{ secrets.AWS_SMTP_PASSWORD }}
@@ -265,7 +265,7 @@ jobs:
 
         with:
           server_address: ${{ secrets.AWS_SMTP_ENDPOINT }}
-          server_port: 587
+          server_port: ${{ secrets.AWS_SMTP_PORT }}
 
           username: ${{ secrets.AWS_SMTP_USERNAME }}
           password: ${{ secrets.AWS_SMTP_PASSWORD }}

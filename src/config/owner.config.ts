@@ -1820,6 +1820,159 @@ export const portfolio = [
       },
     ],
   },
+  {
+    id: 23,
+    title: "DevMatch",
+    description:
+      "A full-stack social networking platform for developers to discover, connect, chat, and collaborate through real-time messaging, developer profiles, and secure authentication.",
+    overview:
+      "A modern full-stack developer networking platform inspired by professional social apps. DevMatch enables developers to create detailed profiles, discover other engineers, send connection requests, exchange real-time messages, manage notifications, and administer the platform through a comprehensive admin dashboard. Built with scalability, security, and modern web technologies in mind.",
+    thumbnail: "/assets/portfolio/devmatch/devmatch-thumbnail.webp",
+    category: "Next JS",
+    techStack: [
+      {
+        type: "Frontend",
+        tech: ["Next JS", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+      },
+      {
+        type: "Backend",
+        tech: ["Node JS", "Express JS", "Socket.IO"],
+      },
+      {
+        type: "Database",
+        tech: ["MongoDB"],
+      },
+      {
+        type: "Authentication",
+        tech: [
+          "JWT",
+          "OAuth",
+          "Cookies",
+          "Google",
+          "GitHub",
+          "Facebook",
+          "LinkedIn",
+        ],
+      },
+      {
+        type: "Cloud Services",
+        tech: ["AWS SES", "Cloudinary", "Google Drive"],
+      },
+      {
+        type: "Deployment",
+        tech: ["GitHub Actions", "PM2", "Nginx", "AWS EC2"],
+      },
+    ],
+
+    githubUrl: "https://github.com/rajesh-ranjan-git/devmatch",
+
+    screens: [
+      "/assets/portfolio/devmatch/devmatch-home.webp",
+      "/assets/portfolio/devmatch/devmatch-server-home.webp",
+      "/assets/portfolio/devmatch/devmatch-login.webp",
+      "/assets/portfolio/devmatch/devmatch-discover.webp",
+      "/assets/portfolio/devmatch/devmatch-discover-light.webp",
+      "/assets/portfolio/devmatch/devmatch-welcome-email.webp",
+      "/assets/portfolio/devmatch/devmatch-email-verification-popup.webp",
+      "/assets/portfolio/devmatch/devmatch-email-verification-email.webp",
+      "/assets/portfolio/devmatch/devmatch-email-verification-success.webp",
+      "/assets/portfolio/devmatch/devmatch-discover-connect.webp",
+      "/assets/portfolio/devmatch/devmatch-discover-reject.webp",
+      "/assets/portfolio/devmatch/devmatch-user-profile.webp",
+      "/assets/portfolio/devmatch/devmatch-capture-photo.webp",
+      "/assets/portfolio/devmatch/devmatch-profile-photo.webp",
+      "/assets/portfolio/devmatch/devmatch-requests.webp",
+      "/assets/portfolio/devmatch/devmatch-profile-cover.webp",
+      "/assets/portfolio/devmatch/devmatch-profile-1.webp",
+      "/assets/portfolio/devmatch/devmatch-profile-2.webp",
+      "/assets/portfolio/devmatch/devmatch-profile-3.webp",
+      "/assets/portfolio/devmatch/devmatch-search.webp",
+      "/assets/portfolio/devmatch/devmatch-update-profile.webp",
+      "/assets/portfolio/devmatch/devmatch-update-bio.webp",
+      "/assets/portfolio/devmatch/devmatch-update-interests.webp",
+      "/assets/portfolio/devmatch/devmatch-update-name.webp",
+      "/assets/portfolio/devmatch/devmatch-update-tech.webp",
+      "/assets/portfolio/devmatch/devmatch-update-work-experience.webp",
+      "/assets/portfolio/devmatch/devmatch-chat.webp",
+      "/assets/portfolio/devmatch/devmatch-chat-user.webp",
+    ],
+
+    features: [
+      {
+        title: "Developer Profiles",
+        description:
+          "Create rich developer profiles with skills, experience, interests, social links, avatars, and cover images.",
+      },
+      {
+        title: "Developer Discovery",
+        description:
+          "Browse and discover developers through an interactive discovery feed with profile recommendations.",
+      },
+      {
+        title: "Connection System",
+        description:
+          "Send, accept, reject, block, or ignore connection requests with complete relationship management.",
+      },
+      {
+        title: "Real-Time Chat",
+        description:
+          "One-to-one and group messaging powered by Socket.IO with reactions, message editing, search, pinned messages, and read receipts.",
+      },
+      {
+        title: "Secure Authentication",
+        description:
+          "Supports email/password authentication, JWT sessions, refresh tokens, email verification, password reset, and OAuth login.",
+      },
+      {
+        title: "Push Notifications",
+        description:
+          "Receive real-time browser notifications and in-app updates for messages, requests, and account activity.",
+      },
+      {
+        title: "Admin Dashboard",
+        description:
+          "Comprehensive administration panel to manage users, roles, analytics, reports, permissions, and platform settings.",
+      },
+      {
+        title: "Responsive PWA",
+        description:
+          "Fully responsive Progressive Web App optimized for desktop, tablet, and mobile devices.",
+      },
+    ],
+
+    usage: [
+      {
+        title: "Create an Account",
+        description:
+          "Register using email or authenticate quickly through supported OAuth providers.",
+      },
+      {
+        title: "Complete Your Profile",
+        description:
+          "Add personal information, skills, experience, interests, social links, and profile images.",
+      },
+      {
+        title: "Discover Developers",
+        description:
+          "Browse recommended developer profiles and find professionals with similar interests or technologies.",
+      },
+      {
+        title: "Connect & Network",
+        description:
+          "Send connection requests and build your professional developer network.",
+      },
+      {
+        title: "Start Conversations",
+        description:
+          "Chat with accepted connections through real-time direct or group messaging.",
+      },
+      {
+        title: "Manage Your Account",
+        description:
+          "Update account settings, sessions, profile information, and notification preferences from the dashboard.",
+      },
+    ],
+  },
 ];
 
 export const certificates = [

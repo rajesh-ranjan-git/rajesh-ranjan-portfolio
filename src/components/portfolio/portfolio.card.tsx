@@ -1,12 +1,25 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import portfolioStyles from "@/styles/portfolio.module.css";
 import { PortfolioCardProps } from "@/types/props/sections.props.types";
 
 const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const handleTouchToggle = (event: React.PointerEvent) => {
+    if (event.pointerType !== "touch") return;
+    setIsRevealed((prev) => !prev);
+  };
+
   return (
     <div className="group flex flex-col bg-fixed-dark shadow-[0_12px_20px_var(--color-surface-shadow)] border border-surface-border hover:border-surface-border-active rounded-2xl w-full h-full overflow-hidden transition-all duration-300">
-      <div className="group/image relative bg-fixed-dark rounded-b-xl hover:rounded-b-none aspect-1920/910 overflow-hidden transition-all duration-500 shrink-0">
+      <div
+        onPointerUp={handleTouchToggle}
+        className={`group/image relative bg-fixed-dark rounded-b-xl aspect-1920/910 overflow-hidden transition-all duration-500 shrink-0 hover:rounded-b-none ${isRevealed ? "rounded-b-none" : ""}`}
+      >
         <Image
           src={
             portfolioItem.thumbnail ?? "/assets/error/image-not-available.webp"
@@ -14,10 +27,14 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
           alt={portfolioItem.title}
           width={400}
           height={400}
-          className="w-full h-full object-cover object-top group-hover/image:scale-300 origin-top transition-all duration-1200 pointer-events-none"
+          className={`w-full h-full object-cover object-top origin-top transition-all duration-1200 pointer-events-none group-hover/image:scale-300 ${isRevealed ? "scale-300" : ""}`}
         />
-        <div className="text-fixed-light absolute bg-fixed-dark/90 opacity-0 group-hover/image:opacity-100 py-10 pr-14 pl-4 w-[110%] h-[110%] transition-all group-hover/image:-translate-y-full duration-1200">
-          <p className="font-normal scale-20 group-hover/image:scale-100 origin-left transition-all duration-1200">
+        <div
+          className={`text-fixed-light absolute bg-fixed-dark/90 py-10 pr-14 pl-4 w-[110%] h-[110%] transition-all duration-1200 group-hover/image:opacity-100 group-hover/image:-translate-y-full ${isRevealed ? "opacity-100 -translate-y-full" : "opacity-0"}`}
+        >
+          <p
+            className={`font-normal origin-left transition-all duration-1200 group-hover/image:scale-100 ${isRevealed ? "scale-100" : "scale-20"}`}
+          >
             {portfolioItem.description}
           </p>
         </div>

@@ -38,9 +38,14 @@ const Portfolio = ({ title, description }: SectionProps) => {
         />
       </FadeIn>
 
-      <div className="justify-between items-center gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+      <div className="justify-between items-stretch gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
         {filteredCards.map((item, index) => (
-          <FadeIn delay={150} distance={40} key={`${item.title}-${index}`}>
+          <FadeIn
+            delay={150}
+            distance={40}
+            className="h-full"
+            key={`${item.title}-${index}`}
+          >
             <PortfolioCard portfolioItem={item} />
           </FadeIn>
         ))}

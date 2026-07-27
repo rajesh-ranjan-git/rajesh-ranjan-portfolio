@@ -80,7 +80,7 @@ export const education = {
     imageSrc: "/assets/education/education-1.svg",
   },
   highSchool: {
-    name: "Indian School of Learning",
+    name: "Indian School of Learning, ISM Annexe",
     location: { city: "Dhanbad", state: "Jharkhand", country: "India" },
     degree: "Senior Secondary (XII)",
     stream: "Science",
@@ -1832,7 +1832,7 @@ export const portfolio = [
     techStack: [
       {
         type: "Frontend",
-        tech: ["Next JS", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+        tech: ["Next JS", "React JS", "TypeScript", "Tailwind CSS", "Zustand"],
       },
       {
         type: "Backend",

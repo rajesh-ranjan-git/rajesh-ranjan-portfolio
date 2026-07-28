@@ -40,6 +40,11 @@ export interface RainSkillsProps {
   className?: string;
 }
 
+export interface SkillsToolsProps {
+  activeSkillButton: "skills" | "tools";
+  iconTheme: "light" | "dark";
+}
+
 export interface ExperienceCardWrapperProps {
   isReversed: boolean;
   experience: ExperienceType;

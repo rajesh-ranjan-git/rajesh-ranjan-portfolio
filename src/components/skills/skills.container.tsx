@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { basicDetails } from "@/config/owner.config";
-import { technologiesConfig } from "@/config/technologies.config";
-import { SkillsToggleProps } from "@/types/props/sections.props.types";
+import { skillsConfig } from "@/config/technologies.config";
+import { SkillsToolsProps } from "@/types/props/sections.props.types";
 import Card from "@/components/ui/card/card";
 import Tooltip from "@/components/ui/tooltip/tooltip";
 
-const SkillsContainer = ({ activeSkillButton }: Partial<SkillsToggleProps>) => {
+const SkillsContainer = ({
+  activeSkillButton,
+  iconTheme,
+}: SkillsToolsProps) => {
   const techItems = basicDetails.skills;
 
   return (
@@ -17,9 +20,9 @@ const SkillsContainer = ({ activeSkillButton }: Partial<SkillsToggleProps>) => {
       }`}
     >
       {techItems.map((item) => {
-        const skill = technologiesConfig.find((tech) => tech.id === item);
+        const skill = skillsConfig.find((tech) => tech.id === item);
 
-        if (!skill || !skill.src) return;
+        if (!skill) return;
 
         return (
           <Tooltip
@@ -30,14 +33,19 @@ const SkillsContainer = ({ activeSkillButton }: Partial<SkillsToggleProps>) => {
           >
             <Card
               translate="bottom"
-              className="bg-white/80 hover:bg-white/80 px-2 py-2 w-20 h-20 overflow-hidden select-none shrink-0"
+              className="px-1.5 py-1.5 w-20 h-20 overflow-hidden select-none shrink-0"
             >
               <Image
-                src={skill?.src ?? ""}
+                src={
+                  skill.themed
+                    ? `/assets/tech-img/${skill.id}-${iconTheme}.svg`
+                    : `/assets/tech-img/${skill.id}.svg`
+                }
                 alt={skill?.id ?? "skill-img"}
                 width="100"
                 height="100"
-                className="w-full h-full object-contain pointer-events-none"
+                className="w-full h-full object-contain transition-all duration-300 pointer-events-none"
+                loading="lazy"
               />
             </Card>
           </Tooltip>

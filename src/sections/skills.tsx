@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { skillsConfig, toolsConfig } from "@/config/technologies.config";
 import { SectionProps } from "@/types/props/sections.props.types";
+import { useAppStore } from "@/store/store";
 import SectionHeading from "@/components/sections/section.heading";
 import SectionDescription from "@/components/sections/section.description";
 import SkillsToggle from "@/components/skills/skills.toggle";
@@ -10,21 +12,26 @@ import ToolsContainer from "@/components/skills/tools.container";
 import RainSkills from "@/components/skills/rain.skills";
 import FadeIn from "@/components/ui/fade-in/fade.in";
 
-const icons = [
-  "/assets/tech-img/react.svg",
-  "/assets/tech-img/next-js.svg",
-  "/assets/tech-img/javascript.svg",
-  "/assets/tech-img/typescript.svg",
-  "/assets/tech-img/node-js.svg",
-  "/assets/tech-img/mongo-db.svg",
-  "/assets/tech-img/git.svg",
-  "/assets/tech-img/docker.svg",
-];
-
 const Skills = ({ title, description }: SectionProps) => {
   const [activeSkillButton, setActiveSkillButton] = useState<
     "skills" | "tools"
   >("skills");
+
+  const activeTheme = useAppStore((state) => state.activeTheme);
+  const iconTheme = activeTheme === "dark" ? "light" : "dark";
+
+  const icons = [
+    ...skillsConfig.map((skill) =>
+      skill.themed
+        ? `/assets/tech-img/${skill.id}-${iconTheme}.svg`
+        : `/assets/tech-img/${skill.id}.svg`,
+    ),
+    ...toolsConfig.map((tool) =>
+      tool.themed
+        ? `/assets/tech-img/${tool.id}-${iconTheme}.svg`
+        : `/assets/tech-img/${tool.id}.svg`,
+    ),
+  ];
 
   return (
     <section id="skills">
@@ -47,13 +54,23 @@ const Skills = ({ title, description }: SectionProps) => {
         </FadeIn>
 
         <div className="relative">
-          <FadeIn delay={150} distance={40}>
-            <SkillsContainer activeSkillButton={activeSkillButton} />
-          </FadeIn>
+          {activeSkillButton === "skills" ? (
+            <FadeIn delay={150} distance={40}>
+              <SkillsContainer
+                activeSkillButton={activeSkillButton}
+                iconTheme={iconTheme}
+              />
+            </FadeIn>
+          ) : null}
 
-          <FadeIn delay={150} distance={40}>
-            <ToolsContainer activeSkillButton={activeSkillButton} />
-          </FadeIn>
+          {activeSkillButton === "tools" ? (
+            <FadeIn delay={150} distance={40}>
+              <ToolsContainer
+                activeSkillButton={activeSkillButton}
+                iconTheme={iconTheme}
+              />
+            </FadeIn>
+          ) : null}
         </div>
       </div>
     </section>

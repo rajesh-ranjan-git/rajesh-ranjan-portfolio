@@ -35,7 +35,7 @@ const RainSkills = ({ icons, count = 20, className = "" }: RainSkillsProps) => {
         <Image
           key={item.id}
           src={item.src}
-          alt=""
+          alt={`skill-${item.id}`}
           width={item.size}
           height={item.size}
           draggable={false}
@@ -50,6 +50,7 @@ const RainSkills = ({ icons, count = 20, className = "" }: RainSkillsProps) => {
               "--rotation": `${item.rotation}deg`,
             } as CSSProperties
           }
+          loading="lazy"
         />
       ))}
     </div>

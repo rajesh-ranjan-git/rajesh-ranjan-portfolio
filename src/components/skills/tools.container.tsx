@@ -10,7 +10,7 @@ const ToolsContainer = ({ activeSkillButton, iconTheme }: SkillsToolsProps) => {
 
   return (
     <div
-      className={`flex flex-wrap justify-center items-center gap-4 transition-all duration-300 ease-in-out ${
+      className={`flex flex-wrap justify-center items-center gap-2 md:gap-4 transition-all duration-300 ease-in-out ${
         activeSkillButton === "tools"
           ? "opacity-100 scale-100 relative"
           : "opacity-0 scale-95 absolute inset-0 pointer-events-none"
@@ -30,7 +30,7 @@ const ToolsContainer = ({ activeSkillButton, iconTheme }: SkillsToolsProps) => {
           >
             <Card
               translate="bottom"
-              className="px-1.5 py-1.5 w-20 h-20 overflow-hidden select-none shrink-0"
+              className="px-1 py-1 w-20 h-20 overflow-hidden select-none shrink-0"
             >
               <Image
                 src={

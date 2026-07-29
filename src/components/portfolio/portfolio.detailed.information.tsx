@@ -5,7 +5,7 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
   return (
     <div className="flex flex-col gap-8 pt-16">
       {project?.title ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <h3 className="after:block lg:after:bottom-4 after:bottom-2 after:absolute relative after:bg-primary pb-4 after:rounded-lg after:w-20 after:h-1 font-alkatra">
             {project?.title}
           </h3>
@@ -13,13 +13,13 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       ) : null}
 
       {project?.description ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <p className="text-lg">{project?.description}</p>
         </FadeIn>
       ) : null}
 
       {project?.overview ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <div className="flex flex-col gap-2">
             <h5>Overview</h5>
             <p className="text-lg">{project?.overview}</p>
@@ -28,7 +28,7 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       ) : null}
 
       {project?.techStack && project?.techStack?.length > 0 ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <div className="flex flex-col gap-2">
             <h5>Tech Stack</h5>
 
@@ -57,7 +57,7 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       ) : null}
 
       {project?.features && project?.features?.length > 0 ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <div className="flex flex-col gap-2">
             <h5>Features</h5>
 
@@ -79,7 +79,7 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       ) : null}
 
       {project?.usage && project?.usage?.length > 0 ? (
-        <FadeIn delay={150} distance={40}>
+        <FadeIn delay={150} distance={40} threshold={0}>
           <div className="flex flex-col gap-2">
             <h5>Usage Instructions</h5>
 

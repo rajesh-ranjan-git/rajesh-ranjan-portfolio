@@ -40,7 +40,12 @@ const Skills = ({ title, description }: SectionProps) => {
       {description ? <SectionDescription description={description} /> : null}
 
       <div className="items-center gap-12 md:gap-24 grid grid-cols-1 lg:grid-cols-2 w-full">
-        <FadeIn delay={150} distance={40} className="w-full h-full">
+        <FadeIn
+          delay={150}
+          distance={40}
+          threshold={0}
+          className="w-full h-full"
+        >
           <div className="flex flex-col justify-between items-center gap-4 w-full h-full">
             <SkillsToggle
               activeSkillButton={activeSkillButton}
@@ -55,7 +60,7 @@ const Skills = ({ title, description }: SectionProps) => {
 
         <div className="relative">
           {activeSkillButton === "skills" ? (
-            <FadeIn delay={150} distance={40}>
+            <FadeIn delay={150} distance={40} threshold={0}>
               <SkillsContainer
                 activeSkillButton={activeSkillButton}
                 iconTheme={iconTheme}
@@ -64,7 +69,7 @@ const Skills = ({ title, description }: SectionProps) => {
           ) : null}
 
           {activeSkillButton === "tools" ? (
-            <FadeIn delay={150} distance={40}>
+            <FadeIn delay={150} distance={40} threshold={0}>
               <ToolsContainer
                 activeSkillButton={activeSkillButton}
                 iconTheme={iconTheme}

@@ -19,6 +19,7 @@ const About = ({ title, description }: SectionProps) => {
         <FadeIn
           delay={150}
           distance={40}
+          threshold={0}
           className="justify-self-center order-2 lg:order-1 w-full md:w-1/2 lg:w-full max-w-[18rem] sm:max-w-[20rem] md:max-w-none"
         >
           <AboutImage />
@@ -27,6 +28,7 @@ const About = ({ title, description }: SectionProps) => {
         <FadeIn
           delay={150}
           distance={40}
+          threshold={0}
           className="order-1 lg:order-2 w-full min-w-0"
         >
           <AboutText

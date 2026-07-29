@@ -170,7 +170,7 @@ export const skillsConfig = [
   {
     id: "graphql",
     type: "skill",
-    label: "graphql",
+    label: "GraphQL",
     themed: true,
   },
   {

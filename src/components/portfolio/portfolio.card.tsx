@@ -30,7 +30,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
           className={`w-full h-full object-cover object-top origin-top transition-all duration-1200 pointer-events-none group-hover/image:scale-300 ${isRevealed ? "scale-300" : ""}`}
         />
         <div
-          className={`text-fixed-light absolute bg-fixed-dark/90 py-10 pr-14 pl-4 w-[110%] h-[110%] transition-all duration-1200 group-hover/image:opacity-100 group-hover/image:-translate-y-full ${isRevealed ? "opacity-100 -translate-y-full" : "opacity-0"}`}
+          className={`text-fixed-light absolute bg-fixed-dark/90 py-8 pr-14 pl-4 w-[110%] h-[110%] transition-all duration-1200 group-hover/image:opacity-100 group-hover/image:-translate-y-full ${isRevealed ? "opacity-100 -translate-y-full" : "opacity-0"}`}
         >
           <p
             className={`font-normal origin-left transition-all duration-1200 group-hover/image:scale-100 ${isRevealed ? "scale-100" : "scale-20"}`}

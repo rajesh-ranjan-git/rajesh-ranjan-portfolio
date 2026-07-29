@@ -39,7 +39,7 @@ const RainSkills = ({ icons, count = 20, className = "" }: RainSkillsProps) => {
           width={item.size}
           height={item.size}
           draggable={false}
-          className={`${skillsStyles.icon_rain} absolute select-none bg-fixed-light/80 rounded-2xl p-2`}
+          className={`${skillsStyles.icon_rain} absolute select-none bg-surface-bg rounded-2xl p-1`}
           style={
             {
               left: `${item.left}%`,

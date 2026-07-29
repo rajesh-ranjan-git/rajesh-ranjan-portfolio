@@ -5,7 +5,7 @@ const SectionHeading = ({ title }: Partial<SectionProps>) => {
   return (
     <>
       {title ? (
-        <FadeIn delay={150} distance={40} threshold={0}>
+        <FadeIn delay={150} threshold={0}>
           <h2 className="after:block lg:after:bottom-12 after:bottom-6 after:absolute relative after:bg-primary pb-8 lg:pb-12 after:rounded-lg after:w-20 after:h-1.5 font-arima">
             {title}
           </h2>

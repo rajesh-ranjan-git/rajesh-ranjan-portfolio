@@ -19,7 +19,7 @@ const PortfolioDetails = ({ project }: PortfolioDetailsProps) => {
         <SectionHeading title={`${project.title} Details`} />
       ) : null}
 
-      <FadeIn delay={150} distance={40} threshold={0}>
+      <FadeIn delay={150} threshold={0}>
         <div className="relative flex flex-col gap-8">
           {slides.length > 0 ? (
             <div className="w-full">

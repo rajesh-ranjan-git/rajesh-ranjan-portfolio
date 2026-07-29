@@ -17,7 +17,7 @@ const Certificates = ({ title, description }: SectionProps) => {
 
       {description ? <SectionDescription description={description} /> : null}
 
-      <FadeIn delay={150} distance={40} threshold={0}>
+      <FadeIn delay={150} threshold={0}>
         <div className="w-full">
           <Carousel
             slides={certificates}

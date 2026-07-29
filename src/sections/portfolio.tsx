@@ -30,7 +30,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
 
       {description ? <SectionDescription description={description} /> : null}
 
-      <FadeIn delay={150} distance={40} threshold={0}>
+      <FadeIn delay={150} threshold={0}>
         <PortfolioFilters
           filters={[...categories]}
           activeFilter={activeFilter}
@@ -42,7 +42,6 @@ const Portfolio = ({ title, description }: SectionProps) => {
         {filteredCards.map((item, index) => (
           <FadeIn
             delay={150}
-            distance={40}
             threshold={0}
             className="h-full"
             key={`${item.title}-${index}`}

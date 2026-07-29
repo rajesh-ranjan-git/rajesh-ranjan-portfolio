@@ -32,7 +32,7 @@ const ExperienceCardWrapper = ({
         className={`justify-end items-stretch text-left [grid-area:1/2/2/3] md:[grid-area:auto] ${isReversed ? "md:order-3 md:text-left" : "md:order-1 md:text-right"}`}
       >
         <div className="top-[50vh] sticky mb-4 md:mb-0">
-          <FadeIn delay={150} distance={40} threshold={0}>
+          <FadeIn delay={150} threshold={0}>
             <>
               <h4 className="font-alkatra">{timeline || "2026"}</h4>
               {duration ? (

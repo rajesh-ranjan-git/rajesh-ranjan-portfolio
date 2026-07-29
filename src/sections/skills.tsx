@@ -60,7 +60,7 @@ const Skills = ({ title, description }: SectionProps) => {
 
         <div className="relative">
           {activeSkillButton === "skills" ? (
-            <FadeIn delay={150} distance={40} threshold={0}>
+            <FadeIn delay={150} threshold={0}>
               <SkillsContainer
                 activeSkillButton={activeSkillButton}
                 iconTheme={iconTheme}
@@ -69,7 +69,7 @@ const Skills = ({ title, description }: SectionProps) => {
           ) : null}
 
           {activeSkillButton === "tools" ? (
-            <FadeIn delay={150} distance={40} threshold={0}>
+            <FadeIn delay={150} threshold={0}>
               <ToolsContainer
                 activeSkillButton={activeSkillButton}
                 iconTheme={iconTheme}

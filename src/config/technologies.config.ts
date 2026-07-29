@@ -156,9 +156,9 @@ export const skillsConfig = [
     themed: true,
   },
   {
-    id: "amazon-web-services",
+    id: "aws",
     type: "skill",
-    label: "Amazon Web Services",
+    label: "AWS",
     themed: true,
   },
   {
@@ -309,9 +309,9 @@ export const toolsConfig = [
     themed: false,
   },
   {
-    id: "visual-studio",
+    id: "figma",
     type: "tool",
-    label: "Visual Studio",
+    label: "Figma",
     themed: true,
   },
   {

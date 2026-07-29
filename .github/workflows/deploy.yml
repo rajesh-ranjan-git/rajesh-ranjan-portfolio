@@ -193,59 +193,62 @@ jobs:
 
           html_body: |
             <div style="font-family:Arial;background:#f5f5f5;padding:30px">
-              <div style="max-width:600px;margin:auto;background:white;padding:24px;border-radius:12px">
+              <div style="max-width:600px;margin:auto;background:white;border-radius:12px;overflow:hidden">
+                <div style="height:4px;background:linear-gradient(90deg,#3f82d9,#8b5cf6,#f54568)"></div>
 
-                <h1 style="margin-top:0">🚀 Portfolio Deployment Completed</h1>
+                <div style="padding:24px">
+                  <h1 style="margin-top:0">🚀 Portfolio Deployment Completed</h1>
 
-                <table style="width:100%;border-collapse:collapse">
-                  <tr>
-                    <td><strong>Repository</strong></td>
-                    <td>${{ github.repository }}</td>
-                  </tr>
+                  <table style="width:100%;border-collapse:collapse">
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Repository</strong></td>
+                      <td style="padding:6px 0">${{ github.repository }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Environment</strong></td>
-                    <td>Production</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Environment</strong></td>
+                      <td style="padding:6px 0">Production</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Branch</strong></td>
-                    <td>${{ github.ref_name }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Branch</strong></td>
+                      <td style="padding:6px 0">${{ github.ref_name }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Commit</strong></td>
-                    <td>${{ github.sha }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Commit</strong></td>
+                      <td style="padding:6px 0">${{ github.sha }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Commit Message</strong></td>
-                    <td>${{ github.event.head_commit.message }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Commit Message</strong></td>
+                      <td style="padding:6px 0">${{ github.event.head_commit.message }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Triggered By</strong></td>
-                    <td>${{ github.actor }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Triggered By</strong></td>
+                      <td style="padding:6px 0">${{ github.actor }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Build Executed</strong></td>
-                    <td>${{ steps.changes.outputs.portfolio }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Build Executed</strong></td>
+                      <td style="padding:6px 0">${{ steps.changes.outputs.portfolio }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Dependencies Installed</strong></td>
-                    <td>${{ steps.changes.outputs.portfolio_install }}</td>
-                  </tr>
-                </table>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Dependencies Installed</strong></td>
+                      <td style="padding:6px 0">${{ steps.changes.outputs.portfolio_install }}</td>
+                    </tr>
+                  </table>
 
-                <div style="margin-top:20px">
-                  <a
-                    href="https://rajeshranjan.dev"
-                    style="background:#059669;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
-                  >
-                    Go to Portfolio
-                  </a>
+                  <div style="margin-top:20px">
+                    <a
+                      href="https://rajeshranjan.dev"
+                      style="background:#059669;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
+                    >
+                      Go to Portfolio
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -273,52 +276,55 @@ jobs:
 
           html_body: |
             <div style="font-family:Arial;background:#f5f5f5;padding:30px">
-              <div style="max-width:600px;margin:auto;background:white;padding:24px;border-radius:12px">
+              <div style="max-width:600px;margin:auto;background:white;border-radius:12px;overflow:hidden">
+                <div style="height:4px;background:linear-gradient(90deg,#3f82d9,#8b5cf6,#f54568)"></div>
 
-                <h1 style="margin-top:0">⛔ Portfolio Deployment Failed</h1>
+                <div style="padding:24px">
+                  <h1 style="margin-top:0">⛔ Portfolio Deployment Failed</h1>
 
-                <table style="width:100%;border-collapse:collapse">
-                  <tr>
-                    <td><strong>Repository</strong></td>
-                    <td>${{ github.repository }}</td>
-                  </tr>
+                  <table style="width:100%;border-collapse:collapse">
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Repository</strong></td>
+                      <td style="padding:6px 0">${{ github.repository }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Environment</strong></td>
-                    <td>Production</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Environment</strong></td>
+                      <td style="padding:6px 0">Production</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Branch</strong></td>
-                    <td>${{ github.ref_name }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Branch</strong></td>
+                      <td style="padding:6px 0">${{ github.ref_name }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Commit</strong></td>
-                    <td>${{ github.sha }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Commit</strong></td>
+                      <td style="padding:6px 0">${{ github.sha }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Commit Message</strong></td>
-                    <td>${{ github.event.head_commit.message }}</td>
-                  </tr>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Commit Message</strong></td>
+                      <td style="padding:6px 0">${{ github.event.head_commit.message }}</td>
+                    </tr>
 
-                  <tr>
-                    <td><strong>Triggered By</strong></td>
-                    <td>${{ github.actor }}</td>
-                  </tr>
-                </table>
+                    <tr>
+                      <td style="padding:6px 16px 6px 0"><strong>Triggered By</strong></td>
+                      <td style="padding:6px 0">${{ github.actor }}</td>
+                    </tr>
+                  </table>
 
-                <p>Check attached deployment logs.</p>
-                <p>Check GitHub Actions logs immediately!</p>
+                  <p>Check attached deployment logs.</p>
+                  <p>Check GitHub Actions logs immediately!</p>
 
-                <div style="margin-top:20px">
-                  <a
-                    href="https://github.com/rajesh-ranjan-git/rajesh-ranjan-portfolio/actions"
-                    style="background:#dc2626;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
-                  >
-                    Check GitHub Actions logs
-                  </a>
+                  <div style="margin-top:20px">
+                    <a
+                      href="https://github.com/rajesh-ranjan-git/rajesh-ranjan-portfolio/actions"
+                      style="background:#dc2626;color:white;padding:12px 18px;text-decoration:none;border-radius:8px"
+                    >
+                      Check GitHub Actions logs
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

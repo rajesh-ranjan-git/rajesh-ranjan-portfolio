@@ -8,6 +8,7 @@ import FloatingBadge from "@/components/ui/floating/floating.badge";
 import Tooltip from "@/components/ui/tooltip/tooltip";
 
 const AboutImage = () => {
+  const fullName = getFullName();
   const social = getSingleSocialLink(basicDetails.socialBadge);
 
   return (
@@ -60,6 +61,7 @@ const AboutImage = () => {
           href={social.url ?? ""}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`${fullName ?? "John Doe"}'s Image`}
           className="group"
         >
           <FloatingBadge

@@ -8,7 +8,7 @@ const SidebarHeader = () => {
   return (
     <div className="flex flex-col gap-2 overflow-hidden shrink-0">
       <div className="flex items-center">
-        <MenuButton />
+        <MenuButton side="left" />
 
         {sidebarToggle && (
           <div className="relative p-2 px-4 whitespace-nowrap">

@@ -13,11 +13,16 @@ export interface BannerProps {
   nodeVersion: string;
 }
 
+export interface MenuProps {
+  side: "left" | "right";
+}
+
 export interface BreadcrumbProps {
   items: BreadcrumbItemType[];
 }
 
 export interface ButtonProps {
+  name?: string;
   btnTextSize?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
   variant?: "mask-1" | "mask-2";
   color: string;

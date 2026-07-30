@@ -30,6 +30,7 @@ const ScrollButton = () => {
       }`}
     >
       <MaskedButton
+        name="Scroll To Top"
         btnTextSize="md"
         variant="mask-2"
         color={activeTheme === "dark" ? "#3f82d9" : "#040b14"}

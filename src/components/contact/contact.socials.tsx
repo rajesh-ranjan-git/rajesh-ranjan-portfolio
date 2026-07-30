@@ -3,11 +3,12 @@ import { FaPhone } from "react-icons/fa6";
 import { RiShareFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { socialMedia } from "@/config/social.config";
-import { getSingleSocialLink } from "@/helpers/owner.helpers";
+import { getFullName, getSingleSocialLink } from "@/helpers/owner.helpers";
 import SocialMedia from "@/components/social-media/social.media";
 import Card from "@/components/ui/card/card";
 
 const ContactSocials = () => {
+  const fullName = getFullName();
   const email = getSingleSocialLink(socialMedia.google.id);
   const phone = getSingleSocialLink(socialMedia.phone.id);
 
@@ -39,6 +40,7 @@ const ContactSocials = () => {
         {email ? (
           <Link
             href={email?.url}
+            aria-label={`Email ${fullName ?? "John Doe"}`}
             className="transition-colors duration-300 hover:text-accent-pink"
           >
             {email?.userName}
@@ -61,6 +63,7 @@ const ContactSocials = () => {
         {phone ? (
           <Link
             href={phone?.url}
+            aria-label={`Call ${fullName ?? "John Doe"}`}
             className="transition-colors duration-300 hover:text-accent-pink"
           >
             {phone?.userName}

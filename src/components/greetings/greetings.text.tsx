@@ -2,10 +2,10 @@
 
 import greetingsStyles from "@/styles/greetings.module.css";
 import { basicDetails } from "@/config/owner.config";
+import { useAppStore } from "@/store/store";
 import { getFullName } from "@/helpers/owner.helpers";
 import Typewriter from "@/components/typewriter/typewriter";
 import ScrambleText from "@/components/ui/scramble-text/scramble.text";
-import { useAppStore } from "@/store/store";
 
 const GreetingsText = () => {
   const fullName = getFullName();

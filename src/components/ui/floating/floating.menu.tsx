@@ -7,7 +7,7 @@ const FloatingMenu = () => {
       <ThemeToggle />
 
       <div className="md:hidden">
-        <MenuButton />
+        <MenuButton side="right" />
       </div>
     </div>
   );

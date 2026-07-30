@@ -38,6 +38,7 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
           <Link
             href={project?.liveUrl}
             target="_blank"
+            aria-label={`${project.title} Live URL`}
             className="transition-all duration-300 text-accent-blue hover:text-accent-pink"
           >
             Check out here
@@ -51,6 +52,7 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
           <Link
             href={project?.githubUrl}
             target="_blank"
+            aria-label={`${project.title} Github URL`}
             className="transition-all duration-300 text-accent-blue hover:text-accent-pink"
           >
             Check out here

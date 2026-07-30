@@ -64,6 +64,7 @@ const Sidebar = () => {
                   >
                     <button
                       type="button"
+                      aria-label={`${item.label} section`}
                       className="flex items-center w-full cursor-pointer"
                       onClick={() => {
                         scrollToSection(item.id);

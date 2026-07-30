@@ -1,10 +1,13 @@
+import { MenuProps } from "@/types/props/common.props.types";
 import { useAppStore } from "@/store/store";
 
-const Hamburger = () => {
+const Hamburger = ({ side }: MenuProps) => {
   const sidebarToggle = useAppStore((state) => state.sidebarToggle);
 
   return (
-    <div className="relative w-full h-full rotate-180 sm:rotate-0">
+    <div
+      className={`relative w-full h-full ${side === "left" ? "rotate-0" : "rotate-180"}`}
+    >
       <span
         className="top-0 left-0 absolute bg-sidebar-text rounded-md w-full h-1 transition-all duration-300 ease-in-out"
         style={

@@ -8,6 +8,8 @@ const SidebarFooter = () => {
   const sidebarToggle = useAppStore((state) => state.sidebarToggle);
   const setSidebarToggle = useAppStore((state) => state.setSidebarToggle);
 
+  const fullName = getFullName();
+
   const handleImageClick = () => {
     if (!sidebarToggle) {
       setSidebarToggle(!sidebarToggle);
@@ -35,8 +37,9 @@ const SidebarFooter = () => {
             </p>
             {basicDetails.social.google ? (
               <Link
-                href="mailto:rajeshranjan8271@gmail.com"
+                href={`mailto:${basicDetails.social.google}`}
                 target="_blank"
+                aria-label={`Email ${fullName ?? "John Doe"}`}
                 className="font-semibold text-slate-400 hover:text-white text-xs transition-all ease-in-out"
               >
                 {basicDetails.social.google}

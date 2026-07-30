@@ -42,9 +42,14 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
       <div className="flex justify-between items-center gap-2 bg-fixed-dark px-4 py-2 w-full">
         <Link
           href={
-            portfolioItem.liveUrl
+            portfolioItem?.liveUrl
               ? portfolioItem.liveUrl
               : portfolioItem.githubUrl
+          }
+          aria-label={
+            portfolioItem?.liveUrl
+              ? `${portfolioItem.title} Live URL`
+              : `${portfolioItem.title} Github URL`
           }
           target="_blank"
           className={`inline-block before:-bottom-px before:left-0 before:absolute relative before:rounded-lg before:w-0 hover:before:w-full before:h-0.75 min-w-0 truncate font-semibold uppercase transition-all before:transition-all duration-300 before:duration-300 before:bg-accent-pink ${portfolioStyles.link_mask}`}
@@ -54,6 +59,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
         <Link
           href={`/project/${portfolioItem.id}`}
           target="_blank"
+          aria-label={`${portfolioItem.title} Details`}
           className={`inline-block before:-bottom-px before:left-0 before:absolute relative before:rounded-lg before:w-0 hover:before:w-full before:h-0.75 transition-all before:transition-all duration-300 before:duration-300 before:bg-accent-pink ${portfolioStyles.link_mask}`}
         >
           View more

@@ -20,94 +20,84 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, subject, message } = body;
 
-    const {
-      isPropertyValid: isNameValid,
-      validatedProperty: validatedName,
-      message: nameErrorMessage,
-    } = nameValidator(name);
+    const nameResult = nameValidator(name);
 
-    if (!isNameValid) {
+    if (!nameResult.isPropertyValid) {
       throw AppError.unprocessable({
-        message: nameErrorMessage,
+        message: nameResult.message,
         code: "NAME VALIDATION FAILED",
         details: { name },
       });
     }
 
-    const {
-      isPropertyValid: isEmailValid,
-      validatedProperty: validatedEmail,
-      message: emailErrorMessage,
-    } = emailValidator(email);
+    const emailResult = emailValidator(email);
 
-    if (!isEmailValid) {
+    if (!emailResult.isPropertyValid) {
       throw AppError.unprocessable({
-        message: emailErrorMessage,
+        message: emailResult.message,
         code: "EMAIL VALIDATION FAILED",
         details: { email },
       });
     }
 
-    const {
-      isPropertyValid: isPhoneValid,
-      validatedProperty: validatedPhone,
-      message: phoneErrorMessage,
-    } = numberRegexPropertiesValidator("phone", phone, PHONE_REGEX);
+    const phoneResult = numberRegexPropertiesValidator(
+      "phone",
+      phone,
+      PHONE_REGEX,
+    );
 
-    if (!isPhoneValid) {
+    if (!phoneResult.isPropertyValid) {
       throw AppError.unprocessable({
-        message: phoneErrorMessage,
+        message: phoneResult.message,
         code: "PHONE VALIDATION FAILED",
         details: { phone },
       });
     }
 
-    const {
-      isPropertyValid: isSubjectValid,
-      validatedProperty: validatedSubject,
-      message: subjectErrorMessage,
-    } = stringPropertiesValidator(
+    const subjectResult = stringPropertiesValidator(
       "subject",
       subject,
       propertyConstraintsConfig.minSubjectLength,
       propertyConstraintsConfig.maxSubjectLength,
     );
 
-    if (!isSubjectValid) {
+    if (!subjectResult.isPropertyValid) {
       throw AppError.unprocessable({
-        message: subjectErrorMessage,
+        message: subjectResult.message,
         code: "SUBJECT VALIDATION FAILED",
         details: { subject },
       });
     }
 
-    const {
-      isPropertyValid: isMessageValid,
-      validatedProperty: validatedMessage,
-      message: messageErrorMessage,
-    } = stringPropertiesValidator(
+    const messageResult = stringPropertiesValidator(
       "message",
       message,
       propertyConstraintsConfig.minMessageLength,
       propertyConstraintsConfig.maxMessageLength,
     );
 
-    if (!isMessageValid) {
+    if (!messageResult.isPropertyValid) {
       throw AppError.unprocessable({
-        message: messageErrorMessage,
+        message: messageResult.message,
         code: "MESSAGE VALIDATION FAILED",
         details: { message },
       });
     }
 
+    const validatedName = nameResult.validatedProperty;
+    const validatedEmail = emailResult.validatedProperty;
+    const validatedPhone = phoneResult.validatedProperty;
+    const validatedSubject = subjectResult.validatedProperty;
+    const validatedMessage = messageResult.validatedProperty;
+
     const result = await emailService.send({
       subject: `📩 New Portfolio Enquiry from ${toTitleCase(validatedName) || validatedEmail} — ${toSentenceCase(validatedSubject)}`,
       template: contactNotificationEmail({
-        name: validatedName ?? null,
-        email: validatedEmail as string,
-        phone: validatedPhone ?? null,
-        subject: validatedSubject as string,
-        message: validatedMessage as string,
+        name: validatedName,
+        email: validatedEmail,
+        phone: validatedPhone,
+        subject: validatedSubject,
+        message: validatedMessage,
       }),
     });
 

@@ -7,7 +7,7 @@ import { MdEmail, MdSubject } from "react-icons/md";
 import { TbSendFilled } from "react-icons/tb";
 import { PHONE_REGEX } from "@/constants/regex.constants";
 import { propertyConstraintsConfig } from "@/config/common.config";
-import { initialState } from "@/config/forms.config";
+import { FormStateType } from "@/types/types/actions.types";
 import useInputFieldValidator from "@/hooks/useInputFieldValidation";
 import { useToast } from "@/hooks/toast";
 import { getFullName } from "@/helpers/owner.helpers";
@@ -23,16 +23,29 @@ import FormInput from "@/components/ui/forms/form.input";
 import FormTextarea from "@/components/ui/forms/form.textarea";
 import FormButton from "@/components/ui/forms/form.button";
 
+const initialState: FormStateType = {
+  success: false,
+  status: "IDLE",
+  code: "INITIAL",
+  statusCode: 0,
+  message: "",
+  details: null,
+  timestamp: new Date().toISOString(),
+  metadata: null,
+  errors: {},
+  inputs: {},
+};
+
 const ContactForm = () => {
   const { showToast } = useToast();
 
   const validateName = (val: string): string => {
-    const { message: nameError } = nameValidator(val);
+    const nameResult = nameValidator(val);
 
-    if (!nameError) return "";
+    if (nameResult.isPropertyValid) return "";
 
     return (
-      nameError ??
+      nameResult.message ??
       `A valid name is required to send a message to ${getFullName()}!`
     );
   };
@@ -40,27 +53,27 @@ const ContactForm = () => {
   const validateEmail = (val: string): string => {
     if (!val) return `Email is required to send a message to ${getFullName()}!`;
 
-    const { message: emailError } = emailValidator(val);
+    const emailResult = emailValidator(val);
 
-    if (!emailError) return "";
+    if (emailResult.isPropertyValid) return "";
 
     return (
-      emailError ??
+      emailResult.message ??
       `A valid email is required to send a message to ${getFullName()}!`
     );
   };
 
   const validatePhone = (val: string): string => {
-    const { message: phoneError } = numberRegexPropertiesValidator(
+    const phoneResult = numberRegexPropertiesValidator(
       "phone",
       val,
       PHONE_REGEX,
     );
 
-    if (!phoneError) return "";
+    if (phoneResult.isPropertyValid) return "";
 
     return (
-      phoneError ??
+      phoneResult.message ??
       `A valid phone number is required to send a message to ${getFullName()}!`
     );
   };
@@ -69,17 +82,17 @@ const ContactForm = () => {
     if (!val)
       return `Subject is required to send a message to ${getFullName()}!`;
 
-    const { message: subjectError } = stringPropertiesValidator(
+    const subjectResult = stringPropertiesValidator(
       "subject",
       val,
       propertyConstraintsConfig.minSubjectLength,
       propertyConstraintsConfig.maxSubjectLength,
     );
 
-    if (!subjectError) return "";
+    if (subjectResult.isPropertyValid) return "";
 
     return (
-      subjectError ??
+      subjectResult.message ??
       `A valid subject is required to send a message to ${getFullName()}!`
     );
   };
@@ -88,50 +101,50 @@ const ContactForm = () => {
     if (!val)
       return `Message is required to send a message to ${getFullName()}!`;
 
-    const { message: messageError } = stringPropertiesValidator(
+    const messageResult = stringPropertiesValidator(
       "message",
       val,
       propertyConstraintsConfig.minMessageLength,
       propertyConstraintsConfig.maxMessageLength,
     );
 
-    if (!messageError) return "";
+    if (messageResult.isPropertyValid) return "";
 
     return (
-      messageError ??
+      messageResult.message ??
       `A valid message is required to send a message to ${getFullName()}!`
     );
   };
 
-  const nameField = useInputFieldValidator<string>({
+  const nameField = useInputFieldValidator({
     initialValue: "",
     validate: validateName,
   });
 
-  const emailField = useInputFieldValidator<string>({
+  const emailField = useInputFieldValidator({
     initialValue: "",
     validate: validateEmail,
   });
 
-  const phoneField = useInputFieldValidator<string>({
+  const phoneField = useInputFieldValidator({
     initialValue: "",
     validate: validatePhone,
   });
 
-  const subjectField = useInputFieldValidator<string>({
+  const subjectField = useInputFieldValidator({
     initialValue: "",
     validate: validateSubject,
   });
 
-  const messageField = useInputFieldValidator<string>({
+  const messageField = useInputFieldValidator({
     initialValue: "",
     validate: validateMessage,
   });
 
-  const action = async (prevState: any, formData: FormData): Promise<any> =>
-    sendMessage(prevState, formData);
-
-  const [state, formAction, isPending] = useActionState(action, initialState);
+  const [state, formAction, isPending] = useActionState(
+    sendMessage,
+    initialState,
+  );
 
   useEffect(() => {
     if (state && state.status === "IDLE") return;

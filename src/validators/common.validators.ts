@@ -1,34 +1,39 @@
-import { ValidatorResultType } from "@/types/types/validators.types";
+import {
+  RequiredValidatorResultType,
+  ValidatorResultType,
+} from "@/types/types/validators.types";
 import { toTitleCase } from "@/utils/common.utils";
 
 export const numberRegexPropertiesValidator = (
   propertyName: string,
-  propertyValue: any,
+  propertyValue: unknown,
   regex: RegExp,
 ): ValidatorResultType<string> => {
   if (!propertyValue) {
     return { isPropertyValid: true, validatedProperty: null };
   }
 
-  propertyValue =
-    typeof propertyValue === "string" ? propertyValue.trim() : propertyValue;
+  const stringValue =
+    typeof propertyValue === "string"
+      ? propertyValue.trim()
+      : String(propertyValue);
 
-  if (!regex.test(propertyValue) || isNaN(Number(propertyValue))) {
+  if (!regex.test(stringValue) || isNaN(Number(stringValue))) {
     return {
       isPropertyValid: false,
       message: `${toTitleCase(propertyName)} is invalid!`,
     };
   }
 
-  return { isPropertyValid: true, validatedProperty: propertyValue };
+  return { isPropertyValid: true, validatedProperty: stringValue };
 };
 
 export const stringPropertiesValidator = (
   propertyName: string,
-  propertyValue: any,
+  propertyValue: unknown,
   minLength: number,
   maxLength: number,
-): ValidatorResultType<string> => {
+): RequiredValidatorResultType<string> => {
   if (!propertyValue) {
     return {
       isPropertyValid: false,

@@ -11,7 +11,7 @@ export type FieldErrorsType = {
   message?: string | null;
 };
 
-export type FormStateType<T = any> =
+export type FormStateType<T = unknown> =
   | (ApiSuccessResponseType<T> & {
       inputs?: Record<string, FormDataEntryValue>;
       errors?: never;

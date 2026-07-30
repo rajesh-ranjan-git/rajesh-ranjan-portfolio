@@ -47,8 +47,8 @@ const Banner = ({ nodeVersion }: BannerProps) => {
         figlet.text(
           appConfig.name.toUpperCase(),
           { font: bannerFontsConfig.ansiShadow.name },
-          async (error: any, data: any) => {
-            if (error) {
+          async (error: Error | null, data?: string) => {
+            if (error || !data) {
               logger.warn(`🚨 [BANNER FAILED] Unable to show banner:`, error);
               showToast({
                 title: "BANNER ERROR",
@@ -58,7 +58,7 @@ const Banner = ({ nodeVersion }: BannerProps) => {
               return;
             }
 
-            const output = bannerGradient.multiline(data as string);
+            const output = bannerGradient.multiline(data);
             const desc = bannerDescGradient.multiline(appConfig.description);
             const sysInfo = systemInfo(nodeVersion);
 

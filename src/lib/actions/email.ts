@@ -20,35 +20,34 @@ export const sendMessage = async (
 
   const errors: FormStateType["errors"] = {};
 
-  const { validatedProperty: validatedName, message: nameErrorMessage } =
-    nameValidator(name);
-  errors.name = nameErrorMessage ?? null;
+  const nameResult = nameValidator(name);
+  errors.name = nameResult.isPropertyValid ? null : nameResult.message;
 
-  const { validatedProperty: validatedEmail, message: emailErrorMessage } =
-    emailValidator(email);
-  errors.email = emailErrorMessage ?? null;
+  const emailResult = emailValidator(email);
+  errors.email = emailResult.isPropertyValid ? null : emailResult.message;
 
-  const { validatedProperty: validatedPhone, message: phoneErrorMessage } =
-    numberRegexPropertiesValidator("phone", phone, PHONE_REGEX);
-  errors.phone = phoneErrorMessage ?? null;
+  const phoneResult = numberRegexPropertiesValidator(
+    "phone",
+    phone,
+    PHONE_REGEX,
+  );
+  errors.phone = phoneResult.isPropertyValid ? null : phoneResult.message;
 
-  const { validatedProperty: validatedSubject, message: subjectErrorMessage } =
-    stringPropertiesValidator(
-      "subject",
-      subject,
-      propertyConstraintsConfig.minSubjectLength,
-      propertyConstraintsConfig.maxSubjectLength,
-    );
-  errors.subject = subjectErrorMessage ?? null;
+  const subjectResult = stringPropertiesValidator(
+    "subject",
+    subject,
+    propertyConstraintsConfig.minSubjectLength,
+    propertyConstraintsConfig.maxSubjectLength,
+  );
+  errors.subject = subjectResult.isPropertyValid ? null : subjectResult.message;
 
-  const { validatedProperty: validatedMessage, message: messageErrorMessage } =
-    stringPropertiesValidator(
-      "message",
-      message,
-      propertyConstraintsConfig.minMessageLength,
-      propertyConstraintsConfig.maxMessageLength,
-    );
-  errors.message = messageErrorMessage ?? null;
+  const messageResult = stringPropertiesValidator(
+    "message",
+    message,
+    propertyConstraintsConfig.minMessageLength,
+    propertyConstraintsConfig.maxMessageLength,
+  );
+  errors.message = messageResult.isPropertyValid ? null : messageResult.message;
 
   if (Object.values(errors).some((error) => error !== null)) {
     return {
@@ -67,11 +66,19 @@ export const sendMessage = async (
 
   try {
     const response = await api.post("email", {
-      name: validatedName,
-      email: validatedEmail,
-      phone: validatedPhone,
-      subject: validatedSubject,
-      message: validatedMessage,
+      name: nameResult.isPropertyValid ? nameResult.validatedProperty : null,
+      email: emailResult.isPropertyValid
+        ? emailResult.validatedProperty
+        : null,
+      phone: phoneResult.isPropertyValid
+        ? phoneResult.validatedProperty
+        : null,
+      subject: subjectResult.isPropertyValid
+        ? subjectResult.validatedProperty
+        : null,
+      message: messageResult.isPropertyValid
+        ? messageResult.validatedProperty
+        : null,
     });
 
     return { ...response };

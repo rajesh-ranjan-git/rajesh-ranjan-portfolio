@@ -1,6 +1,9 @@
 import { EMAIL_REGEX, NAME_REGEX } from "@/constants/regex.constants";
 import { propertyConstraintsConfig } from "@/config/common.config";
-import { ValidatorResultType } from "@/types/types/validators.types";
+import {
+  RequiredValidatorResultType,
+  ValidatorResultType,
+} from "@/types/types/validators.types";
 
 export const nameValidator = (name: unknown): ValidatorResultType<string> => {
   if (!name) return { isPropertyValid: true, validatedProperty: null };
@@ -38,7 +41,9 @@ export const nameValidator = (name: unknown): ValidatorResultType<string> => {
   return { isPropertyValid: true, validatedProperty: trimmedName };
 };
 
-export const emailValidator = (email: unknown): ValidatorResultType<string> => {
+export const emailValidator = (
+  email: unknown,
+): RequiredValidatorResultType<string> => {
   if (!email) {
     return { isPropertyValid: false, message: "Please provide your email!" };
   }

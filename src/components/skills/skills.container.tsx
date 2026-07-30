@@ -33,7 +33,7 @@ const SkillsContainer = ({
           >
             <Card
               translate="bottom"
-              className="px-1 py-1 rounded-3xl w-20 h-20 overflow-hidden select-none shrink-0"
+              className="px-1 py-1 rounded-[20px] w-20 h-20 overflow-hidden select-none shrink-0"
             >
               <Image
                 src={

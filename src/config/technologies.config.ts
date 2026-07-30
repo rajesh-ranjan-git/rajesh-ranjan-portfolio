@@ -54,12 +54,6 @@ export const skillsConfig = [
     themed: false,
   },
   {
-    id: "material-ui",
-    type: "skill",
-    label: "Material UI",
-    themed: true,
-  },
-  {
     id: "react-router",
     type: "skill",
     label: "React Router",
@@ -243,12 +237,6 @@ export const toolsConfig = [
     themed: true,
   },
   {
-    id: "pnpm",
-    type: "tool",
-    label: "PNPM",
-    themed: true,
-  },
-  {
     id: "yarn",
     type: "tool",
     label: "Yarn",
@@ -343,12 +331,6 @@ export const toolsConfig = [
     type: "tool",
     label: "Slack",
     themed: false,
-  },
-  {
-    id: "bit-bucket",
-    type: "tool",
-    label: "BitBucket",
-    themed: true,
   },
   {
     id: "powershell",

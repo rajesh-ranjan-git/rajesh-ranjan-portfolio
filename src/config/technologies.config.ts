@@ -42,18 +42,6 @@ export const skillsConfig = [
     themed: true,
   },
   {
-    id: "bootstrap",
-    type: "skill",
-    label: "Bootstrap",
-    themed: false,
-  },
-  {
-    id: "sass",
-    type: "skill",
-    label: "Sass",
-    themed: false,
-  },
-  {
     id: "react-router",
     type: "skill",
     label: "React Router",

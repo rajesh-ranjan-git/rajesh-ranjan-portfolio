@@ -275,7 +275,7 @@ const Carousel = ({
                         <Link
                           href={slide.url}
                           target="_blank"
-                          aria-label={`${slide.title} Certificate`}
+                          aria-label={`${slide.name} Certificate`}
                           className="bg-surface-bg hover:bg-surface-bg-hover shadow-[0_12px_20px_var(--color-surface-shadow)] backdrop-blur-xl p-1 border-surface-border hover:border-surface-border-hover rounded-lg transition-all duration-300"
                         >
                           <MdOpenInNew size={20} />

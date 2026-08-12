@@ -9,8 +9,8 @@ module.exports = {
       script: "npm",
       args: "start",
 
-      instances: 2,
-      exec_mode: "cluster",
+      instances: 1,
+      exec_mode: "fork",
 
       env: {
         NODE_ENV: "production",

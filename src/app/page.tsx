@@ -2,6 +2,7 @@ import Greetings from "@/sections/greetings";
 import About from "@/sections/about";
 import Skills from "@/sections/skills";
 import Experience from "@/sections/experience";
+import Internships from "@/sections/internships";
 import Education from "@/sections/education";
 import Portfolio from "@/sections/portfolio";
 import Certificates from "@/sections/certificates";
@@ -16,6 +17,7 @@ const Home = () => {
         <About title="About me..." />
         <Skills title="What My Programming Skills Includes?" />
         <Experience title="Professional journey..." />
+        <Internships title="Early career experiences..." />
         <Education title="Academic details..." />
         <Portfolio title="Recent works..." />
         <Certificates title="Verified training accomplishments..." />

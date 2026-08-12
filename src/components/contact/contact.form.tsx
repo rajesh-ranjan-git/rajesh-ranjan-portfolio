@@ -271,7 +271,7 @@ const ContactForm = () => {
               variant="primary"
               loading={isPending}
               disabled={isDisabled}
-              className="rounded-xl w-full"
+              className="w-full"
             >
               <span>Send Message</span>
               <TbSendFilled size={18} />

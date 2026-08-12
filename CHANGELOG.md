@@ -4,6 +4,36 @@ All notable changes to this project are documented in this file.
 
 This project does not strictly follow [Keep a Changelog](https://keepachangelog.com) versioning conventions, since `v2.0.0` represents a full rewrite rather than an incremental release. Versions correspond to the `version` field in `package.json`.
 
+## [2.0.1]
+
+### Added
+
+- **New Internships section** (`sections/internships.tsx`, `components/internships/internship.card.tsx`), separated out from the main `experience` list into a dedicated `internships` config array in `owner.config.ts`, with its own sidebar nav entry and icon.
+- **Tech stack badges** on experience cards, matching the styling already used on portfolio/internship cards (`ExperienceType.techStack`).
+- **"Show more / Show less" toggle** on the Portfolio section, collapsing the grid behind a bottom mask-image fade until expanded, with a button that scrolls to the Certificates section on collapse.
+- `Loader` now accepts `outerColor` / `middleColor` / `innerColor` props (via CSS custom properties) instead of fixed colors, so it can be reused with different color schemes (e.g. the reload button).
+
+### Changed
+
+- Moved `sections/portfolio.details.tsx` to `components/portfolio/portfolio.details.tsx` for consistency with other portfolio components.
+- Reworked `FormButton` variants to use `--fixed-dark` / `--fixed-light` tokens directly instead of the removed `--button-bg` token; buttons now use `rounded-xl` instead of `rounded-md`.
+- Restyled `BackButton` and `ReloadButton` (rounded-xl, shadow, updated transition timing); `ReloadButton` now uses the shared `Loader` instead of a spinning icon.
+- Removed the "Category" line from `PortfolioInformation` (tech stack and GitHub link remain).
+- Toast `warning` variant switched from orange to amber to better match the rest of the palette.
+- Reworded and condensed several experience/internship bullet points in `owner.config.ts`; updated CYBERED's company label to include "(Remote)".
+- Updated sidebar icons (Education, Portfolio) and reorganized icon imports in `sidebar.config.ts`.
+- `ExperienceCardWrapperProps.isReversed` is now optional.
+- Replaced hardcoded `text-[#e94335]` / `border-[#e94335]` error colors with the shared `text-error` / `border-error` / `shadow-error` token throughout `FormError`, `FormField`, `FormInput`, and `FormTextarea`, so error styling stays in sync with the `--error` CSS variable.
+
+### Removed
+
+- Unused `--button-bg` CSS variable from `globals.css`.
+
+### Fixed
+
+- Hardcoded error accent colors on the global error and not-found pages for consistent theming.
+- Optimized `public/assets/error/image-not-available.webp` file size.
+
 ## [2.0.0] — Next.js Rewrite
 
 The entire portfolio was rebuilt from scratch on a new stack. This is not an incremental upgrade of the previous codebase (`rajesh-ranjan-portfolio-new`, kept for reference) — it is a ground-up rewrite with a different framework, routing model, styling approach, and deployment pipeline.

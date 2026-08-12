@@ -31,6 +31,12 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
+export interface LoaderProps {
+  outerColor?: string;
+  middleColor?: string;
+  innerColor?: string;
+}
+
 export interface BackButtonProps {
   back: boolean;
 }

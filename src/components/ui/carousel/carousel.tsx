@@ -249,7 +249,7 @@ const Carousel = ({
             >
               <Card
                 scale={scale}
-                className={`shadow-lg group px-2 py-2 ${slideHeightClassName}`}
+                className={`shadow-lg group px-1 py-1 ${slideHeightClassName}`}
               >
                 <div className="relative w-full h-full overflow-hidden">
                   <Image

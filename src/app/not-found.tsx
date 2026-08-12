@@ -36,7 +36,7 @@ const NotFound = () => {
           </div>
 
           <div className="flex justify-center items-center gap-2 mx-auto">
-            <IoIosWarning className="text-amber-600 text-2xl md:text-5xl" />
+            <IoIosWarning className="text-amber-700 text-2xl md:text-5xl" />
             <h3 className="text-amber-700 text-lg md:text-3xl">
               The requested page does not exist!
             </h3>

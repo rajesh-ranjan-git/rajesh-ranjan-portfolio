@@ -10,12 +10,6 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
         Project Information
       </h5>
 
-      {project?.category ? (
-        <p>
-          <span className="font-semibold">Category :</span> {project?.category}
-        </p>
-      ) : null}
-
       {tech && tech?.length > 0 ? (
         <div className="flex">
           <span className="pr-2 font-semibold shrink-0">Tech Stack :</span>
@@ -47,7 +41,7 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
       ) : null}
 
       {project?.githubUrl ? (
-        <p>
+        <p className="mt-2">
           <span className="font-semibold">Github URL :</span>&nbsp;
           <Link
             href={project?.githubUrl}

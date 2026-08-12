@@ -30,7 +30,7 @@ const PortfolioDetails = ({ project }: PortfolioDetailsProps) => {
                 autoPlayInterval={3000}
                 showArrows={false}
                 dotsPosition="bottom-left"
-                slideHeightClassName="h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[30rem]"
+                slideHeightClassName="h-64 sm:h-72 md:h-96 lg:h-120 xl:h-[30rem]"
               />
             </div>
           ) : null}

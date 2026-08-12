@@ -1,11 +1,14 @@
-import { FaHouse } from "react-icons/fa6";
-import { FaUserAstronaut } from "react-icons/fa6";
-import { FaBriefcase } from "react-icons/fa6";
-import { FaBookOpenReader } from "react-icons/fa6";
-import { FaTrophy } from "react-icons/fa6";
-import { FaCubes } from "react-icons/fa6";
-import { FaCertificate } from "react-icons/fa6";
-import { FaIdCard } from "react-icons/fa6";
+import {
+  FaHouse,
+  FaUserAstronaut,
+  FaTrophy,
+  FaBriefcase,
+  FaLaptopCode,
+  FaUserGraduate,
+  FaPersonChalkboard,
+  FaCertificate,
+  FaIdCard,
+} from "react-icons/fa6";
 
 export const menuItems = [
   {
@@ -29,14 +32,19 @@ export const menuItems = [
     icon: FaBriefcase,
   },
   {
+    id: "internships",
+    label: "Internships",
+    icon: FaLaptopCode,
+  },
+  {
     id: "education",
     label: "Education",
-    icon: FaBookOpenReader,
+    icon: FaUserGraduate,
   },
   {
     id: "portfolio",
     label: "Portfolio",
-    icon: FaCubes,
+    icon: FaPersonChalkboard,
   },
   {
     id: "certificates",

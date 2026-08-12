@@ -22,7 +22,7 @@ const FormField = ({
     <div className="relative">
       {startIcon && (
         <div
-          className={`top-1/2 left-4 absolute -translate-y-1/2 ${error ? "text-[#e94335]" : "text-label"}`}
+          className={`top-1/2 left-4 absolute -translate-y-1/2 ${error ? "text-error" : "text-label"}`}
         >
           {startIcon}
         </div>
@@ -34,7 +34,7 @@ const FormField = ({
 
       {endIcon && (
         <div
-          className={`top-1/2 right-4 absolute -translate-y-1/2 ${error ? "text-[#e94335]" : "text-label"}`}
+          className={`top-1/2 right-4 absolute -translate-y-1/2 ${error ? "text-error" : "text-label"}`}
         >
           {endIcon}
         </div>

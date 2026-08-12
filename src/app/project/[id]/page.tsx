@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { portfolio } from "@/config/owner.config";
 import { PortfolioDetailsPageProps } from "@/types/props/sections.props.types";
-import PortfolioDetails from "@/sections/portfolio.details";
+import PortfolioDetails from "@/components/portfolio/portfolio.details";
 import Breadcrumb from "@/components/breadcrumb/breadcrumb";
 import SplashGate from "@/components/ui/splash/splash.gate";
 

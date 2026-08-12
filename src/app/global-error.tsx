@@ -47,8 +47,8 @@ const GlobalError = () => {
                 </div>
 
                 <div className="flex justify-center items-center gap-2 mx-auto">
-                  <MdError className="text-red-600 text-2xl md:text-5xl" />
-                  <h3 className="text-red-700 text-lg md:text-3xl">
+                  <MdError className="text-error text-2xl md:text-5xl" />
+                  <h3 className="text-error text-lg md:text-3xl">
                     Oops! An unexpected error occurred.
                   </h3>
                 </div>

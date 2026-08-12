@@ -47,6 +47,7 @@ export type ExperienceType = {
   endYear?: number;
   company: string;
   companyImage?: string;
+  techStack?: string[];
   details?: readonly ExperienceDetailsType[];
 };
 

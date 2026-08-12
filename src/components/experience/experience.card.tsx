@@ -33,7 +33,20 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
           </h5>
         </div>
       </div>
-      <div className="px-4 sm:px-5 lg:px-6 py-2 sm:py-3 lg:py-4">
+      <div className="flex flex-col gap-4 px-4 sm:px-5 lg:px-6 py-2 sm:py-3 lg:py-4">
+        {experience?.techStack && experience?.techStack?.length > 1 ? (
+          <div className="flex flex-wrap items-center gap-2 w-full">
+            {experience.techStack.map((tech) => (
+              <div
+                className="text-fixed-light bg-linear-to-br from-ink via-ink p-1 px-3 border border-alternate-bg rounded-full w-max font-semibold text-xs bg-accent-blue to-accent-purple shrink-0"
+                key={tech}
+              >
+                {tech}
+              </div>
+            ))}
+          </div>
+        ) : null}
+
         <div className="pl-4 sm:pl-5 lg:pl-6">
           <ul className="flex flex-col gap-2">
             {experience?.details && experience?.details?.length > 1

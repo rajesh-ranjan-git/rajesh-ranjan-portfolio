@@ -46,12 +46,16 @@ export interface SkillsToolsProps {
 }
 
 export interface ExperienceCardWrapperProps {
-  isReversed: boolean;
+  isReversed?: boolean;
   experience: ExperienceType;
 }
 
 export interface ExperienceCardProps {
   experience: ExperienceType;
+}
+
+export interface InternshipCardProps {
+  internship: ExperienceType;
 }
 
 export interface PortfolioFiltersProps {

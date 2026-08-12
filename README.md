@@ -28,7 +28,7 @@ Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 7+ years of
 
 This repository showcases Rajesh Ranjan's work, skills, and professional experience. It includes sections for greetings/intro, about, skills & tools, work experience timeline, education, certificates, a filterable project portfolio with detail pages, and a contact form backed by AWS SES.
 
-This is the second major iteration of the portfolio (`v2.0.0`) — a full rewrite from a Vite + React SPA to a Next.js App Router application. See [CHANGELOG.md](./CHANGELOG.md) for details on what changed from the previous version.
+This is the second major iteration of the portfolio (`v2.0.1`) — a full rewrite from a Vite + React SPA to a Next.js App Router application. See [CHANGELOG.md](./CHANGELOG.md) for details on what changed from the previous version.
 
 ## Tech Stack
 

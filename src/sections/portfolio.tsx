@@ -45,7 +45,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
   }, [shouldScroll]);
 
   return (
-    <section id="portfolio" className="relative pb-28">
+    <section id="portfolio">
       <div
         className={`${showMore ? "max-h-content" : "max-h-240 md:max-h-180"}`}
         style={
@@ -85,7 +85,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
         </div>
       </div>
 
-      <div className="bottom-0 absolute flex justify-center items-center py-8 w-full">
+      <div className="flex justify-center items-center py-8 w-full">
         <FormButton
           variant="primary"
           size="sm"

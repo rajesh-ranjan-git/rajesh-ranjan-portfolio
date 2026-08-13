@@ -85,7 +85,9 @@ const Portfolio = ({ title, description }: SectionProps) => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center w-full">
+      <div
+        className={`flex justify-center items-center w-full ${showMore ? "pt-8" : ""}`}
+      >
         <FormButton
           variant="primary"
           size="sm"

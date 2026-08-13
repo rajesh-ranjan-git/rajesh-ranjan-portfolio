@@ -2,7 +2,7 @@
 
 import fadeInStyles from "@/styles/fade.in.module.css";
 import { FadeInProps } from "@/types/props/hooks.props.types";
-import { useInView } from "@/hooks/useInView";
+import useInView from "@/hooks/useInView";
 
 const FadeIn = ({
   children,

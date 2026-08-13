@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef } from "react";
 import { UseOutsideClickProps } from "@/types/props/hooks.props.types";
 
-export const useOutsideClick = ({
+const useOutsideClick = ({
   ref,
   when,
   eventType = "click",
@@ -52,3 +52,5 @@ export const useOutsideClick = ({
     savedCallback.current = callback;
   }, [callback]);
 };
+
+export default useOutsideClick;

@@ -2,6 +2,10 @@ export const MOBILE_MAX_SCREEN_WIDTH = 767;
 
 export const TABLET_MAX_SCREEN_WIDTH = 1023;
 
+export const SCROLL_DURATION_MS = 600;
+
+export const SCROLL_TOLERANCE_PX = 2;
+
 export const CARD_TRANSLATE_CLASSES = {
   top: "hover:-translate-y-2",
   bottom: "hover:translate-y-2",

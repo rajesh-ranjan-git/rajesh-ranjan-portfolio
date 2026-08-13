@@ -9,7 +9,7 @@ import { appConfig } from "@/config/common.config";
 import { toastVariantsConfig } from "@/config/toast.config";
 import { bannerFontsConfig, bannerThemesConfig } from "@/config/banner.config";
 import { BannerProps } from "@/types/props/common.props.types";
-import { useToast } from "@/hooks/toast";
+import useToast from "@/hooks/useToast";
 import { getRandomItem, toTitleCase } from "@/utils/common.utils";
 import { getDateToShow } from "@/utils/date.utils";
 

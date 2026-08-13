@@ -2,17 +2,17 @@
 
 import { useEffect, useRef } from "react";
 import { FaHouse } from "react-icons/fa6";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import { menuItems } from "@/config/sidebar.config";
-import { useOutsideClick } from "@/hooks/useOutsideClick";
-import { useSectionNavigation } from "@/hooks/useSectionNavigation";
+import useOutsideClick from "@/hooks/useOutsideClick";
+import useSectionNavigation from "@/hooks/useSectionNavigation";
 import SidebarFooter from "@/components/sidebar/sidebar.footer";
 import SidebarHeader from "@/components/sidebar/sidebar.header";
 import BackdropOverlay from "@/components/ui/overlays/backdrop.overlay";
 
 const Sidebar = () => {
-  const sidebarToggle = useAppStore((state) => state.sidebarToggle);
-  const setSidebarToggle = useAppStore((state) => state.setSidebarToggle);
+  const sidebarToggle = useStore((state) => state.sidebarToggle);
+  const setSidebarToggle = useStore((state) => state.setSidebarToggle);
 
   const sidebarRef = useRef<HTMLDivElement>(null);
 

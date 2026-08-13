@@ -4,7 +4,7 @@ import { themeConfig } from "@/config/common.config";
 import { menuItems } from "@/config/sidebar.config";
 import { AppStateType } from "@/types/types/store.types";
 
-export const useAppStore = create<AppStateType>()(
+const useStore = create<AppStateType>()(
   persist(
     (set) => ({
       activeTheme: themeConfig.dark,
@@ -31,3 +31,5 @@ export const useAppStore = create<AppStateType>()(
     },
   ),
 );
+
+export default useStore;

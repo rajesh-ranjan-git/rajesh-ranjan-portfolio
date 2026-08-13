@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 import { themeConfig } from "@/config/common.config";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 
 const ThemeManager = () => {
-  const activeTheme = useAppStore((state) => state.activeTheme);
+  const activeTheme = useStore((state) => state.activeTheme);
 
   useEffect(() => {
     if (!activeTheme) return;

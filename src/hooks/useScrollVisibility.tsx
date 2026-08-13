@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UseScrollVisibilityProps } from "@/types/props/hooks.props.types";
 
-export const useScrollVisibility = ({
+const useScrollVisibility = ({
   threshold = 100,
   useViewportHeight = false,
 }: UseScrollVisibilityProps = {}) => {
@@ -29,3 +29,5 @@ export const useScrollVisibility = ({
 
   return isVisible;
 };
+
+export default useScrollVisibility;

@@ -1,12 +1,12 @@
 "use client";
 
 import { MenuProps } from "@/types/props/common.props.types";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import Hamburger from "@/components/ui/buttons/hamburger";
 
 const MenuButton = ({ side }: MenuProps) => {
-  const sidebarToggle = useAppStore((state) => state.sidebarToggle);
-  const setSidebarToggle = useAppStore((state) => state.setSidebarToggle);
+  const sidebarToggle = useStore((state) => state.sidebarToggle);
+  const setSidebarToggle = useStore((state) => state.setSidebarToggle);
 
   return (
     <button

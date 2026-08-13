@@ -1,11 +1,11 @@
 "use client";
 
 import { themeConfig } from "@/config/common.config";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 
 const ThemeToggle = () => {
-  const activeTheme = useAppStore((state) => state.activeTheme);
-  const setActiveTheme = useAppStore((state) => state.setActiveTheme);
+  const activeTheme = useStore((state) => state.activeTheme);
+  const setActiveTheme = useStore((state) => state.setActiveTheme);
 
   const handleSwitchTheme = () => {
     if (activeTheme === themeConfig.dark) {

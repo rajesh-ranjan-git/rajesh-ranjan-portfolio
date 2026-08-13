@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { skillsConfig, toolsConfig } from "@/config/technologies.config";
 import { SectionProps } from "@/types/props/sections.props.types";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import SectionHeading from "@/components/sections/section.heading";
 import SectionDescription from "@/components/sections/section.description";
 import SkillsToggle from "@/components/skills/skills.toggle";
@@ -17,7 +17,7 @@ const Skills = ({ title, description }: SectionProps) => {
     "skills" | "tools"
   >("skills");
 
-  const activeTheme = useAppStore((state) => state.activeTheme);
+  const activeTheme = useStore((state) => state.activeTheme);
   const iconTheme = activeTheme === "dark" ? "light" : "dark";
 
   const icons = [

@@ -1,5 +1,10 @@
 import { ToastPositionType, ToastType } from "@/types/types/toast.types";
 
+export interface ToastContainerProps {
+  toasts: ToastType[];
+  position: ToastPositionType;
+  onRemove: (id: string) => void;
+}
 export interface ToastProps {
   toast: ToastType;
   onRemove: (id: string) => void;

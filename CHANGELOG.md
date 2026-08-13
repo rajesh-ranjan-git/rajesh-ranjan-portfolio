@@ -4,6 +4,27 @@ All notable changes to this project are documented in this file.
 
 This project does not strictly follow [Keep a Changelog](https://keepachangelog.com) versioning conventions, since `v2.0.0` represents a full rewrite rather than an incremental release. Versions correspond to the `version` field in `package.json`.
 
+## [2.0.2]
+
+### Removed
+
+- **Removed `@tsparticles/*` entirely** (`@tsparticles/engine`, `@tsparticles/react`, `@tsparticles/slim`) — deleted `components/greetings/greetings.particles.tsx` along with the tsParticles-based `Orb` background.
+### Added
+
+- **New custom `Particles` component** (`components/ui/particles/particles.tsx`) with its own config/types/helpers (`constants/particles.constants.ts`, `types/types/particles.types.ts`, `helpers/particles.helpers.ts`), replacing tsParticles with a lightweight canvas implementation and no added dependency weight.
+- `constants/carousel.constants.ts` and `helpers/carousel.helpers.ts`, extracting `Carousel`'s inline breakpoint/drag-threshold constants and `getSlidesPerView` logic out of the component.
+- `helpers/common.helpers.ts`, extracting the smooth-scroll easing logic out of `useSectionNavigation` into a shared, reusable helper.
+- `SCROLL_DURATION_MS` / `SCROLL_TOLERANCE_PX` constants in `constants/common.constants.ts`, replacing local constants previously duplicated inside `useSectionNavigation`.
+- `ToastContainerProps` type in `types/props/toast.props.types.ts` for the extracted toast container component.
+
+### Changed
+
+- **Major internal refactor**: moved `hooks/toast.tsx` into a proper `components/ui/toast/` module (`toast.container.tsx`, `toast.context.tsx`, `toast.item.tsx`, `toast.provider.tsx`) plus a dedicated `hooks/useToast.tsx` hook, separating toast UI, context, and state.
+- Moved `components/typewriter/typewriter.tsx` into `components/ui/typewriter/typewriter.tsx` for consistency with the rest of the `ui/` component library.
+- Standardized hooks (`useInView`, `useOutsideClick`, `useSectionNavigation`) and the Zustand store (`useAppStore` → `useStore`) on **default exports** instead of named exports, for consistency across the codebase.
+- Reworked the Portfolio section's "Show more / Show less" logic (`sections/portfolio.tsx`) to size the collapsed grid dynamically instead of using a fixed row count, with corrected padding/centering for the toggle button.
+- Minor touch-ups to experience/internship card styling, sidebar, theme toggle, and form components as part of the broader cleanup pass.
+
 ## [2.0.1]
 
 ### Added

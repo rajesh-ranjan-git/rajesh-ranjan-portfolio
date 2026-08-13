@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { SplashGateProps } from "@/types/props/splash.props.types";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import SplashScreen from "@/components/ui/splash/splash.screen";
 
 const SplashGate = ({
@@ -13,8 +13,8 @@ const SplashGate = ({
   className = "",
   duration = 2000,
 }: SplashGateProps) => {
-  const splash = useAppStore((state) => state.splash);
-  const setSplash = useAppStore((state) => state.setSplash);
+  const splash = useStore((state) => state.splash);
+  const setSplash = useStore((state) => state.setSplash);
 
   useEffect(() => {
     const timer = setTimeout(() => setSplash(false), duration);

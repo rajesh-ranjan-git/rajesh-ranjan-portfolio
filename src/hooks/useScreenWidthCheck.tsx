@@ -5,7 +5,7 @@ import {
   TABLET_MAX_SCREEN_WIDTH,
 } from "@/constants/common.constants";
 
-const useScreenWidthCheck = (): ScreenWidthType => {
+const useScreenWidthCheck = () => {
   const [screenWidth, setScreenWidth] = useState<ScreenWidthType>({
     isMobileScreenWidth: false,
     isTabletScreenWidth: false,

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { UseInViewOptionsProps } from "@/types/props/hooks.props.types";
 
-export function useInView<T extends HTMLElement = HTMLDivElement>(
+function useInView<T extends HTMLElement = HTMLDivElement>(
   options: UseInViewOptionsProps = {},
 ) {
   const {
@@ -37,3 +37,5 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
 
   return { ref, isInView };
 }
+
+export default useInView;

@@ -9,7 +9,7 @@ import { PHONE_REGEX } from "@/constants/regex.constants";
 import { propertyConstraintsConfig } from "@/config/common.config";
 import { FormStateType } from "@/types/types/actions.types";
 import useInputFieldValidator from "@/hooks/useInputFieldValidation";
-import { useToast } from "@/hooks/toast";
+import useToast from "@/hooks/useToast";
 import { getFullName } from "@/helpers/owner.helpers";
 import { emailValidator, nameValidator } from "@/validators/contact.validators";
 import {

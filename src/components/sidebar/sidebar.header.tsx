@@ -1,9 +1,9 @@
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import { getFullName } from "@/helpers/owner.helpers";
 import MenuButton from "@/components/ui/buttons/menu.button";
 
 const SidebarHeader = () => {
-  const sidebarToggle = useAppStore((state) => state.sidebarToggle);
+  const sidebarToggle = useStore((state) => state.sidebarToggle);
 
   return (
     <div className="flex flex-col gap-2 overflow-hidden shrink-0">

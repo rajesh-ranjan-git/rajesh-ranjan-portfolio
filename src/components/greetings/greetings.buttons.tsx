@@ -1,7 +1,7 @@
 "use client";
 
 import { basicDetails } from "@/config/owner.config";
-import { useSectionNavigation } from "@/hooks/useSectionNavigation";
+import useSectionNavigation from "@/hooks/useSectionNavigation";
 import MaskedButton from "@/components/ui/buttons/masked.button";
 
 const GreetingsButtons = () => {

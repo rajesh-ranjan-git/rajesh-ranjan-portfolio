@@ -6,7 +6,7 @@ import {
   FRAME_INTERVAL,
 } from "@/constants/particles.constants";
 import { themeConfig } from "@/config/common.config";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import { Particle } from "@/types/types/particles.types";
 import {
   createParticle,
@@ -16,7 +16,7 @@ import {
 } from "@/helpers/particles.helpers";
 
 const Particles = () => {
-  const activeTheme = useAppStore((state) => state.activeTheme);
+  const activeTheme = useStore((state) => state.activeTheme);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const colorRef = useRef<string>("#ffffff");
   const particlesRef = useRef<Particle[]>([]);

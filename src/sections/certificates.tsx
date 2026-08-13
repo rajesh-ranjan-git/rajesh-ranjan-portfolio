@@ -2,14 +2,14 @@
 
 import { certificates } from "@/config/owner.config";
 import { SectionProps } from "@/types/props/sections.props.types";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import SectionHeading from "@/components/sections/section.heading";
 import SectionDescription from "@/components/sections/section.description";
 import Carousel from "@/components/ui/carousel/carousel";
 import FadeIn from "@/components/ui/fade-in/fade.in";
 
 const Certificates = ({ title, description }: SectionProps) => {
-  const activeSection = useAppStore((state) => state.activeSection);
+  const activeSection = useStore((state) => state.activeSection);
 
   return (
     <section id="certificates">

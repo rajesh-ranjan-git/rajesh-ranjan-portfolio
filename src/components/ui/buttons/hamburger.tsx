@@ -1,8 +1,8 @@
 import { MenuProps } from "@/types/props/common.props.types";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 
 const Hamburger = ({ side }: MenuProps) => {
-  const sidebarToggle = useAppStore((state) => state.sidebarToggle);
+  const sidebarToggle = useStore((state) => state.sidebarToggle);
 
   return (
     <div

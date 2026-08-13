@@ -2,16 +2,16 @@
 
 import greetingsStyles from "@/styles/greetings.module.css";
 import { basicDetails } from "@/config/owner.config";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import { getFullName } from "@/helpers/owner.helpers";
-import Typewriter from "@/components/typewriter/typewriter";
+import Typewriter from "@/components/ui/typewriter/typewriter";
 import ScrambleText from "@/components/ui/scramble-text/scramble.text";
 
 const GreetingsText = () => {
   const fullName = getFullName();
 
-  const splash = useAppStore((state) => state.splash);
-  const activeSection = useAppStore((state) => state.activeSection);
+  const splash = useStore((state) => state.splash);
+  const activeSection = useStore((state) => state.activeSection);
 
   return (
     <div className="text-fixed-light flex flex-col justify-center pt-4 h-full text-2xl md:text-4xl lg:text-5xl leading-12 lg:leading-20">

@@ -11,20 +11,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
+import {
+  DRAG_THRESHOLD_RATIO,
+  TRANSITION_MS,
+} from "@/constants/carousel.constants";
 import { CarouselProps } from "@/types/props/carousel.props.types";
+import { getSlidesPerView } from "@/helpers/carousel.helpers";
 import Card from "@/components/ui/card/card";
 import Tooltip from "@/components/ui/tooltip/tooltip";
-
-const BREAKPOINTS = { md: 768, lg: 1024, xl: 1200 };
-
-const getSlidesPerView = (width: number): number => {
-  if (width >= BREAKPOINTS.xl) return 2;
-  if (width >= BREAKPOINTS.lg) return 2;
-  return 1;
-};
-
-const DRAG_THRESHOLD_RATIO = 0.15;
-const TRANSITION_MS = 500;
 
 const Carousel = ({
   slides,

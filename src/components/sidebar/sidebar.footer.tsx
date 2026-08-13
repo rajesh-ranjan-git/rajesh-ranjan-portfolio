@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { basicDetails } from "@/config/owner.config";
-import { useAppStore } from "@/store/store";
+import useStore from "@/store/store";
 import { getFullName } from "@/helpers/owner.helpers";
 
 const SidebarFooter = () => {
-  const sidebarToggle = useAppStore((state) => state.sidebarToggle);
-  const setSidebarToggle = useAppStore((state) => state.setSidebarToggle);
+  const sidebarToggle = useStore((state) => state.sidebarToggle);
+  const setSidebarToggle = useStore((state) => state.setSidebarToggle);
 
   const fullName = getFullName();
 

@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { categories, portfolio } from "@/config/owner.config";
 import { PortfolioItemType } from "@/types/types/sections.types";
 import { SectionProps } from "@/types/props/sections.props.types";
-import { useSectionNavigation } from "@/hooks/useSectionNavigation";
+import useSectionNavigation from "@/hooks/useSectionNavigation";
 import SectionHeading from "@/components/sections/section.heading";
 import SectionDescription from "@/components/sections/section.description";
 import PortfolioFilters from "@/components/portfolio/portfolio.filters";

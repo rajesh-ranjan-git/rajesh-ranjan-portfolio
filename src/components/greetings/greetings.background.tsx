@@ -1,10 +1,10 @@
 import greetingsStyles from "@/styles/greetings.module.css";
-import GreetingsParticles from "@/components/greetings/greetings.particles";
+import Particles from "@/components/ui/particles/particles";
 
 const GreetingsBackground = () => {
   return (
     <>
-      <GreetingsParticles />
+      <Particles />
 
       <div
         className={`border-8 z-6 border-alternate-bg opacity-20 absolute lg:w-160 lg:h-160 md:w-120 md:h-120 w-80 h-80 block lg:left-[-20%] lg:bottom-[-30%] left-[-5%] bottom-[-10%] ${greetingsStyles.rectangle_transparent}`}

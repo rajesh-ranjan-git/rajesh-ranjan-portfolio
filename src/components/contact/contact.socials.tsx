@@ -69,7 +69,7 @@ const ContactSocials = () => {
             {phone?.userName}
           </Link>
         ) : (
-          <p>Your phone goes here...</p>
+          <p>Your phone number goes here...</p>
         )}
       </Card>
     </div>

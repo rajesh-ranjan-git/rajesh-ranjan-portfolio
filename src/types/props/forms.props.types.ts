@@ -22,7 +22,7 @@ export interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?: "primary" | "secondary" | "danger";
   size?: "sm" | "md";
   loading?: boolean;
 }

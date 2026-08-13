@@ -42,7 +42,6 @@ This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrit
 
 - [Tailwind CSS 4](https://tailwindcss.com)
 - CSS Modules for component-scoped styles
-- [tsParticles](https://particles.js.org) for animated backgrounds
 - [react-icons](https://react-icons.github.io/react-icons)
 
 **State & Data**
@@ -65,7 +64,7 @@ This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrit
 - **App Router architecture** — file-based routing under `src/app`, with a dynamic `project/[id]` route for individual project detail pages
 - **Dark/light theme** with a dedicated theme manager and toggle
 - **Splash screen & loaders** on initial load
-- **Particle background & animated orb** rendered via tsParticles
+- **Particle background & animated orb** rendered via custom particles component
 - **Sidebar navigation** with section-based scroll navigation, replacing the old top navbar
 - **Filterable project portfolio** with category filters and detailed per-project case study pages
 - **Experience timeline** with animated progress and per-role tech stacks

@@ -156,12 +156,12 @@ export const internships = [
       {
         title: "Frontend Web Development",
         description:
-          "Built responsive websites and web interfaces using HTML, CSS, JavaScript, and Bootstrap, developing a strong foundation in frontend development.",
+          "Built responsive websites using HTML, CSS, JavaScript, and Bootstrap, developing a strong foundation in frontend development.",
       },
       {
         title: "Responsive UI & Code Quality",
         description:
-          "Translated designs into cross-device interfaces while improving usability, maintaining reusable code, and resolving frontend compatibility issues.",
+          "Translated designs into cross-device interfaces while improving usability and resolving frontend compatibility issues.",
       },
     ],
   },

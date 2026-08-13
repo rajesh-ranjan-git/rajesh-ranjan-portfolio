@@ -80,7 +80,7 @@ const InternshipCard = ({ internship }: InternshipCardProps) => {
                   return (
                     <li
                       key={data.title}
-                      className="before:inline-block before:bg-primary before:mr-4 before:rounded-full before:w-2.5 before:h-2.5 -indent-6"
+                      className="before:inline-block before:bg-primary sm:before:mr-4 before:mr-2 before:rounded-full before:w-2.5 before:h-2.5 -indent-4 sm:-indent-6"
                     >
                       <b>{data.title} : </b> {data?.description}
                     </li>

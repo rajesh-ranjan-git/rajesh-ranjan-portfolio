@@ -17,7 +17,7 @@ const FadeIn = ({
   return (
     <div
       ref={ref}
-      className={`${fadeInStyles.fade_in} ${isInView ? fadeInStyles.visible : ""} ${className}`}
+      className={`h-full ${fadeInStyles.fade_in} ${isInView ? fadeInStyles.visible : ""} ${className}`}
       style={
         {
           transitionDelay: `${delay}ms`,

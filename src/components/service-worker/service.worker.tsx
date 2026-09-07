@@ -2,17 +2,37 @@
 
 import "@/services/logger/logger";
 import { useEffect } from "react";
+import { MODE } from "@/constants/env.constants";
+
+const unregisterStaleServiceWorkers = async () => {
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  await Promise.all(
+    registrations.map((registration) => registration.unregister()),
+  );
+
+  if ("caches" in window) {
+    const cacheKeys = await caches.keys();
+    await Promise.all(cacheKeys.map((key) => caches.delete(key)));
+  }
+};
 
 const ServiceWorker = () => {
   useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker/service-worker.js", { scope: "/" })
-        .then(() => logger.info("Service Worker registered successfully!"))
-        .catch((err) =>
-          logger.error("Unable to register Service Worker:", err),
-        );
+    if (!("serviceWorker" in navigator)) return;
+
+    if (MODE !== "production") {
+      unregisterStaleServiceWorkers().catch((err) =>
+        logger.error("Unable to clear stale Service Worker/cache:", err),
+      );
+      return;
     }
+
+    navigator.serviceWorker
+      .register("/service-worker/service-worker.js", {
+        scope: "/",
+      })
+      .then(() => logger.info("Service Worker registered successfully!"))
+      .catch((err) => logger.error("Unable to register Service Worker:", err));
   }, []);
 
   return null;

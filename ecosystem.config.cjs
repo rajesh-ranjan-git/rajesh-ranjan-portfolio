@@ -27,11 +27,10 @@ module.exports = {
       out_file: "/home/ubuntu/portfolio/logs/portfolio-out.log",
       error_file: "/home/ubuntu/portfolio/logs/portfolio-error.log",
       merge_logs: true,
-      log_date_format: "YYYY-MM-DD HH:mm:ss Z",
-
       kill_timeout: 5000,
 
-      time: true,
+      // The app writes its own ISO timestamp in every JSON log line.
+      time: false,
     },
   ],
 };

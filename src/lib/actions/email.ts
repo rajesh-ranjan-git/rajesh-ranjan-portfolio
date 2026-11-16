@@ -95,7 +95,7 @@ export const sendMessage = async (
       path: "action:sendMessage",
     });
 
-    logger.logAppError(appError, { statusCode: appError.statusCode });
+    logger.logAppError(appError);
 
     return {
       status: "ERROR",

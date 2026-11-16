@@ -1,8 +1,8 @@
 "use client";
 
-import "@/services/logger/logger";
 import { useEffect } from "react";
 import { MODE } from "@/constants/env.constants";
+import logger from "@/services/logger/logger";
 
 const unregisterStaleServiceWorkers = async () => {
   const registrations = await navigator.serviceWorker.getRegistrations();

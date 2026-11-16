@@ -1,10 +1,8 @@
 import "@/app/globals.css";
-import "@/services/logger/logger";
 import type { Metadata, Viewport } from "next";
 import { alkatra, arima, poppins, allura } from "@/config/font.config";
 import { themeInitScript } from "@/config/common.config";
 import { ReactNodeProps } from "@/types/props/common.props.types";
-import Banner from "@/services/banner/banner";
 import ServiceWorker from "@/components/service-worker/service.worker";
 import TitleManager from "@/components/title-manager/title.manager";
 import ErrorWrapper from "@/components/errors/error.wrapper";
@@ -65,7 +63,6 @@ const RootLayout = ({ children }: Readonly<ReactNodeProps>) => {
         <Orb />
 
         <ToastProvider>
-          <Banner nodeVersion={process.version} />
           <ThemeManager />
           <Sidebar />
 

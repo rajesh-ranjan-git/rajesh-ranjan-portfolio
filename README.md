@@ -28,7 +28,7 @@ Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 6+ years of
 
 This repository showcases Rajesh Ranjan's work, skills, and professional experience. It includes sections for greetings/intro, about, skills & tools, work experience timeline, education, certificates, a filterable project portfolio with detail pages, and a contact form backed by AWS SES.
 
-This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrite from a Vite + React SPA to a Next.js App Router application. See [CHANGELOG.md](./CHANGELOG.md) for details on what changed from the previous version.
+This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrite from a Vite + React SPA to a Next.js App Router application.
 
 ## Tech Stack
 
@@ -57,7 +57,7 @@ This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrit
 **Tooling**
 
 - ESLint 9 (flat config, `eslint-config-next`)
-- `dotenv`, `cross-env`, `figlet`, `gradient-string`, `boxen` for local dev/CLI banners
+- `dotenv`, `cross-env` for env loading and scripts
 
 ## Features
 
@@ -134,10 +134,39 @@ Never commit real credentials — `env/.env.*` files are git-ignored.
 
 ## Deployment
 
-The site is deployed to a self-managed EC2 instance behind [PM2](https://pm2.keymetrics.io) (`ecosystem.config.cjs`, cluster mode, 2 instances), fronted by an automated pipeline:
+The site is deployed to a self-managed EC2 instance behind [PM2](https://pm2.keymetrics.io) (`ecosystem.config.cjs`, fork mode, 1 instance), fronted by an automated pipeline:
 
 - **CI/CD:** [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) — on every push to `main`, detects which files changed, SSHes into the production host, pulls the latest code, installs dependencies only if they changed, rebuilds, and reloads the PM2 process (with a clean-restart fallback if the reload fails). Deployment success/failure is reported by email.
-- **Process management:** PM2 runs the app in cluster mode with auto-restart, memory-based restarts, and file-based logging.
+- **Process management:** PM2 runs the app with auto-restart, memory-based restarts, and file-based logging.
+
+### Logging
+
+All logging goes through `src/services/logger/logger.ts`:
+
+- **Development:** colored, human-readable lines in the terminal and the browser console.
+- **Production server:** one JSON object per line, with its own ISO timestamp, so PM2 log files stay greppable and parseable.
+- **Production browser:** only warnings and errors reach visitors' consoles.
+- `NEXT_PUBLIC_LOG_LEVEL` sets the minimum level (`info` by default).
+- Unhandled server errors are logged once, with route context, by `src/instrumentation.ts`.
+
+One-time setup on the server, so log files never fill the disk:
+
+```bash
+pm2 install pm2-logrotate
+pm2 set pm2-logrotate:max_size 10M
+pm2 set pm2-logrotate:retain 7
+pm2 set pm2-logrotate:compress true
+```
+
+Reading the logs:
+
+```bash
+# Errors only, pretty-printed
+grep -h '"level":"error"' ~/portfolio/logs/portfolio-*.log | jq .
+
+# Live tail
+pm2 logs portfolio --raw | jq -R 'fromjson? // .'
+```
 
 ## License
 

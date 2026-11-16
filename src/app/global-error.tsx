@@ -1,17 +1,17 @@
 "use client";
 
 import "@/app/globals.css";
-import "@/services/logger/logger";
 import { useEffect } from "react";
 import Image from "next/image";
 import { MdError } from "react-icons/md";
 import { staticImagesConfig } from "@/config/common.config";
 import { alkatra, arima, poppins, allura } from "@/config/font.config";
+import logger from "@/services/logger/logger";
 import Orb from "@/components/ui/background/orb";
 import ReloadButton from "@/components/ui/buttons/reload.button";
 
 // Kept intentionally minimal: if the root layout crashed, re-mounting the same
-// providers (sidebar, banner, toasts, service worker) here could crash again.
+// providers (sidebar, toasts, service worker) here could crash again.
 const GlobalError = ({ error }: { error: Error & { digest?: string } }) => {
   useEffect(() => {
     logger.error("❌ [GLOBAL ERROR] Unhandled application error:", {

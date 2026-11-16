@@ -6,6 +6,7 @@ import { toastVariantsConfig } from "@/config/toast.config";
 import { UseSectionNavigationProps } from "@/types/props/hooks.props.types";
 import useStore from "@/store/store";
 import useToast from "@/hooks/useToast";
+import logger from "@/services/logger/logger";
 import { toTitleCase } from "@/utils/common.utils";
 import { scrollElementIntoViewSmoothly } from "@/helpers/common.helpers";
 

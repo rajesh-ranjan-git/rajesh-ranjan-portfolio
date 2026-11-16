@@ -9,10 +9,6 @@ export interface ReactNodeProps {
   children: ReactNode;
 }
 
-export interface BannerProps {
-  nodeVersion: string;
-}
-
 export interface MenuProps {
   side: "left" | "right";
 }

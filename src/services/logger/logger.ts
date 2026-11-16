@@ -1,14 +1,21 @@
-import { MODE, LOG_LEVEL } from "@/constants/env.constants";
-import { ansiConfig } from "@/config/banner.config";
-import {
-  AppErrorLogPayloadType,
-  LogLevelType,
-} from "@/types/types/logger.types";
-import { getDateToShow } from "@/utils/date.utils";
-import type AppError from "@/services/error/error.service";
+// Single logger for server, browser, and next.config.ts.
+//
+// Output depends on where it runs:
+// - Development (server and browser): colored, human-readable lines.
+// - Production server: one JSON object per line (pm2 log friendly, greppable,
+//   parseable with jq, ready for CloudWatch if ever needed).
+// - Production browser: only warnings and errors reach visitors' consoles.
+//
+// This file uses relative, type-only imports and reads env at call time,
+// because next.config.ts imports it before dotenv has loaded the env files.
 
-const mode = (MODE ?? "development").toLowerCase();
-const LOGGING_LEVEL = (LOG_LEVEL ?? "info").toLowerCase();
+import type AppError from "../error/error.service";
+
+export type LogLevelType = "error" | "warn" | "info" | "debug";
+
+type LabelType = LogLevelType | "success";
+
+type LogContextType = Record<string, unknown>;
 
 const LEVELS: Record<LogLevelType, number> = {
   error: 0,
@@ -17,326 +24,207 @@ const LEVELS: Record<LogLevelType, number> = {
   debug: 3,
 };
 
-const shouldLog = (level: LogLevelType): boolean => {
+const LABELS: Record<
+  LabelType,
+  { icon: string; text: string; ansi: string; css: string }
+> = {
+  error: {
+    icon: "❌",
+    text: "ERROR",
+    ansi: "\x1b[31m",
+    css: "color:#ef4444;font-weight:bold;",
+  },
+  warn: {
+    icon: "🚨",
+    text: "WARNING",
+    ansi: "\x1b[33m",
+    css: "color:#f59e0b;font-weight:bold;",
+  },
+  info: {
+    icon: "📢",
+    text: "INFO",
+    ansi: "\x1b[38;2;56;248;248m",
+    css: "color:#38bdf8;font-weight:bold;",
+  },
+  success: {
+    icon: "✅",
+    text: "SUCCESS",
+    ansi: "\x1b[32m",
+    css: "color:#22c55e;font-weight:bold;",
+  },
+  debug: {
+    icon: "🐞",
+    text: "DEBUG",
+    ansi: "\x1b[38;2;255;150;255m",
+    css: "color:#d8b4fe;font-weight:bold;",
+  },
+};
+
+const CONSOLE_METHODS: Record<
+  LabelType,
+  "error" | "warn" | "info" | "log" | "debug"
+> = {
+  error: "error",
+  warn: "warn",
+  info: "info",
+  success: "log",
+  debug: "debug",
+};
+
+const ANSI_RESET = "\x1b[0m";
+
+const isBrowser = typeof window !== "undefined";
+
+const getMode = (): string =>
+  (
+    process.env.NEXT_PUBLIC_NODE_ENV ||
+    process.env.NODE_ENV ||
+    "development"
+  ).toLowerCase();
+
+const isLevelEnabled = (level: LogLevelType): boolean => {
+  const mode = getMode();
+
   if (mode === "test") return false;
 
-  return (LEVELS[level] ?? 99) <= (LEVELS[LOGGING_LEVEL as LogLevelType] ?? 2);
+  const configured = process.env.NEXT_PUBLIC_LOG_LEVEL?.toLowerCase();
+  let threshold =
+    configured && configured in LEVELS
+      ? LEVELS[configured as LogLevelType]
+      : LEVELS.info;
+
+  // Visitors' consoles only ever see warnings and errors in production.
+  if (isBrowser && mode === "production") {
+    threshold = Math.min(threshold, LEVELS.warn);
+  }
+
+  return LEVELS[level] <= threshold;
 };
 
-const isServer = typeof window === "undefined";
+const timeFormatter = new Intl.DateTimeFormat("en-IN", {
+  timeZone: "Asia/Kolkata",
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+});
 
-const css = {
-  info: "color:#38bdf8;font-weight:bold;",
-  log: "color:#22c55e;font-weight:bold;",
-  debug: "color:#d8b4fe;font-weight:bold;",
-  warn: "color:#f59e0b;font-weight:bold;",
-  error: "color:#ef4444;font-weight:bold;",
+const getPrettyLabel = (label: LabelType): string => {
+  const { icon, text } = LABELS[label];
+  return `⏰ [${timeFormatter.format(new Date())}] ${icon} [ ${text} ]`;
 };
 
-const serverPrint = (
-  method: "info" | "log" | "warn" | "error" | "debug",
-  color: string,
-  label: string,
+const serializeValue = (value: unknown): unknown => {
+  if (value instanceof Error) {
+    return {
+      name: value.name,
+      message: value.message,
+      ...("digest" in value ? { digest: value.digest } : {}),
+      stack: value.stack,
+    };
+  }
+
+  return value;
+};
+
+const toJsonLine = (entry: LogContextType): string => {
+  const seen = new WeakSet<object>();
+
+  try {
+    return JSON.stringify(entry, (_key, value: unknown) => {
+      const serialized = serializeValue(value);
+
+      if (serialized && typeof serialized === "object") {
+        if (seen.has(serialized)) return "[Circular]";
+        seen.add(serialized);
+      }
+
+      return serialized;
+    });
+  } catch {
+    return JSON.stringify({ ...entry, data: String(entry.data) });
+  }
+};
+
+const write = (
+  level: LogLevelType,
+  label: LabelType,
   args: unknown[],
-) => {
-  console[method](`${color}${label}`, ...args);
-};
+  context?: LogContextType,
+): void => {
+  if (!isLevelEnabled(level)) return;
 
-const isAppErrorLogPayload = (
-  value: unknown,
-): value is AppErrorLogPayloadType => {
-  return (
-    !!value &&
-    typeof value === "object" &&
-    "appError" in value &&
-    "metadata" in value
+  const method = CONSOLE_METHODS[label];
+
+  if (isBrowser) {
+    const extra = context ? [context] : [];
+    console[method](
+      `%c${getPrettyLabel(label)}`,
+      LABELS[label].css,
+      ...args,
+      ...extra,
+    );
+    return;
+  }
+
+  if (getMode() !== "production") {
+    const extra = context ? [context] : [];
+    console[method](
+      `${LABELS[label].ansi}${getPrettyLabel(label)}${ANSI_RESET}`,
+      ...args,
+      ...extra,
+    );
+    return;
+  }
+
+  const message = args.filter((arg) => typeof arg === "string").join(" ");
+  const data = args.filter((arg) => typeof arg !== "string");
+
+  console[method](
+    toJsonLine({
+      time: new Date().toISOString(),
+      level,
+      ...(label !== level ? { tag: label } : {}),
+      msg: message,
+      ...(data.length === 1 ? { data: data[0] } : {}),
+      ...(data.length > 1 ? { data } : {}),
+      ...context,
+    }),
   );
 };
 
-const readPath = (source: unknown, path: string[]): unknown =>
-  path.reduce<unknown>((value, key) => {
-    if (!value || typeof value !== "object") return undefined;
-    return (value as Record<string, unknown>)[key];
-  }, source);
-
-const readString = (source: unknown, path: string[]): string | undefined => {
-  const value = readPath(source, path);
-  return typeof value === "string" ? value : undefined;
-};
-
-const hasOwnEntries = (value: unknown): value is Record<string, unknown> =>
+const hasEntries = (value: unknown): boolean =>
   !!value && typeof value === "object" && Object.keys(value).length > 0;
 
-const browserPrint = (
-  method: "info" | "log" | "warn" | "error" | "debug",
-  style: string,
-  label: string,
-  args: unknown[],
-) => {
-  console[method](`%c${label}`, style, ...args);
-};
-
 const logger = {
-  info: (...args: unknown[]) => {
-    if (!shouldLog("info")) return;
+  error: (...args: unknown[]) => write("error", "error", args),
+  warn: (...args: unknown[]) => write("warn", "warn", args),
+  info: (...args: unknown[]) => write("info", "info", args),
+  success: (...args: unknown[]) => write("info", "success", args),
+  debug: (...args: unknown[]) => write("debug", "debug", args),
 
-    if (isServer) {
-      serverPrint(
-        "info",
-        ansiConfig.blue,
-        `⏰ [${getDateToShow(new Date())}] 📢 [ INFO ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "info",
-        css.info,
-        `⏰ [${getDateToShow(new Date())}] 📢 [ INFO ]`,
-        args,
-      );
-    }
+  // Logs an AppError with its metadata. 5xx errors log as errors, the rest as
+  // warnings. Stacks are kept for unexpected (non-operational) errors only,
+  // except in development where they are always shown.
+  logAppError: (appError: AppError, extraContext: LogContextType = {}) => {
+    const level: LogLevelType = appError.statusCode >= 500 ? "error" : "warn";
+    const { path, requestId, isOperational } = appError.metadata;
+    const showStack = getMode() === "development" || !isOperational;
+
+    write(level, level, [`[ ${appError.code} ] ${appError.message}`], {
+      code: appError.code,
+      statusCode: appError.statusCode,
+      ...(path ? { path } : {}),
+      ...(requestId ? { requestId } : {}),
+      isOperational,
+      ...(hasEntries(appError.details) ? { details: appError.details } : {}),
+      ...(showStack ? { stack: appError.originalStack ?? appError.stack } : {}),
+      ...extraContext,
+    });
   },
-
-  success: (...args: unknown[]) => {
-    if (!shouldLog("info")) return;
-
-    if (isServer) {
-      serverPrint(
-        "log",
-        ansiConfig.green,
-        `⏰ [${getDateToShow(new Date())}] ✅ [ SUCCESS ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "log",
-        css.log,
-        `⏰ [${getDateToShow(new Date())}] ✅ [ SUCCESS ]`,
-        args,
-      );
-    }
-  },
-
-  log: (...args: unknown[]) => {
-    if (!shouldLog("info")) return;
-
-    if (isServer) {
-      serverPrint(
-        "log",
-        ansiConfig.green,
-        `⏰ [${getDateToShow(new Date())}] 📝 [ LOG ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "log",
-        css.log,
-        `⏰ [${getDateToShow(new Date())}] 📝 [ LOG ]`,
-        args,
-      );
-    }
-  },
-
-  debug: (...args: unknown[]) => {
-    if (!shouldLog("debug")) return;
-
-    if (isServer) {
-      serverPrint(
-        "debug",
-        ansiConfig.magenta,
-        `⏰ [${getDateToShow(new Date())}] 🐞 [ DEBUG ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "log",
-        css.debug,
-        `⏰ [${getDateToShow(new Date())}] 🐞 [ DEBUG ]`,
-        args,
-      );
-    }
-  },
-
-  warn: (...args: unknown[]) => {
-    if (!shouldLog("warn")) return;
-
-    if (isServer) {
-      const payload = isAppErrorLogPayload(args[0]) ? args[0] : null;
-      const incomingError = payload?.appError;
-      const incomingErrorMetadata = payload?.metadata;
-
-      if (incomingError && incomingErrorMetadata) {
-        const method = readString(incomingErrorMetadata, [
-          "metadata",
-          "method",
-        ]);
-        const statusCode = incomingError.statusCode;
-        const status = incomingError.name;
-        const code =
-          incomingError.code ??
-          readString(incomingErrorMetadata, ["appError", "code"]);
-        const nestedDetails = readPath(incomingErrorMetadata, ["details"]);
-        const details = hasOwnEntries(incomingError.details)
-          ? incomingError.details
-          : nestedDetails;
-        const nestedRequestMetadata = readPath(incomingErrorMetadata, [
-          "metadata",
-        ]);
-
-        const argsToPrint = [
-          method ? `[ ${method} ]` : null,
-          statusCode ? `( ${statusCode} )` : null,
-          status ? `[ ${status} ]` : null,
-          code ? `[ ${code} ]` : null,
-          incomingError.message ?? "An unknown warning has occurred!",
-          hasOwnEntries(details)
-            ? `\nError Details: ${JSON.stringify(details, null, 2)}`
-            : null,
-          hasOwnEntries(incomingError.metadata) ||
-          hasOwnEntries(nestedRequestMetadata)
-            ? `\nError Metadata: ${JSON.stringify(
-                {
-                  path:
-                    incomingError.metadata.path ||
-                    readString(nestedRequestMetadata, ["path"]),
-                  requestId:
-                    incomingError.metadata.requestId ||
-                    readString(nestedRequestMetadata, ["requestId"]),
-                  isOperational:
-                    incomingError.metadata.isOperational ||
-                    readPath(nestedRequestMetadata, ["isOperational"]),
-                },
-                null,
-                2,
-              )}`
-            : null,
-        ];
-
-        serverPrint(
-          "warn",
-          ansiConfig.yellow,
-          `⏰ [${getDateToShow(new Date())}] 🚨 [ WARNING ]`,
-          argsToPrint.filter((v) => v != null),
-        );
-
-        return;
-      }
-
-      serverPrint(
-        "warn",
-        ansiConfig.yellow,
-        `⏰ [${getDateToShow(new Date())}] 🚨 [ WARNING ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "warn",
-        css.warn,
-        `⏰ [${getDateToShow(new Date())}] 🚨 [ WARNING ]`,
-        args,
-      );
-    }
-  },
-
-  error: (...args: unknown[]) => {
-    if (!shouldLog("error")) return;
-
-    if (isServer) {
-      const payload = isAppErrorLogPayload(args[0]) ? args[0] : null;
-      const incomingError = payload?.appError;
-      const incomingErrorMetadata = payload?.metadata;
-
-      if (incomingError && incomingErrorMetadata) {
-        const method = readString(incomingErrorMetadata, [
-          "metadata",
-          "method",
-        ]);
-        const statusCode = incomingError.statusCode;
-        const status = incomingError.name;
-        const code =
-          incomingError.code ??
-          readString(incomingErrorMetadata, ["appError", "code"]);
-        const nestedDetails = readPath(incomingErrorMetadata, ["details"]);
-        const details = hasOwnEntries(incomingError.details)
-          ? incomingError.details
-          : nestedDetails;
-        const nestedRequestMetadata = readPath(incomingErrorMetadata, [
-          "metadata",
-        ]);
-
-        const argsToPrint = [
-          method ? `[ ${method} ]` : null,
-          statusCode ? `( ${statusCode} )` : null,
-          status ? `[ ${status} ]` : null,
-          code ? `[ ${code} ]` : null,
-          incomingError.message ?? "An unknown error has occurred!",
-          hasOwnEntries(details)
-            ? `\nError Details: ${JSON.stringify(details, null, 2)}`
-            : null,
-          hasOwnEntries(incomingError.metadata) ||
-          hasOwnEntries(nestedRequestMetadata)
-            ? `\nError Metadata: ${JSON.stringify(
-                {
-                  path:
-                    incomingError.metadata.path ||
-                    readString(nestedRequestMetadata, ["path"]),
-                  requestId:
-                    incomingError.metadata.requestId ||
-                    readString(nestedRequestMetadata, ["requestId"]),
-                  isOperational:
-                    incomingError.metadata.isOperational ||
-                    readPath(nestedRequestMetadata, ["isOperational"]),
-                },
-                null,
-                2,
-              )}`
-            : null,
-        ];
-
-        serverPrint(
-          "error",
-          ansiConfig.red,
-          `⏰ [${getDateToShow(new Date())}] ❌ [ ERROR ]`,
-          argsToPrint.filter((v) => v != null),
-        );
-
-        return;
-      }
-
-      serverPrint(
-        "error",
-        ansiConfig.red,
-        `⏰ [${getDateToShow(new Date())}] ❌ [ ERROR ]`,
-        args,
-      );
-    } else {
-      browserPrint(
-        "error",
-        css.error,
-        `⏰ [${getDateToShow(new Date())}] ❌ [ ERROR ]`,
-        args,
-      );
-    }
-  },
-
-  logAppError(appError: AppError, metadata: Record<string, unknown>) {
-    const level: "error" | "warn" =
-      (appError.statusCode ||
-        (metadata.statusCode as number | undefined) ||
-        0) >= 500
-        ? "error"
-        : "warn";
-
-    this[level]({ appError, metadata });
-  },
-
-  config: Object.freeze({ mode, LOGGING_LEVEL }),
 };
-
-if (!globalThis.logger) {
-  globalThis.logger = logger;
-}
 
 export default logger;
-
-// NOTE: Use logger directly as it is available with global variable

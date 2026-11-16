@@ -204,7 +204,7 @@ export const getEducationTimeLine = (
 ) => {
   if (startYear && endYear) return `${startYear} - ${endYear}`;
 
-  if (startYear && isCurrent) return `${startYear} - present}`;
+  if (startYear && isCurrent) return `${startYear} - present`;
 
   if (startYear) return startYear;
 
@@ -239,13 +239,13 @@ export const getExperienceTimeLine = (
   return null;
 };
 
-export const getExperienceDuration = (
+export const getExperienceSpan = (
   startMonth?: string,
   startYear?: number,
   endMonth?: string,
   endYear?: number,
   isCurrent?: boolean,
-): string | null => {
+): { years: number; months: number } | null => {
   if (!startYear) return null;
 
   const start = new Date(`${startMonth ?? "Jan"} 1, ${startYear}`);
@@ -265,6 +265,39 @@ export const getExperienceDuration = (
     years--;
     months += 12;
   }
+
+  return { years, months };
+};
+
+export const getTotalExperience = () => {
+  const start = basicDetails.experienceStart;
+
+  return (
+    getExperienceSpan(start?.month, start?.year, undefined, undefined, true) ?? {
+      years: 0,
+      months: 0,
+    }
+  );
+};
+
+export const getExperienceDuration = (
+  startMonth?: string,
+  startYear?: number,
+  endMonth?: string,
+  endYear?: number,
+  isCurrent?: boolean,
+): string | null => {
+  const span = getExperienceSpan(
+    startMonth,
+    startYear,
+    endMonth,
+    endYear,
+    isCurrent,
+  );
+
+  if (!span) return null;
+
+  const { years, months } = span;
 
   if (years && months) return `${years}y ${months}m`;
   if (years) return `${years}y`;

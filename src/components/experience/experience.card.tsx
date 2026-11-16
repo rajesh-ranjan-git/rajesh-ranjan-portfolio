@@ -9,7 +9,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         <Image
           src={
             experience?.companyImage ||
-            "/assets/companies/company-placeholder.jpg"
+            "/assets/companies/company-placeholder.webp"
           }
           alt={`${experience?.company || "Company"} image`}
           width={96}

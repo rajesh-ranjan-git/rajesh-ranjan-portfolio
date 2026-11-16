@@ -2,12 +2,13 @@ export const basicDetails = {
   initials: "RR",
   firstName: "Rajesh",
   lastName: "Ranjan",
-  totalExperience: { years: 7, months: 10 },
+  // Development experience only (NTT Data onwards); earlier support roles are not counted.
+  experienceStart: { month: "November", year: 2020 },
   designation: "Full Stack Developer",
-  company: "Business Today Technology",
+  company: "India Today",
   organization: "India Today Group",
   description:
-    "Full Stack Engineer specializing in modern web applications, AI-powered solutions, and scalable system architecture. Experienced in building production-grade applications with Next.js, React, Node.js, TypeScript, Python, and cloud technologies while optimizing performance, SEO, developer workflows, and user experience across enterprise and consumer platforms.",
+    "Full Stack Engineer building high-traffic media platforms, AI-powered newsroom tools, and scalable system architecture for India Today Group. Experienced in owning production systems end to end with Next.js, React, Node.js, NestJS, TypeScript, Python, PostgreSQL, and AWS, from a headless CMS and live election platforms to ML-driven content intelligence, while optimizing performance, SEO, developer workflows, and user experience.",
   location: { city: "Noida", state: "Uttar Pradesh", country: "India" },
   phone: "+91-9999340771",
   images: {
@@ -178,42 +179,54 @@ export const experience = [
     techStack: [
       "Next JS",
       "React JS",
-      "JavaScript",
       "TypeScript",
       "Node JS",
+      "NestJS",
       "Python",
-      "Django",
-      "Flask",
-      "MongoDB",
+      "PostgreSQL",
       "MySQL",
+      "MongoDB",
+      "Redis",
       "OpenAI API",
+      "Docker",
+      "AWS",
       "Tailwind CSS",
     ],
     details: [
       {
-        title: "Architecture & Platform Modernization",
+        title: "Headless CMS Platform Ownership",
         description:
-          "Modernized Python-based services into a scalable Next.js architecture and upgraded Next.js 12 to 15, reducing cloud costs by ~30% and addressing 10+ security vulnerabilities.",
+          "Lead contributor on an API-first headless CMS (NestJS, PostgreSQL, Redis, Next.js 16) replacing the group's legacy Drupal multisite for Aaj Tak, Business Today, India Today Hindi, The Lallantop and Hello! Magazine. Designed the normalized 13-schema database, and built the legacy data-migration pipelines, dynamic content-type engine, editorial workflows and shared design system.",
       },
       {
-        title: "AI-Powered Content Intelligence",
+        title: "AI Newsroom Intelligence",
         description:
-          "Built AI workflows using OpenAI APIs and transformer-based NLP models to analyze 500K+ articles and power plagiarism, similarity detection, summarization, and content generation.",
+          "Primary author of a Python AI platform (OpenAI, Hugging Face, scikit-learn) for editors, analyzing 500K+ articles: an engagement-prediction engine with daily learning and weekly retraining, embedding-based similarity and duplicate detection, trend ingestion, and summarization, FAQ and blog generation.",
       },
       {
-        title: "Performance & SEO Optimization",
+        title: "Live Election Data Platform",
         description:
-          "Improved SEO and Core Web Vitals through SSR, caching, lazy loading, and optimized APIs, reducing page rendering time from 3.7s to ~1.5s.",
+          "Core developer of the public election results platform for India Today, Aaj Tak and Bangla Aaj Tak, and led its rebuild on Next.js 16, React 19 and the React Compiler. Shipped live results, seat tallies, interactive power maps, candidate profiles, voter-turnout analytics and Hindi localisation.",
       },
       {
-        title: "API & Backend Optimization",
+        title: "High-Traffic News & Markets Sites",
         description:
-          "Optimized APIs, databases, and Python deployments, reducing unnecessary network calls by 40%+, backend resource usage by ~20%, and deployment time from 60 to 12 minutes.",
+          "Built features for Business Today and BT Bazaar: infinite next-story scroll with AMP support, AI-generated story FAQs with schema, interactive budget and market charts, live stock embeds, an automated NSE/BSE markets live blog, SAML SSO and ad-tech integrations (Google Publisher Tag, PubMatic, Amazon APS, Taboola).",
       },
       {
-        title: "Product Development & Collaboration",
+        title: "Performance, SEO & Core Web Vitals",
         description:
-          "Built responsive interfaces, analytics features, integrations, and reusable components while collaborating with product, design, and engineering teams across Agile releases.",
+          "Improved LCP, FCP and CLS through SSR, caching, dynamic imports, font preloading and lazy loading, cutting page rendering time from 3.7s to ~1.5s, and added a full Schema.org JSON-LD layer and AMP validation across sites.",
+      },
+      {
+        title: "Platform Modernization & Backend Optimization",
+        description:
+          "Modernized Python-based services into a scalable Next.js architecture and upgraded Next.js 12 to 16 and React 17 to 19, reducing cloud costs by ~30% and fixing 10+ security vulnerabilities. Optimized APIs, databases and Python deployments, cutting unnecessary network calls by 40%+, backend resource usage by ~20% and deployment time from 60 to 12 minutes.",
+      },
+      {
+        title: "Engineering Quality & Delivery",
+        description:
+          "Rebuilt the newsroom story-filing workflow as a multi-step form with live multi-brand previews and AI-assist inputs, and maintained SonarQube gates, vulnerability fixes, structured logging and architecture docs across monthly Agile releases with product, design and editorial teams.",
       },
     ],
   },
@@ -416,10 +429,10 @@ export const portfolio = [
     liveUrl: "https://bitcoin-journal.netlify.app/",
     githubUrl: "https://github.com/rajesh-ranjan-git/Bitcoin-Journal/",
     screens: [
-      "/assets/portfolio/ironing/bitcoin-journal-landing-page-1.webp",
-      "/assets/portfolio/ironing/bitcoin-journal-landing-page-2.webp",
-      "/assets/portfolio/ironing/bitcoin-journal-landing-page-3.webp",
-      "/assets/portfolio/ironing/bitcoin-journal-landing-page-4.webp",
+      "/assets/portfolio/bitcoin-journal/bitcoin-journal-landing-page-1.webp",
+      "/assets/portfolio/bitcoin-journal/bitcoin-journal-landing-page-2.webp",
+      "/assets/portfolio/bitcoin-journal/bitcoin-journal-landing-page-3.webp",
+      "/assets/portfolio/bitcoin-journal/bitcoin-journal-landing-page-4.webp",
     ],
     features: [
       {
@@ -463,8 +476,8 @@ export const portfolio = [
     liveUrl: "https://commercial-cleaning.netlify.app/",
     githubUrl: "https://github.com/rajesh-ranjan-git/Commercial-Cleaning/",
     screens: [
-      "/assets/portfolio/ironing/commercial-cleaning-1.webp",
-      "/assets/portfolio/ironing/commercial-cleaning-2.webp",
+      "/assets/portfolio/commercial-cleaning/commercial-cleaning-1.webp",
+      "/assets/portfolio/commercial-cleaning/commercial-cleaning-2.webp",
     ],
     features: [
       {

@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { basicDetails } from "@/config/owner.config";
-import { getFullName, getSingleSocialLink } from "@/helpers/owner.helpers";
+import {
+  getFullName,
+  getSingleSocialLink,
+  getTotalExperience,
+} from "@/helpers/owner.helpers";
 import { toTitleCase } from "@/utils/common.utils";
 import ImageBackground from "@/components/ui/background/image.background";
 import FloatingBadge from "@/components/ui/floating/floating.badge";
@@ -10,14 +14,15 @@ import Tooltip from "@/components/ui/tooltip/tooltip";
 const AboutImage = () => {
   const fullName = getFullName();
   const social = getSingleSocialLink(basicDetails.socialBadge);
+  const totalExperience = getTotalExperience();
 
   return (
     <div className="isolate relative flex justify-center items-center bg-surface-bg hover:bg-surface-bg-hover shadow-[0_8px_32px_rgba(13,15,43,0.08),0_2px_8px_rgba(13,15,43,0.04)] backdrop-blur-xl p-3 sm:p-4 border border-surface-border hover:border-surface-border-hover rounded-[64px] sm:rounded-[84px] w-full min-h-108">
       <ImageBackground className="top-0 left-0 -rotate-6" />
       <ImageBackground className="top-0 left-0 -rotate-12" />
 
-      {basicDetails.totalExperience.years &&
-      basicDetails.totalExperience.years > 0 ? (
+      {totalExperience.years &&
+      totalExperience.years > 0 ? (
         <FloatingBadge
           position="top-right"
           type="float-diagonal-reverse"
@@ -26,7 +31,7 @@ const AboutImage = () => {
         >
           <div className="flex justify-between items-center gap-1 w-full h-full">
             <span className="font-alkatra text-4xl text-accent-blue shrink-0">
-              {basicDetails.totalExperience.years}
+              {totalExperience.years}
               <span className="text-2xl align-super">+</span>
             </span>
             <span className="flex flex-col justify-center items-start text-sm">
@@ -35,8 +40,8 @@ const AboutImage = () => {
             </span>
           </div>
         </FloatingBadge>
-      ) : basicDetails.totalExperience.months &&
-        basicDetails.totalExperience.months > 0 ? (
+      ) : totalExperience.months &&
+        totalExperience.months > 0 ? (
         <FloatingBadge
           position="top-right"
           type="float-diagonal-reverse"
@@ -45,7 +50,7 @@ const AboutImage = () => {
         >
           <div className="flex justify-between items-center gap-1 w-full h-full">
             <span className="font-alkatra text-4xl text-accent-blue shrink-0">
-              {basicDetails.totalExperience.months}
+              {totalExperience.months}
               <span className="text-2xl align-super">+</span>
             </span>
             <span className="flex flex-col justify-center items-start text-sm">

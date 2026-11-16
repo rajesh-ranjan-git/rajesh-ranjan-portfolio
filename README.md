@@ -1,6 +1,6 @@
 # Rajesh Ranjan | Portfolio
 
-Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 7+ years of experience, currently at Business Today Technology (India Today Group). Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
+Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 6+ years of development experience, currently at India Today Group. Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
 
 **Live site:** [rajeshranjan.dev](https://rajeshranjan.dev/)
 

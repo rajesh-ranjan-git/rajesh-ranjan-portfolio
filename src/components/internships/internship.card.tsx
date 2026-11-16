@@ -28,7 +28,7 @@ const InternshipCard = ({ internship }: InternshipCardProps) => {
         <Image
           src={
             internship?.companyImage ||
-            "/assets/companies/company-placeholder.jpg"
+            "/assets/companies/company-placeholder.webp"
           }
           alt={`${internship?.company || "Company"} image`}
           width={96}

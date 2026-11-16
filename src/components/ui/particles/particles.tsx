@@ -39,41 +39,11 @@ const Particles = () => {
 
     if (!ctx) return;
 
-    const resize = (): void => {
-      const dpr = window.devicePixelRatio || 1;
-      const { clientWidth: width, clientHeight: height } = container;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-      sizeRef.current = { width, height };
-
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      particlesRef.current = Array.from(
-        { length: getParticleCount(width, height) },
-        () => createParticle(width, height),
-      );
-    };
-
-    resize();
-
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(container);
-
-    let animationFrameId: number;
-    let lastFrameTime = 0;
-
-    const animate = (time: number): void => {
-      animationFrameId = requestAnimationFrame(animate);
-
-      const elapsed = time - lastFrameTime;
-
-      if (elapsed < FRAME_INTERVAL) return;
-
-      lastFrameTime = time - (elapsed % FRAME_INTERVAL);
-
+    const drawFrame = (): void => {
       const { width, height } = sizeRef.current;
 
       ctx.clearRect(0, 0, width, height);
@@ -96,11 +66,79 @@ const Particles = () => {
       }
     };
 
-    animationFrameId = requestAnimationFrame(animate);
+    const resize = (): void => {
+      const dpr = window.devicePixelRatio || 1;
+      const { clientWidth: width, clientHeight: height } = container;
+
+      sizeRef.current = { width, height };
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      particlesRef.current = Array.from(
+        { length: getParticleCount(width, height) },
+        () => createParticle(width, height),
+      );
+
+      // Resizing the canvas clears it, so redraw the static frame.
+      if (prefersReducedMotion) drawFrame();
+    };
+
+    resize();
+
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
+
+    let animationFrameId: number | null = null;
+    let lastFrameTime = 0;
+    let isOnScreen = true;
+
+    const animate = (time: number): void => {
+      animationFrameId = requestAnimationFrame(animate);
+
+      const elapsed = time - lastFrameTime;
+
+      if (elapsed < FRAME_INTERVAL) return;
+
+      lastFrameTime = time - (elapsed % FRAME_INTERVAL);
+
+      drawFrame();
+    };
+
+    const start = (): void => {
+      if (prefersReducedMotion || animationFrameId !== null) return;
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const stop = (): void => {
+      if (animationFrameId === null) return;
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    };
+
+    const syncPlayback = (): void => {
+      if (isOnScreen && !document.hidden) start();
+      else stop();
+    };
+
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      isOnScreen = entry.isIntersecting;
+      syncPlayback();
+    });
+
+    visibilityObserver.observe(container);
+    document.addEventListener("visibilitychange", syncPlayback);
+
+    start();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      stop();
       resizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      document.removeEventListener("visibilitychange", syncPlayback);
     };
   }, []);
 

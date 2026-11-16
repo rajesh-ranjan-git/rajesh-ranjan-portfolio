@@ -33,6 +33,7 @@ const InternshipCard = ({ internship }: InternshipCardProps) => {
           alt={`${internship?.company || "Company"} image`}
           width={96}
           height={96}
+          sizes="80px"
           className="p-0.5 border-2 border-fixed-light rounded-full w-16 sm:w-18 lg:w-20 h-16 sm:h-18 lg:h-20 object-cover shrink-0"
         />
 

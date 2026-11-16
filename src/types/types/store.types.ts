@@ -1,9 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
 import { ThemeType } from "@/types/types/common.types";
 
 export type AppStateType = {
   activeTheme: ThemeType;
-  setActiveTheme: Dispatch<SetStateAction<ThemeType>>;
+  setActiveTheme: (
+    themeOrUpdater: ThemeType | ((previousTheme: ThemeType) => ThemeType),
+  ) => void;
   splash: boolean;
   setSplash: (value: boolean) => void;
   sidebarToggle: boolean;

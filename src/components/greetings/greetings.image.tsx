@@ -9,7 +9,8 @@ const GreetingsImage = () => {
       title="3D Cartoon Profile Image"
       width={1024}
       height={1536}
-      loading="eager"
+      sizes="(min-width: 1024px) 40vw, 100vw"
+      preload
       className="rounded-br-[50%] w-full h-auto object-cover"
     />
   ) : (

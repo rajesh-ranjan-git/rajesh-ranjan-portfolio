@@ -2,6 +2,7 @@ import "@/app/globals.css";
 import "@/services/logger/logger";
 import type { Metadata, Viewport } from "next";
 import { alkatra, arima, poppins, allura } from "@/config/font.config";
+import { themeInitScript } from "@/config/common.config";
 import { ReactNodeProps } from "@/types/props/common.props.types";
 import Banner from "@/services/banner/banner";
 import ServiceWorker from "@/components/service-worker/service.worker";
@@ -51,7 +52,10 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: Readonly<ReactNodeProps>) => {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className={`${alkatra.variable} ${arima.variable} ${poppins.variable} ${allura.variable} antialiased`}
         suppressHydrationWarning

@@ -48,7 +48,15 @@ class AppError extends Error {
     context: AppErrorFactoryOptionsType = {},
   ): AppError {
     if (err instanceof AppError) {
-      Object.assign(err, context);
+      const { path, requestId, isOperational, ...rest } = context;
+
+      Object.assign(err, rest);
+
+      if (path !== undefined) err.metadata.path = path;
+      if (requestId !== undefined) err.metadata.requestId = requestId;
+      if (isOperational !== undefined)
+        err.metadata.isOperational = isOperational;
+
       return err;
     }
 

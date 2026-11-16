@@ -19,7 +19,7 @@ const SplashGate = ({
   useEffect(() => {
     const timer = setTimeout(() => setSplash(false), duration);
     return () => clearTimeout(timer);
-  }, [duration]);
+  }, [duration, setSplash]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("splash-open", splash);

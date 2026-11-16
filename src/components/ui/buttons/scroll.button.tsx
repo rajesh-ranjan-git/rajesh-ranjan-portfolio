@@ -13,7 +13,7 @@ const ScrollButton = () => {
   });
 
   const scrollToTop = () => {
-    window.history.replaceState(null, "", "/");
+    window.history.replaceState(null, "", window.location.pathname);
 
     window.scrollTo({
       top: 0,

@@ -22,6 +22,16 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  async redirects() {
+    return [
+      {
+        source: "/project",
+        destination: "/#portfolio",
+        permanent: false,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

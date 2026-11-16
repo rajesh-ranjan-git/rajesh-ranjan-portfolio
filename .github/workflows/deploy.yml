@@ -75,6 +75,14 @@ jobs:
             echo "portfolio_install=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Install dependencies for lint
+        if: steps.changes.outputs.portfolio == 'true'
+        run: npm ci
+
+      - name: Lint Portfolio code
+        if: steps.changes.outputs.portfolio == 'true'
+        run: npm run lint
+
       - name: Deploy Portfolio changed services via SSH
         if: steps.changes.outputs.portfolio == 'true'
         id: deploy

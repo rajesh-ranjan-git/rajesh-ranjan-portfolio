@@ -33,7 +33,6 @@ export type ToastType = {
 export type ToastContextType = {
   toasts: ToastType[];
   position: ToastPositionType;
-  setPosition: (position: ToastPositionType) => void;
   showToast: (config: ToastConfigType) => void;
   removeToast: (id: string) => void;
 };

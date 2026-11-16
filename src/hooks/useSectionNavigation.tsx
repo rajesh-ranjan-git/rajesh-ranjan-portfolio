@@ -49,7 +49,7 @@ const useSectionNavigation = ({
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [sectionIds, rootMargin, threshold]);
+  }, [sectionIds, rootMargin, threshold, setActiveSection]);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);

@@ -1,35 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import splashStyles from "@/styles/splash.module.css";
 import { FazerStyleType } from "@/types/types/splash.types";
 import { SplashLoaderProps } from "@/types/props/splash.props.types";
+import { createSeededRandom } from "@/helpers/common.helpers";
 import ScrambleText from "@/components/ui/scramble-text/scramble.text";
+
+const random = createSeededRandom(20);
+
+const FAZERS: FazerStyleType[] = Array.from({ length: 20 }, () => ({
+  "--top": `${random() * 100}%`,
+  "--width": `${12 + random() * 20}%`,
+  "--duration": `${0.5 + random() * 0.7}s`,
+  "--delay": `${-random() * 8}s`,
+}));
 
 const SplashLoader = ({
   loadingText = "Loading...",
   endingText = "Welcome...",
   duration = 2000,
 }: SplashLoaderProps) => {
-  const [fazers, setFazers] = useState<FazerStyleType[]>([]);
-
-  useEffect(() => {
-    setFazers(
-      Array.from({ length: 20 }, () => ({
-        "--top": `${Math.random() * 100}%`,
-        "--width": `${12 + Math.random() * 20}%`,
-        "--duration": `${0.5 + Math.random() * 0.7}s`,
-        "--delay": `${-Math.random() * 8}s`,
-      })),
-    );
-  }, []);
-
   return (
     <div className="relative w-full h-full">
       <div
         className={`absolute inset-0 w-full h-full ${splashStyles.splash_longfazers}`}
       >
-        {fazers.map((style, i) => (
+        {FAZERS.map((style, i) => (
           <span
             key={i}
             className="absolute bg-fixed-light/60"

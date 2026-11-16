@@ -77,15 +77,15 @@ This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrit
 
 ```
 src/
-├── app/                # Next.js App Router routes, layouts, API routes
+├── app/                # Next.js App Router routes and layouts
 ├── components/         # UI components, grouped by feature/domain
 ├── sections/           # Page-level sections (greetings, about, skills, etc.)
 ├── config/             # Static config (owner info, socials, technologies, etc.)
 ├── constants/          # App-wide constants
 ├── helpers/            # Small helper functions
 ├── hooks/              # Custom React hooks
-├── lib/                # Server actions and API handler utilities
-├── services/           # Email, logging, error, and response services
+├── lib/                # Server actions (contact form email)
+├── services/           # Email, logging, and error services
 ├── store/              # Zustand store(s)
 ├── styles/             # CSS Modules
 ├── types/              # Shared TypeScript types and prop types
@@ -111,15 +111,15 @@ The app runs on [http://localhost:1995](http://localhost:1995) by default (see [
 
 Environment files live in `env/` (`.env.development`, `.env.production`) and are loaded manually via `next.config.ts`. Copy `env/env.example.txt` as a starting point:
 
-| Variable                                                                  | Description                                              |
-| ------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `DOTENV_CONFIG_QUIET`                                                     | Silences dotenv's console logging                        |
-| `NEXT_PUBLIC_NODE_ENV`                                                    | Current environment (`development` / `production`)       |
-| `NEXT_PUBLIC_BASE_PORT`                                                   | Local dev server port                                    |
-| `NEXT_PUBLIC_BASE_URL`                                                    | Base URL used by the app                                 |
-| `NEXT_AWS_EMAIL_FROM` / `NEXT_AWS_EMAIL_TO`                               | Sender/recipient for contact form emails                 |
-| `NEXT_AWS_DEV_EMAIL_OVERRIDE`                                             | Overrides the recipient in non-production environments   |
-| `NEXT_AWS_SMTP_*`, `NEXT_AWS_SES_*`, `NEXT_AWS_HOST`, `NEXT_AWS_USERNAME` | AWS SES/SMTP credentials for sending contact form emails |
+| Variable                                                                  | Description                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `DOTENV_CONFIG_QUIET`                                                     | Silences dotenv's console logging                             |
+| `NEXT_PUBLIC_NODE_ENV`                                                    | Current environment (`development` / `production`)            |
+| `NEXT_PUBLIC_BASE_PORT`                                                   | Local dev server port                                         |
+| `NEXT_PUBLIC_LOG_LEVEL`                                                   | Minimum log level: `error`, `warn`, `info` (default), `debug` |
+| `NEXT_AWS_EMAIL_FROM` / `NEXT_AWS_EMAIL_TO`                               | Sender/recipient for contact form emails                      |
+| `NEXT_AWS_DEV_EMAIL_OVERRIDE`                                             | Overrides the recipient in non-production environments        |
+| `NEXT_AWS_SMTP_*`, `NEXT_AWS_SES_*`, `NEXT_AWS_HOST`, `NEXT_AWS_USERNAME` | AWS SES/SMTP credentials for sending contact form emails      |
 
 Never commit real credentials — `env/.env.*` files are git-ignored.
 

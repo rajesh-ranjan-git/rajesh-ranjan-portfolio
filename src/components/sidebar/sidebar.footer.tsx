@@ -21,9 +21,10 @@ const SidebarFooter = () => {
       <hr className="text-slate-700" />
       <div className="flex justify-between items-center gap-2 px-1 w-full h-full">
         <Image
-          src="/assets/personal-img/profile-photo-3d-cartoon-square.webp"
+          src={basicDetails.images.profileImage}
           width={40}
           height={40}
+          sizes="40px"
           alt="profile-img"
           loading="eager"
           className="bg-linear-to-r border border-surface-border hover:border-surface-border-hover rounded-full hover:scale-105 transition-all ease-in-out from-accent-purple to-accent-blue cursor-pointer"

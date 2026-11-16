@@ -27,6 +27,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
           alt={portfolioItem.title}
           width={400}
           height={400}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className={`w-full h-full object-cover object-top origin-top transition-all duration-1200 pointer-events-none group-hover/image:scale-300 ${isRevealed ? "scale-300" : ""}`}
         />
         <div

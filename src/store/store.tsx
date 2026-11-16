@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { themeConfig } from "@/config/common.config";
+import { THEME_STORAGE_KEY, themeConfig } from "@/config/common.config";
 import { menuItems } from "@/config/sidebar.config";
 import { AppStateType } from "@/types/types/store.types";
 
@@ -23,8 +23,9 @@ const useStore = create<AppStateType>()(
       setActiveSection: (value) => set({ activeSection: value }),
     }),
     {
-      name: "portfolio-storage",
+      name: THEME_STORAGE_KEY,
       version: 1,
+      skipHydration: true,
       partialize: (state) => ({
         activeTheme: state.activeTheme,
       }),

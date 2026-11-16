@@ -16,6 +16,10 @@ import FormButton from "@/components/ui/forms/form.button";
 const ROWS_VISIBLE_SINGLE_COLUMN = 3;
 const ROWS_VISIBLE_MULTI_COLUMN = 2;
 
+const sortedPortfolio: PortfolioItemType[] = [...portfolio].sort(
+  (a, b) => b.id - a.id,
+);
+
 const getGridColumns = () => {
   if (typeof window === "undefined") return 1;
   if (window.matchMedia("(min-width: 1024px)").matches) return 3;
@@ -26,7 +30,6 @@ const getGridColumns = () => {
 const Portfolio = ({ title, description }: SectionProps) => {
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [showMore, setShowMore] = useState<boolean>(false);
-  const [shouldScroll, setShouldScroll] = useState<boolean>(false);
   const [isClamped, setIsClamped] = useState<boolean>(false);
   const [collapsedHeight, setCollapsedHeight] = useState<number | null>(null);
 
@@ -41,23 +44,20 @@ const Portfolio = ({ title, description }: SectionProps) => {
     setActiveFilter(item);
   };
 
-  const handleShowMore = (scroll: boolean) => {
-    setShowMore(!showMore);
-    setShouldScroll(scroll);
-  };
+  const handleShowMore = () => {
+    const isCollapsing = showMore;
 
-  const sortedPortfolio = portfolio.sort((a, b) => b.id - a.id);
+    setShowMore(!showMore);
+
+    if (isCollapsing) {
+      scrollToSection("certificates");
+    }
+  };
 
   const filteredCards: PortfolioItemType[] =
     activeFilter === "all"
       ? sortedPortfolio
       : sortedPortfolio.filter((item) => item.category === activeFilter);
-
-  useEffect(() => {
-    if (shouldScroll) {
-      scrollToSection("certificates");
-    }
-  }, [shouldScroll]);
 
   useEffect(() => {
     const grid = gridRef.current;
@@ -134,13 +134,8 @@ const Portfolio = ({ title, description }: SectionProps) => {
           ref={gridRef}
           className="justify-between items-stretch gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
         >
-          {filteredCards.map((item, index) => (
-            <FadeIn
-              delay={150}
-              threshold={0}
-              className="h-full"
-              key={`${item.title}-${index}`}
-            >
+          {filteredCards.map((item) => (
+            <FadeIn delay={150} threshold={0} className="h-full" key={item.id}>
               <PortfolioCard portfolioItem={item} />
             </FadeIn>
           ))}
@@ -155,7 +150,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
             variant="primary"
             size="sm"
             className="rounded-3xl min-w-36"
-            onClick={() => handleShowMore(showMore)}
+            onClick={handleShowMore}
           >
             <span>Show&nbsp;{showMore ? "less" : "more"}</span>
 

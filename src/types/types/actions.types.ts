@@ -1,8 +1,3 @@
-import {
-  ApiErrorResponseType,
-  ApiSuccessResponseType,
-} from "@/types/types/api.types";
-
 export type FieldErrorsType = {
   name?: string | null;
   email?: string | null;
@@ -11,12 +6,11 @@ export type FieldErrorsType = {
   message?: string | null;
 };
 
-export type FormStateType<T = unknown> =
-  | (ApiSuccessResponseType<T> & {
-      inputs?: Record<string, FormDataEntryValue>;
-      errors?: never;
-    })
-  | (ApiErrorResponseType<T> & {
-      inputs?: Record<string, FormDataEntryValue>;
-      errors?: FieldErrorsType;
-    });
+export type ContactFormStatusType = "IDLE" | "SUCCESS" | "ERROR";
+
+export type ContactFormStateType = {
+  status: ContactFormStatusType;
+  code: string;
+  message: string;
+  errors?: FieldErrorsType;
+};

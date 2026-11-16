@@ -1,39 +1,46 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { ScreenWidthType } from "@/types/types/hooks.types";
 import {
   MOBILE_MAX_SCREEN_WIDTH,
   TABLET_MAX_SCREEN_WIDTH,
 } from "@/constants/common.constants";
 
-const useScreenWidthCheck = () => {
-  const [screenWidth, setScreenWidth] = useState<ScreenWidthType>({
-    isMobileScreenWidth: false,
-    isTabletScreenWidth: false,
-    isDesktopScreenWidth: false,
-  });
+type BreakpointType = "mobile" | "tablet" | "desktop" | "unknown";
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+const MOBILE_QUERY = `(max-width: ${MOBILE_MAX_SCREEN_WIDTH}px)`;
+const DESKTOP_QUERY = `(min-width: ${TABLET_MAX_SCREEN_WIDTH + 1}px)`;
 
-    const checkScreenWidth = () => {
-      const width = window.innerWidth;
+const subscribe = (onChange: () => void) => {
+  const queries = [MOBILE_QUERY, DESKTOP_QUERY].map((query) =>
+    window.matchMedia(query),
+  );
 
-      setScreenWidth({
-        isMobileScreenWidth: width <= MOBILE_MAX_SCREEN_WIDTH,
-        isTabletScreenWidth:
-          width > MOBILE_MAX_SCREEN_WIDTH && width <= TABLET_MAX_SCREEN_WIDTH,
-        isDesktopScreenWidth: width > TABLET_MAX_SCREEN_WIDTH,
-      });
-    };
+  queries.forEach((query) => query.addEventListener("change", onChange));
 
-    checkScreenWidth();
+  return () =>
+    queries.forEach((query) => query.removeEventListener("change", onChange));
+};
 
-    window.addEventListener("resize", checkScreenWidth);
+const getSnapshot = (): BreakpointType => {
+  if (window.matchMedia(MOBILE_QUERY).matches) return "mobile";
+  if (window.matchMedia(DESKTOP_QUERY).matches) return "desktop";
+  return "tablet";
+};
 
-    return () => window.removeEventListener("resize", checkScreenWidth);
-  }, []);
+const getServerSnapshot = (): BreakpointType => "unknown";
 
-  return screenWidth;
+const useScreenWidthCheck = (): ScreenWidthType => {
+  const breakpoint = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+
+  return {
+    isMobileScreenWidth: breakpoint === "mobile",
+    isTabletScreenWidth: breakpoint === "tablet",
+    isDesktopScreenWidth: breakpoint === "desktop",
+  };
 };
 
 export default useScreenWidthCheck;

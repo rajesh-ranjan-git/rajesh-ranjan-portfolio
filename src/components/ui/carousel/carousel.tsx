@@ -50,38 +50,27 @@ const Carousel = ({
   const [currentIndex, setCurrentIndex] = useState(cloneCount);
   const [withTransition, setWithTransition] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(autoPlay);
 
   const [isDragging, setIsDragging] = useState(false);
   const [dragDeltaPx, setDragDeltaPx] = useState(0);
   const dragStartX = useRef(0);
   const trackWrapperRef = useRef<HTMLDivElement>(null);
-  const wrapperWidthRef = useRef(0);
-
-  useEffect(() => setIsPlaying(autoPlay), [autoPlay]);
+  const [wrapperWidth, setWrapperWidth] = useState(0);
 
   useEffect(() => {
-    const update = () =>
+    const wrapper = trackWrapperRef.current;
+    if (!wrapper) return;
+
+    const observer = new ResizeObserver(() => {
+      setWrapperWidth(wrapper.offsetWidth);
       setSlidesPerView(
-        slidesPerViewOverride
-          ? slidesPerViewOverride
-          : getSlidesPerView(window.innerWidth),
+        slidesPerViewOverride ?? getSlidesPerView(window.innerWidth),
       );
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
+    });
 
-  useEffect(() => {
-    const measure = () => {
-      if (trackWrapperRef.current) {
-        wrapperWidthRef.current = trackWrapperRef.current.offsetWidth;
-      }
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, [slidesPerViewOverride]);
 
   const slidePercent = 100 / slidesPerView;
 
@@ -94,7 +83,7 @@ const Carousel = ({
   const prev = useCallback(() => goTo(currentIndex - 1), [currentIndex, goTo]);
 
   useEffect(() => {
-    if (!isPlaying || isHovering || isDragging || realCount <= slidesPerView) {
+    if (!autoPlay || isHovering || isDragging || realCount <= slidesPerView) {
       return;
     }
     const id = setInterval(() => {
@@ -103,7 +92,7 @@ const Carousel = ({
     }, autoPlayInterval);
     return () => clearInterval(id);
   }, [
-    isPlaying,
+    autoPlay,
     isHovering,
     isDragging,
     autoPlayInterval,
@@ -146,8 +135,7 @@ const Carousel = ({
     setIsDragging(false);
     setWithTransition(true);
 
-    const wrapperWidth = wrapperWidthRef.current || 1;
-    const slideWidthPx = wrapperWidth / slidesPerView;
+    const slideWidthPx = (wrapperWidth || 1) / slidesPerView;
     const threshold = slideWidthPx * DRAG_THRESHOLD_RATIO;
 
     if (dragDeltaPx <= -threshold) {
@@ -167,9 +155,12 @@ const Carousel = ({
   const activeDot =
     (((currentIndex - cloneCount) % realCount) + realCount) % realCount;
 
-  const dragDeltaPercent = trackWrapperRef.current
-    ? (dragDeltaPx / (wrapperWidthRef.current || 1)) * 100
+  const dragDeltaPercent = wrapperWidth
+    ? (dragDeltaPx / wrapperWidth) * 100
     : 0;
+
+  const imageSizes =
+    slidesPerViewOverride === 1 ? "100vw" : "(min-width: 1024px) 50vw, 100vw";
 
   const translatePercent = -(currentIndex * slidePercent) + dragDeltaPercent;
 
@@ -253,6 +244,7 @@ const Carousel = ({
                     alt={slide.alt ?? (slide.name as string)}
                     width={1600}
                     height={1600}
+                    sizes={imageSizes}
                     draggable={false}
                     className={`w-full h-full object-cover object-top pointer-events-none ${
                       rounded ? "rounded-xl" : ""

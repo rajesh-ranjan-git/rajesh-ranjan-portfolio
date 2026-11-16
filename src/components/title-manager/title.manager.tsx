@@ -3,15 +3,19 @@
 import { useEffect } from "react";
 
 const TitleManager = () => {
-  const originalTitle = "Rajesh Ranjan | Full Stack Developer";
   const inactiveTitle = "🙏 Come back soon! 👋";
 
   useEffect(() => {
+    // Remember the page's own title (home or a project page) when the tab is
+    // hidden, and restore exactly that title when the visitor comes back.
+    let pageTitle = document.title;
+
     const handleVisibilityChange = () => {
       if (document.hidden) {
+        pageTitle = document.title;
         document.title = inactiveTitle;
-      } else {
-        document.title = originalTitle;
+      } else if (document.title === inactiveTitle) {
+        document.title = pageTitle;
       }
     };
 

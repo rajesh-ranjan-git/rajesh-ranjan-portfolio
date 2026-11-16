@@ -27,7 +27,7 @@ const GreetingsText = () => {
       </h1>
 
       <h1 className="text-nowrap">
-        I'm
+        I&apos;m
         <span className="text-shadow-[2px_2px_var(--color-surface-shadow-strong)] ml-4 font-alkatra font-bold uppercase text-accent-blue">
           <ScrambleText
             initialText="Loading..."

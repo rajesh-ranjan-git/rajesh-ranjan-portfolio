@@ -1,100 +1,106 @@
+"use server";
+
 import { PHONE_REGEX } from "@/constants/regex.constants";
 import { propertyConstraintsConfig } from "@/config/common.config";
-import { FormStateType } from "@/types/types/actions.types";
+import {
+  ContactFormStateType,
+  FieldErrorsType,
+} from "@/types/types/actions.types";
 import { emailValidator, nameValidator } from "@/validators/contact.validators";
 import {
   numberRegexPropertiesValidator,
   stringPropertiesValidator,
 } from "@/validators/common.validators";
-import { api, ApiError } from "@/lib/api/apiHandler";
+import { toSentenceCase, toTitleCase } from "@/utils/common.utils";
+import AppError from "@/services/error/error.service";
+import logger from "@/services/logger/logger";
+import { emailService } from "@/services/email/email.service";
+import { contactNotificationEmail } from "@/services/email/email.templates";
 
 export const sendMessage = async (
-  prevState: FormStateType,
+  _prevState: ContactFormStateType,
   formData: FormData,
-): Promise<FormStateType> => {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const phone = formData.get("phone");
-  const subject = formData.get("subject");
-  const message = formData.get("message");
-
-  const errors: FormStateType["errors"] = {};
-
-  const nameResult = nameValidator(name);
-  errors.name = nameResult.isPropertyValid ? null : nameResult.message;
-
-  const emailResult = emailValidator(email);
-  errors.email = emailResult.isPropertyValid ? null : emailResult.message;
-
+): Promise<ContactFormStateType> => {
+  const nameResult = nameValidator(formData.get("name"));
+  const emailResult = emailValidator(formData.get("email"));
   const phoneResult = numberRegexPropertiesValidator(
     "phone",
-    phone,
+    formData.get("phone"),
     PHONE_REGEX,
   );
-  errors.phone = phoneResult.isPropertyValid ? null : phoneResult.message;
-
   const subjectResult = stringPropertiesValidator(
     "subject",
-    subject,
+    formData.get("subject"),
     propertyConstraintsConfig.minSubjectLength,
     propertyConstraintsConfig.maxSubjectLength,
   );
-  errors.subject = subjectResult.isPropertyValid ? null : subjectResult.message;
-
   const messageResult = stringPropertiesValidator(
     "message",
-    message,
+    formData.get("message"),
     propertyConstraintsConfig.minMessageLength,
     propertyConstraintsConfig.maxMessageLength,
   );
-  errors.message = messageResult.isPropertyValid ? null : messageResult.message;
 
-  if (Object.values(errors).some((error) => error !== null)) {
+  if (
+    !nameResult.isPropertyValid ||
+    !emailResult.isPropertyValid ||
+    !phoneResult.isPropertyValid ||
+    !subjectResult.isPropertyValid ||
+    !messageResult.isPropertyValid
+  ) {
+    const errors: FieldErrorsType = {
+      name: nameResult.isPropertyValid ? null : nameResult.message,
+      email: emailResult.isPropertyValid ? null : emailResult.message,
+      phone: phoneResult.isPropertyValid ? null : phoneResult.message,
+      subject: subjectResult.isPropertyValid ? null : subjectResult.message,
+      message: messageResult.isPropertyValid ? null : messageResult.message,
+    };
+
     return {
-      success: false,
-      status: "VALIDATION FAILED",
-      code: "SEND EMAIL FAILED",
-      statusCode: 422,
+      status: "ERROR",
+      code: "VALIDATION FAILED",
       message: "Please provide valid details!",
-      details: errors,
-      timestamp: new Date().toISOString(),
-      metadata: null,
       errors,
-      inputs: Object.fromEntries(formData),
     };
   }
 
+  const name = nameResult.validatedProperty;
+  const email = emailResult.validatedProperty;
+  const phone = phoneResult.validatedProperty;
+  const subject = subjectResult.validatedProperty;
+  const message = messageResult.validatedProperty;
+
   try {
-    const response = await api.post("email", {
-      name: nameResult.isPropertyValid ? nameResult.validatedProperty : null,
-      email: emailResult.isPropertyValid
-        ? emailResult.validatedProperty
-        : null,
-      phone: phoneResult.isPropertyValid
-        ? phoneResult.validatedProperty
-        : null,
-      subject: subjectResult.isPropertyValid
-        ? subjectResult.validatedProperty
-        : null,
-      message: messageResult.isPropertyValid
-        ? messageResult.validatedProperty
-        : null,
+    const result = await emailService.send({
+      subject: `📩 New Portfolio Enquiry from ${toTitleCase(name) || email} — ${toSentenceCase(subject)}`,
+      template: contactNotificationEmail({
+        name,
+        email,
+        phone,
+        subject,
+        message,
+      }),
     });
 
-    return { ...response };
-  } catch (error: unknown) {
-    const apiError = error instanceof ApiError ? error : null;
+    logger.success(`📩 [CONTACT] Email sent, messageId: ${result.messageId}`);
 
     return {
-      success: false,
-      status: apiError?.name ?? "VALIDATION FAILED",
-      code: apiError?.code ?? "SEND EMAIL FAILED",
-      statusCode: apiError?.statusCode ?? 500,
-      message: apiError?.message ?? "Unable to send email!",
-      details: apiError?.details ?? null,
-      timestamp: new Date().toISOString(),
-      metadata: apiError?.metadata ?? null,
-      inputs: Object.fromEntries(formData),
+      status: "SUCCESS",
+      code: "EMAIL SEND SUCCESS",
+      message: result.message,
+    };
+  } catch (error) {
+    const appError = AppError.from(error, {
+      code: "EMAIL SEND FAILED",
+      path: "action:sendMessage",
+    });
+
+    logger.logAppError(appError, { statusCode: appError.statusCode });
+
+    return {
+      status: "ERROR",
+      code: appError.code,
+      message: "Unable to send your message right now, please try again later!",
     };
   }
 };

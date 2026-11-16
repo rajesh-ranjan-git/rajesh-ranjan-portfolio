@@ -28,7 +28,7 @@ export const toSentenceCase = (text?: string | null) => {
     return "";
   }
 
-  let temp = text.toLowerCase().split("_").join(" ").split("-").join(" ");
+  const temp = text.toLowerCase().split("_").join(" ").split("-").join(" ");
 
   return temp.charAt(0).toUpperCase() + temp.slice(1) + ".";
 };

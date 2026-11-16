@@ -2,11 +2,9 @@ import { MODE, LOG_LEVEL } from "@/constants/env.constants";
 import { ansiConfig } from "@/config/banner.config";
 import {
   AppErrorLogPayloadType,
-  LogContextType,
-  LogEntryType,
   LogLevelType,
 } from "@/types/types/logger.types";
-import { getDateToShow, getDateToStore } from "@/utils/date.utils";
+import { getDateToShow } from "@/utils/date.utils";
 import type AppError from "@/services/error/error.service";
 
 const mode = (MODE ?? "development").toLowerCase();
@@ -20,72 +18,9 @@ const LEVELS: Record<LogLevelType, number> = {
 };
 
 const shouldLog = (level: LogLevelType): boolean => {
+  if (mode === "test") return false;
+
   return (LEVELS[level] ?? 99) <= (LEVELS[LOGGING_LEVEL as LogLevelType] ?? 2);
-};
-
-let _dbAdapter: ((entry: LogEntryType) => Promise<void> | void) | null = null;
-
-export const setDbAdapter = (
-  fn: (entry: LogEntryType) => Promise<void> | void,
-) => {
-  if (typeof fn !== "function")
-    throw new TypeError("DB adapter must be a function!");
-  _dbAdapter = fn;
-};
-
-const writeToDB = async (entry: LogEntryType) => {
-  if (!_dbAdapter) {
-    process.stderr.write(
-      "[Logger Service] DB target enabled but no adapter registered. " +
-        "Call setDbAdapter(fn) to register one.\n",
-    );
-    return;
-  }
-  try {
-    await _dbAdapter(entry);
-  } catch (dbErr) {
-    const errMessage = dbErr instanceof Error ? dbErr.message : String(dbErr);
-    process.stderr.write(`[logger] DB write failed: ${errMessage}\n`);
-  }
-};
-
-const buildEntry = (
-  level: LogLevelType,
-  args: unknown[],
-  context: LogContextType = {},
-): LogEntryType => {
-  const message = args
-    .map((a) => (typeof a === "object" ? JSON.stringify(a) : String(a)))
-    .join(" ");
-
-  return {
-    timestamp: getDateToStore(new Date()),
-    level,
-    mode,
-    message,
-    code: context.code ?? "LOG",
-    statusCode: context.statusCode ?? undefined,
-    details: context.details ?? undefined,
-    path: context.path ?? undefined,
-    requestId: context.requestId ?? undefined,
-    isOperational: context.isOperational ?? undefined,
-    stack:
-      mode === "development" || context.isOperational === false
-        ? (context.stack ?? undefined)
-        : undefined,
-    originalStack: context.originalStack ?? undefined,
-    meta: context.meta ?? undefined,
-  };
-};
-
-const runSinks = async (
-  level: LogLevelType,
-  args: unknown[],
-  context: LogContextType = {},
-) => {
-  if (mode === "test" || !shouldLog(level)) return;
-  const entry = buildEntry(level, args, context);
-  await writeToDB(entry);
 };
 
 const isServer = typeof window === "undefined";
@@ -143,6 +78,8 @@ const browserPrint = (
 
 const logger = {
   info: (...args: unknown[]) => {
+    if (!shouldLog("info")) return;
+
     if (isServer) {
       serverPrint(
         "info",
@@ -150,8 +87,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] 📢 [ INFO ]`,
         args,
       );
-
-      runSinks("info", args, { code: "INFO" });
     } else {
       browserPrint(
         "info",
@@ -163,6 +98,8 @@ const logger = {
   },
 
   success: (...args: unknown[]) => {
+    if (!shouldLog("info")) return;
+
     if (isServer) {
       serverPrint(
         "log",
@@ -170,8 +107,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] ✅ [ SUCCESS ]`,
         args,
       );
-
-      runSinks("info", args, { code: "SUCCESS" });
     } else {
       browserPrint(
         "log",
@@ -183,6 +118,8 @@ const logger = {
   },
 
   log: (...args: unknown[]) => {
+    if (!shouldLog("info")) return;
+
     if (isServer) {
       serverPrint(
         "log",
@@ -190,8 +127,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] 📝 [ LOG ]`,
         args,
       );
-
-      runSinks("info", args, { code: "LOG" });
     } else {
       browserPrint(
         "log",
@@ -203,6 +138,8 @@ const logger = {
   },
 
   debug: (...args: unknown[]) => {
+    if (!shouldLog("debug")) return;
+
     if (isServer) {
       serverPrint(
         "debug",
@@ -210,8 +147,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] 🐞 [ DEBUG ]`,
         args,
       );
-
-      runSinks("debug", args, { code: "DEBUG" });
     } else {
       browserPrint(
         "log",
@@ -223,6 +158,8 @@ const logger = {
   },
 
   warn: (...args: unknown[]) => {
+    if (!shouldLog("warn")) return;
+
     if (isServer) {
       const payload = isAppErrorLogPayload(args[0]) ? args[0] : null;
       const incomingError = payload?.appError;
@@ -282,23 +219,6 @@ const logger = {
           argsToPrint.filter((v) => v != null),
         );
 
-        runSinks(
-          "warn",
-          [incomingError.message ?? "An unknown warning has occurred!"],
-          {
-            code: incomingError.code,
-            statusCode: incomingError.statusCode,
-            details: incomingError.details,
-            path:
-              readString(nestedRequestMetadata, ["path"]) ??
-              incomingError.metadata.path,
-            requestId:
-              readString(nestedRequestMetadata, ["requestId"]) ??
-              incomingError.metadata.requestId,
-            isOperational: incomingError.metadata.isOperational,
-          },
-        );
-
         return;
       }
 
@@ -308,8 +228,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] 🚨 [ WARNING ]`,
         args,
       );
-
-      runSinks("warn", args, { code: "WARNING" });
     } else {
       browserPrint(
         "warn",
@@ -321,6 +239,8 @@ const logger = {
   },
 
   error: (...args: unknown[]) => {
+    if (!shouldLog("error")) return;
+
     if (isServer) {
       const payload = isAppErrorLogPayload(args[0]) ? args[0] : null;
       const incomingError = payload?.appError;
@@ -380,24 +300,6 @@ const logger = {
           argsToPrint.filter((v) => v != null),
         );
 
-        runSinks(
-          "error",
-          [incomingError.message ?? "An unknown error has occurred!"],
-          {
-            code: incomingError.code,
-            statusCode: incomingError.statusCode,
-            details: incomingError.details,
-            path:
-              readString(nestedRequestMetadata, ["path"]) ??
-              incomingError.metadata.path,
-            requestId:
-              readString(nestedRequestMetadata, ["requestId"]) ??
-              incomingError.metadata.requestId,
-            isOperational: incomingError.metadata.isOperational,
-            stack: incomingError.stack,
-          },
-        );
-
         return;
       }
 
@@ -407,8 +309,6 @@ const logger = {
         `⏰ [${getDateToShow(new Date())}] ❌ [ ERROR ]`,
         args,
       );
-
-      runSinks("error", args, { code: "ERROR" });
     } else {
       browserPrint(
         "error",

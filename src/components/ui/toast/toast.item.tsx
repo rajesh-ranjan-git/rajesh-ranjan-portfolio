@@ -16,35 +16,26 @@ const ToastItem = ({
   position,
 }: Omit<ToastProps, "index">) => {
   const [shouldExit, setShouldExit] = useState(false);
-  const [progress, setProgress] = useState(100);
   const config = variantConfig[toast.variant];
   const Icon = config.icon;
 
   useEffect(() => {
-    const startTime = Date.now();
-    const duration = toast.duration;
+    if (shouldExit) {
+      const removeTimer = setTimeout(() => onRemove(toast.id), 300);
+      return () => clearTimeout(removeTimer);
+    }
 
-    const interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const remaining = Math.max(0, 100 - (elapsed / duration) * 100);
-      setProgress(remaining);
-
-      if (remaining === 0) {
-        clearInterval(interval);
-        setShouldExit(true);
-        setTimeout(() => onRemove(toast.id), 300);
-      }
-    }, 16);
-
-    return () => clearInterval(interval);
-  }, [toast.id, toast.duration, onRemove]);
+    const exitTimer = setTimeout(() => setShouldExit(true), toast.duration);
+    return () => clearTimeout(exitTimer);
+  }, [shouldExit, toast.id, toast.duration, onRemove]);
 
   const isLeftToRight =
     toast.toastProgressDirection === toastProgressDirectionConfig.leftToRight;
 
-  const progressContainerStyle = isLeftToRight
-    ? { justifyContent: "flex-start" }
-    : { justifyContent: "flex-end" };
+  const progressStyle = {
+    "--toast-duration": `${toast.duration}ms`,
+    transformOrigin: isLeftToRight ? "left" : "right",
+  } as React.CSSProperties;
 
   const offsetX = getToastOffsetX(position);
 
@@ -54,10 +45,10 @@ const ToastItem = ({
       className={`relative flex flex-col shadow-[0_12px_20px_var(--color-surface-shadow)] backdrop-blur-xl p-0 border rounded-lg min-w-64 max-w-72 overflow-hidden text-primary ${config.cn} ${toastStyles.toastItem} ${shouldExit ? toastStyles.toastExit : ""}`}
     >
       {toast.toastProgressPosition === "top" && (
-        <div className="h-1" style={progressContainerStyle}>
+        <div className="h-1">
           <div
-            className={`h-full ${config.progress}`}
-            style={{ width: `${progress}%` }}
+            className={`h-full ${config.progress} ${toastStyles.toastProgress}`}
+            style={progressStyle}
           />
         </div>
       )}
@@ -75,10 +66,9 @@ const ToastItem = ({
         </div>
 
         <button
-          onClick={() => {
-            setShouldExit(true);
-            setTimeout(() => onRemove(toast.id), 300);
-          }}
+          type="button"
+          aria-label="Dismiss notification"
+          onClick={() => setShouldExit(true)}
           className={`${config.text} top-1 right-1 absolute opacity-50 hover:opacity-100 p-0.5 transition-opacity`}
         >
           <IoClose size={18} />
@@ -88,8 +78,8 @@ const ToastItem = ({
       {toast.toastProgressPosition === "bottom" && (
         <div className="bottom-0 absolute rounded-full w-full h-1">
           <div
-            className={`h-full ${config.progress}`}
-            style={{ width: `${progress}%` }}
+            className={`h-full ${config.progress} ${toastStyles.toastProgress}`}
+            style={progressStyle}
           />
         </div>
       )}

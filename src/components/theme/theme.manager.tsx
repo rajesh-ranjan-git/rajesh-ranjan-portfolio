@@ -7,22 +7,24 @@ import useStore from "@/store/store";
 const ThemeManager = () => {
   const activeTheme = useStore((state) => state.activeTheme);
 
+  // The store skips automatic hydration so the first client render matches the
+  // server HTML. The saved theme is read here, after hydration.
   useEffect(() => {
-    if (!activeTheme) return;
+    useStore.persist.rehydrate();
+  }, []);
 
-    const isDark = activeTheme === themeConfig.dark;
+  useEffect(() => {
+    if (!useStore.persist.hasHydrated()) return;
 
+    // Read from the store, not the render value, so the first pass after
+    // rehydration applies the saved theme instead of the default.
+    const theme = useStore.getState().activeTheme;
+    const isDark = theme === themeConfig.dark;
     const root = document.documentElement;
 
     root.setAttribute("data-theme", isDark ? "dark" : "light");
-
     root.classList.toggle(themeConfig.dark, isDark);
     root.classList.toggle(themeConfig.light, !isDark);
-
-    return () => {
-      root.removeAttribute("data-theme");
-      root.classList.remove(themeConfig.dark, themeConfig.light);
-    };
   }, [activeTheme]);
 
   return null;

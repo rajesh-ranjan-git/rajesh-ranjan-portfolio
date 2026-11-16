@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+// Rendered once at build time, so the cache version changes with every deploy.
+export const dynamic = "force-static";
+
 const CACHE_VERSION = String(Date.now());
 
 const SERVICE_WORKER_SCRIPT = `const CACHE_NAME = "portfolio-static-${CACHE_VERSION}";
@@ -43,32 +46,35 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
-  const isStaticAsset =
-    url.pathname.startsWith(\`/_next/static/\`) ||
+  const isHashedBuildAsset = url.pathname.startsWith(\`/_next/static/\`);
+  const isPublicAsset =
     url.pathname.startsWith(\`/assets/\`) ||
     url.pathname.startsWith(\`/manifest/\`);
 
-  if (!isStaticAsset) return;
+  if (!isHashedBuildAsset && !isPublicAsset) return;
 
-  event.respondWith(
-    caches.match(request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
+  const fetchAndCache = () =>
+    fetch(request).then((response) => {
+      if (response.ok) {
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
       }
 
-      return fetch(request).then((response) => {
-        if (!response.ok) {
-          return response;
-        }
+      return response;
+    });
 
-        const responseClone = response.clone();
+  // Build assets have content hashes in their names, so cache-first is safe.
+  // Public assets keep the same URL when replaced, so serve the cached copy
+  // and refresh it in the background (stale-while-revalidate).
+  event.respondWith(
+    caches.match(request).then((cachedResponse) => {
+      if (!cachedResponse) return fetchAndCache();
 
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(request, responseClone);
-        });
+      if (isPublicAsset) {
+        event.waitUntil(fetchAndCache().catch(() => undefined));
+      }
 
-        return response;
-      });
+      return cachedResponse;
     }),
   );
 });

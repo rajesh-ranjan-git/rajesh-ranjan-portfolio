@@ -21,8 +21,7 @@ const AboutImage = () => {
       <ImageBackground className="top-0 left-0 -rotate-6" />
       <ImageBackground className="top-0 left-0 -rotate-12" />
 
-      {totalExperience.years &&
-      totalExperience.years > 0 ? (
+      {totalExperience.years && totalExperience.years > 0 ? (
         <FloatingBadge
           position="top-right"
           type="float-diagonal-reverse"
@@ -40,8 +39,7 @@ const AboutImage = () => {
             </span>
           </div>
         </FloatingBadge>
-      ) : totalExperience.months &&
-        totalExperience.months > 0 ? (
+      ) : totalExperience.months && totalExperience.months > 0 ? (
         <FloatingBadge
           position="top-right"
           type="float-diagonal-reverse"
@@ -87,7 +85,7 @@ const AboutImage = () => {
                     alt="Rajesh Ranjan profile illustration"
                     width={100}
                     height={100}
-                    loading="eager"
+                    sizes="48px"
                     className="rounded-full w-full h-auto"
                   />
                 ) : (
@@ -113,7 +111,7 @@ const AboutImage = () => {
           alt="Rajesh Ranjan profile illustration"
           width={1024}
           height={1536}
-          loading="eager"
+          sizes="(min-width: 768px) 20rem, 18rem"
           className="rounded-br-[50%] w-full h-auto"
         />
       ) : (

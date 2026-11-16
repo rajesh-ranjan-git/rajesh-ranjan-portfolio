@@ -1,22 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import { IoIosWarning } from "react-icons/io";
 import { staticImagesConfig } from "@/config/common.config";
 import FloatingMenu from "@/components/ui/floating/floating.menu";
 import BackButton from "@/components/ui/buttons/back.button";
 
-const NotFound = () => {
-  const [isBackAvailable, setIsBackAvailable] = useState<boolean>(false);
+const subscribeToNothing = () => () => {};
+const getCanGoBack = () => window.history.length > 1;
+const getServerCanGoBack = () => false;
 
-  useEffect(() => {
-    if (window && window?.history?.length > 1) {
-      setIsBackAvailable(true);
-    } else {
-      setIsBackAvailable(false);
-    }
-  }, []);
+const NotFound = () => {
+  const isBackAvailable = useSyncExternalStore(
+    subscribeToNothing,
+    getCanGoBack,
+    getServerCanGoBack,
+  );
 
   return (
     <div className="flex flex-col bg-amber-100 w-full h-dvh overflow-hidden text-slate-900">

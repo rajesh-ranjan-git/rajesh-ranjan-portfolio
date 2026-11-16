@@ -2,6 +2,7 @@ import {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
   ReactNode,
+  Ref,
   TextareaHTMLAttributes,
 } from "react";
 
@@ -13,6 +14,7 @@ export interface FormLabelProps {
 }
 
 export interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
   children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
@@ -28,6 +30,7 @@ export interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 export interface FormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  ref?: Ref<HTMLTextAreaElement>;
   error?: string;
 }
 

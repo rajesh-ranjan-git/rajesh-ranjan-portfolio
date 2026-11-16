@@ -31,3 +31,17 @@
     transform: translate(var(--toast-x), -10px) scale(0.95);
   }
 }
+
+.toastProgress {
+  width: 100%;
+  animation: toastProgress var(--toast-duration, 3000ms) linear forwards;
+}
+
+@keyframes toastProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}

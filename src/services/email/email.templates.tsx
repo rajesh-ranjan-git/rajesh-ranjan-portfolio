@@ -121,6 +121,8 @@ const styles = {
 const EmailLayout = ({ appName, preview, children }: EmailLayoutPropsType) => {
   return (
     <html>
+      {/* Email HTML, not a Next.js page, so a plain <head> is correct here. */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <title>{preview}</title>
         <meta charSet="utf-8" />
@@ -156,7 +158,7 @@ export const contactNotificationEmail = ({
       appName={appConfig.name}
       preview={`📩 New portfolio enquiry from ${toTitleCase(name) ?? email}`}
     >
-      <h1 style={styles.heading}>📩 You've received a new enquiry!</h1>
+      <h1 style={styles.heading}>📩 You&apos;ve received a new enquiry!</h1>
 
       <p style={styles.paragraph}>
         Great news! Someone just reached out through your portfolio website.

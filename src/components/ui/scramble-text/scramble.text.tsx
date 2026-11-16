@@ -1,114 +1,109 @@
 "use client";
 
 import {
-  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
   useRef,
   useState,
+  type Ref,
 } from "react";
 import { DEFAULT_CHARACTERS } from "@/constants/common.constants";
 import { ScrambleChar, ScrambleTextHandle } from "@/types/types/scramble.types";
 import { ScrambleTextProps } from "@/types/props/scramble.props.types";
 
-const ScrambleText = forwardRef<ScrambleTextHandle, ScrambleTextProps>(
-  (
-    {
-      initialText = "",
-      finalText,
-      trigger = "mount",
-      scrambleSpeed = 40,
-      duration = 1200,
-      delay = 0,
-      characters = DEFAULT_CHARACTERS,
-      className = "",
-      onComplete,
-    },
-    ref,
-  ) => {
-    const toDisplayChars = (text: string): ScrambleChar[] =>
-      text.split("").map((char) => ({ char, settled: true }));
+const ScrambleText = ({
+  ref,
+  initialText = "",
+  finalText,
+  trigger = "mount",
+  scrambleSpeed = 40,
+  duration = 1200,
+  delay = 0,
+  characters = DEFAULT_CHARACTERS,
+  className = "",
+  onComplete,
+}: ScrambleTextProps & { ref?: Ref<ScrambleTextHandle> }) => {
+  const toDisplayChars = (text: string): ScrambleChar[] =>
+    text.split("").map((char) => ({ char, settled: true }));
 
-    const [displayChars, setDisplayChars] = useState<ScrambleChar[]>(() =>
-      toDisplayChars(initialText),
-    );
-    const currentTextRef = useRef(initialText);
-    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [displayChars, setDisplayChars] = useState<ScrambleChar[]>(() =>
+    toDisplayChars(initialText),
+  );
+  const currentTextRef = useRef(initialText);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    const randomChar = useCallback(
-      () => characters[Math.floor(Math.random() * characters.length)],
-      [characters],
-    );
+  const randomChar = useCallback(
+    () => characters[Math.floor(Math.random() * characters.length)],
+    [characters],
+  );
 
-    const play = useCallback(() => {
-      const from = currentTextRef.current;
-      const length = Math.max(from.length, finalText.length);
-      const totalFrames = Math.max(4, Math.round(duration / scrambleSpeed));
-      const halfFrames = Math.max(2, Math.floor(totalFrames / 2));
-      const queue = Array.from({ length }, (_, i) => ({
-        to: finalText[i] ?? "",
-        start: Math.floor(Math.random() * halfFrames),
-        end: Math.floor(Math.random() * halfFrames) + halfFrames,
-      }));
+  const play = useCallback(() => {
+    const from = currentTextRef.current;
+    const length = Math.max(from.length, finalText.length);
+    const totalFrames = Math.max(4, Math.round(duration / scrambleSpeed));
+    const halfFrames = Math.max(2, Math.floor(totalFrames / 2));
+    const queue = Array.from({ length }, (_, i) => ({
+      to: finalText[i] ?? "",
+      start: Math.floor(Math.random() * halfFrames),
+      end: Math.floor(Math.random() * halfFrames) + halfFrames,
+    }));
 
-      if (intervalRef.current) clearInterval(intervalRef.current);
+    if (intervalRef.current) clearInterval(intervalRef.current);
 
-      let frame = 0;
+    let frame = 0;
 
-      intervalRef.current = setInterval(() => {
-        let settledCount = 0;
+    intervalRef.current = setInterval(() => {
+      let settledCount = 0;
 
-        const next = queue.map((item) => {
-          if (frame >= item.end) {
-            settledCount++;
-            return { char: item.to, settled: true };
-          }
-          if (frame >= item.start) {
-            return { char: randomChar(), settled: false };
-          }
-          return { char: "", settled: true };
-        });
-
-        setDisplayChars(next);
-        frame++;
-
-        if (settledCount === queue.length) {
-          if (intervalRef.current) clearInterval(intervalRef.current);
-          currentTextRef.current = finalText;
-          onComplete?.();
+      const next = queue.map((item) => {
+        if (frame >= item.end) {
+          settledCount++;
+          return { char: item.to, settled: true };
         }
-      }, scrambleSpeed);
-    }, [finalText, randomChar, scrambleSpeed, duration, onComplete]);
+        if (frame >= item.start) {
+          return { char: randomChar(), settled: false };
+        }
+        return { char: "", settled: true };
+      });
 
-    useImperativeHandle(ref, () => ({ play }), [play]);
+      setDisplayChars(next);
+      frame++;
 
-    useEffect(() => {
-      let timeoutId: ReturnType<typeof setTimeout> | null = null;
-
-      if (trigger === "mount" || trigger === "visible") {
-        timeoutId = setTimeout(play, delay);
-      }
-
-      return () => {
-        if (timeoutId) clearTimeout(timeoutId);
+      if (settledCount === queue.length) {
         if (intervalRef.current) clearInterval(intervalRef.current);
-      };
-    }, [trigger, play, delay]);
+        currentTextRef.current = finalText;
+        onComplete?.();
+      }
+    }, scrambleSpeed);
+  }, [finalText, randomChar, scrambleSpeed, duration, onComplete]);
 
-    const hoverProps =
-      trigger === "hover" ? { onMouseEnter: () => play() } : {};
+  useImperativeHandle(ref, () => ({ play }), [play]);
 
-    return (
-      <span className={className} {...hoverProps}>
-        {displayChars.map((item, index) => (
-          <span key={index} className={item.settled ? "" : "opacity-60"}>
-            {item.char}
-          </span>
-        ))}
-      </span>
-    );
-  },
-);
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    if (trigger === "mount" || trigger === "visible") {
+      timeoutId = setTimeout(play, delay);
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [trigger, play, delay]);
+
+  const hoverProps = trigger === "hover" ? { onMouseEnter: () => play() } : {};
+
+  return (
+    <span className={className} {...hoverProps}>
+      {displayChars.map((item, index) => (
+        <span key={index} className={item.settled ? "" : "opacity-60"}>
+          {item.char}
+        </span>
+      ))}
+    </span>
+  );
+};
 
 export default ScrambleText;

@@ -1,13 +1,13 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useActionState } from "react";
 import Form from "next/form";
 import { FaPhone, FaUserTie } from "react-icons/fa6";
 import { MdEmail, MdSubject } from "react-icons/md";
 import { TbSendFilled } from "react-icons/tb";
 import { PHONE_REGEX } from "@/constants/regex.constants";
 import { propertyConstraintsConfig } from "@/config/common.config";
-import { FormStateType } from "@/types/types/actions.types";
+import { ContactFormStateType } from "@/types/types/actions.types";
 import useInputFieldValidator from "@/hooks/useInputFieldValidation";
 import useToast from "@/hooks/useToast";
 import { getFullName } from "@/helpers/owner.helpers";
@@ -23,17 +23,10 @@ import FormInput from "@/components/ui/forms/form.input";
 import FormTextarea from "@/components/ui/forms/form.textarea";
 import FormButton from "@/components/ui/forms/form.button";
 
-const initialState: FormStateType = {
-  success: false,
+const initialState: ContactFormStateType = {
   status: "IDLE",
   code: "INITIAL",
-  statusCode: 0,
   message: "",
-  details: null,
-  timestamp: new Date().toISOString(),
-  metadata: null,
-  errors: {},
-  inputs: {},
 };
 
 const ContactForm = () => {
@@ -141,18 +134,16 @@ const ContactForm = () => {
     validate: validateMessage,
   });
 
-  const [state, formAction, isPending] = useActionState(
-    sendMessage,
-    initialState,
-  );
+  const submitMessage = async (
+    prevState: ContactFormStateType,
+    formData: FormData,
+  ): Promise<ContactFormStateType> => {
+    const result = await sendMessage(prevState, formData);
 
-  useEffect(() => {
-    if (state && state.status === "IDLE") return;
-
-    if (state?.success) {
+    if (result.status === "SUCCESS") {
       showToast({
-        title: state.status,
-        message: state.message ?? "Email sent successfully!",
+        title: result.code,
+        message: result.message || "Email sent successfully!",
         variant: "success",
       });
 
@@ -163,12 +154,16 @@ const ContactForm = () => {
       messageField.reset();
     } else {
       showToast({
-        title: state.code,
-        message: state.message,
+        title: result.code,
+        message: result.message,
         variant: "error",
       });
     }
-  }, [state]);
+
+    return result;
+  };
+
+  const [, formAction, isPending] = useActionState(submitMessage, initialState);
 
   const isDisabled =
     isPending ||

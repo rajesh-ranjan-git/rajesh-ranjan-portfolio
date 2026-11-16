@@ -4,11 +4,45 @@ All notable changes to this project are documented in this file.
 
 This project does not strictly follow [Keep a Changelog](https://keepachangelog.com) versioning conventions, since `v2.0.0` represents a full rewrite rather than an incremental release. Versions correspond to the `version` field in `package.json`.
 
+## [Unreleased]
+
+### Changed
+
+- **Contact form now uses a real server action** (`lib/actions/email.ts` with `"use server"`), which validates and sends the email through `emailService` directly. Removed the `/api/email` route, the client `apiHandler`, the response service, and the `NEXT_PUBLIC_BASE_URL` env variable.
+- **Removed all database plumbing**: the logger's DB adapter and sinks, `utils/db.utils.ts` (Mongo `ObjectId` sanitising), and the DB log entry types.
+- `NEXT_PUBLIC_LOG_LEVEL` now filters console output (it previously only applied to the unused DB sink).
+- Project detail pages are statically generated with `generateStaticParams`; unknown project ids return a 404 instead of a placeholder page.
+- `/project` redirects to `/#portfolio` from `next.config.ts` instead of a client-side redirect page.
+- The service worker script is built once per deploy. Public assets use stale-while-revalidate, so replaced images refresh; hashed build assets stay cache-first.
+- `global-error.tsx` renders a minimal page instead of re-mounting the sidebar, banner, toasts, and service worker.
+- Form inputs and `ScrambleText` take `ref` as a regular prop (React 19) instead of `forwardRef`.
+- The deploy workflow runs `npm run lint` before deploying.
+
+### Performance
+
+- The hero image is preloaded, and every `next/image` declares `sizes`, so browsers download appropriately sized images. The below-the-fold About photo is lazy-loaded.
+- A saved theme is applied by an inline script before first paint, fixing the theme flash. The store rehydrates after mount, fixing hydration mismatches for light-theme visitors.
+- The particle canvas pauses when off screen or in a background tab, and draws a static frame for reduced-motion users.
+- Toast progress bars animate in CSS instead of re-rendering every 16 ms.
+- `useScreenWidthCheck` uses `matchMedia` and only updates when the breakpoint changes. The toast context value is memoised.
+- Splash streaks and the skills icon rain are generated with a seeded random generator, so they render on the server with no extra client render.
+- Poppins loads only the weights in use (400 to 800).
+
+### Fixed
+
+- Portfolio section no longer mutates the shared `portfolio` config array on every render.
+- The skills icon rain now follows the active theme.
+- The tab title restores the current page title (including project pages) after the visitor returns.
+- The scroll-to-top button no longer rewrites a project page URL to `/`.
+- `AppError.from` now merges `path`, `requestId`, and `isOperational` into `metadata`.
+- Resolved all ESLint errors (setState in effects, refs read during render, missing display names, unescaped entities).
+
 ## [2.0.2]
 
 ### Removed
 
 - **Removed `@tsparticles/*` entirely** (`@tsparticles/engine`, `@tsparticles/react`, `@tsparticles/slim`) — deleted `components/greetings/greetings.particles.tsx` along with the tsParticles-based `Orb` background.
+
 ### Added
 
 - **New custom `Particles` component** (`components/ui/particles/particles.tsx`) with its own config/types/helpers (`constants/particles.constants.ts`, `types/types/particles.types.ts`, `helpers/particles.helpers.ts`), replacing tsParticles with a lightweight canvas implementation and no added dependency weight.

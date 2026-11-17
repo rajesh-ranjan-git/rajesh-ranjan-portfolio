@@ -10,8 +10,6 @@ import logger from "@/services/logger/logger";
 import Orb from "@/components/ui/background/orb";
 import ReloadButton from "@/components/ui/buttons/reload.button";
 
-// Kept intentionally minimal: if the root layout crashed, re-mounting the same
-// providers (sidebar, toasts, service worker) here could crash again.
 const GlobalError = ({ error }: { error: Error & { digest?: string } }) => {
   useEffect(() => {
     logger.error("❌ [GLOBAL ERROR] Unhandled application error:", {

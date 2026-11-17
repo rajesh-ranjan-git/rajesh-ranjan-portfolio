@@ -11,7 +11,6 @@ export const themeConfig = {
 
 export const THEME_STORAGE_KEY = "portfolio-storage";
 
-// Runs before first paint so a saved light theme never flashes dark.
 export const themeInitScript = `(function(){try{var t="${themeConfig.dark}";var s=JSON.parse(localStorage.getItem("${THEME_STORAGE_KEY}")||"null");if(s&&s.state&&s.state.activeTheme==="${themeConfig.light}")t="${themeConfig.light}";var r=document.documentElement;r.setAttribute("data-theme",t);r.classList.add(t);}catch(e){}})();`;
 
 export const staticImagesConfig = {

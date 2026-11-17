@@ -19,9 +19,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
 
-  // Builds a self-contained server in .next/standalone, so production needs
-  // no source code, git history or full node_modules.
-  // scripts/prepare-standalone.mjs adds the static files after each build.
   output: "standalone",
 
   poweredByHeader: false,

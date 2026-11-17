@@ -83,7 +83,6 @@ const Particles = () => {
         () => createParticle(width, height),
       );
 
-      // Resizing the canvas clears it, so redraw the static frame.
       if (prefersReducedMotion) drawFrame();
     };
 

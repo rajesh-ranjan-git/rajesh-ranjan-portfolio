@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 
-// Rendered once at build time, so the cache version changes with every deploy.
 export const dynamic = "force-static";
 
 const CACHE_VERSION = String(Date.now());
@@ -63,9 +62,6 @@ self.addEventListener("fetch", (event) => {
       return response;
     });
 
-  // Build assets have content hashes in their names, so cache-first is safe.
-  // Public assets keep the same URL when replaced, so serve the cached copy
-  // and refresh it in the background (stale-while-revalidate).
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       if (!cachedResponse) return fetchAndCache();

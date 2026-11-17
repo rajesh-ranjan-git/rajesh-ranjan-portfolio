@@ -37,8 +37,6 @@ export const scrollElementIntoViewSmoothly = (element: HTMLElement) => {
   requestAnimationFrame(step);
 };
 
-// Deterministic PRNG (mulberry32). Server and client produce the same values,
-// so decorative "random" layouts render during SSR without hydration mismatches.
 export const createSeededRandom = (seed: number) => {
   let state = seed >>> 0;
 

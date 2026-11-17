@@ -1,14 +1,3 @@
-// Single logger for server, browser, and next.config.ts.
-//
-// Output depends on where it runs:
-// - Development (server and browser): colored, human-readable lines.
-// - Production server: one JSON object per line (pm2 log friendly, greppable,
-//   parseable with jq, ready for CloudWatch if ever needed).
-// - Production browser: only warnings and errors reach visitors' consoles.
-//
-// This file uses relative, type-only imports and reads env at call time,
-// because next.config.ts imports it before dotenv has loaded the env files.
-
 import type AppError from "../error/error.service";
 
 export type LogLevelType = "error" | "warn" | "info" | "debug";
@@ -93,7 +82,6 @@ const isLevelEnabled = (level: LogLevelType): boolean => {
       ? LEVELS[configured as LogLevelType]
       : LEVELS.info;
 
-  // Visitors' consoles only ever see warnings and errors in production.
   if (isBrowser && mode === "production") {
     threshold = Math.min(threshold, LEVELS.warn);
   }
@@ -206,9 +194,6 @@ const logger = {
   success: (...args: unknown[]) => write("info", "success", args),
   debug: (...args: unknown[]) => write("debug", "debug", args),
 
-  // Logs an AppError with its metadata. 5xx errors log as errors, the rest as
-  // warnings. Stacks are kept for unexpected (non-operational) errors only,
-  // except in development where they are always shown.
   logAppError: (appError: AppError, extraContext: LogContextType = {}) => {
     const level: LogLevelType = appError.statusCode >= 500 ? "error" : "warn";
     const { path, requestId, isOperational } = appError.metadata;

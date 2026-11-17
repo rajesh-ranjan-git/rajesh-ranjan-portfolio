@@ -6,8 +6,6 @@ const TitleManager = () => {
   const inactiveTitle = "🙏 Come back soon! 👋";
 
   useEffect(() => {
-    // Remember the page's own title (home or a project page) when the tab is
-    // hidden, and restore exactly that title when the visitor comes back.
     let pageTitle = document.title;
 
     const handleVisibilityChange = () => {

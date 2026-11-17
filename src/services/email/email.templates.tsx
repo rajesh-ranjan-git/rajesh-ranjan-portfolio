@@ -121,7 +121,6 @@ const styles = {
 const EmailLayout = ({ appName, preview, children }: EmailLayoutPropsType) => {
   return (
     <html>
-      {/* Email HTML, not a Next.js page, so a plain <head> is correct here. */}
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <title>{preview}</title>

@@ -1,14 +1,3 @@
-// pm2 config for the standalone production server.
-//
-// Server layout (created by .github/workflows/deploy.yml):
-//   ~/portfolio/releases/<id>/   one unpacked standalone package per deploy
-//   ~/portfolio/current          link to the release that is live
-//   ~/portfolio/logs/            pm2 log files
-//
-// Each release carries its own .env.production, written from the
-// PORTFOLIO_ENV_PRODUCTION GitHub secret. Node loads it with --env-file,
-// because the standalone server does not run next.config.ts.
-
 const os = require("os");
 const path = require("path");
 
@@ -31,8 +20,6 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: 1995,
-        // The standalone server binds to $HOSTNAME, which Linux shells often
-        // set to the machine name. Pin it so the app listens on all interfaces.
         HOSTNAME: "0.0.0.0",
       },
 
@@ -48,7 +35,6 @@ module.exports = {
       merge_logs: true,
       kill_timeout: 5000,
 
-      // The app writes its own ISO timestamp in every JSON log line.
       time: false,
     },
   ],

@@ -10,8 +10,6 @@ const MAX_RAIN_ITEMS = 50;
 
 const random = createSeededRandom(1995);
 
-// Layout is generated once per module. Icons are picked by index at render
-// time, so they follow the active theme.
 const RAIN_LAYOUT = Array.from({ length: MAX_RAIN_ITEMS }, (_, index) => ({
   id: index,
   iconPick: random(),

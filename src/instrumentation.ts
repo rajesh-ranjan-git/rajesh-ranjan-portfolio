@@ -1,9 +1,6 @@
 import type { Instrumentation } from "next";
 import logger from "@/services/logger/logger";
 
-// One place for every unhandled server error (render, route handler, server
-// action). Next.js already prints these in development, so only production
-// writes the structured JSON line.
 export const onRequestError: Instrumentation.onRequestError = (
   error,
   request,

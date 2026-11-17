@@ -2,7 +2,6 @@ export const basicDetails = {
   initials: "RR",
   firstName: "Rajesh",
   lastName: "Ranjan",
-  // Development experience only (NTT Data onwards); earlier support roles are not counted.
   experienceStart: { month: "November", year: 2020 },
   designation: "Full Stack Developer",
   company: "India Today",

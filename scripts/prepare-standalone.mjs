@@ -1,9 +1,3 @@
-// Runs after `npm run build` (npm's postbuild hook).
-//
-// Next's standalone output contains server.js and the node_modules it needs,
-// but leaves out the static files. This copies them in, so .next/standalone
-// is a complete package that runs on its own with `node server.js`.
-
 import { cp, rm, stat } from "node:fs/promises";
 
 const OUT = ".next/standalone";

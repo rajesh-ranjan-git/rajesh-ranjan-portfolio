@@ -1,6 +1,6 @@
 # Rajesh Ranjan | Portfolio
 
-Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 6+ years of development experience, currently at India Today Group. Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
+Personal portfolio of **Rajesh Ranjan**, Full Stack Developer. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. Includes project case studies, an experience timeline, certificates and a contact form powered by AWS SES. Self-hosted as a standalone build with automated deploys and rollback.
 
 **Live site:** [rajeshranjan.dev](https://rajeshranjan.dev/)
 
@@ -28,7 +28,7 @@ Personal portfolio of **Rajesh Ranjan**, a Full Stack Developer with 6+ years of
 
 This repository showcases Rajesh Ranjan's work, skills, and professional experience. It includes sections for greetings/intro, about, skills & tools, work experience timeline, education, certificates, a filterable project portfolio with detail pages, and a contact form backed by AWS SES.
 
-This is the second major iteration of the portfolio (`v2.0.2`) — a full rewrite from a Vite + React SPA to a Next.js App Router application.
+This is the third major release of the portfolio (`v3.0.0`). `v2` rewrote the site from a Vite + React SPA into a Next.js App Router application; `v3` ships it as a standalone Next.js build with release-based deploys and automatic rollback, a new structured logger, the API route replaced by a server action, and much smaller images and fonts.
 
 ## Tech Stack
 

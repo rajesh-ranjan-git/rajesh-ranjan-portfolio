@@ -123,21 +123,77 @@ Environment files live in `env/` (`.env.development`, `.env.production`) and are
 
 Never commit real credentials — `env/.env.*` files are git-ignored.
 
+`NEXT_PUBLIC_*` values are baked into the code at build time; everything else is read when the server starts. In production, the whole `.env.production` file lives in the `PORTFOLIO_ENV_PRODUCTION` GitHub secret (see [Deployment](#deployment)).
+
+In production the email service passes no keys to the SES client, so the AWS SDK finds credentials itself. Give the server an IAM role that allows `ses:SendEmail`.
+
 ## Available Scripts
 
-| Script          | Description                        |
-| --------------- | ---------------------------------- |
-| `npm run dev`   | Starts the dev server on port 1995 |
-| `npm run build` | Builds the app for production      |
-| `npm run start` | Starts the production server       |
-| `npm run lint`  | Runs ESLint                        |
+| Script                    | Description                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------- |
+| `npm run dev`             | Starts the dev server on port 1995                                                    |
+| `npm run build`           | Builds the standalone production package in `.next/standalone`                        |
+| `npm run start`           | Runs that package on port 1995 with `env/.env.production`, exactly as the server does |
+| `npm run lint`            | Runs ESLint                                                                           |
+| `npm run images:compress` | Compresses images in `public/assets` (pass a path to compress one file or folder)     |
 
 ## Deployment
 
-The site is deployed to a self-managed EC2 instance behind [PM2](https://pm2.keymetrics.io) (`ecosystem.config.cjs`, fork mode, 1 instance), fronted by an automated pipeline:
+The site runs on a small Linux server under [PM2](https://pm2.keymetrics.io) (`ecosystem.config.cjs`, fork mode, 1 instance). The server holds only the built package, never the source code, git history or full `node_modules`.
 
-- **CI/CD:** [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) — on every push to `main`, detects which files changed, SSHes into the production host, pulls the latest code, installs dependencies only if they changed, rebuilds, and reloads the PM2 process (with a clean-restart fallback if the reload fails). Deployment success/failure is reported by email.
-- **Process management:** PM2 runs the app with auto-restart, memory-based restarts, and file-based logging.
+[`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) runs on every push to `main`, or manually from the Actions tab. Pushes that only touch docs are skipped. A deploy:
+
+1. Installs, lints and builds on GitHub's runner, with `.env.production` written from the `PORTFOLIO_ENV_PRODUCTION` secret.
+2. Packages `.next/standalone` (server, the `node_modules` it needs, `public/`, static assets, pm2 config and env file) into one archive, about 42 MB unpacked.
+3. Uploads it over SSH and unpacks it into `~/portfolio/releases/<timestamp>-<commit>`.
+4. Points `~/portfolio/current` at the new release, restarts pm2, and waits for the home page to answer.
+5. If the new release doesn't come online, switches back to the previous release and fails the run. Only the two newest releases are kept.
+
+Deployment success or failure is reported by email.
+
+```text
+~/portfolio/
+├── current -> releases/<live release>
+├── releases/       # the live release and the previous one
+└── logs/           # pm2 log files
+```
+
+### One-time server setup
+
+The build includes native binaries for x64 Linux. For an ARM (Graviton) server, change `runs-on` in the workflow to `ubuntu-24.04-arm`.
+
+On a fresh Ubuntu server, as the deploy user:
+
+```bash
+# Node 24 from NodeSource, so it is on the PATH for non-interactive SSH sessions
+curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g pm2
+
+# Start pm2 on boot (run the command it prints)
+pm2 startup
+```
+
+Then add the log rotation commands from [Logging](#logging). Attach an IAM role that allows `ses:SendEmail` so contact form emails can be sent.
+
+GitHub repository secrets used by the workflow:
+
+| Secret                      | Value                                                        |
+| --------------------------- | ------------------------------------------------------------ |
+| `PORTFOLIO_ENV_PRODUCTION`  | Full contents of `env/.env.production`                       |
+| `HOST` / `USERNAME`         | Server address and SSH user                                  |
+| `PORTFOLIO_EC2_SSH_KEY`     | Private SSH key for that user                                |
+| `AWS_SMTP_*`, `AWS_EMAIL_*` | SMTP settings and addresses for the deployment report emails |
+
+To change an env value, update the secret and re-run the workflow from the Actions tab.
+
+Rolling back by hand, if needed:
+
+```bash
+ls ~/portfolio/releases
+ln -sfn ~/portfolio/releases/<previous> ~/portfolio/current
+pm2 delete portfolio && pm2 start ~/portfolio/current/ecosystem.config.cjs && pm2 save
+```
 
 ### Logging
 

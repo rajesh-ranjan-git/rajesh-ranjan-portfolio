@@ -1,12 +1,26 @@
 name: Deploy to Production
 
+# Builds the standalone package here on GitHub's runner, then copies only that
+# package (~42 MB) to the server. The server never holds source code, git
+# history or the full node_modules. See "Deployment" in README.md.
+
 on:
   push:
     branches:
       - main
+  # Manual run from the Actions tab, e.g. the first deploy to a new server.
+  workflow_dispatch:
+
+# Never run two deploys against the server at the same time.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    # The package includes native binaries (sharp) built for this runner, so
+    # the server must be x64 Linux. For an ARM (Graviton) server, use
+    # ubuntu-24.04-arm here instead.
     runs-on: ubuntu-latest
 
     environment:
@@ -50,7 +64,8 @@ jobs:
 
           echo ""
           echo "Checking changed files for Portfolio..."
-          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+          BEFORE="${{ github.event.before }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
             CHANGED_FILES=$(git ls-files)
           else
             CHANGED_FILES=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")
@@ -69,13 +84,7 @@ jobs:
             echo "portfolio=false" >> "$GITHUB_OUTPUT"
           fi
 
-          if echo "$CHANGED_FILES" | grep -qE '^(package(-lock)?\.json)$' > /dev/null; then
-            echo "portfolio_install=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "portfolio_install=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Install dependencies for lint
+      - name: Install dependencies
         if: steps.changes.outputs.portfolio == 'true'
         run: npm ci
 
@@ -83,7 +92,58 @@ jobs:
         if: steps.changes.outputs.portfolio == 'true'
         run: npm run lint
 
-      - name: Deploy Portfolio changed services via SSH
+      - name: Write production env file
+        if: steps.changes.outputs.portfolio == 'true'
+        env:
+          PORTFOLIO_ENV_PRODUCTION: ${{ secrets.PORTFOLIO_ENV_PRODUCTION }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$PORTFOLIO_ENV_PRODUCTION" ]; then
+            echo "The PORTFOLIO_ENV_PRODUCTION secret is missing or empty." | tee -a "$LOG_FILE"
+            exit 1
+          fi
+
+          mkdir -p env
+          # Strip Windows line endings in case the secret was pasted from Windows.
+          printf '%s\n' "$PORTFOLIO_ENV_PRODUCTION" | tr -d '\r' > env/.env.production
+          chmod 600 env/.env.production
+
+      - name: Build Portfolio standalone package
+        if: steps.changes.outputs.portfolio == 'true'
+        run: |
+          set -euo pipefail
+
+          exec > >(tee -a "$LOG_FILE") 2>&1
+
+          echo ""
+          echo "Building Portfolio..."
+          # The postbuild script copies public/, .next/static and the pm2
+          # config into .next/standalone.
+          npm run build
+
+      - name: Package Portfolio release
+        if: steps.changes.outputs.portfolio == 'true'
+        id: package
+        run: |
+          set -euo pipefail
+
+          exec > >(tee -a "$LOG_FILE") 2>&1
+
+          # The release carries its own env file. pm2 loads it with --env-file,
+          # because the standalone server does not run next.config.ts.
+          install -m 600 env/.env.production .next/standalone/.env.production
+
+          RELEASE="$(date -u +%Y%m%d%H%M%S)-${GITHUB_SHA::7}"
+          tar -czf portfolio.tgz -C .next/standalone .
+
+          echo "release=$RELEASE" >> "$GITHUB_OUTPUT"
+
+          echo ""
+          echo "RELEASE: $RELEASE"
+          echo "PACKAGE SIZE: $(du -h portfolio.tgz | cut -f1) compressed, $(du -sh .next/standalone | cut -f1) unpacked"
+
+      - name: Deploy Portfolio release via SSH
         if: steps.changes.outputs.portfolio == 'true'
         id: deploy
         run: |
@@ -95,64 +155,82 @@ jobs:
           echo "${{ secrets.PORTFOLIO_EC2_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
-          ssh -i ~/.ssh/deploy_key \
-            -o StrictHostKeyChecking=no \
-            "${{ secrets.USERNAME }}@${{ secrets.HOST }}" bash -s <<'REMOTE_SCRIPT'
+          SSH_TARGET="${{ secrets.USERNAME }}@${{ secrets.HOST }}"
+          SSH_OPTS=(-i ~/.ssh/deploy_key -o StrictHostKeyChecking=no)
+
+          echo ""
+          echo "Uploading release package..."
+          ssh "${SSH_OPTS[@]}" "$SSH_TARGET" \
+            'mkdir -p ~/portfolio/releases ~/portfolio/logs && cat > ~/portfolio/releases/upload.tgz' \
+            < portfolio.tgz
+
+          ssh "${SSH_OPTS[@]}" "$SSH_TARGET" bash -s <<'REMOTE_SCRIPT'
             set -euo pipefail
 
-            cd ~/portfolio/rajesh-ranjan-portfolio
+            APP_ROOT="$HOME/portfolio"
+            RELEASE="${{ steps.package.outputs.release }}"
+            RELEASE_DIR="$APP_ROOT/releases/$RELEASE"
+            PORT=1995
+            KEEP_RELEASES=2
 
-            echo "Pulling latest Portfolio code..."
-            git fetch --prune origin
-            git reset --hard origin/main
-            git clean -fd
+            echo "Unpacking release $RELEASE..."
+            mkdir -p "$RELEASE_DIR" "$APP_ROOT/logs"
+            tar -xzf "$APP_ROOT/releases/upload.tgz" -C "$RELEASE_DIR"
+            rm -f "$APP_ROOT/releases/upload.tgz"
+            chmod 600 "$RELEASE_DIR/.env.production"
 
-            echo "Cleaning previous build artifacts..."
-            rm -rf .next
-            rm -rf out
-            rm -rf .turbo
-
-            if [ "${{ steps.changes.outputs.portfolio_install }}" = "true" ]; then
-              echo "Installing latest dependencies for Portfolio..."
-              rm -rf node_modules
-              npm ci
-            else
-              echo "No dependency changes for Portfolio. Skipping dependencies installation!"
+            PREVIOUS=""
+            if [ -L "$APP_ROOT/current" ]; then
+              PREVIOUS="$(readlink -f "$APP_ROOT/current")"
             fi
 
-            echo "Building latest Portfolio code..."
-            npm run build
+            # Points "current" at a release and (re)starts pm2 from it. A full
+            # delete + start makes pm2 pick up any change in ecosystem.config.cjs.
+            start_release() {
+              ln -sfn "$1" "$APP_ROOT/current.tmp"
+              mv -Tf "$APP_ROOT/current.tmp" "$APP_ROOT/current"
+              pm2 delete portfolio >/dev/null 2>&1 || true
+              pm2 start "$APP_ROOT/current/ecosystem.config.cjs" --only portfolio
+            }
 
-            echo "Reloading Portfolio application..."
-            if pm2 describe portfolio >/dev/null 2>&1; then
-                pm2 reload portfolio --update-env
-            else
-                pm2 start ecosystem.config.cjs --only portfolio
-            fi
-
-            sleep 5
-
-            STATUS=$(pm2 jlist | jq -r '.[] | select(.name=="portfolio") | .pm2_env.status')
-
-            if [ "$STATUS" != "online" ]; then
-                echo "Reload failed. Attempting clean restart..."
-
-                pm2 delete portfolio >/dev/null 2>&1 || true
-                pm2 start ecosystem.config.cjs --only portfolio
-
-                sleep 5
-
-                STATUS=$(pm2 jlist | jq -r '.[] | select(.name=="portfolio") | .pm2_env.status')
-
-                if [ "$STATUS" != "online" ]; then
-                    echo "Portfolio failed to start after clean restart."
-                    pm2 logs portfolio --lines 100
-                    exit 1
+            # Waits up to 30 seconds for the home page to answer.
+            is_healthy() {
+              for _ in $(seq 1 30); do
+                if curl -fsS -o /dev/null "http://127.0.0.1:$PORT/"; then
+                  return 0
                 fi
+                sleep 1
+              done
+              return 1
+            }
+
+            echo "Starting release $RELEASE..."
+            start_release "$RELEASE_DIR"
+
+            if ! is_healthy; then
+              echo "Release $RELEASE did not come online."
+              pm2 logs portfolio --lines 100 --nostream || true
+
+              if [ -n "$PREVIOUS" ] && [ -d "$PREVIOUS" ]; then
+                echo "Rolling back to $(basename "$PREVIOUS")..."
+                start_release "$PREVIOUS"
+                if is_healthy; then
+                  echo "Rollback is online."
+                else
+                  echo "Rollback also failed to come online!"
+                fi
+                pm2 save
+              fi
+
+              rm -rf "$RELEASE_DIR"
+              exit 1
             fi
 
             pm2 save
             echo "Portfolio is online."
+
+            echo "Removing old releases (keeping $KEEP_RELEASES)..."
+            ls -1d "$APP_ROOT"/releases/*/ | sort | head -n -"$KEEP_RELEASES" | xargs -r rm -rf
 
             echo "===== PORTFOLIO SERVER STATS ====="
             echo ""
@@ -165,7 +243,11 @@ jobs:
 
             echo ""
             echo "DISK:"
-            df -h
+            df -h /
+
+            echo ""
+            echo "PORTFOLIO ON DISK:"
+            du -sh "$APP_ROOT"/releases/* "$APP_ROOT/logs" || true
 
             echo ""
             echo "PM2 STATUS:"
@@ -244,8 +326,8 @@ jobs:
                     </tr>
 
                     <tr>
-                      <td style="padding:6px 16px 6px 0"><strong>Dependencies Installed</strong></td>
-                      <td style="padding:6px 0">${{ steps.changes.outputs.portfolio_install }}</td>
+                      <td style="padding:6px 16px 6px 0"><strong>Release</strong></td>
+                      <td style="padding:6px 0">${{ steps.package.outputs.release || 'not deployed' }}</td>
                     </tr>
                   </table>
 

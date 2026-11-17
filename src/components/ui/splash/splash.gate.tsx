@@ -9,7 +9,7 @@ const SplashGate = ({
   children,
   loadingText = "Loading...",
   endingText = "Welcome...",
-  backgroundColor = "#040b14",
+  backgroundColor = "var(--bg)",
   className = "",
   duration = 2000,
 }: SplashGateProps) => {

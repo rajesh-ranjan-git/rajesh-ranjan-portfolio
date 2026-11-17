@@ -44,7 +44,7 @@
 
 .splash_base span {
   border-top: 6px solid transparent;
-  border-right: 100px solid var(--fixed-light);
+  border-right: 100px solid var(--primary);
   border-bottom: 9px solid transparent;
 }
 
@@ -57,7 +57,7 @@
   top: -16px;
   right: -98px;
   border-top: 0 solid transparent;
-  border-right: 55px solid var(--fixed-light);
+  border-right: 55px solid var(--primary);
   border-bottom: 16px solid transparent;
 }
 
@@ -96,11 +96,11 @@
 }
 
 .splash_progress {
-  --color: rgba(255, 255, 255, 0.5);
+  --color: color-mix(in srgb, var(--primary) 50%, transparent);
   --size: clamp(0.5px, 0.3px + 0.055vw, 1px);
 
   height: calc(4.8 * var(--size));
-  background: var(--fixed-light);
+  background: var(--primary);
   box-shadow: 0 0 calc(10 * var(--size)) var(--color);
   box-sizing: border-box;
   animation: splash_progress var(--progress-duration, 2000ms) linear forwards;
@@ -109,7 +109,7 @@
 .splash_progress::before {
   width: calc(10 * var(--size));
   height: calc(1 * var(--size));
-  background: var(--fixed-light);
+  background: var(--primary);
   top: calc(9 * var(--size));
   right: calc(-2 * var(--size));
   transform: rotate(-45deg) translateX(0);

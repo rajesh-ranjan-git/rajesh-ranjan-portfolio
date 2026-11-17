@@ -28,7 +28,7 @@ const SplashLoader = ({
         {FAZERS.map((style, i) => (
           <span
             key={i}
-            className="absolute bg-fixed-light/60"
+            className="absolute bg-primary/60"
             style={style as React.CSSProperties}
           />
         ))}
@@ -38,24 +38,24 @@ const SplashLoader = ({
         <div className={splashStyles.splash_fly}>
           <div className={`relative ${splashStyles.splash_body}`}>
             <span
-              className={`absolute bg-fixed-light ${splashStyles.splash_wing}`}
+              className={`absolute bg-primary ${splashStyles.splash_wing}`}
             >
-              <span className="absolute bg-fixed-light w-7.5 h-px" />
-              <span className="absolute bg-fixed-light w-7.5 h-px" />
-              <span className="absolute bg-fixed-light w-7.5 h-px" />
-              <span className="absolute bg-fixed-light w-7.5 h-px" />
+              <span className="absolute bg-primary w-7.5 h-px" />
+              <span className="absolute bg-primary w-7.5 h-px" />
+              <span className="absolute bg-primary w-7.5 h-px" />
+              <span className="absolute bg-primary w-7.5 h-px" />
             </span>
             <div className={`absolute w-0 h-0 ${splashStyles.splash_base}`}>
-              <span className="absolute before:absolute after:absolute before:bg-fixed-light before:rounded-full w-0 before:w-6 after:w-0 h-0 before:h-6 after:h-0" />
+              <span className="absolute before:absolute after:absolute before:bg-primary before:rounded-full w-0 before:w-6 after:w-0 h-0 before:h-6 after:h-0" />
               <div
-                className={`absolute w-5 h-3 bg-fixed-light after:absolute after:w-3 after:h-3 after:bg-fixed-light ${splashStyles.splash_face}`}
+                className={`absolute w-5 h-3 bg-primary after:absolute after:w-3 after:h-3 after:bg-primary ${splashStyles.splash_face}`}
               />
             </div>
           </div>
         </div>
 
         <h1
-          className={`font-semibold text-fixed-light whitespace-nowrap font-alkatra inline-block mt-8 ${splashStyles.splash_loader}`}
+          className={`font-semibold text-primary whitespace-nowrap font-alkatra inline-block mt-8 ${splashStyles.splash_loader}`}
         >
           <ScrambleText
             initialText={loadingText}

@@ -5,7 +5,7 @@ import SplashLoader from "@/components/ui/splash/splash.loader";
 const SplashScreen = ({
   loadingText = "Loading...",
   endingText = "Welcome...",
-  backgroundColor = "#040b14",
+  backgroundColor = "var(--bg)",
   className = "",
   duration = 2000,
 }: SplashScreenProps) => {

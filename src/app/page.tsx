@@ -15,15 +15,15 @@ const Home = () => {
       <main className="relative pl-0 md:pl-16 min-h-screen">
         <Greetings />
         <About title="About me..." />
-        <Skills title="My tech stack..." />
-        <Experience title="Professional journey..." />
-        <Internships title="Where it began..." />
-        <Education title="Academic background..." />
-        <Portfolio title="Legacy works..." />
+        <Skills title="My Tech Stack..." />
+        <Experience title="Professional Journey..." />
+        <Internships title="Internships..." />
+        <Education title="Academic Background..." />
+        <Portfolio title="Legacy Works..." />
         <Certificates title="Certifications..." />
         <Contact
           title="Beam me a message..."
-          description="Whether you have a question, any suggestion, or just want to say hi, drop me a message and I'll get back to you!"
+          description="Have a question, an idea, or an opportunity? I'd love to hear from you. Drop me a message and let's start a conversation."
         />
       </main>
     </SplashGate>

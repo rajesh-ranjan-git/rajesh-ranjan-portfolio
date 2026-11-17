@@ -221,7 +221,6 @@ const ContactForm = () => {
                 placeholder="Your Phone"
                 autoComplete="off"
                 value={phoneField.raw}
-                required
                 className="pr-9"
                 onChange={(e) => phoneField.handleInput(e.currentTarget.value)}
                 onBlur={phoneField.handleBlur}
@@ -255,6 +254,7 @@ const ContactForm = () => {
                 placeholder="Message"
                 autoComplete="off"
                 value={messageField.raw}
+                required
                 className="pr-9"
                 onChange={(e) =>
                   messageField.handleInput(e.currentTarget.value)

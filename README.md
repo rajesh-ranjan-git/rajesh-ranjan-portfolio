@@ -165,12 +165,10 @@ The build includes native binaries for x64 Linux. For an ARM (Graviton) server, 
 On a fresh Ubuntu server, as the deploy user:
 
 ```bash
-# Node 24 from NodeSource, so it is on the PATH for non-interactive SSH sessions
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install -g pm2
 
-# Start pm2 on boot (run the command it prints)
 pm2 startup
 ```
 
@@ -217,10 +215,8 @@ pm2 set pm2-logrotate:compress true
 Reading the logs:
 
 ```bash
-# Errors only, pretty-printed
 grep -h '"level":"error"' ~/portfolio/logs/portfolio-*.log | jq .
 
-# Live tail
 pm2 logs portfolio --raw | jq -R 'fromjson? // .'
 ```
 

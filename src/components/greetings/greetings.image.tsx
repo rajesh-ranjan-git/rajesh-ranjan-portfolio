@@ -11,6 +11,7 @@ const GreetingsImage = () => {
       height={1536}
       sizes="(min-width: 1024px) 40vw, 100vw"
       preload
+      loading="eager"
       className="rounded-br-[50%] w-full h-auto object-cover"
     />
   ) : (

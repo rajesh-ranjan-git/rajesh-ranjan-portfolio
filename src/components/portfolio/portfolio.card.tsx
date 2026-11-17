@@ -22,7 +22,8 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
       >
         <Image
           src={
-            portfolioItem.thumbnail ?? "/assets/error/image-not-available.webp"
+            portfolioItem.screens?.[0] ??
+            "/assets/error/image-not-available.webp"
           }
           alt={portfolioItem.title}
           width={400}

@@ -86,6 +86,7 @@ const AboutImage = () => {
                     width={100}
                     height={100}
                     sizes="48px"
+                    loading="eager"
                     className="rounded-full w-full h-auto"
                   />
                 ) : (
@@ -111,6 +112,7 @@ const AboutImage = () => {
           alt="Rajesh Ranjan profile illustration"
           width={1024}
           height={1536}
+          loading="eager"
           sizes="(min-width: 768px) 20rem, 18rem"
           className="rounded-br-[50%] w-full h-auto"
         />

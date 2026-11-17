@@ -333,7 +333,6 @@ export const portfolio = [
       "A static front-end recreation of the MakeMyTrip.com landing page, built to practice layout and styling with plain HTML and CSS",
     overview:
       "MakeMyTrip-Clone is a single-page static replica of the MakeMyTrip.com homepage. It recreates the header, search/booking widgets, and promotional sections using only HTML and CSS, with no backend or JavaScript logic involved.",
-    thumbnail: "/assets/portfolio/make-my-trip/make-my-trip.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -376,7 +375,6 @@ export const portfolio = [
       "A static business landing page built with HTML, CSS, and Bootstrap for an ironing services company.",
     overview:
       "Ironing is a static marketing landing page for an ironing service, presenting company information and services styled with Bootstrap and custom CSS.",
-    thumbnail: "/assets/portfolio/ironing/ironing-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -420,8 +418,6 @@ export const portfolio = [
       "A static blog landing page built with HTML, CSS, and Bootstrap, showcasing a magazine-style layout for a crypto/finance blog.",
     overview:
       "Bitcoin-Journal is a static blog landing page for a Bitcoin/crypto-themed publication. It presents a header, featured articles, and blog post sections styled with Bootstrap and custom CSS.",
-    thumbnail:
-      "/assets/portfolio/bitcoin-journal/bitcoin-journal-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -467,8 +463,6 @@ export const portfolio = [
       "A static multi-page business site built with HTML, CSS, and Bootstrap for a commercial cleaning services company.",
     overview:
       "Commercial-Cleaning is a static marketing site for a commercial cleaning service, made up of a home page and an 'About Us' page, styled with Bootstrap and custom CSS.",
-    thumbnail:
-      "/assets/portfolio/commercial-cleaning/commercial-cleaning-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -512,7 +506,6 @@ export const portfolio = [
       "A static business landing page built with HTML, CSS, and Bootstrap for a forestry/tree work services company, including a working PHP contact form.",
     overview:
       "Jonestree is a static marketing landing page for a forestry/tree work company, with a PHP-based handler for processing contact form submissions.",
-    thumbnail: "/assets/portfolio/jonestree/jonestree-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       {
@@ -566,7 +559,6 @@ export const portfolio = [
       "A static front-end recreation of the Flipkart.com landing page, built to practice layout and styling with plain HTML and CSS.",
     overview:
       "Flipkart-Clone is a single-page static replica of the Flipkart.com homepage. It recreates the header, search bar, navigation, banner carousels, and product category sections using only HTML and CSS, with no backend or JavaScript logic involved.",
-    thumbnail: "/assets/portfolio/flipkart-clone/flipkart-clone-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -615,7 +607,6 @@ export const portfolio = [
       "A static front-end recreation of the Amazon.com landing page, built to practice pixel-level layout and styling with plain HTML and CSS.",
     overview:
       "Amazon-Clone is a single-page static replica of the Amazon.com homepage. It focuses on recreating the visual layout — header, search bar, navigation, hero banner, and product category grid — using only HTML and CSS, with no backend or JavaScript logic involved.",
-    thumbnail: "/assets/portfolio/amazon-clone/amazon-clone-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [{ type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript"] }],
     liveUrl: "https://amazon-clone-site.netlify.app/",
@@ -661,7 +652,6 @@ export const portfolio = [
       "A Vanilla JavaScript app that lets you check live exchange rates between currencies from almost every country in the world.",
     overview:
       "Currency-Converter is a client-side currency conversion tool. Users pick a 'from' and 'to' currency from dropdowns populated with every supported country/currency code, enter an amount, and get the converted value using live exchange rate data along with the corresponding country flags.",
-    thumbnail: "/assets/portfolio/currency-converter/currency-converter.webp",
     category: "Vanilla JS",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript"] },
@@ -716,7 +706,6 @@ export const portfolio = [
       "A static event landing page built with HTML, CSS, and Bootstrap for JPIET's technical fest.",
     overview:
       "JP Tech Fest is a static event site for JPIET's tech fest, made up of a home page and an event details page (event.html), styled with Bootstrap and Sass-derived CSS.",
-    thumbnail: "/assets/portfolio/jp-tech-fest/jp-tech-fest-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -767,7 +756,6 @@ export const portfolio = [
       "A classic Tic Tac Toe game built with Vanilla JavaScript, complete with win/draw detection and sound effects.",
     overview:
       "Tic Tac Toe is a client-side implementation of the classic two-player game, playable directly in the browser with no backend involved.",
-    thumbnail: "/assets/portfolio/tic-tac-toe/tic-tac-toe-thumbnail.webp",
     category: "Vanilla JS",
     techStack: [{ type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript"] }],
     liveUrl: "https://tictactoe-vanilla-js.netlify.app/",
@@ -816,7 +804,6 @@ export const portfolio = [
       "A static business landing page built with HTML, CSS, and Bootstrap for a car removal/repair services company.",
     overview:
       "Car-Removal is a static marketing landing page for a car removal/repair service. It presents company information, services, and a call-to-action layout styled with Bootstrap and custom CSS.",
-    thumbnail: "/assets/portfolio/car-removal/car-removal-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -861,8 +848,6 @@ export const portfolio = [
       "A static multi-page business site built with HTML, CSS, and Bootstrap for an exterior water blasting/washing company, including a working PHP contact form.",
     overview:
       "Exterior-Water-Blaster is a static marketing site for an exterior washing/water blasting company. It includes a home page and a contact page, with a PHP-based mail handler for processing contact form submissions.",
-    thumbnail:
-      "/assets/portfolio/exterior-water-blaster/exterior-water-blaster-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -912,7 +897,6 @@ export const portfolio = [
       "A Vanilla JavaScript to-do list app that lets you add, edit, and delete tasks, with LocalStorage used to keep track of your list in the browser.",
     overview:
       "To-Do-App is a client-side to-do list manager. Users can add todo items with a title and description, edit either field, and delete items, with everything persisted locally via LocalStorage.",
-    thumbnail: "/assets/portfolio/to-do-app/to-do-app-thumbnail.webp",
     category: "Vanilla JS",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript"] },
@@ -975,7 +959,6 @@ export const portfolio = [
       "A Vanilla JavaScript task management app with search and filter functionality, using LocalStorage to persist tasks in the browser.",
     overview:
       "Task-Manager is a client-side task management app. Tasks are created, searched, and filtered directly in the browser, with all data persisted locally via the browser's LocalStorage — no backend required.",
-    thumbnail: "/assets/portfolio/task-manager/task-manager-thumbnail.webp",
     category: "Vanilla JS",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript"] },
@@ -1035,8 +1018,6 @@ export const portfolio = [
       "A React + Vite rebuild of the classic Tic Tac Toe game, with player name entry, sound effects, and routing.",
     overview:
       "Tic Tac Toe - React is a component-based rebuild of the classic game. Players enter their names before starting, play a full game with win/draw detection, and enjoy sound effects throughout.",
-    thumbnail:
-      "/assets/portfolio/tic-tac-toe-react/tic-tac-toe-react-thumbnail.webp",
     category: "React JS",
     techStack: [
       {
@@ -1120,7 +1101,6 @@ export const portfolio = [
       "A static multi-page business site built with HTML, CSS, and Bootstrap for a painting and plastering services company",
     overview:
       "FQS-Painting is a static marketing site for a painting company, covering home, about, services, gallery, plasterboard-stopping, and contact pages.",
-    thumbnail: "/assets/portfolio/fqs-painting/fqs-painting-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -1169,7 +1149,6 @@ export const portfolio = [
       "A static business site built with HTML, CSS, and Bootstrap for a painting services company, including a working PHP contact form.",
     overview:
       "Sky-Painting is a static marketing site for a painting company, with a home page and a thank-you page, backed by a PHP mail handler for the contact form.",
-    thumbnail: "/assets/portfolio/sky-painting/sky-painting-thumbnail.webp",
     category: "Frontend (HTML & CSS)",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"] },
@@ -1219,7 +1198,6 @@ export const portfolio = [
       "An image gallery application built with React and Vite, powered by the Unsplash API.",
     overview:
       "PhotoPhlix lets users browse photos uploaded by the Unsplash community, view them in a lightbox, favorite images, and share them via WhatsApp.",
-    thumbnail: "/assets/portfolio/photo-phlix/photo-phlix-thumbnail.webp",
     category: "React JS",
     techStack: [
       {
@@ -1317,7 +1295,6 @@ export const portfolio = [
       "An e-commerce web application built with React and Vite, showcasing a broad range of modern React patterns alongside authentication, cart, and product-browsing functionality.",
     overview:
       "GetKart is a React + Vite e-commerce front end. Users can browse a product catalog, search, filter, and sort products, add items to a cart, and sign up / log in via a JWT-authenticated backend. Product data is sourced from DummyJSON, while user accounts are handled by a separate Node.js/Express/MongoDB backend deployed on Render.",
-    thumbnail: "/assets/portfolio/get-kart/get-kart-thumbnail.webp",
     category: "React JS",
     techStack: [
       {
@@ -1432,7 +1409,6 @@ export const portfolio = [
       "A modern finance/banking dashboard platform built with Next.js, giving users a unified view of their bank accounts, transactions, and payment transfers.",
     overview:
       "BancardifyMe is a Next.js (App Router) banking dashboard. Users sign up / sign in, securely link their real bank accounts via Plaid, view balances and recent transactions across linked banks, transfer funds between accounts using Dwolla, and track their full transaction history.",
-    thumbnail: "/assets/portfolio/bancardify-me/bancardify-me-thumbnail.webp",
     category: "Next JS",
     techStack: [
       {
@@ -1544,7 +1520,6 @@ export const portfolio = [
       "A Movie & TV Show hub built with React and Vite, powered by The Movie Database (TMDB) API.",
     overview:
       "MovieMania lets users browse Popular, Trending, Upcoming, Now Playing, On Air, Similar, and Recommended movies and TV shows, view details, and watch trailers — all backed by the TMDB API.",
-    thumbnail: "/assets/portfolio/movie-mania/movie-mania-thumbnail.webp",
     category: "React JS",
     techStack: [
       {
@@ -1625,7 +1600,6 @@ export const portfolio = [
       "A platform is designed to provide users with an intuitive and robust online shopping experience. It has admin section as well to manage and simply the entire shopping experience.",
     overview:
       "A full-stack e-commerce platform designed to provide users with an intuitive and robust online shopping experience. This project is designed to cater to both small businesses and large enterprises, with flexibility and scalability in mind.",
-    thumbnail: "/assets/portfolio/shopprixity/shopprixity-thumbnail.webp",
     category: "React JS",
     techStack: [
       { type: "Frontend", tech: ["HTML5", "CSS3", "JavaScript", "React JS"] },
@@ -1736,7 +1710,6 @@ export const portfolio = [
       "A full-stack social networking platform for developers to discover, connect, chat, and collaborate through real-time messaging, developer profiles, and secure authentication.",
     overview:
       "A modern full-stack developer networking platform inspired by professional social apps. DevMatch enables developers to create detailed profiles, discover other engineers, send connection requests, exchange real-time messages, manage notifications, and administer the platform through a comprehensive admin dashboard. Built with scalability, security, and modern web technologies in mind.",
-    thumbnail: "/assets/portfolio/devmatch/devmatch-thumbnail.webp",
     category: "Next JS",
     techStack: [
       {

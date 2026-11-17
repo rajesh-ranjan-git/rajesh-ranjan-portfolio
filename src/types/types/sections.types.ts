@@ -59,7 +59,6 @@ export type PortfolioItemType = {
   title: string;
   description?: string;
   overview?: string;
-  thumbnail?: string;
   category?: string;
   techStack?: PortfolioItemTechType[];
   liveUrl?: string;

@@ -6,7 +6,9 @@ const FormInput = ({
   className = "",
   startIcon,
   endIcon,
+  placeholder,
   error,
+  required,
   numericOnly,
   maxDigits,
   ...props
@@ -40,6 +42,7 @@ const FormInput = ({
       <input
         ref={ref}
         {...props}
+        placeholder={`${placeholder}${required ? " *" : ""}`}
         onChange={handleChange}
         className={`bg-input-bg disabled:opacity-50 shadow-sm backdrop-blur-md px-4 py-2.5 border rounded-xl outline-none w-full text-input-text placeholder:text-input-placeholder transition-all duration-300 disabled:cursor-not-allowed ${startIcon ? "pl-10" : ""} ${endIcon ? "pr-10" : ""} ${error ? "focus:shadow-error border-error" : "focus:shadow-md border-input-border hover:border-input-border-active focus:border-input-border-active focus:shadow-input-border-active"} ${className}`}
       />

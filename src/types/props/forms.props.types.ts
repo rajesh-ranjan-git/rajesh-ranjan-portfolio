@@ -18,7 +18,9 @@ export interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  placeholder?: string;
   error?: string;
+  required?: boolean;
   numericOnly?: boolean;
   maxDigits?: number;
 }

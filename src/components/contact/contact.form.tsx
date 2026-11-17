@@ -203,6 +203,7 @@ const ContactForm = () => {
                 placeholder="Your Email"
                 autoComplete="off"
                 value={emailField.raw}
+                required
                 className="pr-9"
                 onChange={(e) => emailField.handleInput(e.currentTarget.value)}
                 onBlur={emailField.handleBlur}
@@ -220,6 +221,7 @@ const ContactForm = () => {
                 placeholder="Your Phone"
                 autoComplete="off"
                 value={phoneField.raw}
+                required
                 className="pr-9"
                 onChange={(e) => phoneField.handleInput(e.currentTarget.value)}
                 onBlur={phoneField.handleBlur}
@@ -235,6 +237,7 @@ const ContactForm = () => {
                 placeholder="Subject"
                 autoComplete="off"
                 value={subjectField.raw}
+                required
                 className="pr-9"
                 onChange={(e) =>
                   subjectField.handleInput(e.currentTarget.value)

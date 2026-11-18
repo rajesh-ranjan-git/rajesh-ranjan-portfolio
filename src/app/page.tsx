@@ -15,11 +15,11 @@ const Home = () => {
       <main className="relative pl-0 md:pl-16 min-h-screen">
         <Greetings />
         <About title="About me..." />
-        <Skills title="My Tech Stack..." />
-        <Experience title="Professional Journey..." />
+        <Skills title="My tech stacks..." />
+        <Experience title="Professional journey..." />
         <Internships title="Internships..." />
-        <Education title="Academic Background..." />
-        <Portfolio title="Legacy Works..." />
+        <Education title="Academic background..." />
+        <Portfolio title="Legacy works..." />
         <Certificates title="Certifications..." />
         <Contact
           title="Beam me a message..."

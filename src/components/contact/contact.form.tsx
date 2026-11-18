@@ -185,7 +185,7 @@ const ContactForm = () => {
               <FormInput
                 id="name"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Your full name"
                 autoComplete="off"
                 value={nameField.raw}
                 className="pr-9"
@@ -200,7 +200,7 @@ const ContactForm = () => {
               <FormInput
                 id="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="Your email"
                 autoComplete="off"
                 value={emailField.raw}
                 required
@@ -218,7 +218,7 @@ const ContactForm = () => {
               <FormInput
                 id="phone"
                 name="phone"
-                placeholder="Your Phone"
+                placeholder="Your phone number"
                 autoComplete="off"
                 value={phoneField.raw}
                 className="pr-9"
@@ -251,7 +251,7 @@ const ContactForm = () => {
               <FormTextarea
                 id="message"
                 name="message"
-                placeholder="Message"
+                placeholder="Your message"
                 autoComplete="off"
                 value={messageField.raw}
                 required

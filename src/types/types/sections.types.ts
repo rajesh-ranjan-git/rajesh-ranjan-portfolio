@@ -57,6 +57,7 @@ export type PortfolioItemUsageType = {
 export type PortfolioItemType = {
   id: number;
   title: string;
+  slug: string;
   description?: string;
   overview?: string;
   category?: string;

@@ -11,6 +11,11 @@ export interface SectionProps {
   description?: string;
 }
 
+export interface SectionHeadingProps {
+  title?: string;
+  as?: "h1" | "h2";
+}
+
 export interface AboutTextProps {
   title: string | null;
   description: string | null;
@@ -75,7 +80,7 @@ export interface PortfolioCardProps {
 }
 
 export interface PortfolioDetailsPageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export interface PortfolioDetailsProps {

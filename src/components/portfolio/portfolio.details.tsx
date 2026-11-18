@@ -16,7 +16,7 @@ const PortfolioDetails = ({ project }: PortfolioDetailsProps) => {
   return (
     <section>
       {project?.title ? (
-        <SectionHeading title={`${project.title} Details`} />
+        <SectionHeading as="h1" title={`${project.title} Details`} />
       ) : null}
 
       <FadeIn delay={150} threshold={0}>

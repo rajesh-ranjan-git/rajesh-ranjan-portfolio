@@ -328,6 +328,7 @@ export const portfolio = [
   {
     id: 1,
     title: "Make My Trip",
+    slug: "make-my-trip",
     description:
       "A static front-end recreation of the MakeMyTrip.com landing page, built to practice layout and styling with plain HTML and CSS",
     overview:
@@ -370,6 +371,7 @@ export const portfolio = [
   {
     id: 2,
     title: "Ironing",
+    slug: "ironing",
     description:
       "A static business landing page built with HTML, CSS, and Bootstrap for an ironing services company.",
     overview:
@@ -413,6 +415,7 @@ export const portfolio = [
   {
     id: 3,
     title: "Bitcoin Journal",
+    slug: "bitcoin-journal",
     description:
       "A static blog landing page built with HTML, CSS, and Bootstrap, showcasing a magazine-style layout for a crypto/finance blog.",
     overview:
@@ -458,6 +461,7 @@ export const portfolio = [
   {
     id: 4,
     title: "Commercial Cleaning",
+    slug: "commercial-cleaning",
     description:
       "A static multi-page business site built with HTML, CSS, and Bootstrap for a commercial cleaning services company.",
     overview:
@@ -501,6 +505,7 @@ export const portfolio = [
   {
     id: 5,
     title: "JonesTree",
+    slug: "jonestree",
     description:
       "A static business landing page built with HTML, CSS, and Bootstrap for a forestry/tree work services company, including a working PHP contact form.",
     overview:
@@ -554,6 +559,7 @@ export const portfolio = [
   {
     id: 6,
     title: "Flipkart Clone",
+    slug: "flipkart-clone",
     description:
       "A static front-end recreation of the Flipkart.com landing page, built to practice layout and styling with plain HTML and CSS.",
     overview:
@@ -602,6 +608,7 @@ export const portfolio = [
   {
     id: 7,
     title: "Amazon Clone",
+    slug: "amazon-clone",
     description:
       "A static front-end recreation of the Amazon.com landing page, built to practice pixel-level layout and styling with plain HTML and CSS.",
     overview:
@@ -647,6 +654,7 @@ export const portfolio = [
   {
     id: 8,
     title: "Currency Converter",
+    slug: "currency-converter",
     description:
       "A Vanilla JavaScript app that lets you check live exchange rates between currencies from almost every country in the world.",
     overview:
@@ -701,6 +709,7 @@ export const portfolio = [
   {
     id: 9,
     title: "JP Tech Fest",
+    slug: "jp-tech-fest",
     description:
       "A static event landing page built with HTML, CSS, and Bootstrap for JPIET's technical fest.",
     overview:
@@ -751,6 +760,7 @@ export const portfolio = [
   {
     id: 10,
     title: "Tic Tac Toe",
+    slug: "tic-tac-toe",
     description:
       "A classic Tic Tac Toe game built with Vanilla JavaScript, complete with win/draw detection and sound effects.",
     overview:
@@ -799,6 +809,7 @@ export const portfolio = [
   {
     id: 11,
     title: "Car Removal",
+    slug: "car-removal",
     description:
       "A static business landing page built with HTML, CSS, and Bootstrap for a car removal/repair services company.",
     overview:
@@ -843,6 +854,7 @@ export const portfolio = [
   {
     id: 12,
     title: "Exterior Water Blaster",
+    slug: "exterior-water-blaster",
     description:
       "A static multi-page business site built with HTML, CSS, and Bootstrap for an exterior water blasting/washing company, including a working PHP contact form.",
     overview:
@@ -892,6 +904,7 @@ export const portfolio = [
   {
     id: 13,
     title: "To Do App",
+    slug: "to-do-app",
     description:
       "A Vanilla JavaScript to-do list app that lets you add, edit, and delete tasks, with LocalStorage used to keep track of your list in the browser.",
     overview:
@@ -954,6 +967,7 @@ export const portfolio = [
   {
     id: 14,
     title: "Task Manager",
+    slug: "task-manager",
     description:
       "A Vanilla JavaScript task management app with search and filter functionality, using LocalStorage to persist tasks in the browser.",
     overview:
@@ -1013,6 +1027,7 @@ export const portfolio = [
   {
     id: 15,
     title: "Tic Tac Toe React",
+    slug: "tic-tac-toe-react",
     description:
       "A React + Vite rebuild of the classic Tic Tac Toe game, with player name entry, sound effects, and routing.",
     overview:
@@ -1096,6 +1111,7 @@ export const portfolio = [
   {
     id: 16,
     title: "FQS Painting",
+    slug: "fqs-painting",
     description:
       "A static multi-page business site built with HTML, CSS, and Bootstrap for a painting and plastering services company",
     overview:
@@ -1144,6 +1160,7 @@ export const portfolio = [
   {
     id: 17,
     title: "Sky Painting",
+    slug: "sky-painting",
     description:
       "A static business site built with HTML, CSS, and Bootstrap for a painting services company, including a working PHP contact form.",
     overview:
@@ -1193,6 +1210,7 @@ export const portfolio = [
   {
     id: 18,
     title: "PhotoPhlix",
+    slug: "photo-phlix",
     description:
       "An image gallery application built with React and Vite, powered by the Unsplash API.",
     overview:
@@ -1290,6 +1308,7 @@ export const portfolio = [
   {
     id: 19,
     title: "Get Kart",
+    slug: "get-kart",
     description:
       "An e-commerce web application built with React and Vite, showcasing a broad range of modern React patterns alongside authentication, cart, and product-browsing functionality.",
     overview:
@@ -1404,6 +1423,7 @@ export const portfolio = [
   {
     id: 20,
     title: "Bancardify Me",
+    slug: "bancardify-me",
     description:
       "A modern finance/banking dashboard platform built with Next.js, giving users a unified view of their bank accounts, transactions, and payment transfers.",
     overview:
@@ -1515,6 +1535,7 @@ export const portfolio = [
   {
     id: 21,
     title: "Movie Mania",
+    slug: "movie-mania",
     description:
       "A Movie & TV Show hub built with React and Vite, powered by The Movie Database (TMDB) API.",
     overview:
@@ -1595,6 +1616,7 @@ export const portfolio = [
   {
     id: 22,
     title: "Shopprixity",
+    slug: "shopprixity",
     description:
       "A platform is designed to provide users with an intuitive and robust online shopping experience. It has admin section as well to manage and simply the entire shopping experience.",
     overview:
@@ -1705,6 +1727,7 @@ export const portfolio = [
   {
     id: 23,
     title: "DevMatch",
+    slug: "devmatch",
     description:
       "A full-stack social networking platform for developers to discover, connect, chat, and collaborate through real-time messaging, developer profiles, and secure authentication.",
     overview:

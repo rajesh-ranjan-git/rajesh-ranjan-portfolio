@@ -41,7 +41,7 @@ const SkillsContainer = ({
                     ? `/assets/tech-img/${skill.id}-${iconTheme}.svg`
                     : `/assets/tech-img/${skill.id}.svg`
                 }
-                alt={skill?.id ?? "skill-img"}
+                alt={`${skill.label} logo`}
                 width="100"
                 height="100"
                 className="w-full h-full object-contain transition-all duration-300 pointer-events-none"

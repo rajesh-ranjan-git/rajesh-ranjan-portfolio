@@ -15,26 +15,33 @@ const GreetingsText = () => {
 
   return (
     <div className="text-fixed-light flex flex-col justify-center pt-4 h-full text-2xl md:text-4xl lg:text-5xl leading-12 lg:leading-20">
-      <h1 className="font-semibold">
-        Hi There!&nbsp;
-        <span
-          className={`inline-block ${greetingsStyles.wave}`}
-          role="img"
-          aria-labelledby="wave"
-        >
-          👋🏻
+      {/* One h1 for the page. The name is in real text (sr-only) so search engines
+          and screen readers get it in the server HTML; the scramble is decorative. */}
+      <h1>
+        <span className="block font-semibold">
+          Hi There!&nbsp;
+          <span
+            className={`inline-block ${greetingsStyles.wave}`}
+            aria-hidden="true"
+          >
+            👋🏻
+          </span>
         </span>
-      </h1>
 
-      <h1 className="text-nowrap">
-        I&apos;m
-        <span className="text-shadow-[2px_2px_var(--color-surface-shadow-strong)] ml-4 font-alkatra font-bold uppercase text-accent-blue">
-          <ScrambleText
-            initialText="Loading..."
-            finalText={fullName}
-            delay={splash ? 2000 : 0}
-            trigger={activeSection === "home" ? "visible" : "mount"}
-          />
+        <span className="block text-nowrap">
+          I&apos;m
+          <span className="sr-only">{` ${fullName}, ${basicDetails.designation}`}</span>
+          <span
+            aria-hidden="true"
+            className="text-shadow-[2px_2px_var(--color-surface-shadow-strong)] ml-4 font-alkatra font-bold uppercase text-accent-blue"
+          >
+            <ScrambleText
+              initialText="Loading..."
+              finalText={fullName}
+              delay={splash ? 2000 : 0}
+              trigger={activeSection === "home" ? "visible" : "mount"}
+            />
+          </span>
         </span>
       </h1>
 

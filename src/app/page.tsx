@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { getHomeJsonLd } from "@/helpers/seo.helpers";
 import Greetings from "@/sections/greetings";
 import About from "@/sections/about";
 import Skills from "@/sections/skills";
@@ -8,28 +10,34 @@ import Portfolio from "@/sections/portfolio";
 import Certificates from "@/sections/certificates";
 import Contact from "@/sections/contact";
 import SplashGate from "@/components/ui/splash/splash.gate";
-import SidebarBackground from "@/components/ui/background/sidebar.background";
+import JsonLd from "@/components/seo/json.ld";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const Home = () => {
   return (
-    <SplashGate loadingText="Loading..." endingText="Welcome...">
-      <SidebarBackground />
+    <>
+      <JsonLd data={getHomeJsonLd()} />
 
-      <main className="relative pl-0 md:pl-16 min-h-screen">
-        <Greetings />
-        <About title="About me..." />
-        <Skills title="My tech stacks..." />
-        <Experience title="Professional journey..." />
-        <Internships title="Internships..." />
-        <Education title="Academic background..." />
-        <Portfolio title="Legacy works..." />
-        <Certificates title="Certifications..." />
-        <Contact
-          title="Beam me a message..."
-          description="Have a question, an idea, or an opportunity? I'd love to hear from you. Drop me a message and let's start a conversation."
-        />
-      </main>
-    </SplashGate>
+      <SplashGate loadingText="Loading..." endingText="Welcome...">
+        <main className="relative pl-0 md:pl-16 min-h-screen">
+          <Greetings />
+          <About title="About me..." />
+          <Skills title="Technical skills & tools..." />
+          <Experience title="Professional experience..." />
+          <Internships title="Internships & early career..." />
+          <Education title="Education..." />
+          <Portfolio title="Projects I've built..." />
+          <Certificates title="Certifications..." />
+          <Contact
+            title="Beam me a message..."
+            description="Whether you have a question, any suggestion, or just want to say hi, drop me a message and I'll get back to you!"
+          />
+        </main>
+      </SplashGate>
+    </>
   );
 };
 

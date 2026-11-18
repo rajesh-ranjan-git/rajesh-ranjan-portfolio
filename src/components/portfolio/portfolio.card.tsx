@@ -59,7 +59,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
           {portfolioItem.title}
         </Link>
         <Link
-          href={`/project/${portfolioItem.id}`}
+          href={`/project/${portfolioItem.slug}`}
           target="_blank"
           aria-label={`${portfolioItem.title} Details`}
           className={`inline-block before:-bottom-px before:left-0 before:absolute relative before:rounded-lg before:w-0 hover:before:w-full before:h-0.75 transition-all before:transition-all duration-300 before:duration-300 before:bg-accent-pink ${portfolioStyles.link_mask}`}

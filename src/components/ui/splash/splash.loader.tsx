@@ -54,8 +54,11 @@ const SplashLoader = ({
           </div>
         </div>
 
-        <h1
-          className={`font-semibold text-primary whitespace-nowrap font-alkatra inline-block mt-8 ${splashStyles.splash_loader}`}
+        {/* Not a heading: it would add a "Loading..." h1 to every page. leading-[1.15]
+            keeps the line height the global h1 style used to give it. */}
+        <div
+          aria-hidden="true"
+          className={`font-semibold text-primary whitespace-nowrap font-alkatra inline-block mt-8 leading-[1.15] ${splashStyles.splash_loader}`}
         >
           <ScrambleText
             initialText={loadingText}
@@ -63,7 +66,7 @@ const SplashLoader = ({
             delay={1000}
             duration={500}
           />
-        </h1>
+        </div>
 
         <div className="w-1/2 md:w-1/4">
           <span

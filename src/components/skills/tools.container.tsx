@@ -38,7 +38,7 @@ const ToolsContainer = ({ activeSkillButton, iconTheme }: SkillsToolsProps) => {
                     ? `/assets/tech-img/${tool.id}-${iconTheme}.svg`
                     : `/assets/tech-img/${tool.id}.svg`
                 }
-                alt={tool?.id ?? "tool"}
+                alt={`${tool.label} logo`}
                 width="100"
                 height="100"
                 className="w-full h-full object-contain transition-all duration-300 pointer-events-none"

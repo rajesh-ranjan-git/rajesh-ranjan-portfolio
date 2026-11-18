@@ -2,6 +2,7 @@ import "@/app/globals.css";
 import type { Metadata, Viewport } from "next";
 import { alkatra, arima, poppins, allura } from "@/config/font.config";
 import { themeInitScript } from "@/config/common.config";
+import { SITE_URL, seoConfig } from "@/config/seo.config";
 import { ReactNodeProps } from "@/types/props/common.props.types";
 import ServiceWorker from "@/components/service-worker/service.worker";
 import TitleManager from "@/components/title-manager/title.manager";
@@ -14,13 +15,42 @@ import FloatingMenu from "@/components/ui/floating/floating.menu";
 import ScrollButton from "@/components/ui/buttons/scroll.button";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    absolute: "Rajesh Ranjan | Portfolio",
-    default: "Portfolio",
-    template: "%s | Portfolio",
+    default: seoConfig.title,
+    template: seoConfig.titleTemplate,
   },
-  description:
-    "Welcome to Rajesh Ranjan's portfolio! This project showcases Rajesh Ranjan's work, skills, and experience as a Full Stack Developer, designer, or any other creative role. You’ll find a collection of Rajesh Ranjan's best projects, along with a brief overview of who he is and what he does.",
+  description: seoConfig.description,
+  applicationName: seoConfig.siteName,
+  authors: [{ name: seoConfig.siteName, url: SITE_URL }],
+  creator: seoConfig.siteName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: seoConfig.siteName,
+    locale: seoConfig.locale,
+    title: seoConfig.title,
+    description: seoConfig.description,
+    url: "/",
+    images: [seoConfig.ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoConfig.title,
+    description: seoConfig.description,
+    creator: seoConfig.twitterHandle,
+    images: [seoConfig.ogImage.url],
+  },
   icons: {
     icon: [
       {

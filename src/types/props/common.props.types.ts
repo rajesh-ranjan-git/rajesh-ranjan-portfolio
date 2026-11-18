@@ -76,3 +76,7 @@ export interface CardProps {
   className?: string;
   children: ReactNode;
 }
+
+export interface JsonLdProps {
+  data: Record<string, unknown>;
+}

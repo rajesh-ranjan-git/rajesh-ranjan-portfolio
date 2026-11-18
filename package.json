@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "type": "module",
-  "description": "Welcome to Rajesh Ranjan's portfolio! This project showcases Rajesh Ranjan's work, skills, and experience as a Full Stack Developer, designer, or any other creative role. You’ll find a collection of Rajesh Ranjan's best projects, along with a brief overview of who he is and what he does.",
+  "description": "Rajesh Ranjan – Full Stack Developer at India Today Group, Noida. Builds high-traffic media platforms with Next.js, React, Node.js, TypeScript and AWS.",
   "keywords": [
     "portfolio"
   ],
@@ -15,6 +15,7 @@
     "start": "cross-env PORT=1995 node --env-file=env/.env.production .next/standalone/server.js",
     "lint": "eslint",
     "images:compress": "node scripts/compress-images.mjs",
+    "images:og": "node scripts/generate-og-images.mjs",
     "postbuild": "node scripts/prepare-standalone.mjs"
   },
   "dependencies": {

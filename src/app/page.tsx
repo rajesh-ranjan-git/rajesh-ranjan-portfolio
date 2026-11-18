@@ -8,10 +8,13 @@ import Portfolio from "@/sections/portfolio";
 import Certificates from "@/sections/certificates";
 import Contact from "@/sections/contact";
 import SplashGate from "@/components/ui/splash/splash.gate";
+import SidebarBackground from "@/components/ui/background/sidebar.background";
 
 const Home = () => {
   return (
     <SplashGate loadingText="Loading..." endingText="Welcome...">
+      <SidebarBackground />
+
       <main className="relative pl-0 md:pl-16 min-h-screen">
         <Greetings />
         <About title="About me..." />

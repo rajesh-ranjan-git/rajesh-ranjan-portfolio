@@ -1,0 +1,44 @@
+name: PR Check
+
+# Lints and builds every pull request into main, so a broken change is caught
+# before it merges and deploys. Uses no secrets: the build runs without the
+# production env file. See "Branching" in README.md.
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+# A new push to the same PR cancels the check still running for the old one.
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    # This name is what the ruleset's "Require status checks" rule matches.
+    # Rename it there too if it ever changes here.
+    name: Lint and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build

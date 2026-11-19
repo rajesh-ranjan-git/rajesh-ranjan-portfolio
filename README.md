@@ -158,6 +158,18 @@ Deployment success or failure is reported by email.
 └── logs/           # pm2 log files
 ```
 
+### Branching
+
+`main` is the production branch and is protected by a GitHub ruleset: direct pushes, force pushes and deletion are blocked, so every change reaches `main` through a pull request.
+
+- Work happens on `alpha`, either by committing to it directly or by merging short-lived feature branches into it.
+- When `alpha` is ready to ship, open a pull request from `alpha` into `main` and merge it. The merge triggers the deploy above.
+- Every pull request into `main` runs [`.github/workflows/pr-check.yml`](./.github/workflows/pr-check.yml), which lints and builds the code without any secrets. The ruleset requires its `Lint and build` check to pass before the pull request can be merged.
+
+```text
+feature/* ──▶ alpha ──PR──▶ main ──▶ deploy
+```
+
 ### One-time server setup
 
 The build includes native binaries for x64 Linux. For an ARM (Graviton) server, change `runs-on` in the workflow to `ubuntu-24.04-arm`.

@@ -18,6 +18,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  source-branch:
+    # Rulesets can't limit which branch a pull request comes from, so this job
+    # fails any pull request into main that isn't from alpha in this repository.
+    # Like "Lint and build", the ruleset requires it by this name.
+    name: Source branch is alpha
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check the pull request comes from alpha
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO: ${{ github.repository }}
+        run: |
+          if [ "$HEAD_REF" != "alpha" ] || [ "$HEAD_REPO" != "$BASE_REPO" ]; then
+            echo "::error::Pull requests into main must come from the alpha branch of $BASE_REPO. This one comes from $HEAD_REPO:$HEAD_REF."
+            exit 1
+          fi
+          echo "Source branch is $HEAD_REPO:$HEAD_REF."
+
   check:
     # This name is what the ruleset's "Require status checks" rule matches.
     # Rename it there too if it ever changes here.

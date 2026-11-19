@@ -164,7 +164,8 @@ Deployment success or failure is reported by email.
 
 - Work happens on `alpha`, either by committing to it directly or by merging short-lived feature branches into it.
 - When `alpha` is ready to ship, open a pull request from `alpha` into `main` and merge it. The merge triggers the deploy above.
-- Every pull request into `main` runs [`.github/workflows/pr-check.yml`](./.github/workflows/pr-check.yml), which lints and builds the code without any secrets. The ruleset requires its `Lint and build` check to pass before the pull request can be merged.
+- Every pull request into `main` runs [`.github/workflows/pr-check.yml`](./.github/workflows/pr-check.yml), which lints and builds the code without any secrets and fails if the pull request doesn't come from `alpha`. The ruleset requires both of its checks, `Lint and build` and `Source branch is alpha`, to pass before the pull request can be merged.
+- `alpha` has its own ruleset that blocks deleting it.
 
 ```text
 feature/* ──▶ alpha ──PR──▶ main ──▶ deploy

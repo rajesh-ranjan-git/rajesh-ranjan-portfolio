@@ -6,9 +6,9 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
     <div className="flex flex-col gap-8 pt-16">
       {project?.title ? (
         <FadeIn delay={150} threshold={0}>
-          <h3 className="after:block lg:after:bottom-4 after:bottom-2 after:absolute relative after:bg-primary pb-4 after:rounded-lg after:w-20 after:h-1 font-alkatra">
+          <h2 className="text-(length:--fs-h3) leading-[1.25] font-bold after:block lg:after:bottom-4 after:bottom-2 after:absolute relative after:bg-primary pb-4 after:rounded-lg after:w-20 after:h-1 font-alkatra">
             {project?.title}
-          </h3>
+          </h2>
         </FadeIn>
       ) : null}
 
@@ -21,7 +21,9 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       {project?.overview ? (
         <FadeIn delay={150} threshold={0}>
           <div className="flex flex-col gap-2">
-            <h5>Overview</h5>
+            <h3 className="text-(length:--fs-h5) leading-[1.35] font-semibold">
+              Overview
+            </h3>
             <p className="text-lg">{project?.overview}</p>
           </div>
         </FadeIn>
@@ -30,7 +32,9 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       {project?.techStack && project?.techStack?.length > 0 ? (
         <FadeIn delay={150} threshold={0}>
           <div className="flex flex-col gap-2">
-            <h5>Tech Stack</h5>
+            <h3 className="text-(length:--fs-h5) leading-[1.35] font-semibold">
+              Tech Stack
+            </h3>
 
             <div className="flex flex-col gap-2">
               {project.techStack.map((stack) => (
@@ -59,7 +63,9 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       {project?.features && project?.features?.length > 0 ? (
         <FadeIn delay={150} threshold={0}>
           <div className="flex flex-col gap-2">
-            <h5>Features</h5>
+            <h3 className="text-(length:--fs-h5) leading-[1.35] font-semibold">
+              Features
+            </h3>
 
             <div className="flex flex-col gap-3 sm:gap-2">
               {project.features.map((feature) => (
@@ -81,7 +87,9 @@ const PortfolioDetailedInformation = ({ project }: PortfolioDetailsProps) => {
       {project?.usage && project?.usage?.length > 0 ? (
         <FadeIn delay={150} threshold={0}>
           <div className="flex flex-col gap-2">
-            <h5>Usage Instructions</h5>
+            <h3 className="text-(length:--fs-h5) leading-[1.35] font-semibold">
+              Usage Instructions
+            </h3>
 
             <div className="flex flex-col gap-3 sm:gap-2">
               {project.usage.map((item) => (

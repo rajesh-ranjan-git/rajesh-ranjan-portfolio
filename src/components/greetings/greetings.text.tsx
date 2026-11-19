@@ -15,8 +15,6 @@ const GreetingsText = () => {
 
   return (
     <div className="text-fixed-light flex flex-col justify-center pt-4 h-full text-2xl md:text-4xl lg:text-5xl leading-12 lg:leading-20">
-      {/* One h1 for the page. The name is in real text (sr-only) so search engines
-          and screen readers get it in the server HTML; the scramble is decorative. */}
       <h1>
         <span className="block font-semibold">
           Hi There!&nbsp;

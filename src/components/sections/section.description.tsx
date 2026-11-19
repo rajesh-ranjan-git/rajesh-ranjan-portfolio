@@ -6,7 +6,9 @@ const SectionDescription = ({ description }: Partial<SectionProps>) => {
     <>
       {description ? (
         <FadeIn delay={150} threshold={0}>
-          <h6 className="pb-4 lg:pb-8">{description}</h6>
+          <p className="pb-4 lg:pb-8 text-(length:--fs-h6) leading-[1.4] font-semibold">
+            {description}
+          </p>
         </FadeIn>
       ) : null}
     </>

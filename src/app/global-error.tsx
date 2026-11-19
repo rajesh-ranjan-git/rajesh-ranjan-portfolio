@@ -42,9 +42,9 @@ const GlobalError = ({ error }: { error: Error & { digest?: string } }) => {
 
               <div className="flex justify-center items-center gap-2 mx-auto">
                 <MdError className="text-error text-2xl md:text-5xl" />
-                <h3 className="text-error text-lg md:text-3xl">
+                <h1 className="font-bold text-error text-lg md:text-3xl">
                   Oops! An unexpected error occurred.
-                </h3>
+                </h1>
               </div>
 
               <ReloadButton />

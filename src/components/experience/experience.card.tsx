@@ -19,7 +19,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         />
 
         <div className="flex flex-col min-w-0">
-          <h5>
+          <h3 className="text-(length:--fs-h5) leading-[1.35] font-semibold">
             <span className="font-alkatra">
               {experience?.designation || "Your role goes here..."}
             </span>
@@ -31,7 +31,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
                 </span>
               </>
             ) : null}
-          </h5>
+          </h3>
         </div>
       </div>
       <div className="flex flex-col gap-4 px-4 sm:px-5 lg:px-6 py-2 sm:py-3 lg:py-4">

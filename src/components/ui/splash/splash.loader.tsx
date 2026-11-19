@@ -37,9 +37,7 @@ const SplashLoader = ({
       <div className="relative flex flex-col justify-center items-center gap-4 w-full h-full">
         <div className={splashStyles.splash_fly}>
           <div className={`relative ${splashStyles.splash_body}`}>
-            <span
-              className={`absolute bg-primary ${splashStyles.splash_wing}`}
-            >
+            <span className={`absolute bg-primary ${splashStyles.splash_wing}`}>
               <span className="absolute bg-primary w-7.5 h-px" />
               <span className="absolute bg-primary w-7.5 h-px" />
               <span className="absolute bg-primary w-7.5 h-px" />
@@ -54,8 +52,6 @@ const SplashLoader = ({
           </div>
         </div>
 
-        {/* Not a heading: it would add a "Loading..." h1 to every page. leading-[1.15]
-            keeps the line height the global h1 style used to give it. */}
         <div
           aria-hidden="true"
           className={`font-semibold text-primary whitespace-nowrap font-alkatra inline-block mt-8 leading-[1.15] ${splashStyles.splash_loader}`}

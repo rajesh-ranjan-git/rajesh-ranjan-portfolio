@@ -178,7 +178,9 @@ const ContactForm = () => {
     >
       <div className="flex flex-col my-auto w-full">
         <Form action={formAction} autoComplete="false">
-          <h5 className="font-bold text-center">Whats on your mind...?</h5>
+          <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold text-center">
+            Whats on your mind...?
+          </h3>
 
           <div className="relative flex md:flex-row flex-col gap-4 py-4">
             <FormField htmlFor="name" error={nameField.error}>

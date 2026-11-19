@@ -22,7 +22,9 @@ const ContactSocials = () => {
           <RiShareFill size={24} />
         </Card>
 
-        <h4 className="font-bold">Social Profiles</h4>
+        <h3 className="text-(length:--fs-h4) leading-[1.3] font-bold">
+          Social Profiles
+        </h3>
 
         <SocialMedia section="contact" />
       </Card>
@@ -35,7 +37,9 @@ const ContactSocials = () => {
           <MdEmail size={20} />
         </Card>
 
-        <h5 className="font-bold">Email Me</h5>
+        <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold">
+          Email Me
+        </h3>
 
         {email ? (
           <Link
@@ -58,7 +62,9 @@ const ContactSocials = () => {
           <FaPhone size={20} />
         </Card>
 
-        <h5 className="font-bold">Call Me</h5>
+        <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold">
+          Call Me
+        </h3>
 
         {phone ? (
           <Link

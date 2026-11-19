@@ -6,9 +6,9 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
 
   return (
     <div className="group md:right-4 md:-bottom-20 md:absolute before:absolute before:inset-0 bg-surface-bg before:bg-[url('/assets/background/education-bg.webp')] before:bg-position-[-1rem] hover:bg-surface-bg-hover before:bg-no-repeat before:opacity-5 shadow-[0_12px_20px_var(--color-surface-shadow)] backdrop-blur-3xl p-6 border border-surface-border hover:border-surface-border-active rounded-2xl before:rounded-2xl hover:rounded-3xl max-w-108 before:bg-size-[200%] before:content-[''] transition-all duration-300 before:pointer-events-none">
-      <h5 className="after:block lg:after:bottom-6 after:bottom-4 after:absolute relative after:bg-primary pb-8 after:rounded-lg after:w-20 after:h-1">
+      <h2 className="text-(length:--fs-h5) leading-[1.35] font-semibold after:block lg:after:bottom-6 after:bottom-4 after:absolute relative after:bg-primary pb-8 after:rounded-lg after:w-20 after:h-1">
         Project Information
-      </h5>
+      </h2>
 
       {tech && tech?.length > 0 ? (
         <div className="flex">

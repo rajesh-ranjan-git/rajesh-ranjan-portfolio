@@ -275,9 +275,9 @@ const Carousel = ({
                       className={`bottom-0 absolute flex flex-col gap-0.5 justify-center items-center bg-linear-to-b from-bg/0 via-bg/70 to-bg/95 backdrop-blur-md p-4 rounded-t-lg w-full ${rounded ? "rounded-b-xl" : ""}`}
                     >
                       {slide.name && (
-                        <h6 className="font-semibold text-primary text-xl text-center">
+                        <h3 className="font-semibold text-primary text-xl leading-[1.4] text-center">
                           {slide.name}
-                        </h6>
+                        </h3>
                       )}
                       {slide.platform && (
                         <span className="font-semibold text-md text-secondary">

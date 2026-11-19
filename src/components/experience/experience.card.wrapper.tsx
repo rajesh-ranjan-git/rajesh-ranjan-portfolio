@@ -34,11 +34,13 @@ const ExperienceCardWrapper = ({
         <div className="top-[50vh] sticky mb-4 md:mb-0">
           <FadeIn delay={150} threshold={0}>
             <>
-              <h4 className="font-alkatra">{timeline || "2026"}</h4>
+              <p className="font-alkatra text-(length:--fs-h4) leading-[1.3] font-semibold">
+                {timeline || "2026"}
+              </p>
               {duration ? (
-                <h6 className="font-arima font-bold text-secondary">
+                <p className="font-arima text-(length:--fs-h6) leading-[1.4] font-bold text-secondary">
                   &#40;{duration}&#41;
-                </h6>
+                </p>
               ) : null}
             </>
           </FadeIn>

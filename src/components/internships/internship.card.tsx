@@ -38,13 +38,13 @@ const InternshipCard = ({ internship }: InternshipCardProps) => {
         />
 
         <div className="flex flex-col min-w-0">
-          <h5 className="font-alkatra">
+          <h3 className="font-alkatra text-(length:--fs-h5) leading-[1.35] font-semibold">
             {internship?.designation || "Your role goes here..."}
-          </h5>
+          </h3>
           {internship?.company ? (
-            <h6 className="text-shadow-[2px_2px_var(--color-surface-shadow-strong)] text-accent-pink">
+            <p className="text-(length:--fs-h6) leading-[1.4] font-semibold text-shadow-[2px_2px_var(--color-surface-shadow-strong)] text-accent-pink">
               {internship.company}
-            </h6>
+            </p>
           ) : null}
           {timeline ? (
             <p className="text-shadow-[2px_2px_var(--color-surface-shadow-strong)]">

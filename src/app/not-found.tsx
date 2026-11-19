@@ -37,9 +37,9 @@ const NotFound = () => {
 
           <div className="flex justify-center items-center gap-2 mx-auto">
             <IoIosWarning className="text-amber-700 text-2xl md:text-5xl" />
-            <h3 className="text-amber-700 text-lg md:text-3xl">
+            <h1 className="font-bold text-amber-700 text-lg md:text-3xl">
               The requested page does not exist!
-            </h3>
+            </h1>
           </div>
 
           <BackButton back={isBackAvailable} />

@@ -28,7 +28,7 @@ Personal portfolio of **Rajesh Ranjan**, Full Stack Developer. Built with Next.j
 
 This repository showcases Rajesh Ranjan's work, skills, and professional experience. It includes sections for greetings/intro, about, skills & tools, work experience timeline, education, certificates, a filterable project portfolio with detail pages, and a contact form backed by AWS SES.
 
-This is the third major release of the portfolio (`v3.0.0`). `v2` rewrote the site from a Vite + React SPA into a Next.js App Router application; `v3` ships it as a standalone Next.js build with release-based deploys and automatic rollback, a new structured logger, the API route replaced by a server action, and much smaller images and fonts.
+The current release is `v3.1.0`. `v2` rewrote the site from a Vite + React SPA into a Next.js App Router application; `v3` ships it as a standalone Next.js build with release-based deploys and automatic rollback, a new structured logger, the API route replaced by a server action, and much smaller images and fonts. `v3.1.0` adds SEO improvements, contact form and UI fixes, and a protected `main` branch that only takes checked pull requests from `alpha`.
 
 ## Tech Stack
 

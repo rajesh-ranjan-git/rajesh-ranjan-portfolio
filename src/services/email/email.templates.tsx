@@ -120,7 +120,7 @@ const styles = {
 
 const EmailLayout = ({ appName, preview, children }: EmailLayoutPropsType) => {
   return (
-    <html>
+    <html lang="en">
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <title>{preview}</title>

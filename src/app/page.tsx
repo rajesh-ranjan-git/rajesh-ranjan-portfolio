@@ -11,6 +11,7 @@ import Certificates from "@/sections/certificates";
 import Contact from "@/sections/contact";
 import SplashGate from "@/components/ui/splash/splash.gate";
 import JsonLd from "@/components/seo/json.ld";
+import { MAIN_CONTENT_ID } from "@/config/common.config";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -22,7 +23,11 @@ const Home = () => {
       <JsonLd data={getHomeJsonLd()} />
 
       <SplashGate loadingText="Loading..." endingText="Welcome...">
-        <main className="relative pl-0 md:pl-16 min-h-screen">
+        <main
+          id={MAIN_CONTENT_ID}
+          tabIndex={-1}
+          className="relative pl-0 md:pl-16 min-h-screen"
+        >
           <Greetings />
           <About title="About me..." />
           <Skills title="Technical skills & tools..." />

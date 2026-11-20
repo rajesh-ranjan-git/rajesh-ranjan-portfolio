@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PortfolioDetailsProps } from "@/types/props/sections.props.types";
+import { NEW_TAB_HINT } from "@/config/common.config";
 
 const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
   const tech = project?.techStack?.map((item) => item.tech).flat();
@@ -32,10 +33,13 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
           <Link
             href={project?.liveUrl}
             target="_blank"
-            aria-label={`${project.title} Live URL`}
+            rel="noopener noreferrer"
             className="transition-all duration-300 text-accent-blue hover:text-accent-pink"
           >
             Check out here
+            <span className="sr-only">
+              {`: ${project.title} live site${NEW_TAB_HINT}`}
+            </span>
           </Link>
         </p>
       ) : null}
@@ -46,10 +50,13 @@ const PortfolioInformation = ({ project }: PortfolioDetailsProps) => {
           <Link
             href={project?.githubUrl}
             target="_blank"
-            aria-label={`${project.title} Github URL`}
+            rel="noopener noreferrer"
             className="transition-all duration-300 text-accent-blue hover:text-accent-pink"
           >
             Check out here
+            <span className="sr-only">
+              {`: ${project.title} on GitHub${NEW_TAB_HINT}`}
+            </span>
           </Link>
         </p>
       ) : null}

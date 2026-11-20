@@ -2,6 +2,7 @@
 
 import greetingsStyles from "@/styles/greetings.module.css";
 import { basicDetails } from "@/config/owner.config";
+import { SPLASH_DURATION } from "@/config/common.config";
 import useStore from "@/store/store";
 import { getFullName } from "@/helpers/owner.helpers";
 import Typewriter from "@/components/ui/typewriter/typewriter";
@@ -36,7 +37,7 @@ const GreetingsText = () => {
             <ScrambleText
               initialText="Loading..."
               finalText={fullName}
-              delay={splash ? 2000 : 0}
+              delay={splash ? SPLASH_DURATION : 0}
               trigger={activeSection === "home" ? "visible" : "mount"}
             />
           </span>

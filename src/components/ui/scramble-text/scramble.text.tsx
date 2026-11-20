@@ -39,6 +39,15 @@ const ScrambleText = ({
   );
 
   const play = useCallback(() => {
+    // Reduced motion: skip the scramble and show the final text directly.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      setDisplayChars(toDisplayChars(finalText));
+      currentTextRef.current = finalText;
+      onComplete?.();
+      return;
+    }
+
     const from = currentTextRef.current;
     const length = Math.max(from.length, finalText.length);
     const totalFrames = Math.max(4, Math.round(duration / scrambleSpeed));

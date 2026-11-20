@@ -11,12 +11,14 @@ const FadeIn = ({
   className = "",
   once,
   threshold,
+  inert,
 }: FadeInProps) => {
   const { ref, isInView } = useInView<HTMLDivElement>({ once, threshold });
 
   return (
     <div
       ref={ref}
+      inert={inert}
       className={`h-full ${fadeInStyles.fade_in} ${isInView ? fadeInStyles.visible : ""} ${className}`}
       style={
         {

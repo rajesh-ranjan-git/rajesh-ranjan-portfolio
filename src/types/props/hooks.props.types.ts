@@ -14,6 +14,8 @@ export interface FadeInProps {
   className?: string;
   once?: boolean;
   threshold?: number;
+  /** Removes the content from the tab order and accessibility tree. */
+  inert?: boolean;
 }
 
 export interface UseInputFieldOptionsProps<T> {

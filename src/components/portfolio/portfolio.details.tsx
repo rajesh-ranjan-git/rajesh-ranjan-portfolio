@@ -8,9 +8,9 @@ import FadeIn from "@/components/ui/fade-in/fade.in";
 
 const PortfolioDetails = ({ project }: PortfolioDetailsProps) => {
   const slides: CarouselSlide[] =
-    project?.screens?.map((imageSrc) => ({
+    project?.screens?.map((imageSrc, index, screens) => ({
       imageSrc,
-      alt: project.title,
+      alt: `${project.title} screenshot ${index + 1} of ${screens.length}`,
     })) ?? [];
 
   return (
@@ -29,6 +29,7 @@ const PortfolioDetails = ({ project }: PortfolioDetailsProps) => {
                 autoPlay
                 autoPlayInterval={3000}
                 showArrows={false}
+                label={`${project?.title ?? "Project"} screenshots`}
                 dotsPosition="bottom-left"
                 slideHeightClassName="h-64 sm:h-72 md:h-96 lg:h-120 xl:h-[30rem]"
               />

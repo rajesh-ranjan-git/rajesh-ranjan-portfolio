@@ -24,6 +24,7 @@ const Certificates = ({ title, description }: SectionProps) => {
             autoPlay={activeSection === "certificates"}
             autoPlayInterval={3000}
             showArrows={false}
+            label="Certificates"
             scale="all"
             slideHeightClassName="h-72 sm:h-80 md:h-96 lg:h-104"
           />

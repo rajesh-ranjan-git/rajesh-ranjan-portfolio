@@ -7,6 +7,7 @@ import {
   getTotalExperience,
 } from "@/helpers/owner.helpers";
 import { toTitleCase } from "@/utils/common.utils";
+import { NEW_TAB_HINT } from "@/config/common.config";
 import ImageBackground from "@/components/ui/background/image.background";
 import FloatingBadge from "@/components/ui/floating/floating.badge";
 import Tooltip from "@/components/ui/tooltip/tooltip";
@@ -17,7 +18,7 @@ const AboutImage = () => {
   const totalExperience = getTotalExperience();
 
   return (
-    <div className="isolate relative flex justify-center items-center bg-surface-bg hover:bg-surface-bg-hover shadow-[0_8px_32px_rgba(13,15,43,0.08),0_2px_8px_rgba(13,15,43,0.04)] backdrop-blur-xl p-3 sm:p-4 border border-surface-border hover:border-surface-border-hover rounded-[64px] sm:rounded-[84px] w-full min-h-108">
+    <div className="isolate relative flex justify-center items-center bg-surface-bg shadow-[0_8px_32px_rgba(13,15,43,0.08),0_2px_8px_rgba(13,15,43,0.04)] backdrop-blur-xl p-3 sm:p-4 border border-surface-border rounded-[64px] sm:rounded-[84px] w-full min-h-108">
       <ImageBackground className="top-0 left-0 -rotate-6" />
       <ImageBackground className="top-0 left-0 -rotate-12" />
 
@@ -64,7 +65,6 @@ const AboutImage = () => {
           href={social.url ?? ""}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${fullName ?? "John Doe"}'s Image`}
           className="group"
         >
           <FloatingBadge
@@ -82,7 +82,7 @@ const AboutImage = () => {
                 {basicDetails.images.profileImage ? (
                   <Image
                     src={basicDetails.images.profileImage}
-                    alt="Rajesh Ranjan profile illustration"
+                    alt=""
                     width={100}
                     height={100}
                     sizes="48px"
@@ -100,6 +100,9 @@ const AboutImage = () => {
                 <span className="text-alternate-secondary text-xs transition-all ease-in-out group-hover:text-accent-blue">
                   @{social.userName}
                 </span>
+                <span className="sr-only">
+                  {` on ${toTitleCase(social.label)}${NEW_TAB_HINT}`}
+                </span>
               </span>
             </Tooltip>
           </FloatingBadge>
@@ -109,7 +112,7 @@ const AboutImage = () => {
       {basicDetails.images.aboutImage ? (
         <Image
           src={basicDetails.images.aboutImage}
-          alt="Rajesh Ranjan profile illustration"
+          alt={`${fullName} profile illustration`}
           width={1024}
           height={1536}
           loading="eager"

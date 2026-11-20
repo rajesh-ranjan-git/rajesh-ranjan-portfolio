@@ -3,7 +3,7 @@ import { FormLabelProps } from "@/types/props/forms.props.types";
 const FormLabel = ({ htmlFor, children, required }: FormLabelProps) => (
   <label
     htmlFor={htmlFor}
-    className="block text-fixed-secondary/30 my-1.5 ml-2 font-semibold text-xs uppercase tracking-wide"
+    className="block text-label mb-1 ml-2 font-semibold text-xs uppercase tracking-wide"
   >
     {children}
     {required && (

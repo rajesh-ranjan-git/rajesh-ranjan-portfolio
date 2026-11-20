@@ -23,14 +23,14 @@
   transform-origin: 80% 254% 0;
   transform: scale(1) rotate(-10deg);
   opacity: 0;
-  animation: grow1 2s ease 3s forwards;
+  animation: grow1 2s ease 1s forwards;
 }
 
 .rectangle_2 {
   transform-origin: 55% 100% 0;
   transform: scale(1) rotate(50deg);
   opacity: 0;
-  animation: grow2 2s ease 3s forwards;
+  animation: grow2 2s ease 1s forwards;
 }
 
 .rectangle_transparent {

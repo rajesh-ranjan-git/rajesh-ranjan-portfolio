@@ -174,21 +174,21 @@ const ContactForm = () => {
   return (
     <Card
       animateBorder
-      className="w-full h-full md:max-h-120 overflow-y-auto no-scrollbar"
+      className="w-full h-full md:max-h-[514.5px] overflow-y-auto no-scrollbar"
     >
       <div className="flex flex-col my-auto w-full">
-        <Form action={formAction} autoComplete="false">
+        <Form action={formAction} noValidate>
           <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold text-center">
             Whats on your mind...?
           </h3>
 
-          <div className="relative flex md:flex-row flex-col gap-4 py-4">
-            <FormField htmlFor="name" error={nameField.error}>
+          <div className="relative flex md:flex-row flex-col gap-3 py-3">
+            <FormField label="Name" htmlFor="name" error={nameField.error}>
               <FormInput
                 id="name"
                 name="name"
                 placeholder="Your full name"
-                autoComplete="off"
+                autoComplete="name"
                 value={nameField.raw}
                 className="pr-9"
                 onChange={(e) => nameField.handleInput(e.currentTarget.value)}
@@ -198,12 +198,19 @@ const ContactForm = () => {
               />
             </FormField>
 
-            <FormField htmlFor="email" required error={emailField.error}>
+            <FormField
+              label="Email"
+              htmlFor="email"
+              required
+              error={emailField.error}
+            >
               <FormInput
                 id="email"
                 name="email"
+                type="email"
+                inputMode="email"
                 placeholder="Your email"
-                autoComplete="off"
+                autoComplete="email"
                 value={emailField.raw}
                 required
                 className="pr-9"
@@ -215,13 +222,15 @@ const ContactForm = () => {
             </FormField>
           </div>
 
-          <div className="relative flex flex-col gap-4 mb-4">
-            <FormField htmlFor="phone" error={phoneField.error}>
+          <div className="relative flex flex-col gap-3 mb-4">
+            <FormField label="Phone" htmlFor="phone" error={phoneField.error}>
               <FormInput
                 id="phone"
                 name="phone"
+                type="tel"
+                inputMode="tel"
                 placeholder="Your phone number"
-                autoComplete="off"
+                autoComplete="tel"
                 value={phoneField.raw}
                 className="pr-9"
                 onChange={(e) => phoneField.handleInput(e.currentTarget.value)}
@@ -231,7 +240,12 @@ const ContactForm = () => {
               />
             </FormField>
 
-            <FormField htmlFor="subject" required error={subjectField.error}>
+            <FormField
+              label="Subject"
+              htmlFor="subject"
+              required
+              error={subjectField.error}
+            >
               <FormInput
                 id="subject"
                 name="subject"
@@ -249,7 +263,12 @@ const ContactForm = () => {
               />
             </FormField>
 
-            <FormField htmlFor="message" required error={messageField.error}>
+            <FormField
+              label="Message"
+              htmlFor="message"
+              required
+              error={messageField.error}
+            >
               <FormTextarea
                 id="message"
                 name="message"

@@ -5,6 +5,8 @@ export type AppStateType = {
   setActiveTheme: (
     themeOrUpdater: ThemeType | ((previousTheme: ThemeType) => ThemeType),
   ) => void;
+  themeChosen: boolean;
+  setSystemTheme: (theme: ThemeType) => void;
   splash: boolean;
   setSplash: (value: boolean) => void;
   sidebarToggle: boolean;

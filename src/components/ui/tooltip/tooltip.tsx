@@ -45,6 +45,19 @@ const Tooltip = ({
 
   useEffect(() => clearShowTimeout, [clearShowTimeout]);
 
+  // Hover/focus content must be dismissible without moving the pointer
+  // (WCAG 1.4.13).
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") hideTooltip();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isVisible, hideTooltip]);
+
   const offset = getTooltipOffset(position);
 
   return (
@@ -58,8 +71,10 @@ const Tooltip = ({
       {children}
 
       {!disabled && content && (
+        // Visual only: every trigger already carries this text in its own
+        // accessible name, so screen readers would otherwise hear it twice.
         <span
-          role="tooltip"
+          aria-hidden="true"
           style={
             {
               "--tooltip-x": `${offset.x}px`,

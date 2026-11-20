@@ -8,7 +8,9 @@ const PortfolioFilters = ({
 }: PortfolioFiltersProps) => {
   return (
     <div className="flex justify-center items-center w-full">
-      <ul className="flex flex-wrap justify-center items-center gap-4 bg-fixed-dark mx-auto mb-16 px-4 py-2 border border-surface-border hover:border-surface-border-hover rounded-xl w-max text-center transition-all duration-500">
+      <ul
+        aria-label="Filter projects by category"
+        className="[--focus-ring:var(--fixed-light)] flex flex-wrap justify-center items-center gap-4 bg-fixed-dark mx-auto mb-16 px-4 py-2 border border-surface-border hover:border-surface-border-hover rounded-xl w-max text-center transition-all duration-500">
         <PortfolioFiltersItem
           item="all"
           isActive={activeFilter === "all"}

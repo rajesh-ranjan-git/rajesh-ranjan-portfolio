@@ -20,4 +20,6 @@ export interface CarouselProps {
   rounded?: boolean;
   scale?: "top" | "bottom" | "right" | "left" | "all";
   className?: string;
+  /** Accessible name of the carousel region, e.g. "Certificates". */
+  label?: string;
 }

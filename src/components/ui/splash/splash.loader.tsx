@@ -1,9 +1,16 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import splashStyles from "@/styles/splash.module.css";
 import { FazerStyleType } from "@/types/types/splash.types";
 import { SplashLoaderProps } from "@/types/props/splash.props.types";
+import { ScrambleTextHandle } from "@/types/types/scramble.types";
 import { createSeededRandom } from "@/helpers/common.helpers";
+import {
+  getSplashTimeline,
+  SPLASH_SCRAMBLE_DURATION,
+} from "@/helpers/splash.helpers";
+import { SPLASH_DURATION } from "@/config/common.config";
 import ScrambleText from "@/components/ui/scramble-text/scramble.text";
 
 const random = createSeededRandom(20);
@@ -18,8 +25,20 @@ const FAZERS: FazerStyleType[] = Array.from({ length: 20 }, () => ({
 const SplashLoader = ({
   loadingText = "Loading...",
   endingText = "Welcome...",
-  duration = 2000,
+  duration = SPLASH_DURATION,
 }: SplashLoaderProps) => {
+  const scrambleRef = useRef<ScrambleTextHandle>(null);
+
+  // Same timeline SplashGate closes on, so the ending text always shows.
+  useEffect(() => {
+    const timer = setTimeout(
+      () => scrambleRef.current?.play(),
+      getSplashTimeline(duration).scrambleDelay,
+    );
+
+    return () => clearTimeout(timer);
+  }, [duration]);
+
   return (
     <div className="relative w-full h-full">
       <div
@@ -57,10 +76,11 @@ const SplashLoader = ({
           className={`font-semibold text-primary whitespace-nowrap font-alkatra inline-block mt-8 leading-[1.15] ${splashStyles.splash_loader}`}
         >
           <ScrambleText
+            ref={scrambleRef}
+            trigger="manual"
             initialText={loadingText}
             finalText={endingText}
-            delay={1000}
-            duration={500}
+            duration={SPLASH_SCRAMBLE_DURATION}
           />
         </div>
 
@@ -69,7 +89,7 @@ const SplashLoader = ({
             className={`inline-block relative w-0 after:absolute before:absolute before:opacity-0 after:opacity-0 ${splashStyles.splash_progress}`}
             style={
               {
-                "--progress-duration": `${duration + 1000}ms`,
+                "--progress-duration": `${duration}ms`,
               } as React.CSSProperties
             }
           ></span>

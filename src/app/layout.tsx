@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import type { Metadata, Viewport } from "next";
 import { alkatra, arima, poppins, allura } from "@/config/font.config";
-import { themeInitScript } from "@/config/common.config";
+import { MAIN_CONTENT_ID, themeInitScript } from "@/config/common.config";
 import { SITE_URL, seoConfig } from "@/config/seo.config";
 import { ReactNodeProps } from "@/types/props/common.props.types";
 import ServiceWorker from "@/components/service-worker/service.worker";
@@ -88,6 +88,13 @@ const RootLayout = ({ children }: Readonly<ReactNodeProps>) => {
         className={`${alkatra.variable} ${arima.variable} ${poppins.variable} ${allura.variable} antialiased`}
         suppressHydrationWarning
       >
+        <a
+          href={`#${MAIN_CONTENT_ID}`}
+          className="skip-link"
+        >
+          Skip to main content
+        </a>
+
         <ServiceWorker />
         <TitleManager />
         <Orb />

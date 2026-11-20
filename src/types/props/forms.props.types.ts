@@ -46,6 +46,7 @@ export interface FormFieldProps {
 }
 
 export interface FormErrorMessageProps {
+  id?: string;
   error: string | null;
   className?: string;
 }

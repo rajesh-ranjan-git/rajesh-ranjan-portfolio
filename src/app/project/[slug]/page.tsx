@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { portfolio } from "@/config/owner.config";
 import { seoConfig } from "@/config/seo.config";
+import { MAIN_CONTENT_ID } from "@/config/common.config";
 import { getProjectJsonLd } from "@/helpers/seo.helpers";
 import { PortfolioDetailsPageProps } from "@/types/props/sections.props.types";
 import PortfolioDetails from "@/components/portfolio/portfolio.details";
@@ -71,7 +72,11 @@ const PortfolioDetailsPage = async ({ params }: PortfolioDetailsPageProps) => {
       <JsonLd data={getProjectJsonLd(project)} />
 
       <SplashGate loadingText="Loading..." endingText="Welcome...">
-        <main className="relative pt-10 md:pt-0 pl-0 md:pl-16 min-h-screen">
+        <main
+          id={MAIN_CONTENT_ID}
+          tabIndex={-1}
+          className="relative pt-10 md:pt-0 pl-0 md:pl-16 min-h-screen"
+        >
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },

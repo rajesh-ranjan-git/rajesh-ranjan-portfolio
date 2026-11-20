@@ -1,11 +1,13 @@
 "use client";
 
+import { useId } from "react";
 import { themeConfig } from "@/config/common.config";
 import useStore from "@/store/store";
 
 const ThemeToggle = () => {
   const activeTheme = useStore((state) => state.activeTheme);
   const setActiveTheme = useStore((state) => state.setActiveTheme);
+  const toggleId = useId();
 
   const handleSwitchTheme = () => {
     if (activeTheme === themeConfig.dark) {
@@ -21,16 +23,21 @@ const ThemeToggle = () => {
     >
       <input
         type="checkbox"
-        id="theme-toggle"
+        id={toggleId}
+        role="switch"
         checked={activeTheme === themeConfig.dark ? true : false}
-        className="peer hidden w-0 h-0"
+        className="peer sr-only"
         onChange={handleSwitchTheme}
       />
       <label
-        htmlFor="theme-toggle"
-        className="block after:top-0.5 after:left-0.5 peer-checked:after:left-15.5 after:absolute relative bg-[#242424] after:bg-[linear-gradient(180deg,#ffcc89,#d8860b)] peer-checked:after:bg-[linear-gradient(180deg,#777,#3a3a3a)] peer-checked:bg-[#ebebeb] shadow-[inset_0_5px_15px_rgba(0,0,0,0.4),inset_0_-5px_15px_rgba(255,255,255,0.4)] after:shadow-[0_12px_20px_var(--color-surface-shadow)] after:shadow-black/20 rounded-4xl after:rounded-full w-16 after:w-5 active:after:w-10 h-6 after:h-5 after:content-[''] transition-all after:transition-all peer-checked:after:-translate-x-full duration-500 after:duration-500 cursor-pointer"
+        htmlFor={toggleId}
+        className="block peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--focus-ring) after:top-0.5 after:left-0.5 peer-checked:after:left-15.5 after:absolute relative bg-[#242424] after:bg-[linear-gradient(180deg,#ffcc89,#d8860b)] peer-checked:after:bg-[linear-gradient(180deg,#777,#3a3a3a)] peer-checked:bg-[#ebebeb] shadow-[inset_0_5px_15px_rgba(0,0,0,0.4),inset_0_-5px_15px_rgba(255,255,255,0.4)] after:shadow-[0_12px_20px_var(--color-surface-shadow)] after:shadow-black/20 rounded-4xl after:rounded-full w-16 after:w-5 active:after:w-10 h-6 after:h-5 after:content-[''] transition-all after:transition-all peer-checked:after:-translate-x-full duration-500 after:duration-500 cursor-pointer"
       >
+        <span className="sr-only">Dark mode</span>
+
         <svg
+          aria-hidden="true"
+          focusable="false"
           className={`top-1 left-1 z-1 absolute ${
             activeTheme === themeConfig.dark
               ? "fill-[#7e7e7e]"
@@ -55,6 +62,8 @@ const ThemeToggle = () => {
         </svg>
 
         <svg
+          aria-hidden="true"
+          focusable="false"
           className={`top-1 left-11 z-1 absolute ${
             activeTheme === themeConfig.dark
               ? "fill-fixed-light"

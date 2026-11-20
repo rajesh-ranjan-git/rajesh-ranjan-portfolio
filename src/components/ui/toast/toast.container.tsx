@@ -9,6 +9,8 @@ const ToastContainer = ({
 }: ToastContainerProps) => {
   return (
     <div
+      aria-live="polite"
+      aria-relevant="additions"
       className={`fixed ${positionStylesConfig[position]} z-100 flex flex-col gap-2`}
     >
       {toasts.map((toast) => (

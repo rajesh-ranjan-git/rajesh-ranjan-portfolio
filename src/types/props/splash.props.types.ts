@@ -6,6 +6,8 @@ export interface SplashScreenProps {
   backgroundColor?: string;
   className?: string;
   duration?: number;
+  /** Called when the visitor presses Escape to skip the intro. */
+  onSkip?: () => void;
 }
 
 export interface SplashLoaderProps {

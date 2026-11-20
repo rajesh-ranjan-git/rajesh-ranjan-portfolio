@@ -29,13 +29,7 @@ const GreetingsButtons = () => {
           variant="mask-2"
           color="#3f82d9"
           className="p-3 md:px-6 md:text-lg"
-          onClick={() => {
-            window.open(
-              basicDetails.resumeLink,
-              "_blank",
-              "noopener,noreferrer",
-            );
-          }}
+          href={basicDetails.resumeLink}
         >
           See My Resume
         </MaskedButton>

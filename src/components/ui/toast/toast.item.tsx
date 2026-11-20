@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import toastStyles from "@/styles/toast.module.css";
 import {
@@ -16,6 +16,9 @@ const ToastItem = ({
   position,
 }: Omit<ToastProps, "index">) => {
   const [shouldExit, setShouldExit] = useState(false);
+  // Paused while hovered or focused, so the message can be read (WCAG 2.2.1).
+  const [isPaused, setIsPaused] = useState(false);
+  const remainingRef = useRef(toast.duration);
   const config = variantConfig[toast.variant];
   const Icon = config.icon;
 
@@ -25,9 +28,20 @@ const ToastItem = ({
       return () => clearTimeout(removeTimer);
     }
 
-    const exitTimer = setTimeout(() => setShouldExit(true), toast.duration);
-    return () => clearTimeout(exitTimer);
-  }, [shouldExit, toast.id, toast.duration, onRemove]);
+    if (isPaused) return;
+
+    const startedAt = Date.now();
+    const remaining = remainingRef;
+    const exitTimer = setTimeout(() => setShouldExit(true), remaining.current);
+
+    return () => {
+      clearTimeout(exitTimer);
+      remaining.current = Math.max(
+        0,
+        remaining.current - (Date.now() - startedAt),
+      );
+    };
+  }, [shouldExit, isPaused, toast.id, onRemove]);
 
   const isLeftToRight =
     toast.toastProgressDirection === toastProgressDirectionConfig.leftToRight;
@@ -35,12 +49,17 @@ const ToastItem = ({
   const progressStyle = {
     "--toast-duration": `${toast.duration}ms`,
     transformOrigin: isLeftToRight ? "left" : "right",
+    animationPlayState: isPaused ? "paused" : "running",
   } as React.CSSProperties;
 
   const offsetX = getToastOffsetX(position);
 
   return (
     <div
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
       style={{ "--toast-x": `${offsetX}px` } as React.CSSProperties}
       className={`relative flex flex-col shadow-[0_12px_20px_var(--color-surface-shadow)] backdrop-blur-xl p-0 border rounded-lg min-w-64 max-w-72 overflow-hidden text-primary ${config.cn} ${toastStyles.toastItem} ${shouldExit ? toastStyles.toastExit : ""}`}
     >
@@ -54,7 +73,7 @@ const ToastItem = ({
       )}
 
       <div className="flex items-start gap-2 px-4 py-4">
-        <Icon className={config.iconColor} size={20} />
+        <Icon className={config.iconColor} size={20} aria-hidden="true" />
 
         <div className="pr-4">
           <p className={`${config.text} font-semibold text-sm`}>
@@ -69,9 +88,9 @@ const ToastItem = ({
           type="button"
           aria-label="Dismiss notification"
           onClick={() => setShouldExit(true)}
-          className={`${config.text} top-1 right-1 absolute opacity-50 hover:opacity-100 p-0.5 transition-opacity`}
+          className={`${config.text} top-1 right-1 absolute flex justify-center items-center opacity-50 hover:opacity-100 focus-visible:opacity-100 rounded-md w-6 h-6 transition-opacity cursor-pointer`}
         >
-          <IoClose size={18} />
+          <IoClose size={18} aria-hidden="true" />
         </button>
       </div>
 

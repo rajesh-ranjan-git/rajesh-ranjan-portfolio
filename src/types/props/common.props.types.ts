@@ -25,6 +25,8 @@ export interface ButtonProps {
   children: string | ReactNode;
   className?: string;
   onClick?: () => void;
+  /** Renders a link that opens in a new tab instead of a button. */
+  href?: string;
 }
 
 export interface LoaderProps {

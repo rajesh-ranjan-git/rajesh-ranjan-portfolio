@@ -8,8 +8,6 @@ const SidebarFooter = () => {
   const sidebarToggle = useStore((state) => state.sidebarToggle);
   const setSidebarToggle = useStore((state) => state.setSidebarToggle);
 
-  const fullName = getFullName();
-
   const handleImageClick = () => {
     if (!sidebarToggle) {
       setSidebarToggle(!sidebarToggle);
@@ -25,7 +23,7 @@ const SidebarFooter = () => {
           width={40}
           height={40}
           sizes="40px"
-          alt="profile-img"
+          alt=""
           loading="eager"
           className="bg-linear-to-r border border-surface-border hover:border-surface-border-hover rounded-full hover:scale-105 transition-all ease-in-out from-accent-purple to-accent-blue cursor-pointer"
           onClick={handleImageClick}
@@ -39,8 +37,6 @@ const SidebarFooter = () => {
             {basicDetails.social.google ? (
               <Link
                 href={`mailto:${basicDetails.social.google}`}
-                target="_blank"
-                aria-label={`Email ${fullName ?? "John Doe"}`}
                 className="font-semibold text-slate-400 hover:text-white text-xs transition-all ease-in-out"
               >
                 {basicDetails.social.google}

@@ -32,6 +32,8 @@ const Portfolio = ({ title, description }: SectionProps) => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const [isClamped, setIsClamped] = useState<boolean>(false);
   const [collapsedHeight, setCollapsedHeight] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(Infinity);
+  const [filterAnnouncement, setFilterAnnouncement] = useState<string>("");
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -42,6 +44,15 @@ const Portfolio = ({ title, description }: SectionProps) => {
 
   const handleFilter = (item: string) => {
     setActiveFilter(item);
+
+    const count =
+      item === "all"
+        ? sortedPortfolio.length
+        : sortedPortfolio.filter((card) => card.category === item).length;
+
+    setFilterAnnouncement(
+      `${count} ${count === 1 ? "project" : "projects"} shown for ${item}`,
+    );
   };
 
   const handleShowMore = () => {
@@ -50,7 +61,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
     setShowMore(!showMore);
 
     if (isCollapsing) {
-      scrollToSection("certificates");
+      scrollToSection("certificates", { moveFocus: false });
     }
   };
 
@@ -80,6 +91,7 @@ const Portfolio = ({ title, description }: SectionProps) => {
       const clamped = cardCount > threshold;
 
       setIsClamped(clamped);
+      setVisibleCount(threshold);
 
       if (clamped) {
         const boundaryCard = grid.children[threshold - 1] as HTMLElement;
@@ -130,12 +142,24 @@ const Portfolio = ({ title, description }: SectionProps) => {
           />
         </FadeIn>
 
+        <p className="sr-only" role="status">
+          {filterAnnouncement}
+        </p>
+
         <div
+          id="portfolio-grid"
           ref={gridRef}
           className="justify-between items-stretch gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
         >
-          {filteredCards.map((item) => (
-            <FadeIn delay={150} threshold={0} className="h-full" key={item.id}>
+          {filteredCards.map((item, index) => (
+            <FadeIn
+              delay={150}
+              threshold={0}
+              className="h-full"
+              key={item.id}
+              // Cards cut off by "Show more" stay out of the tab order.
+              inert={clampActive && index >= visibleCount}
+            >
               <PortfolioCard portfolioItem={item} />
             </FadeIn>
           ))}
@@ -147,14 +171,18 @@ const Portfolio = ({ title, description }: SectionProps) => {
           className={`flex justify-center items-center w-full ${showMore ? "pt-8" : ""}`}
         >
           <FormButton
+            type="button"
             variant="primary"
             size="sm"
+            aria-expanded={showMore}
+            aria-controls="portfolio-grid"
             className="rounded-3xl min-w-36"
             onClick={handleShowMore}
           >
             <span>Show&nbsp;{showMore ? "less" : "more"}</span>
 
             <FaChevronDown
+              aria-hidden="true"
               size={12}
               className={`${showMore ? "rotate-180 duration-300" : ""}`}
             />

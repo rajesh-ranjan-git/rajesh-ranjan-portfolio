@@ -16,7 +16,9 @@ import {
   TRANSITION_MS,
 } from "@/constants/carousel.constants";
 import { CarouselProps } from "@/types/props/carousel.props.types";
+import { NEW_TAB_HINT } from "@/config/common.config";
 import { getSlidesPerView } from "@/helpers/carousel.helpers";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import Card from "@/components/ui/card/card";
 import Tooltip from "@/components/ui/tooltip/tooltip";
 
@@ -32,6 +34,7 @@ const Carousel = ({
   rounded = true,
   scale,
   className = "",
+  label = "Slides",
 }: CarouselProps) => {
   const realCount = slides.length;
   const [slidesPerView, setSlidesPerView] = useState(1);
@@ -50,6 +53,10 @@ const Carousel = ({
   const [currentIndex, setCurrentIndex] = useState(cloneCount);
   const [withTransition, setWithTransition] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
+  // Autoplay also pauses while keyboard focus is inside, and never runs for
+  // visitors who prefer reduced motion.
+  const [isFocused, setIsFocused] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const [isDragging, setIsDragging] = useState(false);
   const [dragDeltaPx, setDragDeltaPx] = useState(0);
@@ -82,23 +89,23 @@ const Carousel = ({
   const next = useCallback(() => goTo(currentIndex + 1), [currentIndex, goTo]);
   const prev = useCallback(() => goTo(currentIndex - 1), [currentIndex, goTo]);
 
+  const isAutoPlaying =
+    autoPlay &&
+    !prefersReducedMotion &&
+    !isHovering &&
+    !isFocused &&
+    !isDragging &&
+    realCount > slidesPerView;
+
   useEffect(() => {
-    if (!autoPlay || isHovering || isDragging || realCount <= slidesPerView) {
-      return;
-    }
+    if (!isAutoPlaying) return;
+
     const id = setInterval(() => {
       setWithTransition(true);
       setCurrentIndex((i) => i + 1);
     }, autoPlayInterval);
     return () => clearInterval(id);
-  }, [
-    autoPlay,
-    isHovering,
-    isDragging,
-    autoPlayInterval,
-    realCount,
-    slidesPerView,
-  ]);
+  }, [isAutoPlaying, autoPlayInterval]);
 
   const handleTransitionEnd = useCallback(() => {
     if (currentIndex >= cloneCount + realCount) {
@@ -173,22 +180,29 @@ const Carousel = ({
 
   const dots = showDots && realCount > slidesPerView && (
     <div
-      className={`flex items-center flex-wrap gap-2 px-4 ${dotsJustifyClassName} ${
+      className={`flex items-center flex-wrap px-4 ${dotsJustifyClassName} ${
         isDotsOnTop ? "mb-8" : "mt-8"
       }`}
     >
       {slides.map((slide, index) => (
+        // 24px hit area (WCAG 2.5.8) around the small visual dot.
         <button
           key={`${slide.name}-${index}`}
           type="button"
-          aria-label={`Go to slide ${index + 1}`}
+          aria-label={`Go to slide ${index + 1} of ${realCount}`}
+          aria-current={index === activeDot ? "true" : undefined}
           onClick={() => goTo(index + cloneCount)}
-          className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-blue cursor-pointer shadow-sm shadow-surface-shadow-strong shrink-0 ${
-            index === activeDot
-              ? "w-6 bg-accent-blue"
-              : "w-2 bg-gray-300 hover:bg-gray-400"
-          }`}
-        />
+          className="group/dot flex justify-center items-center rounded-full min-w-6 h-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue cursor-pointer shrink-0"
+        >
+          <span
+            aria-hidden="true"
+            className={`h-2 rounded-full transition-all duration-300 shadow-sm shadow-surface-shadow-strong ${
+              index === activeDot
+                ? "w-6 bg-accent-blue"
+                : "w-2 bg-gray-300 group-hover/dot:bg-gray-400"
+            }`}
+          />
+        </button>
       ))}
     </div>
   );
@@ -197,9 +211,18 @@ const Carousel = ({
 
   return (
     <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
       className={`relative w-full select-none ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={onPointerLeave}
+      onFocus={() => setIsFocused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setIsFocused(false);
+        }
+      }}
     >
       {isDotsOnTop && dots}
 
@@ -213,6 +236,7 @@ const Carousel = ({
       >
         <div
           className="flex py-4"
+          aria-live={isAutoPlaying ? "off" : "polite"}
           style={{
             transform: `translateX(${translatePercent}%)`,
             transition: withTransition
@@ -226,9 +250,23 @@ const Carousel = ({
           }}
           onTransitionEnd={handleTransitionEnd}
         >
-          {extendedSlides.map((slide, index) => (
+          {extendedSlides.map((slide, index) => {
+            // Off-screen slides (including the loop clones) are hidden from
+            // assistive tech and the tab order; dots move between slides.
+            const isInView =
+              index >= currentIndex && index < currentIndex + slidesPerView;
+            const slideNumber =
+              ((((index - cloneCount) % realCount) + realCount) % realCount) +
+              1;
+
+            return (
             <div
               key={`${slide.name}-${index}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${slideNumber} of ${realCount}`}
+              aria-hidden={!isInView}
+              inert={!isInView}
               className="px-2 sm:px-3 shrink-0"
               style={{ flex: `0 0 ${slidePercent}%` }}
             >
@@ -261,10 +299,11 @@ const Carousel = ({
                         <Link
                           href={slide.url}
                           target="_blank"
-                          aria-label={`${slide.name} Certificate`}
+                          rel="noopener noreferrer"
+                          aria-label={`${slide.name} Certificate${NEW_TAB_HINT}`}
                           className="bg-surface-bg hover:bg-surface-bg-hover shadow-[0_12px_20px_var(--color-surface-shadow)] backdrop-blur-xl p-1 border-surface-border hover:border-surface-border-hover rounded-lg transition-all duration-300"
                         >
-                          <MdOpenInNew size={20} />
+                          <MdOpenInNew size={20} aria-hidden="true" />
                         </Link>
                       </Tooltip>
                     </div>
@@ -289,7 +328,8 @@ const Carousel = ({
                 </div>
               </Card>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -301,7 +341,7 @@ const Carousel = ({
             onClick={prev}
             className="top-1/2 left-3 z-10 absolute flex justify-center items-center bg-white/80 hover:bg-white shadow-lg backdrop-blur rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 w-9 h-9 text-gray-800 hover:scale-105 active:scale-95 transition -translate-y-1/2 focus-visible:ring-accent-blue"
           >
-            <FaChevronLeft />
+            <FaChevronLeft aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -309,7 +349,7 @@ const Carousel = ({
             onClick={next}
             className="top-1/2 right-3 z-10 absolute flex justify-center items-center bg-white/80 hover:bg-white shadow-lg backdrop-blur rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 w-9 h-9 text-gray-800 hover:scale-105 active:scale-95 transition -translate-y-1/2 focus-visible:ring-accent-blue"
           >
-            <FaChevronRight />
+            <FaChevronRight aria-hidden="true" />
           </button>
         </>
       )}

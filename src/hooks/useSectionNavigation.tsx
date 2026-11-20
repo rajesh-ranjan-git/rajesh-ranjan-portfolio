@@ -8,7 +8,10 @@ import useStore from "@/store/store";
 import useToast from "@/hooks/useToast";
 import logger from "@/services/logger/logger";
 import { toTitleCase } from "@/utils/common.utils";
-import { scrollElementIntoViewSmoothly } from "@/helpers/common.helpers";
+import {
+  focusSection,
+  scrollElementIntoViewSmoothly,
+} from "@/helpers/common.helpers";
 
 const useSectionNavigation = ({
   sectionIds,
@@ -52,7 +55,10 @@ const useSectionNavigation = ({
     return () => observer.disconnect();
   }, [sectionIds, rootMargin, threshold, setActiveSection]);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (
+    sectionId: string,
+    { moveFocus = true }: { moveFocus?: boolean } = {},
+  ) => {
     setActiveSection(sectionId);
 
     if (pathname !== "/") {
@@ -75,6 +81,8 @@ const useSectionNavigation = ({
     window.history.replaceState(null, "", `#${sectionId}`);
 
     scrollElementIntoViewSmoothly(element);
+
+    if (moveFocus) focusSection(element);
   };
 
   return {

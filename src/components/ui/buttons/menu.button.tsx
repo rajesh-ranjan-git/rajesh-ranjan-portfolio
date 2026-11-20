@@ -13,7 +13,9 @@ const MenuButton = ({ side }: MenuProps) => {
       type="button"
       data-sidebar-menu-button="true"
       aria-label="Sidebar Menu"
-      className={`p-2 border-0 rounded-md outline-none font-bold text-2xl transition-all ease-in-out hover:bg-accent-blue cursor-pointer ${sidebarToggle ? "bg-accent-blue" : "bg-ink"}`}
+      aria-expanded={sidebarToggle}
+      aria-controls="sidebar"
+      className={`p-2 border-0 rounded-md font-bold text-2xl transition-all ease-in-out hover:bg-accent-blue cursor-pointer ${sidebarToggle ? "bg-accent-blue" : "bg-ink"}`}
       onMouseDown={(event) => event.stopPropagation()}
       onClick={(event) => {
         event.stopPropagation();

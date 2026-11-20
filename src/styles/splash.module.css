@@ -1,5 +1,5 @@
 .splash_screen {
-  background-image: url("/assets/background/overlay-stars.svg");
+  background-image: url("/assets/background/overlay-stars-light.svg");
   background-repeat: repeat;
   animation: splash_grow 1s forwards;
 }
@@ -120,6 +120,20 @@
   top: calc(-4 * var(--size));
   transform: rotate(45deg);
   animation: coli2 0.3s linear infinite;
+}
+
+/* Theme selectors must be :global — CSS Modules would otherwise hash `.dark`
+   and it would never match the class ThemeManager puts on <html>. */
+:global([data-theme="dark"]) .splash_screen,
+:global(.dark) .splash_screen {
+  background-image: url("/assets/background/overlay-stars.svg");
+}
+
+/* Before ThemeManager sets data-theme, follow the OS preference. */
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .splash_screen {
+    background-image: url("/assets/background/overlay-stars.svg");
+  }
 }
 
 @keyframes splash_grow {

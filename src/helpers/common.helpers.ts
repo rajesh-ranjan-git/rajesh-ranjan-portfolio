@@ -48,3 +48,42 @@ export const createSeededRandom = (seed: number) => {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 };
+
+/**
+ * Milliseconds since the browser first painted this document — i.e. since
+ * server-rendered content (and its CSS animations) became visible, which can
+ * be well before hydration. Returns 0 when the Paint Timing API has no entry.
+ */
+export const getTimeSinceFirstPaint = () => {
+  const paints = performance.getEntriesByType("paint");
+  const firstPaint =
+    paints.find((entry) => entry.name === "first-paint") ??
+    paints.find((entry) => entry.name === "first-contentful-paint");
+
+  return firstPaint ? Math.max(0, performance.now() - firstPaint.startTime) : 0;
+};
+
+const FOCUSABLE_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  '[tabindex]:not([tabindex="-1"])',
+].join(",");
+
+export const getFocusableElements = (container: HTMLElement) =>
+  Array.from(
+    container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+  ).filter((element) => !element.closest("[inert]"));
+
+// Moves keyboard focus to a section's heading (or the section itself) after
+// in-page navigation, so the next Tab continues from there.
+export const focusSection = (section: HTMLElement) => {
+  const target =
+    section.querySelector<HTMLElement>("h1, h2") ?? section;
+
+  if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+
+  target.focus({ preventScroll: true });
+};

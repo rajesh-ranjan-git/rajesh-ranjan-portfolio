@@ -1,6 +1,7 @@
 import { FormFieldProps } from "@/types/props/forms.props.types";
 import FormLabel from "@/components/ui/forms/form.label";
 import FormErrorMessage from "@/components/ui/forms/form.error";
+import { getFieldErrorId } from "@/helpers/forms.helpers";
 
 const FormField = ({
   label,
@@ -43,7 +44,10 @@ const FormField = ({
 
     {hint && !error && <p className="mt-1 text-text-muted text-xs">{hint}</p>}
 
-    <FormErrorMessage error={error ? error : null} />
+    <FormErrorMessage
+      id={htmlFor ? getFieldErrorId(htmlFor) : undefined}
+      error={error ? error : null}
+    />
   </div>
 );
 

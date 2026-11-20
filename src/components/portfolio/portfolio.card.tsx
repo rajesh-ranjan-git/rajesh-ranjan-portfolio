@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import portfolioStyles from "@/styles/portfolio.module.css";
 import { PortfolioCardProps } from "@/types/props/sections.props.types";
+import { NEW_TAB_HINT } from "@/config/common.config";
 
 const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
   const [isRevealed, setIsRevealed] = useState(false);
@@ -15,7 +16,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
   };
 
   return (
-    <div className="group flex flex-col bg-fixed-dark shadow-[0_12px_20px_var(--color-surface-shadow)] border border-surface-border hover:border-surface-border-active rounded-2xl w-full h-full overflow-hidden transition-all duration-300">
+    <div className="group flex flex-col [--focus-ring:var(--fixed-light)] bg-fixed-dark shadow-[0_12px_20px_var(--color-surface-shadow)] border border-surface-border hover:border-surface-border-active rounded-2xl w-full h-full overflow-hidden transition-all duration-300">
       <div
         onPointerUp={handleTouchToggle}
         className={`group/image relative bg-fixed-dark rounded-b-xl aspect-1920/910 overflow-hidden transition-all duration-500 shrink-0 hover:rounded-b-none ${isRevealed ? "rounded-b-none" : ""}`}
@@ -25,7 +26,7 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
             portfolioItem.screens?.[0] ??
             "/assets/error/image-not-available.webp"
           }
-          alt={portfolioItem.title}
+          alt={`${portfolioItem.title} screenshot`}
           width={400}
           height={400}
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
@@ -50,10 +51,11 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
           }
           aria-label={
             portfolioItem?.liveUrl
-              ? `${portfolioItem.title} Live URL`
-              : `${portfolioItem.title} Github URL`
+              ? `${portfolioItem.title} Live URL${NEW_TAB_HINT}`
+              : `${portfolioItem.title} Github URL${NEW_TAB_HINT}`
           }
           target="_blank"
+          rel="noopener noreferrer"
           className={`inline-block before:-bottom-px before:left-0 before:absolute relative before:rounded-lg before:w-0 hover:before:w-full before:h-0.75 min-w-0 truncate font-semibold uppercase transition-all before:transition-all duration-300 before:duration-300 before:bg-accent-pink ${portfolioStyles.link_mask}`}
         >
           {portfolioItem.title}
@@ -61,10 +63,12 @@ const PortfolioCard = ({ portfolioItem }: PortfolioCardProps) => {
         <Link
           href={`/project/${portfolioItem.slug}`}
           target="_blank"
-          aria-label={`${portfolioItem.title} Details`}
           className={`inline-block before:-bottom-px before:left-0 before:absolute relative before:rounded-lg before:w-0 hover:before:w-full before:h-0.75 transition-all before:transition-all duration-300 before:duration-300 before:bg-accent-pink ${portfolioStyles.link_mask}`}
         >
           View more
+          <span className="sr-only">
+            {` about ${portfolioItem.title}${NEW_TAB_HINT}`}
+          </span>
         </Link>
       </div>
     </div>

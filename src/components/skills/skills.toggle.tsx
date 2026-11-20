@@ -13,12 +13,16 @@ const SkillsToggle = ({
       />
 
       <button
+        type="button"
+        aria-pressed={activeSkillButton === "skills"}
         onClick={() => setActiveSkillButton("skills")}
         className={`relative px-8 py-2 rounded-full transition-colors cursor-pointer ${activeSkillButton === "skills" ? "text-alternate-primary" : "text-primary"}`}
       >
         Skills
       </button>
       <button
+        type="button"
+        aria-pressed={activeSkillButton === "tools"}
         onClick={() => setActiveSkillButton("tools")}
         className={`relative px-8 py-2 rounded-full transition-colors cursor-pointer ${activeSkillButton === "tools" ? "text-alternate-primary" : "text-primary"}`}
       >

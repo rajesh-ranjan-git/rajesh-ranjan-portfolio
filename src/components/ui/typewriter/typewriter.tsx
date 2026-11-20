@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import typewriterStyles from "@/styles/typewriter.module.css";
 import { TypewriterProps } from "@/types/props/common.props.types";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 
 const Typewriter = ({
   words,
@@ -16,8 +17,12 @@ const Typewriter = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    // With reduced motion the first word is shown statically instead.
+    if (prefersReducedMotion) return;
+
     const currentWord = words[currentWordIndex % words.length];
 
     const updateText = () => {
@@ -67,12 +72,16 @@ const Typewriter = ({
     deletingSpeed,
     delayBetweenWords,
     loop,
+    prefersReducedMotion,
   ]);
 
   return (
     <div>
-      <span className={`${className} text-nowrap`}>
-        {text}
+      {/* Screen readers get the full list once, not letter-by-letter. */}
+      <span className="sr-only">{words.join(", ")}</span>
+
+      <span aria-hidden="true" className={`${className} text-nowrap`}>
+        {prefersReducedMotion ? words[0] : text}
         <span
           className={`inline-block ml-1 w-1 origin-center ${typewriterStyles.cursor}`}
         ></span>

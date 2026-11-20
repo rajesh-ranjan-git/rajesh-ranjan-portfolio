@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { SplashGateProps } from "@/types/props/splash.props.types";
 import useStore from "@/store/store";
+import { getSplashTimeline } from "@/helpers/splash.helpers";
+import { SPLASH_DURATION } from "@/config/common.config";
 import SplashScreen from "@/components/ui/splash/splash.screen";
 
 const SplashGate = ({
@@ -11,13 +13,22 @@ const SplashGate = ({
   endingText = "Welcome...",
   backgroundColor = "var(--bg)",
   className = "",
-  duration = 2000,
+  duration = SPLASH_DURATION,
 }: SplashGateProps) => {
   const splash = useStore((state) => state.splash);
   const setSplash = useStore((state) => state.setSplash);
 
   useEffect(() => {
-    const timer = setTimeout(() => setSplash(false), duration);
+    // Skip the intro animation entirely for visitors who asked for less motion.
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    // Counted from first paint, but never before the ending text has had its
+    // turn — see getSplashTimeline.
+    const remaining = reduceMotion ? 0 : getSplashTimeline(duration).closeDelay;
+
+    const timer = setTimeout(() => setSplash(false), remaining);
     return () => clearTimeout(timer);
   }, [duration, setSplash]);
 
@@ -54,6 +65,7 @@ const SplashGate = ({
           backgroundColor={backgroundColor}
           className={className}
           duration={duration}
+          onSkip={() => setSplash(false)}
         />
       ) : null}
     </>

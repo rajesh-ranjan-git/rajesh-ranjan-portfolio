@@ -3,12 +3,11 @@ import { FaPhone } from "react-icons/fa6";
 import { RiShareFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { socialMedia } from "@/config/social.config";
-import { getFullName, getSingleSocialLink } from "@/helpers/owner.helpers";
+import { getSingleSocialLink } from "@/helpers/owner.helpers";
 import SocialMedia from "@/components/social-media/social.media";
 import Card from "@/components/ui/card/card";
 
 const ContactSocials = () => {
-  const fullName = getFullName();
   const email = getSingleSocialLink(socialMedia.google.id);
   const phone = getSingleSocialLink(socialMedia.phone.id);
 
@@ -19,7 +18,7 @@ const ContactSocials = () => {
         className="group flex flex-col justify-center items-center gap-2 md:col-span-2 w-full h-full min-h-48"
       >
         <Card className="px-4 py-4 rounded-full group-hover:scale-110">
-          <RiShareFill size={24} />
+          <RiShareFill size={24} aria-hidden="true" />
         </Card>
 
         <h3 className="text-(length:--fs-h4) leading-[1.3] font-bold">
@@ -34,7 +33,7 @@ const ContactSocials = () => {
         className="group flex flex-col justify-center items-center gap-2 w-full h-full min-h-48"
       >
         <Card className="px-4 py-4 rounded-full group-hover:scale-110">
-          <MdEmail size={20} />
+          <MdEmail size={20} aria-hidden="true" />
         </Card>
 
         <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold">
@@ -44,7 +43,6 @@ const ContactSocials = () => {
         {email ? (
           <Link
             href={email?.url}
-            aria-label={`Email ${fullName ?? "John Doe"}`}
             className="transition-colors duration-300 hover:text-accent-pink"
           >
             {email?.userName}
@@ -59,7 +57,7 @@ const ContactSocials = () => {
         className="group flex flex-col justify-center items-center gap-2 w-full h-full min-h-48"
       >
         <Card className="px-4 py-4 rounded-full group-hover:scale-110">
-          <FaPhone size={20} />
+          <FaPhone size={20} aria-hidden="true" />
         </Card>
 
         <h3 className="text-(length:--fs-h5) leading-[1.35] font-bold">
@@ -69,7 +67,6 @@ const ContactSocials = () => {
         {phone ? (
           <Link
             href={phone?.url}
-            aria-label={`Call ${fullName ?? "John Doe"}`}
             className="transition-colors duration-300 hover:text-accent-pink"
           >
             {phone?.userName}

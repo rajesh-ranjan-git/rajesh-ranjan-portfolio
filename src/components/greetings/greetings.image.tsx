@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { basicDetails } from "@/config/owner.config";
+import { getFullName } from "@/helpers/owner.helpers";
 
 const GreetingsImage = () => {
   return basicDetails.images.greetingsImage ? (
     <Image
       src={basicDetails.images.greetingsImage}
-      alt="profile-img-3d-cartoon"
-      title="3D Cartoon Profile Image"
+      alt={`3D cartoon avatar of ${getFullName()}`}
       width={1024}
       height={1536}
       sizes="(min-width: 1024px) 40vw, 100vw"

@@ -16,7 +16,7 @@ export const MAIN_CONTENT_ID = "main-content";
 // How long the intro splash stays up, in ms, counted from first paint. The
 // greetings name scramble and the hero rectangles (greetings.module.css)
 // start when it ends — keep them in sync when changing this.
-export const SPLASH_DURATION = 1000;
+export const SPLASH_DURATION = 2000;
 
 // Appended to accessible names of links that open a new tab.
 export const NEW_TAB_HINT = " (opens in new tab)";

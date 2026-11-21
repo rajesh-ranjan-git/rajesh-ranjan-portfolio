@@ -1,4 +1,4 @@
-# Rajesh Ranjan | Portfolio
+# Rajesh Ranjan – Full Stack Developer | Next.js, React, Node.js
 
 Personal portfolio of **Rajesh Ranjan**, Full Stack Developer. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. Includes project case studies, an experience timeline, certificates and a contact form powered by AWS SES. Self-hosted as a standalone build with automated deploys and rollback.
 
@@ -28,7 +28,7 @@ Personal portfolio of **Rajesh Ranjan**, Full Stack Developer. Built with Next.j
 
 This repository showcases Rajesh Ranjan's work, skills, and professional experience. It includes sections for greetings/intro, about, skills & tools, work experience timeline, education, certificates, a filterable project portfolio with detail pages, and a contact form backed by AWS SES.
 
-The current release is `v3.1.0`. `v2` rewrote the site from a Vite + React SPA into a Next.js App Router application; `v3` ships it as a standalone Next.js build with release-based deploys and automatic rollback, a new structured logger, the API route replaced by a server action, and much smaller images and fonts. `v3.1.0` adds SEO improvements, contact form and UI fixes, and a protected `main` branch that only takes checked pull requests from `alpha`.
+The current release is `v3.2.0`. `v2` rewrote the site from a Vite + React SPA into a Next.js App Router application; `v3` ships it as a standalone Next.js build with release-based deploys and automatic rollback, a new structured logger, the API route replaced by a server action, and much smaller images and fonts. `v3.1.0` adds SEO improvements, contact form and UI fixes, and a protected `main` branch that only takes checked pull requests from `alpha`. `v3.2.0` is an accessibility release aimed at WCAG 2.2 AA: full keyboard support, screen reader fixes, reduced-motion support and a theme that follows the OS.
 
 ## Tech Stack
 
@@ -61,9 +61,10 @@ The current release is `v3.1.0`. `v2` rewrote the site from a Vite + React SPA i
 
 ## Features
 
-- **App Router architecture** — file-based routing under `src/app`, with a dynamic `project/[id]` route for individual project detail pages
-- **Dark/light theme** with a dedicated theme manager and toggle
-- **Splash screen & loaders** on initial load
+- **App Router architecture** — file-based routing under `src/app`, with a dynamic `project/[slug]` route for individual project detail pages
+- **Dark/light theme** that follows the OS setting until the visitor picks one with the toggle; only an explicit choice is saved
+- **Splash screen & loaders** on initial load; Escape skips it, and it is skipped for visitors who prefer reduced motion
+- **Accessibility (WCAG 2.2 AA)** — skip link, visible focus indicators, a keyboard-operable sidebar (focus trap, Escape to close), labelled form fields with linked error messages, screen reader announcements for filters and toasts, and reduced-motion support across animations, the carousel and the typewriter
 - **Particle background & animated orb** rendered via custom particles component
 - **Sidebar navigation** with section-based scroll navigation, replacing the old top navbar
 - **Filterable project portfolio** with category filters and detailed per-project case study pages
@@ -71,7 +72,7 @@ The current release is `v3.1.0`. `v2` rewrote the site from a Vite + React SPA i
 - **Contact form** with client-side validation and server-side email delivery via AWS SES
 - **PWA-ready** — web manifest and a registered service worker
 - **Custom error handling** — global error boundary and a styled 404/not-found page
-- **SEO-friendly metadata** via the Next.js Metadata API, with dynamic title templating
+- **SEO** — site-wide metadata from `src/config/seo.config.ts`, generated `robots.txt` and `sitemap.xml`, JSON-LD structured data and per-page link-preview images
 
 ## Project Structure
 
@@ -136,6 +137,7 @@ In production the email service passes no keys to the SES client, so the AWS SDK
 | `npm run start`           | Runs that package on port 1995 with `env/.env.production`, exactly as the server does |
 | `npm run lint`            | Runs ESLint                                                                           |
 | `npm run images:compress` | Compresses images in `public/assets` (pass a path to compress one file or folder)     |
+| `npm run images:og`       | Regenerates the 1200×630 link-preview images in `public/assets/og/`                   |
 
 ## Deployment
 
